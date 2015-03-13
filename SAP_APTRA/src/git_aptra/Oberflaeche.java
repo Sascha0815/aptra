@@ -161,12 +161,6 @@ public class Oberflaeche extends JFrame {
 		panelContent1.setBackground(Color.LIGHT_GRAY);
 		panelInfo1.setBackground(Color.LIGHT_GRAY);
 		panelInfo1.setPreferredSize(new Dimension(0, 20));
-		try {
-			Image applicant = ImageIO.read(getClass().getResource(
-					"resources/applicant.png"));
-			labelApplicantPic.setIcon(new ImageIcon(applicant));
-		} catch (IOException ex) {
-		}
 
 		// SWING: Panel2
 		panel2.setLayout(new BorderLayout(5, 5));
