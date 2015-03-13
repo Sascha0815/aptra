@@ -456,7 +456,7 @@ public class Oberflaeche extends JFrame {
 		panelContent3.add(scrollPaneJob);
 		scrollPaneJob.setPreferredSize(new Dimension(
 				panelContent3.getSize().width - 20,
-				panelContent3.getSize().height - 15));
+				panelContent3.getSize().height - 20));
 		scrollPaneJob
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneJob
