@@ -92,23 +92,22 @@ public class Oberflaeche extends JFrame {
 
 	private JLabel labelApplicantPic = new JLabel();
 	private JLabel labelBackground = new JLabel();
-	
-
-	
 
 	// Objekte
 
 	final private static Datenbank datenbank = new Datenbank();
 	final private static Steuerung steuerung = new Steuerung();
 
-	public static Datenbank getDatenbank(){
+	public static Datenbank getDatenbank() {
 		return datenbank;
 	}
-	public static Steuerung getSteuerung(){
+
+	public static Steuerung getSteuerung() {
 		return steuerung;
 	}
+
 	public final static Vector COLUMN_IDENTIFIERS_APPLICANT = new Vector() {
-		{ 
+		{
 			add("Bewerbernummer");
 			add("Name");
 			add("Vorname");
@@ -147,10 +146,6 @@ public class Oberflaeche extends JFrame {
 		frame.setTitle("Bewerberverwaltung");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
-
-			ImageIcon img = new ImageIcon("logo.png");
-			frame.setIconImage(img.getImage());
-	
 
 		// SWING: Panel1
 		panel1.setLayout(new BorderLayout(5, 5));
@@ -305,7 +300,7 @@ public class Oberflaeche extends JFrame {
 		buttonEditJob.setPreferredSize(new Dimension(135, 135));
 		buttonEditJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
 		try {
@@ -346,7 +341,6 @@ public class Oberflaeche extends JFrame {
 				frame.dispose();
 			}
 		});
-		
 
 		// SWING: Panel4
 		panel4.setLayout(new BorderLayout(5, 5));
@@ -460,6 +454,5 @@ public class Oberflaeche extends JFrame {
 		scrollPaneJob
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
-	
 	}
 }
