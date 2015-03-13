@@ -148,6 +148,10 @@ public class Oberflaeche extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 
+			ImageIcon img = new ImageIcon("logo.png");
+			frame.setIconImage(img.getImage());
+	
+
 		// SWING: Panel1
 		panel1.setLayout(new BorderLayout(5, 5));
 		panel1.add(panelButton1, BorderLayout.EAST);
