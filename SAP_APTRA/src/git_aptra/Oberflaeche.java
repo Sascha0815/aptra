@@ -64,11 +64,15 @@ public class Oberflaeche extends JFrame {
 	private JPanel panelInfo4 = new JPanel();
 
 	private JButton buttonAdd = new JButton();
-	private JButton buttonDelete = new JButton();
-	private JButton buttonEdit = new JButton();
-	private JButton buttonSettings = new JButton();
+	private JButton buttonDeleteApplicant = new JButton();
+	private JButton buttonDeleteJob = new JButton();
+	private JButton buttonEditApplicant = new JButton();
+	private JButton buttonEditJob = new JButton();
+	private JButton buttonSettingsApplicant = new JButton();
+	private JButton buttonSettingsJob = new JButton();
 	private JButton buttonJob = new JButton();
-	private JButton buttonExit = new JButton();
+	private JButton buttonExitApplicant = new JButton();
+	private JButton buttonExitJob = new JButton();
 	private JButton buttonRefreshApplicant = new JButton();
 	private JButton buttonRefreshJob = new JButton();
 
@@ -207,25 +211,25 @@ public class Oberflaeche extends JFrame {
 				steuerung.dialogAddApplicant();
 			}
 		});
-		buttonEdit.setToolTipText("Bewerber bearbeiten");
-		panelButton2.add(buttonEdit);
-		buttonEdit.setPreferredSize(new Dimension(135, 135));
+		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
+		panelButton2.add(buttonEditApplicant);
+		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(getClass().getResource(
 					"resources/pencil.png"));
-			buttonEdit.setIcon(new ImageIcon(pencil));
+			buttonEditApplicant.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
-		buttonDelete.setToolTipText("Bewerber löschen");
-		panelButton2.add(buttonDelete);
-		buttonDelete.setPreferredSize(new Dimension(135, 135));
+		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
+		panelButton2.add(buttonDeleteApplicant);
+		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(getClass().getResource(
 					"resources/trashcan.png"));
-			buttonDelete.setIcon(new ImageIcon(trashcan));
+			buttonDeleteApplicant.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
-		buttonDelete.addActionListener(new ActionListener() {
+		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				datenbank.deleteApplicant();
 				Vector resultsApplicant = datenbank
@@ -235,25 +239,25 @@ public class Oberflaeche extends JFrame {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		buttonSettings.setToolTipText("Einstellungen");
-		panelButton2.add(buttonSettings);
-		buttonSettings.setPreferredSize(new Dimension(135, 135));
+		buttonSettingsApplicant.setToolTipText("Einstellungen");
+		panelButton2.add(buttonSettingsApplicant);
+		buttonSettingsApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(getClass().getResource(
 					"resources/settings_big.png"));
-			buttonSettings.setIcon(new ImageIcon(settings));
+			buttonSettingsApplicant.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
-		buttonExit.setToolTipText("Programm schließen");
-		panelButton2.add(buttonExit);
-		buttonExit.setPreferredSize(new Dimension(135, 135));
+		buttonExitApplicant.setToolTipText("Programm schließen");
+		panelButton2.add(buttonExitApplicant);
+		buttonExitApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(getClass().getResource(
 					"resources/close_big.png"));
-			buttonExit.setIcon(new ImageIcon(close));
+			buttonExitApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonExit.addActionListener(new ActionListener() {
+		buttonExitApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				frame.dispose();
 			}
@@ -293,17 +297,58 @@ public class Oberflaeche extends JFrame {
 			}
 		});
 		try {
-			Image job = ImageIO.read(getClass().getResource(
-					"resources/job_small.png"));
-			itemJob.setIcon(new ImageIcon(job));
-		} catch (IOException ex) {
-		}
-		try {
 			Image job = ImageIO.read(getClass()
 					.getResource("resources/job.png"));
 			buttonJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
+		buttonEditJob.setToolTipText("Neue Arbeitstelle hinzufügen");
+		panelButton3.add(buttonEditJob);
+		buttonEditJob.setPreferredSize(new Dimension(135, 135));
+		buttonEditJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				
+			}
+		});
+		try {
+			Image pencil = ImageIO.read(getClass().getResource(
+					"resources/pencil.png"));
+			buttonEditJob.setIcon(new ImageIcon(pencil));
+		} catch (IOException ex) {
+		}
+		buttonDeleteJob.setToolTipText("Bewerber löschen");
+		panelButton3.add(buttonDeleteJob);
+		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image trashcan = ImageIO.read(getClass().getResource(
+					"resources/trashcan.png"));
+			buttonDeleteJob.setIcon(new ImageIcon(trashcan));
+		} catch (IOException ex) {
+		}
+		buttonSettingsJob.setToolTipText("Einstellungen");
+		panelButton3.add(buttonSettingsJob);
+		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image settings = ImageIO.read(getClass().getResource(
+					"resources/settings_big.png"));
+			buttonSettingsJob.setIcon(new ImageIcon(settings));
+		} catch (IOException ex) {
+		}
+		buttonExitJob.setToolTipText("Programm schließen");
+		panelButton3.add(buttonExitJob);
+		buttonExitJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image close = ImageIO.read(getClass().getResource(
+					"resources/close_big.png"));
+			buttonExitJob.setIcon(new ImageIcon(close));
+		} catch (IOException ex) {
+		}
+		buttonExitJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				frame.dispose();
+			}
+		});
+		
 
 		// SWING: Panel4
 		panel4.setLayout(new BorderLayout(5, 5));
@@ -345,6 +390,12 @@ public class Oberflaeche extends JFrame {
 			Image plus = ImageIO.read(getClass().getResource(
 					"resources/plus.png"));
 			itemApplicant.setIcon(new ImageIcon(plus));
+		} catch (IOException ex) {
+		}
+		try {
+			Image job = ImageIO.read(getClass().getResource(
+					"resources/job_small.png"));
+			itemJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
 		try {
