@@ -13,6 +13,7 @@ public class SaveDataNewApplicant {
 				e.printStackTrace();
 			}
 		
+			@SuppressWarnings("rawtypes")
 			Vector resultsApplicant = Steuerung.getInsertApplicantDataIntoTable()
 					.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 public class DeleteApplicant {
 	public void deleteApplicant() {
 		Connection dbConnection = null;
+		@SuppressWarnings("unused")
 		PreparedStatement preparedStatement = null;
 
 		try {
@@ -41,7 +42,6 @@ public class DeleteApplicant {
 			preparedStmt = dbConnection.prepareStatement(query);
 			preparedStmt.execute();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
 	}

@@ -5,8 +5,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,6 +17,7 @@ public class DialogAddApplicantContact {
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
 	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil");
 	private static JLabel labelEmail = new JLabel("E-Mail:");
+	@SuppressWarnings("unused")
 	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JTextField fieldTelefonHome = new JTextField();
@@ -29,40 +28,44 @@ public class DialogAddApplicantContact {
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
-	
-	
-	public static void addApplicantContact(){
+
+	public static void addApplicantContact() {
 		panelDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantContact.setLayout(new BoxLayout(panelDialogApplicantContact, BoxLayout.Y_AXIS));
-		panelDialogApplicantContact.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogApplicantContact.setLayout(new BoxLayout(
+				panelDialogApplicantContact, BoxLayout.Y_AXIS));
+		panelDialogApplicantContact.add(Box
+				.createRigidArea(new Dimension(0, 10)));
 		panelDialogApplicantContact.add(labelTelefonHome);
 		panelDialogApplicantContact.add(fieldTelefonHome);
-		panelDialogApplicantContact.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogApplicantContact.add(Box
+				.createRigidArea(new Dimension(0, 10)));
 		fieldTelefonHome.setFont(fontTextField);
 		panelDialogApplicantContact.add(labelTelefonMobil);
 		panelDialogApplicantContact.add(fieldTelefonMobil);
-		panelDialogApplicantContact.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogApplicantContact.add(Box
+				.createRigidArea(new Dimension(0, 10)));
 		fieldTelefonMobil.setFont(fontTextField);
 		panelDialogApplicantContact.add(labelEmail);
 		panelDialogApplicantContact.add(fieldEmail);
-		panelDialogApplicantContact.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogApplicantContact.add(Box
+				.createRigidArea(new Dimension(0, 10)));
 		fieldEmail.setFont(fontTextField);
 		panelDialogApplicantContact.add(save);
-		
 
 		save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {				
+			public void actionPerformed(ActionEvent evt) {
 				Steuerung.getSaveDataNewApplicant();
 				SaveDataNewApplicant.save();
 			}
 		});
-		DialogAddApplicant.tabAdd.addTab("Kontaktdaten", panelDialogApplicantContact);
+		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",
+				panelDialogApplicantContact);
 	}
-	
-	public static boolean getContact(){
+
+	public static boolean getContact() {
 		telefonHome = fieldTelefonHome.getText();
 		telefonMobil = fieldTelefonMobil.getText();
-		email = fieldEmail.getText();		
+		email = fieldEmail.getText();
 		if (telefonHome.equals("")) {
 			return false;
 		}
@@ -75,21 +78,23 @@ public class DialogAddApplicantContact {
 			return true;
 		}
 	}
-	
-	public static void reset(){
+
+	public static void reset() {
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
-		fieldEmail.setText("");	
+		fieldEmail.setText("");
 		panelDialogApplicantContact.removeAll();
 	}
-	
-	public static String getTelefonHome(){
+
+	public static String getTelefonHome() {
 		return telefonHome;
 	}
-	public static String getTelefonMobil(){
+
+	public static String getTelefonMobil() {
 		return telefonMobil;
 	}
-	public static String getEmail(){
+
+	public static String getEmail() {
 		return email;
 	}
 }

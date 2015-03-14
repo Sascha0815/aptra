@@ -12,6 +12,7 @@ public class DialogAddApplicant {
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);	
 	
+	@SuppressWarnings("static-access")
 	public static void newApplicant(){
 		dialogNewApplicant
 		.setDefaultCloseOperation(dialogNewApplicant.DO_NOTHING_ON_CLOSE);

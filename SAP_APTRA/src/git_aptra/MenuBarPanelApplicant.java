@@ -31,12 +31,16 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonRefreshApplicant = new JButton();
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
+		private static final long serialVersionUID = 1L;
 		public boolean isCellEditable(int row, int column) {
 			return false;
 		}
 	};
 	public static JTable tableApplicant = new JTable();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_APPLICANT = new Vector() {
+		private static final long serialVersionUID = 1L;
+
 		{
 			add("Bewerbernummer");
 			add("Name");
@@ -78,6 +82,7 @@ public class MenuBarPanelApplicant {
 		}
 		buttonRefreshApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				@SuppressWarnings("rawtypes")
 				Vector resultsApplicant = Steuerung
 						.getInsertApplicantDataIntoTable()
 						.insertApplicantDataIntoTable();
@@ -122,6 +127,7 @@ public class MenuBarPanelApplicant {
 		buttonDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				Steuerung.getDeleteApplicant().deleteApplicant();
+				@SuppressWarnings("rawtypes")
 				Vector resultsApplicant = Steuerung
 						.getInsertApplicantDataIntoTable()
 						.insertApplicantDataIntoTable();
