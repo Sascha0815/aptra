@@ -1,5 +1,7 @@
 package git_aptra;
 
+import git_aptra.DialogAddApplicant.DialogAddApplicant;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 

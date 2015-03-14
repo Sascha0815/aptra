@@ -1,5 +1,10 @@
 package git_aptra;
 
+import git_aptra.MenuBar.MenuBar;
+import git_aptra.MenuBar.MenuBarPanelApplicant;
+import git_aptra.MenuBar.MenuBarPanelOverview;
+import git_aptra.MenuBar.MenuBarPanelWorkplace;
+
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
