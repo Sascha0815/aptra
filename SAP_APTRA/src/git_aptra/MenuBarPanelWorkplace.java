@@ -39,6 +39,10 @@ public class MenuBarPanelWorkplace {
 
 	private static JButton buttonJob = new JButton();
 	private static JButton buttonRefreshJob = new JButton();
+	private static JButton buttonDeleteJob = new JButton();
+	private static JButton buttonEditJob = new JButton();
+	private static JButton buttonSettingsJob = new JButton();
+	private static JButton buttonExitJob = new JButton();
 	private static DefaultTableModel modelJob = new DefaultTableModel(1, 4) {
 		private static final long serialVersionUID = 1L;
 
@@ -90,6 +94,51 @@ public class MenuBarPanelWorkplace {
 			buttonJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
+		buttonEditJob.setToolTipText("Bewerber bearbeiten");
+		panelButtonWorkplace.add(buttonEditJob);
+		buttonEditJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/pencil.png"));
+			buttonEditJob.setIcon(new ImageIcon(pencil));
+		} catch (IOException ex) {
+		}
+		buttonDeleteJob.setToolTipText("Bewerber löschen");
+		panelButtonWorkplace.add(buttonDeleteJob);
+		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/trashcan.png"));
+			buttonDeleteJob.setIcon(new ImageIcon(trashcan));
+		} catch (IOException ex) {
+		}
+		buttonDeleteJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		buttonSettingsJob.setToolTipText("Einstellungen");
+		panelButtonWorkplace.add(buttonSettingsJob);
+		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image settings = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/settings_big.png"));
+			buttonSettingsJob.setIcon(new ImageIcon(settings));
+		} catch (IOException ex) {
+		}
+		buttonExitJob.setToolTipText("Programm schließen");
+		panelButtonWorkplace.add(buttonExitJob);
+		buttonExitJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image close = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/close_big.png"));
+			buttonExitJob.setIcon(new ImageIcon(close));
+		} catch (IOException ex) {
+		}
+		buttonExitJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				Oberflaeche.frame.dispose();
+			}
+		});
 
 		// SWING:Table Arbeitsstellen
 		modelJob.setColumnIdentifiers(COLUMN_IDENTIFIERS_JOB);

@@ -24,10 +24,10 @@ public class MenuBarPanelApplicant {
 	private static JPanel panelContentApplicant = new JPanel();
 	private static JPanel panelInfoApplicant = new JPanel();
 	private static JButton buttonAdd = new JButton();
-	private static JButton buttonDelete = new JButton();
-	private static JButton buttonEdit = new JButton();
-	private static JButton buttonSettings = new JButton();
-	private static JButton buttonExit = new JButton();
+	private static JButton buttonDeleteApplicant = new JButton();
+	private static JButton buttonEditApplicant = new JButton();
+	private static JButton buttonSettingsApplicant = new JButton();
+	private static JButton buttonExitApplicant = new JButton();
 	private static JButton buttonRefreshApplicant = new JButton();
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
@@ -106,25 +106,25 @@ public class MenuBarPanelApplicant {
 				;
 			}
 		});
-		buttonEdit.setToolTipText("Bewerber bearbeiten");
-		panelButtonApplicant.add(buttonEdit);
-		buttonEdit.setPreferredSize(new Dimension(135, 135));
+		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
+		panelButtonApplicant.add(buttonEditApplicant);
+		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/pencil.png"));
-			buttonEdit.setIcon(new ImageIcon(pencil));
+			buttonEditApplicant.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
-		buttonDelete.setToolTipText("Bewerber löschen");
-		panelButtonApplicant.add(buttonDelete);
-		buttonDelete.setPreferredSize(new Dimension(135, 135));
+		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
+		panelButtonApplicant.add(buttonDeleteApplicant);
+		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/trashcan.png"));
-			buttonDelete.setIcon(new ImageIcon(trashcan));
+			buttonDeleteApplicant.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
-		buttonDelete.addActionListener(new ActionListener() {
+		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				Steuerung.getDeleteApplicant().deleteApplicant();
 				@SuppressWarnings("rawtypes")
@@ -136,25 +136,25 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		buttonSettings.setToolTipText("Einstellungen");
-		panelButtonApplicant.add(buttonSettings);
-		buttonSettings.setPreferredSize(new Dimension(135, 135));
+		buttonSettingsApplicant.setToolTipText("Einstellungen");
+		panelButtonApplicant.add(buttonSettingsApplicant);
+		buttonSettingsApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/settings_big.png"));
-			buttonSettings.setIcon(new ImageIcon(settings));
+			buttonSettingsApplicant.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
-		buttonExit.setToolTipText("Programm schließen");
-		panelButtonApplicant.add(buttonExit);
-		buttonExit.setPreferredSize(new Dimension(135, 135));
+		buttonExitApplicant.setToolTipText("Programm schließen");
+		panelButtonApplicant.add(buttonExitApplicant);
+		buttonExitApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/close_big.png"));
-			buttonExit.setIcon(new ImageIcon(close));
+			buttonExitApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonExit.addActionListener(new ActionListener() {
+		buttonExitApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				Oberflaeche.frame.dispose();
 			}
