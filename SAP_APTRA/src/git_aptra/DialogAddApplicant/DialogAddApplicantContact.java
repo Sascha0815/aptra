@@ -2,7 +2,6 @@ package git_aptra.DialogAddApplicant;
 
 import git_aptra.Steuerung;
 import git_aptra.DatabaseConnection.SaveDataNewApplicant;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;

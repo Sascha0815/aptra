@@ -1,7 +1,6 @@
 package git_aptra.DialogAddVacancy;
 
 import git_aptra.Oberflaeche;
-
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;

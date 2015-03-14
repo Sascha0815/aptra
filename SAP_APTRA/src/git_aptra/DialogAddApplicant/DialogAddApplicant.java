@@ -1,7 +1,6 @@
 package git_aptra.DialogAddApplicant;
 
 import git_aptra.Oberflaeche;
-
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -16,11 +15,9 @@ public class DialogAddApplicant {
 	
 	@SuppressWarnings("static-access")
 	public static void newApplicant(){
-		dialogNewApplicant
-		.setDefaultCloseOperation(dialogNewApplicant.DO_NOTHING_ON_CLOSE);
 	dialogNewApplicant.addWindowListener(new WindowListener() {
 	public void windowClosing(WindowEvent arg0) {
-		CloseDialogAddApplicant.close();
+		CloseDialogApplicant.closeAddApplicant();
 	}
 
 	@Override

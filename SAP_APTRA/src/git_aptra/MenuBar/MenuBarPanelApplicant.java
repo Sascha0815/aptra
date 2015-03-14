@@ -119,6 +119,12 @@ public class MenuBarPanelApplicant {
 			buttonEditApplicant.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
+		buttonEditApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				//DialogEditApplicant.editApplicant();
+				//Steuerung.getEditApplicant().getSelectedRow();
+			}
+		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
 		panelButtonApplicant.add(buttonDeleteApplicant);
 		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));

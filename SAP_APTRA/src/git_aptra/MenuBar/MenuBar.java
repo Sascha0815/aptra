@@ -3,7 +3,6 @@ package git_aptra.MenuBar;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
-
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

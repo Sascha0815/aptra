@@ -4,7 +4,10 @@ import git_aptra.DatabaseConnection.DeleteApplicant;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertApplicationData;
 import git_aptra.DatabaseConnection.SaveDataNewApplicant;
+import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+import git_aptra.MenuBar.MenuBarPanelOverview;
+import git_aptra.MenuBar.MenuBarPanelWorkplace;
 
 import java.util.Vector;
 
@@ -14,24 +17,32 @@ public class Steuerung {
 	final private static InsertApplicationData insertApplicationData = new InsertApplicationData();
 	final private static InsertApplicantDataIntoTable insertApplicantDataIntoTable = new InsertApplicantDataIntoTable();
 	final private static DeleteApplicant deleteApplicant = new DeleteApplicant();
+	//final private static EditApplicant editApplicant = new EditApplicant();
+
 	public static Steuerung getSteuerung() {
 		return steuerung;
 	}
+
 	public static SaveDataNewApplicant getSaveDataNewApplicant() {
 		return saveDataNewApplication;
 	}
+
 	public static InsertApplicationData getInsertApplicationData() {
 		return insertApplicationData;
 	}
+
 	public static InsertApplicantDataIntoTable getInsertApplicantDataIntoTable() {
 		return insertApplicantDataIntoTable;
 	}
+
 	public static DeleteApplicant getDeleteApplicant() {
 		return deleteApplicant;
 	}
 	
-	
-	
+	//public static EditApplicant getEditApplicant() {
+	//	return editApplicant;
+//	}
+
 	public static void main(String[] args) {
 
 		new Oberflaeche("Bewerberverwaltung");
@@ -41,7 +52,6 @@ public class Steuerung {
 		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 				MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 		MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-		
 	}
 
 }
