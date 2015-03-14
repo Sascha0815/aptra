@@ -1,8 +1,6 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.Steuerung;
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

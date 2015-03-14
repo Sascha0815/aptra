@@ -3,6 +3,7 @@ package git_aptra.MenuBar;
 import git_aptra.Oberflaeche;
 import git_aptra.Steuerung;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
+import git_aptra.DialogEditApplicant.DialogEditApplicant;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -121,8 +122,8 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				//DialogEditApplicant.editApplicant();
-				//Steuerung.getEditApplicant().getSelectedRow();
+				DialogEditApplicant.editApplicant();
+				Steuerung.getEditApplicant().getSelectedRow();
 			}
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
