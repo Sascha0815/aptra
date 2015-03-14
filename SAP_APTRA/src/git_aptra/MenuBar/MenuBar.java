@@ -1,8 +1,10 @@
 package git_aptra.MenuBar;
 
+import git_aptra.DialogAbout;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -98,6 +100,11 @@ public class MenuBar {
 			itemAbout.setIcon(new ImageIcon(about));
 		} catch (IOException ex) {
 		}
+		itemAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogAbout.about();
+			}
+		});
 		
 		
 		
