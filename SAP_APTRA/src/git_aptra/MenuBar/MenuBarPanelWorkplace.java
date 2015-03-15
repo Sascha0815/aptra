@@ -1,6 +1,8 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+import git_aptra.DialogAddVacancy.DialogAddVacancy;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -85,7 +87,7 @@ public class MenuBarPanelWorkplace {
 		buttonJob.setPreferredSize(new Dimension(135, 135));
 		buttonJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				//DialogAddVacancy.newVacancy();
+				DialogAddVacancy.newVacancy();
 			}
 		});
 
