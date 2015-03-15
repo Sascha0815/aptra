@@ -1,4 +1,6 @@
-package git_aptra.DialogAddApplicant;
+package git_aptra.DialogSearch;
+
+import git_aptra.DialogAddApplicant.DialogAddApplicant;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,9 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class DialogAddApplicantApplication {
-	public static JPanel panelDialogApplicantApplication = new JPanel();
-	private static String[] boxListEducationalAchievement = {
+public class DialogSearchApplicantApplication {
+	public static JPanel panelDialogSearchApplicantApplication = new JPanel();
+	private static String[] boxListEducationalAchievement = {"Bitte wählen",
 			"Haupptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(
@@ -51,43 +53,43 @@ public class DialogAddApplicantApplication {
 	private static String educationalAchievement;
 	private static String vacancy;
 
-	public static void addApplicantApplication() {
-		panelDialogApplicantApplication.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantApplication.setLayout(new BoxLayout(
-				panelDialogApplicantApplication, BoxLayout.Y_AXIS));
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+	public static void searchApplicantApplication() {
+		panelDialogSearchApplicantApplication.setBackground(Color.LIGHT_GRAY);
+		panelDialogSearchApplicantApplication.setLayout(new BoxLayout(
+				panelDialogSearchApplicantApplication, BoxLayout.Y_AXIS));
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
-		panelDialogApplicantApplication.add(labelVacancy);
+		panelDialogSearchApplicantApplication.add(labelVacancy);
 		labelVacancy.setFont(fontTextField);
-		panelDialogApplicantApplication.add(fieldVacancy);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+		panelDialogSearchApplicantApplication.add(fieldVacancy);
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		fieldVacancy.setFont(fontTextField);
-		panelDialogApplicantApplication.add(labelDate);
+		/*panelDialogSearchApplicantApplication.add(labelDate);
 		labelDate.setFont(fontTextField);
 		boxDay.setToolTipText("Tag");
-		panelDialogApplicantApplication.add(boxDay);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+		panelDialogSearchApplicantApplication.add(boxDay);
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		boxMonth.setToolTipText("Monat");
-		panelDialogApplicantApplication.add(boxMonth);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+		panelDialogSearchApplicantApplication.add(boxMonth);
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		boxYear.setToolTipText("Jahr");
-		panelDialogApplicantApplication.add(boxYear);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelDialogApplicantApplication.add(labelEducationalAchievement);
+		panelDialogSearchApplicantApplication.add(boxYear);
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
+				0, 10)));*/
+		panelDialogSearchApplicantApplication.add(labelEducationalAchievement);
 		labelEducationalAchievement.setFont(fontTextField);
 		boxEducationalAchievement.setToolTipText("Höchster Bildungsabschluss:");
-		panelDialogApplicantApplication.add(boxEducationalAchievement);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+		panelDialogSearchApplicantApplication.add(boxEducationalAchievement);
+		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
-		DialogAddApplicant.tabAdd.addTab("Bewerbung",
-				panelDialogApplicantApplication);
+		DialogSearchApplicant.tabSearch.addTab("Bewerbung",
+				panelDialogSearchApplicantApplication);
 	}
 
-	public static boolean getApplication() {
+	public static void getApplication() {
 		try {
 			vacancy = fieldVacancy.getText();
 			day = (int) boxDay.getSelectedItem();
@@ -97,25 +99,19 @@ public class DialogAddApplicantApplication {
 			cal.set(Calendar.MONTH, (month - 1));
 			cal.set(Calendar.DAY_OF_MONTH, day);
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
-		}
+			System.out.println("Nicht alle Daten eingegeben");		}
 		
-
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());
-		if (vacancy.equals("")) {
-			return false;
+		if (educationalAchievement.equals("Bitte wählen")) {
+			educationalAchievement="";			
 		}
-		if (educationalAchievement.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
+		
 
 	}
 
 	public static void reset() {
-		panelDialogApplicantApplication.removeAll();
+		panelDialogSearchApplicantApplication.removeAll();
 		fieldVacancy.setText("");
 		fieldDate.setText("");
 		boxDay.setSelectedIndex(0);
@@ -124,9 +120,6 @@ public class DialogAddApplicantApplication {
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
-	public static Calendar getCal() {
-		return cal;
-	}
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
@@ -135,5 +128,4 @@ public class DialogAddApplicantApplication {
 	public static String getVacancy() {
 		return vacancy;
 	}
-
 }

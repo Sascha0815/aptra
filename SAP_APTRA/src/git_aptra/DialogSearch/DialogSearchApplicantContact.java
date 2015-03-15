@@ -1,13 +1,15 @@
-package git_aptra.DialogAddApplicant;
+package git_aptra.DialogSearch;
 
 import git_aptra.Steuerung;
 import git_aptra.DatabaseConnection.SaveDataNewApplicant;
+import git_aptra.DialogAddApplicant.DialogAddApplicant;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -16,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class DialogAddApplicantContact {
+public class DialogSearchApplicantContact {
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
 	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil");
 	private static JLabel labelEmail = new JLabel("E-Mail:");
@@ -26,46 +28,50 @@ public class DialogAddApplicantContact {
 	private static JTextField fieldTelefonHome = new JTextField();
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
-	public static JPanel panelDialogApplicantContact = new JPanel();
-	private static JButton save = new JButton("Speichern");
+	public static JPanel panelSearchDialogApplicantContact = new JPanel();
+	private static JButton search = new JButton("Suchen");
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
 
-	public static void addApplicantContact() {
-		panelDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantContact.setLayout(new BoxLayout(
-				panelDialogApplicantContact, BoxLayout.Y_AXIS));
-		panelDialogApplicantContact.add(Box
+	public static void searchApplicantContact() {
+		panelSearchDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
+		panelSearchDialogApplicantContact.setLayout(new BoxLayout(
+				panelSearchDialogApplicantContact, BoxLayout.Y_AXIS));
+		panelSearchDialogApplicantContact.add(Box
 				.createRigidArea(new Dimension(0, 10)));
-		panelDialogApplicantContact.add(labelTelefonHome);
-		panelDialogApplicantContact.add(fieldTelefonHome);
-		panelDialogApplicantContact.add(Box
+		panelSearchDialogApplicantContact.add(labelTelefonHome);
+		panelSearchDialogApplicantContact.add(fieldTelefonHome);
+		panelSearchDialogApplicantContact.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldTelefonHome.setFont(fontTextField);
-		panelDialogApplicantContact.add(labelTelefonMobil);
-		panelDialogApplicantContact.add(fieldTelefonMobil);
-		panelDialogApplicantContact.add(Box
+		panelSearchDialogApplicantContact.add(labelTelefonMobil);
+		panelSearchDialogApplicantContact.add(fieldTelefonMobil);
+		panelSearchDialogApplicantContact.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldTelefonMobil.setFont(fontTextField);
-		panelDialogApplicantContact.add(labelEmail);
-		panelDialogApplicantContact.add(fieldEmail);
-		panelDialogApplicantContact.add(Box
+		panelSearchDialogApplicantContact.add(labelEmail);
+		panelSearchDialogApplicantContact.add(fieldEmail);
+		panelSearchDialogApplicantContact.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldEmail.setFont(fontTextField);
-		panelDialogApplicantContact.add(save);
+		panelSearchDialogApplicantContact.add(search);
 
-		save.addActionListener(new ActionListener() {
+		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getSaveDataNewApplicant();
-				SaveDataNewApplicant.save();
+				Steuerung.getSearchControl();
+				try {
+					SearchControl.search();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		});
-		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",
-				panelDialogApplicantContact);
+		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",
+				panelSearchDialogApplicantContact);
 	}
 
-	public static boolean getContact() {
+	public static void getContact() {
 		try {
 			telefonHome = fieldTelefonHome.getText();
 			telefonMobil = fieldTelefonMobil.getText();
@@ -73,25 +79,13 @@ public class DialogAddApplicantContact {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-		
-		if (telefonHome.equals("")) {
-			return false;
-		}
-		if (telefonMobil.equals("")) {
-			return false;
-		}
-		if (email.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 
 	public static void reset() {
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
-		panelDialogApplicantContact.removeAll();
+		panelSearchDialogApplicantContact.removeAll();
 	}
 
 	public static String getTelefonHome() {

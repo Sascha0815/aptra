@@ -16,7 +16,7 @@ public class DialogAddApplicant {
 	public static void newApplicant(){
 	dialogNewApplicant.addWindowListener(new WindowListener() {
 	public void windowClosing(WindowEvent arg0) {
-		CloseDialogApplicant.closeAddApplicant();
+		CloseDialogAddApplicant.close();
 	}
 
 	@Override

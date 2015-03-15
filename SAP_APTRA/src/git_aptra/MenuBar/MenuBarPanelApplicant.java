@@ -4,6 +4,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.Steuerung;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
+import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -31,7 +32,7 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonAdd = new JButton();
 	private static JButton buttonDeleteApplicant = new JButton();
 	private static JButton buttonEditApplicant = new JButton();
-	private static JButton buttonSettingsApplicant = new JButton();
+	private static JButton buttonSearchApplicant = new JButton();
 	private static JButton buttonExitApplicant = new JButton();
 	private static JButton buttonRefreshApplicant = new JButton();
 	private static JScrollPane scrollPanePool = new JScrollPane();
@@ -147,15 +148,23 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		buttonSettingsApplicant.setToolTipText("Einstellungen");
-		panelButtonApplicant.add(buttonSettingsApplicant);
-		buttonSettingsApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonSearchApplicant.setToolTipText("Suchen");
+		panelButtonApplicant.add(buttonSearchApplicant);
+		buttonSearchApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/settings_big.png"));
-			buttonSettingsApplicant.setIcon(new ImageIcon(settings));
+					.getResource("resources/search.png"));
+			buttonSearchApplicant.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
+		buttonSearchApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogSearchApplicant.searchApplicant();
+			}
+			});
+				
+			
+		
 		buttonExitApplicant.setToolTipText("Programm schlieﬂen");
 		panelButtonApplicant.add(buttonExitApplicant);
 		buttonExitApplicant.setPreferredSize(new Dimension(135, 135));

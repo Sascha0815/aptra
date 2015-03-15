@@ -71,12 +71,17 @@ public class DialogAddApplicantGeneral {
 	}
 	
 	public static boolean getGeneral(){
-		name = fieldName.getText();
-		firstName = fieldFirstName.getText();
-		street = fieldStreet.getText();
-		houseNr = Integer.parseInt(fieldHouseNr.getText());
-		postalCode = Integer.parseInt(fieldPostalCode.getText());
-		city = fieldCity.getText();		
+		try {
+			name = fieldName.getText();
+			firstName = fieldFirstName.getText();
+			street = fieldStreet.getText();
+			houseNr = Integer.parseInt(fieldHouseNr.getText());
+			postalCode = Integer.parseInt(fieldPostalCode.getText());
+			city = fieldCity.getText();	
+		} catch (Exception e) {
+				System.out.println("Nicht alle Daten eingegeben");
+		}
+		
 
 		if (name.equals("")) {
 			return false;
