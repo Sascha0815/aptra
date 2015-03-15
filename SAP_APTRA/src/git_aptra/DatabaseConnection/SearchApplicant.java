@@ -33,81 +33,150 @@ public class SearchApplicant {
 	public static Vector searchApplicant() throws SQLException {
 		Connection dbConnection = null;
 		Vector resultsSearchApplicant = new Vector();
-		if (!DialogSearchApplicantApplication.getEducationalAchievement().equals("")) {
-			educationalAcievement = " AND educationalAchievement = '" + DialogSearchApplicantApplication.getEducationalAchievement() +"'";
-		}
-		else {
-			educationalAcievement = "";
-		}
-		if (!DialogSearchApplicantApplication.getVacancy().equals("")) {
-			vacancy = " AND vacancy = '" + DialogSearchApplicantApplication.getVacancy() +"'";
-		}
-		else {
-			vacancy = "";
-		}
-		if (!DialogSearchApplicantContact.getEmail().equals("")) {
-			email = " AND email = '" + DialogSearchApplicantContact.getEmail() +"'";
-		}
-		else {
-			email = "";
-		}
-		if (!DialogSearchApplicantContact.getTelefonMobil().equals("")) {
-			telefonMobil = " AND telefonMobil = '" + DialogSearchApplicantContact.getTelefonMobil() +"'";
-		}
-		else {
-			telefonMobil = "";
-		}
-		if (!DialogSearchApplicantContact.getTelefonHome().equals("")) {
-			telefonHome = " AND telefonHome = '" + DialogSearchApplicantContact.getTelefonHome() +"'";
-		}
-		else {
-			telefonHome = "";
-		}
+		boolean first = true;
+		
 		if (!DialogSearchApplicantGeneral.getName().equals("")) {
-			name = " name = '" + DialogSearchApplicantGeneral.getName() +"'";
+			if (first==true) {
+				name = "where name = '" + DialogSearchApplicantGeneral.getName() +"'";
+				first = false;
+			}
+			else {
+				name = "where name = '" + DialogSearchApplicantGeneral.getName() +"'";
+			}				
 		}
 		else {
 			name = "";
 		}
+		
 		if (!DialogSearchApplicantGeneral.getFirstName().equals("")) {
-			firstName = " AND firstName = '" + DialogSearchApplicantGeneral.getFirstName() +"'";
+			if (first==true) {
+				firstName = "where firstName = '" + DialogSearchApplicantGeneral.getFirstName() +"'";
+				first = false;
+			}
+			else {
+				firstName = " AND firstName = '" + DialogSearchApplicantGeneral.getFirstName() +"'";
+			}				
 		}
 		else {
 			firstName = "";
 		}
 		if (!DialogSearchApplicantGeneral.getStreet().equals("")) {
-			street = " AND street = '" + DialogSearchApplicantGeneral.getStreet() +"'";
+			if (first==true) {
+				street = "where street = '" + DialogSearchApplicantGeneral.getStreet() +"'";
+				first = false;
+			}
+			else {
+				street = " AND street = '" + DialogSearchApplicantGeneral.getStreet() +"'";
+			}			
 		}
 		else {
 			street = "";
 		}
 		if (!(DialogSearchApplicantGeneral.getHouseNr()==0)) {
-			houseNr = " AND houseNR = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
+			if (first==true) {
+				houseNr = "where houseNR = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
+				first = false;
+			}
+			else {
+				houseNr = " AND houseNR = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
+			}				
 		}
 		else {
 			houseNr = "";
 		}
 		if (!(DialogSearchApplicantGeneral.getPostalCode()==0)) {
-			postalCode = " AND postalCode = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
+			if (first==true) {
+				postalCode = "where postalCode = '" + DialogSearchApplicantGeneral.getPostalCode() +"'";
+				first = false;
+			}
+			else {
+				postalCode = " AND postalCode = '" + DialogSearchApplicantGeneral.getPostalCode() +"'";
+			}				
 		}
 		else {
 			postalCode = "";
 		}
 		if (!DialogSearchApplicantGeneral.getCity().equals("")) {
-			city = " AND city = '" + DialogSearchApplicantGeneral.getCity() +"'";
+			if (first==true) {
+				city = "where city = '" + DialogSearchApplicantGeneral.getCity() +"'";
+				first = false;
+			}
+			else {
+				city = " AND city = '" + DialogSearchApplicantGeneral.getCity() +"'";
+			}				
 		}
 		else {
 			city = "";
+		}		
+		if (!DialogSearchApplicantContact.getTelefonHome().equals("")) {
+			if (first==true) {
+				telefonHome = "where telefonHome = '" + DialogSearchApplicantContact.getTelefonHome() +"'";
+				first = false;
+			}
+			else {
+				telefonHome = " AND telefonHome = '" + DialogSearchApplicantContact.getTelefonHome() +"'";
+			}				
 		}
-		
-		//System.out.println("select * from applicant where " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
+		else {
+			telefonHome = "";
+		}
+		if (!DialogSearchApplicantContact.getTelefonMobil().equals("")) {
+			if (first==true) {
+				telefonMobil = "where telefonMobil = '" + DialogSearchApplicantContact.getTelefonMobil() +"'";
+				first = false;
+			}
+			else {
+				telefonMobil = " AND telefonMobil = '" + DialogSearchApplicantContact.getTelefonMobil() +"'";
+			}				
+		}
+		else {
+			telefonMobil = "";
+		}		
+		if (!DialogSearchApplicantContact.getEmail().equals("")) {
+			if (first==true) {
+				email = "where email = '" + DialogSearchApplicantContact.getEmail() +"'";	
+				first = false;
+			}
+			else {
+				email = " AND email = '" + DialogSearchApplicantContact.getEmail() +"'";	
+			}				
+		}
+		else {
+			email = "";
+		}
+		if (!DialogSearchApplicantApplication.getVacancy().equals("")) {
+			if (first==true) {
+				vacancy = "where vacancy = '" + DialogSearchApplicantApplication.getVacancy() +"'";
+				first = false;
+			}
+			else {
+				vacancy = " AND vacancy = '" + DialogSearchApplicantApplication.getVacancy() +"'";
+			}			
+		}
+		else {
+			vacancy = "";
+		}				
+		if (!DialogSearchApplicantApplication.getEducationalAchievement().equals("")) {
+			if (first==true) {
+				educationalAcievement = "where educationalAchievement = '" + DialogSearchApplicantApplication.getEducationalAchievement() +"'";
+				first = false;
+			}
+			else {
+				educationalAcievement = "AND educationalAchievement = '" + DialogSearchApplicantApplication.getEducationalAchievement() +"'";
+			}			
+		}
+		else {
+			educationalAcievement = "";
+		}
+				
+		System.out.println("select * from applicant " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
 		try {
 			dbConnection = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			
 			Statement stmt = dbConnection.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from applicant where " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
+			ResultSet rs = stmt.executeQuery("select * from applicant " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
 			
 			
 			while (rs.next()) {
