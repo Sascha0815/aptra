@@ -1,6 +1,7 @@
 package git_aptra;
 
 import git_aptra.DatabaseConnection.DeleteApplicant;
+import git_aptra.DatabaseConnection.EditApplicationData;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertApplicationData;
 import git_aptra.DatabaseConnection.SaveDataNewApplicant;
@@ -16,6 +17,7 @@ public class Steuerung {
 	final private static InsertApplicantDataIntoTable insertApplicantDataIntoTable = new InsertApplicantDataIntoTable();
 	final private static DeleteApplicant deleteApplicant = new DeleteApplicant();
 	final private static EditApplicant editApplicant = new EditApplicant();
+	final private static EditApplicationData editApplicationData = new EditApplicationData();
 
 	public static Steuerung getSteuerung() {
 		return steuerung;
@@ -36,9 +38,13 @@ public class Steuerung {
 	public static DeleteApplicant getDeleteApplicant() {
 		return deleteApplicant;
 	}
-
+	
 	public static EditApplicant getEditApplicant() {
 		return editApplicant;
+	}
+	
+	public static EditApplicationData getEditApplicationData() {
+		return editApplicationData;
 	}
 
 	public static void main(String[] args) {

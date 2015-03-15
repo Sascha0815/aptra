@@ -1,5 +1,7 @@
 package git_aptra.DialogEditApplicant;
 
+import git_aptra.DatabaseConnection.SaveDataEditApplicant;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -58,7 +60,7 @@ public class DialogEditApplicantContact {
 
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+					SaveDataEditApplicant.save();
 			}
 		});
 		DialogEditApplicant.tabEdit.addTab("Kontaktdaten",
