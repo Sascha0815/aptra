@@ -13,6 +13,11 @@ public class EditApplicant {
 	private static String DataSetTelefonMobil;
 	private static String DataSetEmail;
 	private static String DataSetVacancy;
+	private static String DataSetDate;
+	private static int DataSetDay;
+	private static int DataSetMonth;
+	private static int DataSetYear;
+	private static String DataSetEducationalAchievement;
 
 	public void getSelectedRow() {
 		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
@@ -53,6 +58,16 @@ public class EditApplicant {
 				.getValueAt(
 						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
 						10);
+		DataSetDate = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
+				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 11);
+		String[] split = DataSetDate.split("-");
+		DataSetYear = Integer.parseInt(split[0].toString());
+		DataSetMonth = Integer.parseInt(split[1].toString());
+		DataSetDay = Integer.parseInt(split[2].toString());
+		DataSetEducationalAchievement = (String) MenuBarPanelApplicant.tableApplicant
+				.getValueAt(
+						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
+						12);
 	}
 
 	public static String getDataSetName() {
@@ -93,6 +108,22 @@ public class EditApplicant {
 
 	public static String getDataSetVacancy() {
 		return DataSetVacancy;
+	}
+
+	public static String getDataSetEducationalAchievement() {
+		return DataSetEducationalAchievement;
+	}
+
+	public static int getDataSetYear() {
+		return DataSetYear;
+	}
+
+	public static int getDataSetMonth() {
+		return DataSetMonth;
+	}
+
+	public static int getDataSetDay() {
+		return DataSetDay;
 	}
 
 }

@@ -7,7 +7,6 @@ import git_aptra.DatabaseConnection.SaveDataNewApplicant;
 import git_aptra.DialogEditApplicant.EditApplicant;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
-
 import java.util.Vector;
 
 public class Steuerung {
@@ -37,7 +36,7 @@ public class Steuerung {
 	public static DeleteApplicant getDeleteApplicant() {
 		return deleteApplicant;
 	}
-	
+
 	public static EditApplicant getEditApplicant() {
 		return editApplicant;
 	}

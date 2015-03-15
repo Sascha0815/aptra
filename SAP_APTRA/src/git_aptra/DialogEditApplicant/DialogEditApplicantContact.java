@@ -1,8 +1,5 @@
 package git_aptra.DialogEditApplicant;
 
-import git_aptra.Steuerung;
-import git_aptra.DatabaseConnection.SaveDataNewApplicant;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -29,6 +26,10 @@ public class DialogEditApplicantContact {
 	public static JPanel panelDialogEditApplicantContact = new JPanel();
 	private static JButton save = new JButton("Speichern");
 
+	private static String telefonHome;
+	private static String telefonMobil;
+	private static String email;
+
 	public static void editApplicantContact() {
 		panelDialogEditApplicantContact.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditApplicantContact.setLayout(new BoxLayout(
@@ -39,27 +40,46 @@ public class DialogEditApplicantContact {
 		panelDialogEditApplicantContact.add(fieldTelefonHome);
 		panelDialogEditApplicantContact.add(Box.createRigidArea(new Dimension(
 				0, 10)));
+		fieldTelefonHome.setText(EditApplicant.getDataSetTelefonHome());
 		fieldTelefonHome.setFont(fontTextField);
 		panelDialogEditApplicantContact.add(labelTelefonMobil);
 		panelDialogEditApplicantContact.add(fieldTelefonMobil);
 		panelDialogEditApplicantContact.add(Box.createRigidArea(new Dimension(
 				0, 10)));
+		fieldTelefonMobil.setText(EditApplicant.getDataSetTelefonMobil());
 		fieldTelefonMobil.setFont(fontTextField);
 		panelDialogEditApplicantContact.add(labelEmail);
 		panelDialogEditApplicantContact.add(fieldEmail);
 		panelDialogEditApplicantContact.add(Box.createRigidArea(new Dimension(
 				0, 10)));
+		fieldEmail.setText(EditApplicant.getDataSetEmail());
 		fieldEmail.setFont(fontTextField);
 		panelDialogEditApplicantContact.add(save);
 
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getSaveDataNewApplicant();
-				SaveDataNewApplicant.save();
+
 			}
 		});
 		DialogEditApplicant.tabEdit.addTab("Kontaktdaten",
 				panelDialogEditApplicantContact);
+	}
+
+	public static boolean getContact() {
+		telefonHome = fieldTelefonHome.getText();
+		telefonMobil = fieldTelefonMobil.getText();
+		email = fieldEmail.getText();
+		if (telefonHome.equals("")) {
+			return false;
+		}
+		if (telefonMobil.equals("")) {
+			return false;
+		}
+		if (email.equals("")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	public static void reset() {
@@ -67,5 +87,17 @@ public class DialogEditApplicantContact {
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
 		panelDialogEditApplicantContact.removeAll();
+	}
+
+	public static String getTelefonHome() {
+		return telefonHome;
+	}
+
+	public static String getTelefonMobil() {
+		return telefonMobil;
+	}
+
+	public static String getEmail() {
+		return email;
 	}
 }

@@ -3,6 +3,7 @@ package git_aptra.DialogEditApplicant;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.Calendar;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -42,6 +43,13 @@ public class DialogEditApplicantApplication {
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
+	
+	private static int day;
+	private static int month;
+	private static int year;
+	private static Calendar cal = Calendar.getInstance();
+	private static String educationalAchievement;
+	private static String vacancy;
 
 	public static void editApplicantApplication() {
 		panelDialogEditApplicantApplication.setBackground(Color.LIGHT_GRAY);
@@ -54,29 +62,55 @@ public class DialogEditApplicantApplication {
 		panelDialogEditApplicantApplication.add(fieldVacancy);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
+		fieldVacancy.setText(EditApplicant.getDataSetVacancy());
 		fieldVacancy.setFont(fontTextField);
 		panelDialogEditApplicantApplication.add(labelDate);
 		labelDate.setFont(fontTextField);
 		boxDay.setToolTipText("Tag");
+		boxDay.setSelectedItem(EditApplicant.getDataSetDay());
 		panelDialogEditApplicantApplication.add(boxDay);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		boxMonth.setToolTipText("Monat");
+		boxMonth.setSelectedItem(EditApplicant.getDataSetMonth());
 		panelDialogEditApplicantApplication.add(boxMonth);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		boxYear.setToolTipText("Jahr");
+		boxYear.setSelectedItem(EditApplicant.getDataSetYear());
 		panelDialogEditApplicantApplication.add(boxYear);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditApplicantApplication.add(labelEducationalAchievement);
 		labelEducationalAchievement.setFont(fontTextField);
 		boxEducationalAchievement.setToolTipText("Höchster Bildungsabschluss:");
+		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
 		panelDialogEditApplicantApplication.add(boxEducationalAchievement);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		DialogEditApplicant.tabEdit.addTab("Bewerbung",
 				panelDialogEditApplicantApplication);
+	}
+	public static boolean getApplication() {
+		vacancy = fieldVacancy.getText();
+		day = (int) boxDay.getSelectedItem();
+		month = (int) boxMonth.getSelectedItem();
+		year = (int) boxYear.getSelectedItem();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, (month - 1));
+		cal.set(Calendar.DAY_OF_MONTH, day);
+
+		educationalAchievement = String.valueOf(boxEducationalAchievement
+				.getSelectedItem());
+		if (vacancy.equals("")) {
+			return false;
+		}
+		if (educationalAchievement.equals("")) {
+			return false;
+		} else {
+			return true;
+		}
+
 	}
 
 	public static void reset() {
@@ -87,5 +121,17 @@ public class DialogEditApplicantApplication {
 		boxMonth.setSelectedIndex(0);
 		boxYear.setSelectedIndex(0);
 		boxEducationalAchievement.setSelectedIndex(0);
+	}
+	
+	public static Calendar getCal() {
+		return cal;
+	}
+
+	public static String getEducationalAchievement() {
+		return educationalAchievement;
+	}
+
+	public static String getVacancy() {
+		return vacancy;
 	}
 }

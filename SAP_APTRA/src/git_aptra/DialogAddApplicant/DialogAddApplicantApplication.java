@@ -43,8 +43,7 @@ public class DialogAddApplicantApplication {
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
-	@SuppressWarnings("unused")
-	private java.sql.Date dateOfApplication;
+	
 	private static int day;
 	private static int month;
 	private static int year;

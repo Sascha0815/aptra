@@ -122,8 +122,8 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogEditApplicant.editApplicant();
 				Steuerung.getEditApplicant().getSelectedRow();
+				DialogEditApplicant.editApplicant();
 			}
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");

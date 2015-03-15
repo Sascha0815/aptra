@@ -28,6 +28,13 @@ public class DialogEditApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	
+	private static String name;
+	private static String firstName;
+	private static String street;
+	private static int houseNr;
+	private static int postalCode;
+	private static String city;
 
 	public static void editApplicantGeneral() {
 		panelDialogEditApplicantMain.setBackground(Color.LIGHT_GRAY);
@@ -49,26 +56,31 @@ public class DialogEditApplicantGeneral {
 		panelDialogEditApplicantMain.add(fieldFirstName);
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		fieldFirstName.setText(EditApplicant.getDataSetFirstName());
 		fieldFirstName.setFont(fontTextField);
 		panelDialogEditApplicantMain.add(labelStreet);
 		panelDialogEditApplicantMain.add(fieldStreet);
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		fieldStreet.setText(EditApplicant.getDataSetStreet());
 		fieldStreet.setFont(fontTextField);
 		panelDialogEditApplicantMain.add(labelHouseNr);
 		panelDialogEditApplicantMain.add(fieldHouseNr);
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		fieldHouseNr.setText(EditApplicant.getDataSetHouseNr());
 		fieldHouseNr.setFont(fontTextField);
 		panelDialogEditApplicantMain.add(labelPostalCode);
 		panelDialogEditApplicantMain.add(fieldPostalCode);
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		fieldPostalCode.setText(EditApplicant.getDataSetPostalCode());
 		fieldPostalCode.setFont(fontTextField);
 		panelDialogEditApplicantMain.add(labelCity);
 		panelDialogEditApplicantMain.add(fieldCity);
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		fieldCity.setText(EditApplicant.getDataSetCity());
 		fieldCity.setFont(fontTextField);
 		DialogEditApplicant.tabEdit.addTab("Allgemein",
 				panelDialogEditApplicantMain);
@@ -82,5 +94,55 @@ public class DialogEditApplicantGeneral {
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
+	}
+	
+	public static boolean getGeneral(){
+		name = fieldName.getText();
+		firstName = fieldFirstName.getText();
+		street = fieldStreet.getText();
+		houseNr = Integer.parseInt(fieldHouseNr.getText());
+		postalCode = Integer.parseInt(fieldPostalCode.getText());
+		city = fieldCity.getText();		
+
+		if (name.equals("")) {
+			return false;
+		}
+		if (firstName.equals("")) {
+			return false;
+		}
+		if (street.equals("")) {
+			return false;
+		}
+		if ((houseNr == 0)) {
+			return false;
+		}
+		if ((postalCode == 0)) {
+			return false;
+		}
+		if (city.equals("")) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public static  String getName(){
+		return name;
+	}	
+	public static String getFirstName(){
+		return firstName;
+	}
+	public static String getStreet(){
+		return street;
+	}
+	public static int getHouseNr(){
+		return houseNr;
+	}
+	public static int getPostalCode(){
+		return postalCode;
+	}
+	public static String getCity(){
+		return city;
 	}
 }
