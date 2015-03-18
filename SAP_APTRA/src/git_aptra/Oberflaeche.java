@@ -5,7 +5,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
-import com.sun.prism.Image;
 
 import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;

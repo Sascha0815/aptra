@@ -4,6 +4,7 @@ import git_aptra.DialogAbout;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
+import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class MenuBar {
 
 	private static JMenuItem itemApplicant = new JMenuItem();
 	private static JMenuItem itemJob = new JMenuItem();
+	private static JMenuItem itemSearch = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
 	private static JMenuItem itemChangeDesign = new JMenuItem();
@@ -58,6 +60,19 @@ public class MenuBar {
 			itemJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
+		menuNew.add(itemSearch);
+		itemSearch.setText("Bewerber suchen");
+		try {
+			Image close = ImageIO.read(MenuBar.class.getResource(
+					"resources/search_small.png"));
+			itemSearch.setIcon(new ImageIcon(close));
+		} catch (IOException ex) {
+		}
+		itemSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogSearchApplicant.searchApplicant();
+			}
+		});
 		menuNew.add(itemExit);
 		itemExit.setText("Beenden");
 		try {
