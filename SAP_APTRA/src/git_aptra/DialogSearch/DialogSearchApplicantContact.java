@@ -62,6 +62,7 @@ public class DialogSearchApplicantContact {
 				Steuerung.getSearchControl();
 				try {
 					SearchControl.search();
+					CloseDialogSearchApplicant.closeSearchApplicant();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
