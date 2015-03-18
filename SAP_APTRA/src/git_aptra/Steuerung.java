@@ -13,6 +13,18 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 import java.util.Vector;
 
 public class Steuerung {
+
+	
+	public static void main(String[] args) {
+
+		new Oberflaeche("Bewerberverwaltung");
+		@SuppressWarnings("rawtypes")
+		Vector resultsApplicant = insertApplicantDataIntoTable
+				.insertApplicantDataIntoTable();
+		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
+				MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
+		MenuBarPanelApplicant.modelPool.fireTableDataChanged();
+	}
 	final private static Steuerung steuerung = new Steuerung();
 	final private static SaveDataNewApplicant saveDataNewApplication = new SaveDataNewApplicant();
 	final private static InsertApplicationData insertApplicationData = new InsertApplicationData();
@@ -21,8 +33,6 @@ public class Steuerung {
 	final private static EditApplicant editApplicant = new EditApplicant();
 	final private static EditApplicationData editApplicationData = new EditApplicationData();
 	final private static SearchControl searchControl = new SearchControl();
-
-
 
 	public static Steuerung getSteuerung() {
 		return steuerung;
@@ -49,15 +59,6 @@ public class Steuerung {
 		return searchControl;
 	}
 
-	public static void main(String[] args) {
-
-		new Oberflaeche("Bewerberverwaltung");
-		@SuppressWarnings("rawtypes")
-		Vector resultsApplicant = insertApplicantDataIntoTable
-				.insertApplicantDataIntoTable();
-		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
-				MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
-		MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-	}
+	
 
 }

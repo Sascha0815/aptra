@@ -193,6 +193,7 @@ public class MenuBarPanelApplicant {
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPanePool
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		tableApplicant.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 
 	}
