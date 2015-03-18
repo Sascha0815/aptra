@@ -109,7 +109,6 @@ public class MenuBarPanelApplicant {
 		buttonAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogAddApplicant.newApplicant();
-				;
 			}
 		});
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");

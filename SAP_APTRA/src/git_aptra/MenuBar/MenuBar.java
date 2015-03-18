@@ -4,6 +4,7 @@ import git_aptra.DialogAbout;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
+import git_aptra.DialogAddVacancy.DialogAddVacancy;
 import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.Image;
@@ -60,6 +61,11 @@ public class MenuBar {
 			itemJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
+		itemJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogAddVacancy.newVacancy();
+			}
+		});
 		menuNew.add(itemSearch);
 		itemSearch.setText("Bewerber suchen");
 		try {
