@@ -2,9 +2,12 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.Steuerung;
+import git_aptra.DatabaseConnection.DeleteApplicant;
+import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditWarning;
+import git_aptra.DialogEditApplicant.EditApplicant;
 import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.BorderLayout;
@@ -91,9 +94,7 @@ public class MenuBarPanelApplicant {
 		buttonRefreshApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				@SuppressWarnings("rawtypes")
-				Vector resultsApplicant = Steuerung
-						.getInsertApplicantDataIntoTable()
-						.insertApplicantDataIntoTable();
+				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				modelPool.setDataVector(resultsApplicant,
 						COLUMN_IDENTIFIERS_APPLICANT);
 				modelPool.fireTableDataChanged();
@@ -127,7 +128,7 @@ public class MenuBarPanelApplicant {
 				if (tableApplicant.getSelectedRowCount() == 2) {
 					DialogEditWarning.selectOnlyOne();
 				} else {
-					Steuerung.getEditApplicant().getSelectedRow();
+					EditApplicant.getSelectedRow();
 					DialogEditApplicant.editApplicant();
 				}
 			}
@@ -143,11 +144,9 @@ public class MenuBarPanelApplicant {
 		}
 		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getDeleteApplicant().deleteApplicant();
+			DeleteApplicant.deleteApplicant();
 				@SuppressWarnings("rawtypes")
-				Vector resultsApplicant = Steuerung
-						.getInsertApplicantDataIntoTable()
-						.insertApplicantDataIntoTable();
+				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				modelPool.setDataVector(resultsApplicant,
 						COLUMN_IDENTIFIERS_APPLICANT);
 				modelPool.fireTableDataChanged();

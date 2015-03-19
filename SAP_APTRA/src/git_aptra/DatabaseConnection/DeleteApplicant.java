@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DeleteApplicant {
-	public void deleteApplicant() {
+	public static void deleteApplicant() {
 		Connection dbConnection = null;
 		@SuppressWarnings("unused")
 		PreparedStatement preparedStatement = null;

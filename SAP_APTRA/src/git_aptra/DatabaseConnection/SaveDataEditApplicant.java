@@ -1,7 +1,5 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.Steuerung;
-
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicantApplication;
 import git_aptra.DialogEditApplicant.DialogEditApplicantContact;
@@ -17,17 +15,14 @@ public class SaveDataEditApplicant {
 		if (DialogEditApplicantApplication.getApplication() == true
 				&& DialogEditApplicantGeneral.getGeneral() == true
 				&& DialogEditApplicantContact.getContact() == true) {
-			try {
-				Steuerung.getEditApplicationData();
+			try {				
 				EditApplicationData.editApplicantData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
 			@SuppressWarnings("rawtypes")
-			Vector resultsApplicant = Steuerung
-					.getInsertApplicantDataIntoTable()
-					.insertApplicantDataIntoTable();
+			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 					MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();

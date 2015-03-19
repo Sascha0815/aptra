@@ -56,8 +56,7 @@ public class DialogSearchApplicantContact {
 
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getSearchControl();
-				try {
+			try {
 					SearchControl.search();
 					CloseDialogSearchApplicant.closeSearchApplicant();
 				} catch (SQLException e) {

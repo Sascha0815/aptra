@@ -19,7 +19,7 @@ public class EditApplicant {
 	private static int DataSetYear;
 	private static String DataSetEducationalAchievement;
 
-	public void getSelectedRow() {
+	public static void getSelectedRow() {
 		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
 				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
 

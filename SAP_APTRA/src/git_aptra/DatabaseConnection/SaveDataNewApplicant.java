@@ -16,16 +16,14 @@ public class SaveDataNewApplicant {
 				&& DialogAddApplicantApplication.getApplication() == true
 				&& DialogAddApplicantContact.getContact() == true) {
 			try {
-				Steuerung.getInsertApplicationData();
+				InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				InsertApplicationData.insertApplicantData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
 			@SuppressWarnings("rawtypes")
-			Vector resultsApplicant = Steuerung
-					.getInsertApplicantDataIntoTable()
-					.insertApplicantDataIntoTable();
+			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 					MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();

@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class InsertApplicantDataIntoTable {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Vector insertApplicantDataIntoTable() {
+	public static Vector insertApplicantDataIntoTable() {
 
 		Vector resultsApplicant = new Vector();
 		try {

@@ -57,7 +57,6 @@ public class DialogAddApplicantContact {
 
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getSaveDataNewApplicant();
 				SaveDataNewApplicant.save();
 			}
 		});
