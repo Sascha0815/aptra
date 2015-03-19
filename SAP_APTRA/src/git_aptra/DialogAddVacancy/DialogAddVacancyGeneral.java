@@ -114,5 +114,12 @@ public class DialogAddVacancyGeneral {
 		return labelVacancyStatus;
 	}
 
+	
+	public static String getArea() {
+		return area;
+	}
 
+	public static String getPosition() {
+		return position;
+	}
 }
