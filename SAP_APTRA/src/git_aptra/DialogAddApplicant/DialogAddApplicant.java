@@ -11,50 +11,50 @@ import javax.swing.SwingUtilities;
 public class DialogAddApplicant {
 	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);	
-	
-	public static void newApplicant(){
-	dialogNewApplicant.addWindowListener(new WindowListener() {
-	public void windowClosing(WindowEvent arg0) {
-		CloseDialogAddApplicant.close();
-	}
+	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);
 
-	@Override
-	public void windowActivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+	public static void newApplicant() {
+		dialogNewApplicant.addWindowListener(new WindowListener() {
+			public void windowClosing(WindowEvent arg0) {
+				CloseDialogAddApplicant.close();
+			}
 
-	}
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				// TODO Auto-generated method stub
 
-	@Override
-	public void windowClosed(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+			}
 
-	}
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				// TODO Auto-generated method stub
 
-	@Override
-	public void windowDeactivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+			}
 
-	}
+			@Override
+			public void windowDeactivated(WindowEvent arg0) {
+				// TODO Auto-generated method stub
 
-	@Override
-	public void windowDeiconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+			}
 
-	}
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+				// TODO Auto-generated method stub
 
-	@Override
-	public void windowIconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+			}
 
-	}
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+				// TODO Auto-generated method stub
 
-	@Override
-	public void windowOpened(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+			}
 
-	}
-	});		
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 		dialogNewApplicant.setVisible(true);
 		dialogNewApplicant.setSize(450, 400);
 		dialogNewApplicant.setLocationRelativeTo(null);
@@ -63,10 +63,9 @@ public class DialogAddApplicant {
 		dialogNewApplicant.add(tabAdd);
 		DialogAddApplicantGeneral.addApplicantGeneral();
 		DialogAddApplicantApplication.addApplicantApplication();
-		DialogAddApplicantContact.addApplicantContact();		
-		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);		
+		DialogAddApplicantContact.addApplicantContact();
+		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
 
 	}
-	
-	
+
 }

@@ -9,7 +9,8 @@ public class DialogAddVacancy {
 	public static JDialog dialogNewVacancy = new JDialog(Oberflaeche.frame);
 	public static JTabbedPane tabVacancy = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static void newVacancy(){
+
+	public static void newVacancy() {
 		dialogNewVacancy.setVisible(true);
 		dialogNewVacancy.setSize(450, 400);
 		dialogNewVacancy.setLocationRelativeTo(null);

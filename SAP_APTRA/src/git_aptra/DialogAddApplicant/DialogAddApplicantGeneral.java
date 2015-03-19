@@ -28,17 +28,18 @@ public class DialogAddApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
-	
+
 	private static String name;
 	private static String firstName;
 	private static String street;
 	private static int houseNr;
 	private static int postalCode;
 	private static String city;
-	
-	public static void addApplicantGeneral(){	
+
+	public static void addApplicantGeneral() {
 		panelDialogApplicantMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantMain.setLayout(new BoxLayout(panelDialogApplicantMain, BoxLayout.Y_AXIS));
+		panelDialogApplicantMain.setLayout(new BoxLayout(
+				panelDialogApplicantMain, BoxLayout.Y_AXIS));
 		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelDialogApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
@@ -69,19 +70,18 @@ public class DialogAddApplicantGeneral {
 		fieldCity.setFont(fontTextField);
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
-	
-	public static boolean getGeneral(){
+
+	public static boolean getGeneral() {
 		try {
 			name = fieldName.getText();
 			firstName = fieldFirstName.getText();
 			street = fieldStreet.getText();
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
 			postalCode = Integer.parseInt(fieldPostalCode.getText());
-			city = fieldCity.getText();	
+			city = fieldCity.getText();
 		} catch (Exception e) {
-				System.out.println("Nicht alle Daten eingegeben");
+			System.out.println("Nicht alle Daten eingegeben");
 		}
-		
 
 		if (name.equals("")) {
 			return false;
@@ -100,38 +100,42 @@ public class DialogAddApplicantGeneral {
 		}
 		if (city.equals("")) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
-	
-	public static void reset(){
+
+	public static void reset() {
 		panelDialogApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
-		fieldCity.setText("");	
+		fieldCity.setText("");
 	}
-	
-	public static  String getName(){
+
+	public static String getName() {
 		return name;
-	}	
-	public static String getFirstName(){
+	}
+
+	public static String getFirstName() {
 		return firstName;
 	}
-	public static String getStreet(){
+
+	public static String getStreet() {
 		return street;
 	}
-	public static int getHouseNr(){
+
+	public static int getHouseNr() {
 		return houseNr;
 	}
-	public static int getPostalCode(){
+
+	public static int getPostalCode() {
 		return postalCode;
 	}
-	public static String getCity(){
+
+	public static String getCity() {
 		return city;
 	}
 }

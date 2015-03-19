@@ -4,6 +4,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.Steuerung;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
+import git_aptra.DialogEditApplicant.DialogEditWarning;
 import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.BorderLayout;
@@ -38,6 +39,7 @@ public class MenuBarPanelApplicant {
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
 		private static final long serialVersionUID = 1L;
+
 		public boolean isCellEditable(int row, int column) {
 			return false;
 		}
@@ -122,8 +124,12 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Steuerung.getEditApplicant().getSelectedRow();
-				DialogEditApplicant.editApplicant();
+				if (tableApplicant.getSelectedRowCount() == 2) {
+					DialogEditWarning.selectOnlyOne();
+				} else {
+					Steuerung.getEditApplicant().getSelectedRow();
+					DialogEditApplicant.editApplicant();
+				}
 			}
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
@@ -160,10 +166,8 @@ public class MenuBarPanelApplicant {
 			public void actionPerformed(ActionEvent evt) {
 				DialogSearchApplicant.searchApplicant();
 			}
-			});
-				
-			
-		
+		});
+
 		buttonExitApplicant.setToolTipText("Programm schließen");
 		panelButtonApplicant.add(buttonExitApplicant);
 		buttonExitApplicant.setPreferredSize(new Dimension(135, 135));

@@ -6,8 +6,8 @@ import javax.swing.UIManager;
 
 public class ChangeDesign {
 	private static boolean LaF = false;
-	
-	public static void changeDesign(){
+
+	public static void changeDesign() {
 		if (LaF == true) {
 			try {
 				UIManager.setLookAndFeel(UIManager
@@ -25,7 +25,8 @@ public class ChangeDesign {
 			}
 		}
 		SwingUtilities.updateComponentTreeUI(Oberflaeche.frame);
-		SwingUtilities.updateComponentTreeUI(DialogAddApplicant.dialogNewApplicant);
+		SwingUtilities
+				.updateComponentTreeUI(DialogAddApplicant.dialogNewApplicant);
 		LaF = !LaF;
 	}
 }

@@ -43,7 +43,7 @@ public class DialogEditApplicantApplication {
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
-	
+
 	private static int day;
 	private static int month;
 	private static int year;
@@ -84,13 +84,15 @@ public class DialogEditApplicantApplication {
 		panelDialogEditApplicantApplication.add(labelEducationalAchievement);
 		labelEducationalAchievement.setFont(fontTextField);
 		boxEducationalAchievement.setToolTipText("Höchster Bildungsabschluss:");
-		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
+		boxEducationalAchievement.setSelectedItem(EditApplicant
+				.getDataSetEducationalAchievement());
 		panelDialogEditApplicantApplication.add(boxEducationalAchievement);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		DialogEditApplicant.tabEdit.addTab("Bewerbung",
 				panelDialogEditApplicantApplication);
 	}
+
 	public static boolean getApplication() {
 		vacancy = fieldVacancy.getText();
 		day = (int) boxDay.getSelectedItem();
@@ -122,7 +124,7 @@ public class DialogEditApplicantApplication {
 		boxYear.setSelectedIndex(0);
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
-	
+
 	public static Calendar getCal() {
 		return cal;
 	}

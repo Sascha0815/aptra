@@ -1,7 +1,5 @@
 package git_aptra.DialogSearch;
 
-
-
 public class CloseDialogSearchApplicant {
 	public static void closeSearchApplicant() {
 		DialogSearchApplicantApplication.reset();

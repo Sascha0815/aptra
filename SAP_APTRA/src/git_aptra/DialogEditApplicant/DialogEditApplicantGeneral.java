@@ -28,7 +28,7 @@ public class DialogEditApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
-	
+
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -95,14 +95,14 @@ public class DialogEditApplicantGeneral {
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
 	}
-	
-	public static boolean getGeneral(){
+
+	public static boolean getGeneral() {
 		name = fieldName.getText();
 		firstName = fieldFirstName.getText();
 		street = fieldStreet.getText();
 		houseNr = Integer.parseInt(fieldHouseNr.getText());
 		postalCode = Integer.parseInt(fieldPostalCode.getText());
-		city = fieldCity.getText();		
+		city = fieldCity.getText();
 
 		if (name.equals("")) {
 			return false;
@@ -121,28 +121,32 @@ public class DialogEditApplicantGeneral {
 		}
 		if (city.equals("")) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
-	
-	public static  String getName(){
+
+	public static String getName() {
 		return name;
-	}	
-	public static String getFirstName(){
+	}
+
+	public static String getFirstName() {
 		return firstName;
 	}
-	public static String getStreet(){
+
+	public static String getStreet() {
 		return street;
 	}
-	public static int getHouseNr(){
+
+	public static int getHouseNr() {
 		return houseNr;
 	}
-	public static int getPostalCode(){
+
+	public static int getPostalCode() {
 		return postalCode;
 	}
-	public static String getCity(){
+
+	public static String getCity() {
 		return city;
 	}
 }
