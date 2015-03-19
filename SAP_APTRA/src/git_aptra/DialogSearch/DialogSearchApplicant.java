@@ -1,9 +1,10 @@
 package git_aptra.DialogSearch;
 
 import git_aptra.Oberflaeche;
+
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
@@ -14,6 +15,7 @@ public class DialogSearchApplicant {
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogSearchApplicant = new JDialog(Oberflaeche.frame);
 
+	
 	public static void searchApplicant() {
 		dialogSearchApplicant.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
@@ -64,7 +66,7 @@ public class DialogSearchApplicant {
 		dialogSearchApplicant.add(tabSearch);
 		DialogSearchApplicantGeneral.searchApplicantGeneral();
 		DialogSearchApplicantApplication.searchApplicantApplication();
-		;
+		
 		DialogSearchApplicantContact.searchApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogSearchApplicant);
 

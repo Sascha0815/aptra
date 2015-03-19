@@ -1,6 +1,7 @@
 package git_aptra.DialogEditApplicant;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -37,13 +38,13 @@ public class DialogEditWarning {
 		panelEditWarning.setBackground(Color.LIGHT_GRAY);
 		labelEditWarning.setSize(400, 50);
 		labelEditWarning.setText("Bitte nur einen Bewerber ausw‰hlen!");
-		labelEditWarning.setAlignmentX(labelEditWarning.CENTER_ALIGNMENT);
+		labelEditWarning.setAlignmentX(Component.CENTER_ALIGNMENT);
 		labelEditWarning.setFont(fontWarning);
 		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 20)));
 		panelEditWarning.add(buttonEditWarning);
 		buttonEditWarning.setBounds(0, 50, 400, 55);
 		buttonEditWarning.setText("Schlieﬂen");
-		buttonEditWarning.setAlignmentX(buttonEditWarning.CENTER_ALIGNMENT);
+		buttonEditWarning.setAlignmentX(Component.CENTER_ALIGNMENT);
 		buttonEditWarning.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dialogEditWarning.dispose();

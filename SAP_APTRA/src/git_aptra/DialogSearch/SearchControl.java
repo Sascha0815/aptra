@@ -1,13 +1,15 @@
 package git_aptra.DialogSearch;
 
+
 import java.sql.SQLException;
 import java.util.Vector;
+
 
 import git_aptra.DatabaseConnection.SearchApplicant;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
-public class SearchControl {
-	public static void search() throws SQLException {
+public class SearchControl {	
+	public static void search() throws SQLException {			
 		DialogSearchApplicantGeneral.getGeneral();
 		DialogSearchApplicantApplication.getApplication();
 		DialogSearchApplicantContact.getContact();

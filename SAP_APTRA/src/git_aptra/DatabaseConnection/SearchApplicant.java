@@ -3,7 +3,7 @@ package git_aptra.DatabaseConnection;
 import git_aptra.DialogSearch.DialogSearchApplicantApplication;
 import git_aptra.DialogSearch.DialogSearchApplicantContact;
 import git_aptra.DialogSearch.DialogSearchApplicantGeneral;
-import git_aptra.MenuBar.MenuBarPanelApplicant;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;

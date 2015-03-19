@@ -1,6 +1,6 @@
 package git_aptra.DialogSearch;
 
-import git_aptra.Steuerung;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -26,10 +26,11 @@ public class DialogSearchApplicantContact {
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
 	public static JPanel panelSearchDialogApplicantContact = new JPanel();
-	private static JButton search = new JButton("Suchen");
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
+	public static JButton search = new JButton("Suchen");
+	
 
 	public static void searchApplicantContact() {
 		panelSearchDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
@@ -53,7 +54,6 @@ public class DialogSearchApplicantContact {
 				.createRigidArea(new Dimension(0, 10)));
 		fieldEmail.setFont(fontTextField);
 		panelSearchDialogApplicantContact.add(search);
-
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 			try {
@@ -64,6 +64,7 @@ public class DialogSearchApplicantContact {
 				}
 			}
 		});
+		
 		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",
 				panelSearchDialogApplicantContact);
 	}
@@ -83,6 +84,9 @@ public class DialogSearchApplicantContact {
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
 		panelSearchDialogApplicantContact.removeAll();
+		ActionListener[] al = search.getActionListeners();
+		search.removeActionListener(al[0]);
+		
 	}
 
 	public static String getTelefonHome() {

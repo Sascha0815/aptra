@@ -1,7 +1,6 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.Steuerung;
 import git_aptra.DatabaseConnection.DeleteApplicant;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;

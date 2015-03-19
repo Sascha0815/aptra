@@ -1,6 +1,5 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.Steuerung;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogAddApplicant.DialogAddApplicantApplication;
 import git_aptra.DialogAddApplicant.DialogAddApplicantContact;

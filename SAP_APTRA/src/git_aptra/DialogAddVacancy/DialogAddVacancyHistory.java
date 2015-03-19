@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 
 
 public class DialogAddVacancyHistory {
-	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JPanel panelDialogVacancyHistory = new JPanel();
 	private static JLabel labelHistory = new JLabel();

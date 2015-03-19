@@ -1,7 +1,5 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.MenuBar.MenuBarPanelApplicant;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

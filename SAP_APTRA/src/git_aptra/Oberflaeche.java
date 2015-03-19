@@ -1,10 +1,8 @@
 package git_aptra;
 
 import java.awt.Toolkit;
-
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
-
 import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelOverview;
@@ -17,7 +15,7 @@ public class Oberflaeche extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public static JFrame frame = new JFrame();
-
+	
 	public static JTabbedPane tabBar = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 
@@ -40,6 +38,8 @@ public class Oberflaeche extends JFrame {
 		MenuBarPanelOverview.addPanelOverview();
 		MenuBarPanelApplicant.addPanelApplicant();
 		MenuBarPanelWorkplace.addPanelWorkplace();
+		
+		
 	}
 
 	public Oberflaeche() {
