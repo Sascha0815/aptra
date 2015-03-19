@@ -100,11 +100,11 @@ public class DialogAddVacancySpecification {
 		}
 	}
 
-	public String getLevel() {
+	public static String getLevel() {
 		return level;
 	}
 
-	public String getDateVacancy() {
+	public static String getDateVacancy() {
 		return dateVacancy;
 	}
 }

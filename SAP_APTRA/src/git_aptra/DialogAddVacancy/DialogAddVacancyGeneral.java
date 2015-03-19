@@ -58,4 +58,12 @@ public class DialogAddVacancyGeneral {
 			return true;
 		}
 	}
+	
+	public static String getArea() {
+		return area;
+	}
+
+	public static String getPosition() {
+		return position;
+	}
 }
