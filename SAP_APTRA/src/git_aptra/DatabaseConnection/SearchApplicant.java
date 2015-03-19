@@ -7,178 +7,182 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-
-
 public class SearchApplicant {
-	
+
 	private static String name;
 	private static String firstName;
 	private static String street;
 	private static String houseNr;
 	private static String postalCode;
-	private static String city;	
+	private static String city;
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
 	private static String vacancy;
 	private static String educationalAcievement;
-	
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector searchApplicant() throws SQLException {
 		Connection dbConnection = null;
 		Vector resultsSearchApplicant = new Vector();
 		boolean first = true;
-		
+
 		if (!DialogSearchApplicantGeneral.getName().equals("")) {
-			if (first==true) {
-				name = "where name = '" + DialogSearchApplicantGeneral.getName() +"'";
+			if (first == true) {
+				name = "where name = '"
+						+ DialogSearchApplicantGeneral.getName() + "'";
 				first = false;
+			} else {
+				name = "where name = '"
+						+ DialogSearchApplicantGeneral.getName() + "'";
 			}
-			else {
-				name = "where name = '" + DialogSearchApplicantGeneral.getName() +"'";
-			}				
-		}
-		else {
+		} else {
 			name = "";
 		}
-		
+
 		if (!DialogSearchApplicantGeneral.getFirstName().equals("")) {
-			if (first==true) {
-				firstName = "where firstName = '" + DialogSearchApplicantGeneral.getFirstName() +"'";
+			if (first == true) {
+				firstName = "where firstName = '"
+						+ DialogSearchApplicantGeneral.getFirstName() + "'";
 				first = false;
+			} else {
+				firstName = " AND firstName = '"
+						+ DialogSearchApplicantGeneral.getFirstName() + "'";
 			}
-			else {
-				firstName = " AND firstName = '" + DialogSearchApplicantGeneral.getFirstName() +"'";
-			}				
-		}
-		else {
+		} else {
 			firstName = "";
 		}
 		if (!DialogSearchApplicantGeneral.getStreet().equals("")) {
-			if (first==true) {
-				street = "where street = '" + DialogSearchApplicantGeneral.getStreet() +"'";
+			if (first == true) {
+				street = "where street = '"
+						+ DialogSearchApplicantGeneral.getStreet() + "'";
 				first = false;
+			} else {
+				street = " AND street = '"
+						+ DialogSearchApplicantGeneral.getStreet() + "'";
 			}
-			else {
-				street = " AND street = '" + DialogSearchApplicantGeneral.getStreet() +"'";
-			}			
-		}
-		else {
+		} else {
 			street = "";
 		}
-		if (!(DialogSearchApplicantGeneral.getHouseNr()==0)) {
-			if (first==true) {
-				houseNr = "where houseNR = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
+		if (!(DialogSearchApplicantGeneral.getHouseNr() == 0)) {
+			if (first == true) {
+				houseNr = "where houseNR = '"
+						+ DialogSearchApplicantGeneral.getHouseNr() + "'";
 				first = false;
+			} else {
+				houseNr = " AND houseNR = '"
+						+ DialogSearchApplicantGeneral.getHouseNr() + "'";
 			}
-			else {
-				houseNr = " AND houseNR = '" + DialogSearchApplicantGeneral.getHouseNr() +"'";
-			}				
-		}
-		else {
+		} else {
 			houseNr = "";
 		}
-		if (!(DialogSearchApplicantGeneral.getPostalCode()==0)) {
-			if (first==true) {
-				postalCode = "where postalCode = '" + DialogSearchApplicantGeneral.getPostalCode() +"'";
+		if (!(DialogSearchApplicantGeneral.getPostalCode() == 0)) {
+			if (first == true) {
+				postalCode = "where postalCode = '"
+						+ DialogSearchApplicantGeneral.getPostalCode() + "'";
 				first = false;
+			} else {
+				postalCode = " AND postalCode = '"
+						+ DialogSearchApplicantGeneral.getPostalCode() + "'";
 			}
-			else {
-				postalCode = " AND postalCode = '" + DialogSearchApplicantGeneral.getPostalCode() +"'";
-			}				
-		}
-		else {
+		} else {
 			postalCode = "";
 		}
 		if (!DialogSearchApplicantGeneral.getCity().equals("")) {
-			if (first==true) {
-				city = "where city = '" + DialogSearchApplicantGeneral.getCity() +"'";
+			if (first == true) {
+				city = "where city = '"
+						+ DialogSearchApplicantGeneral.getCity() + "'";
 				first = false;
+			} else {
+				city = " AND city = '" + DialogSearchApplicantGeneral.getCity()
+						+ "'";
 			}
-			else {
-				city = " AND city = '" + DialogSearchApplicantGeneral.getCity() +"'";
-			}				
-		}
-		else {
+		} else {
 			city = "";
-		}		
-		if (!DialogSearchApplicantContact.getTelefonHome().equals("")) {
-			if (first==true) {
-				telefonHome = "where telefonHome = '" + DialogSearchApplicantContact.getTelefonHome() +"'";
-				first = false;
-			}
-			else {
-				telefonHome = " AND telefonHome = '" + DialogSearchApplicantContact.getTelefonHome() +"'";
-			}				
 		}
-		else {
+		if (!DialogSearchApplicantContact.getTelefonHome().equals("")) {
+			if (first == true) {
+				telefonHome = "where telefonHome = '"
+						+ DialogSearchApplicantContact.getTelefonHome() + "'";
+				first = false;
+			} else {
+				telefonHome = " AND telefonHome = '"
+						+ DialogSearchApplicantContact.getTelefonHome() + "'";
+			}
+		} else {
 			telefonHome = "";
 		}
 		if (!DialogSearchApplicantContact.getTelefonMobil().equals("")) {
-			if (first==true) {
-				telefonMobil = "where telefonMobil = '" + DialogSearchApplicantContact.getTelefonMobil() +"'";
+			if (first == true) {
+				telefonMobil = "where telefonMobil = '"
+						+ DialogSearchApplicantContact.getTelefonMobil() + "'";
 				first = false;
+			} else {
+				telefonMobil = " AND telefonMobil = '"
+						+ DialogSearchApplicantContact.getTelefonMobil() + "'";
 			}
-			else {
-				telefonMobil = " AND telefonMobil = '" + DialogSearchApplicantContact.getTelefonMobil() +"'";
-			}				
-		}
-		else {
+		} else {
 			telefonMobil = "";
-		}		
-		if (!DialogSearchApplicantContact.getEmail().equals("")) {
-			if (first==true) {
-				email = "where email = '" + DialogSearchApplicantContact.getEmail() +"'";	
-				first = false;
-			}
-			else {
-				email = " AND email = '" + DialogSearchApplicantContact.getEmail() +"'";	
-			}				
 		}
-		else {
+		if (!DialogSearchApplicantContact.getEmail().equals("")) {
+			if (first == true) {
+				email = "where email = '"
+						+ DialogSearchApplicantContact.getEmail() + "'";
+				first = false;
+			} else {
+				email = " AND email = '"
+						+ DialogSearchApplicantContact.getEmail() + "'";
+			}
+		} else {
 			email = "";
 		}
 		if (!DialogSearchApplicantApplication.getVacancy().equals("")) {
-			if (first==true) {
-				vacancy = "where vacancy = '" + DialogSearchApplicantApplication.getVacancy() +"'";
+			if (first == true) {
+				vacancy = "where vacancy = '"
+						+ DialogSearchApplicantApplication.getVacancy() + "'";
 				first = false;
+			} else {
+				vacancy = " AND vacancy = '"
+						+ DialogSearchApplicantApplication.getVacancy() + "'";
 			}
-			else {
-				vacancy = " AND vacancy = '" + DialogSearchApplicantApplication.getVacancy() +"'";
-			}			
-		}
-		else {
+		} else {
 			vacancy = "";
-		}				
-		if (!DialogSearchApplicantApplication.getEducationalAchievement().equals("")) {
-			if (first==true) {
-				educationalAcievement = "where educationalAchievement = '" + DialogSearchApplicantApplication.getEducationalAchievement() +"'";
-				first = false;
-			}
-			else {
-				educationalAcievement = "AND educationalAchievement = '" + DialogSearchApplicantApplication.getEducationalAchievement() +"'";
-			}			
 		}
-		else {
+		if (!DialogSearchApplicantApplication.getEducationalAchievement()
+				.equals("")) {
+			if (first == true) {
+				educationalAcievement = "where educationalAchievement = '"
+						+ DialogSearchApplicantApplication
+								.getEducationalAchievement() + "'";
+				first = false;
+			} else {
+				educationalAcievement = "AND educationalAchievement = '"
+						+ DialogSearchApplicantApplication
+								.getEducationalAchievement() + "'";
+			}
+		} else {
 			educationalAcievement = "";
 		}
-				
-		System.out.println("select * from applicant " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
+
+		System.out.println("select * from applicant " + name + firstName
+				+ street + houseNr + postalCode + city + telefonHome
+				+ telefonMobil + email + vacancy + educationalAcievement);
 		try {
 			dbConnection = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
-			
+
 			Statement stmt = dbConnection.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from applicant " + name + firstName + street + houseNr + postalCode + city + telefonHome + telefonMobil + email + vacancy + educationalAcievement);
-			
-			
+			ResultSet rs = stmt.executeQuery("select * from applicant " + name
+					+ firstName + street + houseNr + postalCode + city
+					+ telefonHome + telefonMobil + email + vacancy
+					+ educationalAcievement);
+
 			while (rs.next()) {
 				Vector applicant = new Vector();
 				applicant.add(rs.getString(1));
@@ -196,16 +200,14 @@ public class SearchApplicant {
 				applicant.add(rs.getString(13));
 				resultsSearchApplicant.add(applicant);
 			}
-				
+
 		} catch (SQLException e) {
 			System.out.println("Datenbank - searchApplicant" + e.getMessage());
 		}
-		
-		
-		
+
 		MenuBarPanelApplicant.tableApplicant.setAutoCreateRowSorter(true);
 		return resultsSearchApplicant;
-		
-}
-	
+
+	}
+
 }

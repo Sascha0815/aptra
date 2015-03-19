@@ -44,10 +44,12 @@ public class DialogAddVacancyGeneral {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxEducationalAchievement = new JComboBox(
 			boxListEducationalAchievement);
-	
-	public static void addVacancyGeneral(){	
+
+	public static void addVacancyGeneral() {
+
 		panelDialogVacancyMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogVacancyMain.setLayout(new BoxLayout(panelDialogVacancyMain, BoxLayout.Y_AXIS));
+		panelDialogVacancyMain.setLayout(new BoxLayout(panelDialogVacancyMain,
+				BoxLayout.Y_AXIS));
 		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelDialogVacancyMain.add(labelInstruction2);
 		labelInstruction2
@@ -81,10 +83,10 @@ public class DialogAddVacancyGeneral {
 		boxEducationalAchievement.setToolTipText("Benötigter Bildungsabschluss:");
 		panelDialogVacancyMain.add(boxEducationalAchievement);
 		DialogAddVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
-		
+
 	}
-	
-	public static boolean getGeneral(){
+
+	public static boolean getGeneral() {
 		area = fieldArea.getText();
 		position = fieldPosition.getText();
 		if (area.equals("")) {
@@ -92,8 +94,7 @@ public class DialogAddVacancyGeneral {
 		}
 		if (position.equals("")) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}

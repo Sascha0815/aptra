@@ -11,30 +11,32 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 public class SaveDataNewApplicant {
-	public static void save(){
-		if(DialogAddApplicantGeneral.getGeneral()==true && DialogAddApplicantApplication.getApplication()==true && DialogAddApplicantContact.getContact()==true){
+	public static void save() {
+		if (DialogAddApplicantGeneral.getGeneral() == true
+				&& DialogAddApplicantApplication.getApplication() == true
+				&& DialogAddApplicantContact.getContact() == true) {
 			try {
 				Steuerung.getInsertApplicationData();
 				InsertApplicationData.insertApplicantData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
+
 			@SuppressWarnings("rawtypes")
-			Vector resultsApplicant = Steuerung.getInsertApplicantDataIntoTable()
+			Vector resultsApplicant = Steuerung
+					.getInsertApplicantDataIntoTable()
 					.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 					MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-			
+
 			DialogAddApplicantGeneral.reset();
 			DialogAddApplicantApplication.reset();
 			DialogAddApplicantContact.reset();
 			DialogAddApplicant.tabAdd.removeAll();
 			DialogAddApplicant.dialogNewApplicant.dispose();
-			
+
 		}
 	}
-	
 
 }

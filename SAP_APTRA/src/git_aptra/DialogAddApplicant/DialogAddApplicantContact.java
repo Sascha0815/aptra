@@ -73,7 +73,7 @@ public class DialogAddApplicantContact {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-		
+
 		if (telefonHome.equals("")) {
 			return false;
 		}

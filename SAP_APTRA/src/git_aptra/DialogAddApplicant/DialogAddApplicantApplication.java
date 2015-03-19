@@ -43,7 +43,7 @@ public class DialogAddApplicantApplication {
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
-	
+
 	private static int day;
 	private static int month;
 	private static int year;
@@ -99,7 +99,6 @@ public class DialogAddApplicantApplication {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-		
 
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());

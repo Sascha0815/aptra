@@ -1,9 +1,6 @@
 package git_aptra.DialogSearch;
 
 import git_aptra.Steuerung;
-import git_aptra.DatabaseConnection.SaveDataNewApplicant;
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -62,6 +59,7 @@ public class DialogSearchApplicantContact {
 				Steuerung.getSearchControl();
 				try {
 					SearchControl.search();
+					CloseDialogSearchApplicant.closeSearchApplicant();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

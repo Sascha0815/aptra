@@ -1,7 +1,5 @@
 package git_aptra.DialogSearch;
 
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,8 +9,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import com.sun.org.apache.bcel.internal.generic.IFNULL;
 
 public class DialogSearchApplicantGeneral {
 	private static JLabel labelName = new JLabel("Name:");
@@ -85,22 +81,22 @@ public class DialogSearchApplicantGeneral {
 	}
 
 	public static void getSelected() {
-		try {			
-			houseNr = Integer.parseInt(fieldHouseNr.getText());		
-			
-		} catch (Exception e) {		
+		try {
+			houseNr = Integer.parseInt(fieldHouseNr.getText());
+
+		} catch (Exception e) {
 			houseNr = 0;
 		}
-		try {			
+		try {
 			postalCode = Integer.parseInt(fieldPostalCode.getText());
-			
-		} catch (Exception e) {	
-			postalCode=0;
+
+		} catch (Exception e) {
+			postalCode = 0;
 		}
 		name = fieldName.getText();
 		firstName = fieldFirstName.getText();
 		street = fieldStreet.getText();
-		city = fieldCity.getText();		
+		city = fieldCity.getText();
 	}
 
 	public static void reset() {

@@ -60,7 +60,7 @@ public class DialogEditApplicantContact {
 
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-					SaveDataEditApplicant.save();
+				SaveDataEditApplicant.save();
 			}
 		});
 		DialogEditApplicant.tabEdit.addTab("Kontaktdaten",

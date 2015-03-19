@@ -7,15 +7,16 @@ import git_aptra.DatabaseConnection.SearchApplicant;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class SearchControl {
-	public static void search() throws SQLException{
+	public static void search() throws SQLException {
 		DialogSearchApplicantGeneral.getSelected();
 		DialogSearchApplicantApplication.getApplication();
 		DialogSearchApplicantContact.getContact();
 		SearchApplicant.searchApplicant();
+		@SuppressWarnings("rawtypes")
 		Vector resultsApplicant = SearchApplicant.searchApplicant();
 		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 				MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 		MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-		//CloseDialogSearchApplicant.closeSearchApplicant();
+		// CloseDialogSearchApplicant.closeSearchApplicant();
 	}
 }
