@@ -80,7 +80,7 @@ public class DialogSearchApplicantGeneral {
 				panelDialogSearchApplicantMain);
 	}
 
-	public static void getSelected() {
+	public static void getGeneral() {
 		try {
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
 

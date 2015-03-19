@@ -57,7 +57,7 @@ public class DialogSearchApplicantContact {
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 			try {
-					SearchControl.search();
+				 	SearchControl.search();
 					CloseDialogSearchApplicant.closeSearchApplicant();
 				} catch (SQLException e) {
 					e.printStackTrace();

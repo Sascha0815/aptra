@@ -41,7 +41,7 @@ public class InsertApplicantDataIntoTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		MenuBarPanelApplicant.tableApplicant.setAutoCreateRowSorter(true);
+	
 		return resultsApplicant;
 	}
 }
