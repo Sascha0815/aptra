@@ -1,6 +1,7 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
 
 import java.awt.BorderLayout;
@@ -30,7 +31,6 @@ public class MenuBarPanelWorkplace {
 			add("Stellenbezeichnung");
 			add("Arbeitsbereich");
 			add("Anforderung");
-			add("Anforderung");
 			add("Anstellungsverhältnis");
 			add("Status");
 			add("Bildungsabschluss");
@@ -49,7 +49,7 @@ public class MenuBarPanelWorkplace {
 	private static JButton buttonEditJob = new JButton();
 	private static JButton buttonSettingsJob = new JButton();
 	private static JButton buttonExitJob = new JButton();
-	private static DefaultTableModel modelJob = new DefaultTableModel(1, 4) {
+	public static DefaultTableModel modelJob = new DefaultTableModel(1, 4) {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -85,6 +85,16 @@ public class MenuBarPanelWorkplace {
 			buttonRefreshJob.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
+		buttonRefreshJob.addActionListener(new ActionListener() {
+			@SuppressWarnings("rawtypes")
+			public void actionPerformed(ActionEvent e) {
+				Vector resultsVacancy = InsertVacancyDateIntoTable
+						.insertVacancyDataIntoTable();
+				MenuBarPanelWorkplace.modelJob.setDataVector(resultsVacancy,
+						MenuBarPanelWorkplace.COLUMN_IDENTIFIERS_JOB);
+				MenuBarPanelWorkplace.modelJob.fireTableDataChanged();
+			}
+		});
 		buttonJob.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelButtonWorkplace.add(buttonJob);
 		buttonJob.setPreferredSize(new Dimension(135, 135));
