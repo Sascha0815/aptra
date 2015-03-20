@@ -124,7 +124,7 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableApplicant.getSelectedRowCount() == 2) {
+				if (tableApplicant.getSelectedRowCount() > 1) {
 					DialogEditWarning.selectOnlyOne();
 				} else {
 					EditApplicant.getSelectedRow();

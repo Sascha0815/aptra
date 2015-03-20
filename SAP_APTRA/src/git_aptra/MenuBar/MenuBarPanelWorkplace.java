@@ -159,6 +159,7 @@ public class MenuBarPanelWorkplace {
 		// SWING:Table Arbeitsstellen
 		modelJob.setColumnIdentifiers(COLUMN_IDENTIFIERS_JOB);
 		tableJob.getTableHeader().setReorderingAllowed(false);
+		tableJob.setAutoCreateRowSorter(true);
 		tableJob = new JTable(modelJob);
 		JScrollPane scrollPaneJob = new JScrollPane(tableJob);
 		panelWorkplace.add(scrollPaneJob);
@@ -169,7 +170,7 @@ public class MenuBarPanelWorkplace {
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneJob
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-
+		tableJob.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Arbeitststellen", panelWorkplace);
 
 	}
