@@ -27,12 +27,15 @@ public class MenuBarPanelWorkplace {
 		private static final long serialVersionUID = 1L;
 
 		{
-			add("Name");
-			add("Vorname");
-			add("Straﬂe");
-			add("Hausnummer");
-			add("PLZ");
-			add("Wohnort");
+			add("Stellenbezeichnung");
+			add("Arbeitsbereich");
+			add("Anforderung");
+			add("Anforderung");
+			add("Anstellungsverh‰ltnis");
+			add("Status");
+			add("Bildungsabschluss");
+			add("Art des Bewerbers");
+			add("Bewerbungsschluss");
 		}
 	};
 	private static JPanel panelWorkplace = new JPanel();

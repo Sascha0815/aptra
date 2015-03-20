@@ -15,7 +15,7 @@ public class DialogAddVacancy {
 		dialogNewVacancy.setSize(450, 400);
 		dialogNewVacancy.setLocationRelativeTo(null);
 		dialogNewVacancy.setResizable(false);
-		dialogNewVacancy.setTitle("Neuer Stelle");
+		dialogNewVacancy.setTitle("Neue Stelle");
 		dialogNewVacancy.add(tabVacancy);
 		DialogAddVacancyGeneral.addVacancyGeneral();
 		DialogAddVacancySpecification.addVacancySpecification();
