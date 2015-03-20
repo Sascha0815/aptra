@@ -109,6 +109,14 @@ public class DialogAddVacancySpecification {
 			return true;
 		}
 	}
+	
+	public static void reset() {
+		panelDialogVacancySpecification.removeAll();
+		fieldLevel.setText("");
+		boxDay.setSelectedIndex(0);
+		boxMonth.setSelectedIndex(0);
+		boxYear.setSelectedIndex(0);
+	}
 
 	public static String getLevel() {
 		return level;

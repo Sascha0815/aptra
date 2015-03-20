@@ -137,6 +137,16 @@ public class DialogAddVacancyGeneral {
 			return true;
 		}
 	}
+	
+	public static void reset() {
+		panelDialogVacancyMain.removeAll();
+		fieldArea.setText("");
+		fieldPosition.setText("");
+		boxRequirementLevel.setSelectedIndex(0);
+		boxTermsOfEmployment.setSelectedIndex(0);
+		boxVacancyStatus.setSelectedIndex(0);
+		boxEducationalAchievement.setSelectedIndex(0);
+	}
 
 	public static String getlRequirementLevel() {
 		return requirementLevel;

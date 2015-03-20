@@ -1,6 +1,6 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
+import git_aptra.DialogAddApplicant.CloseDialogAddApplicant;
 import git_aptra.DialogAddApplicant.DialogAddApplicantApplication;
 import git_aptra.DialogAddApplicant.DialogAddApplicantContact;
 import git_aptra.DialogAddApplicant.DialogAddApplicantGeneral;
@@ -22,16 +22,12 @@ public class SaveDataNewApplicant {
 			}
 
 			@SuppressWarnings("rawtypes")
-			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
+			Vector resultsApplicant = InsertApplicantDataIntoTable
+					.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 					MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-
-			DialogAddApplicantGeneral.reset();
-			DialogAddApplicantApplication.reset();
-			DialogAddApplicantContact.reset();
-			DialogAddApplicant.tabAdd.removeAll();
-			DialogAddApplicant.dialogNewApplicant.dispose();
+			CloseDialogAddApplicant.close();
 
 		}
 	}
