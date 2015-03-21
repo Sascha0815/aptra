@@ -1,6 +1,9 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+
+import git_aptra.DatabaseConnection.DeleteVacancy;
+
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
 
@@ -145,6 +148,12 @@ public class MenuBarPanelWorkplace {
 		}
 		buttonDeleteJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				DeleteVacancy.deleteVacancy();
+				@SuppressWarnings("rawtypes")
+				Vector resultsVacancy = InsertVacancyDateIntoTable
+						.insertVacancyDataIntoTable();
+				modelJob.setDataVector(resultsVacancy, COLUMN_IDENTIFIERS_JOB);
+				modelJob.fireTableDataChanged();
 			}
 		});
 		buttonSearchJob.setToolTipText("Einstellungen");
