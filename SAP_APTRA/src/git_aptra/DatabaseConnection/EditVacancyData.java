@@ -1,14 +1,13 @@
 package git_aptra.DatabaseConnection;
 
+import git_aptra.DialogEditVacancy.DialogEditVacancyGeneral;
+import git_aptra.DialogEditVacancy.DialogEditVacancySpecification;
 import git_aptra.MenuBar.MenuBarPanelWorkplace;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import DialogEditVacancy.DialogEditVacancyGeneral;
-import DialogEditVacancy.DialogEditVacancySpecification;
 
 public class EditVacancyData {
 

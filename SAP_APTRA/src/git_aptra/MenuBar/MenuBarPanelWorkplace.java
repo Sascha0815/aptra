@@ -1,11 +1,12 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-
 import git_aptra.DatabaseConnection.DeleteVacancy;
-
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
+import git_aptra.DialogEditVacancy.DialogEditVacancy;
+import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
+import git_aptra.DialogEditVacancy.EditVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,10 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import DialogEditVacancy.DialogEditVacancy;
-import DialogEditVacancy.DialogEditVacancyWarning;
-import DialogEditVacancy.EditVacancy;
 
 public class MenuBarPanelWorkplace {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
