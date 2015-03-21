@@ -4,10 +4,10 @@ import git_aptra.Oberflaeche;
 import git_aptra.DatabaseConnection.DeleteApplicant;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
+import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditWarning;
 import git_aptra.DialogEditApplicant.EditApplicant;
-import git_aptra.DialogSearch.DialogSearchApplicant;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
