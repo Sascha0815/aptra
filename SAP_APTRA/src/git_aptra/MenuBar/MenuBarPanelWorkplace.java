@@ -43,12 +43,12 @@ public class MenuBarPanelWorkplace {
 	private static JPanel panelInfoWorkplace = new JPanel();
 	private static JPanel panelButtonWorkplace = new JPanel();
 
-	private static JButton buttonJob = new JButton();
+	private static JButton butttonAddJob = new JButton();
 	private static JButton buttonRefreshJob = new JButton();
 	private static JButton buttonDeleteJob = new JButton();
 	private static JButton buttonEditJob = new JButton();
+	private static JButton buttonSearchJob = new JButton();
 	private static JButton buttonSettingsJob = new JButton();
-	private static JButton buttonExitJob = new JButton();
 	public static DefaultTableModel modelJob = new DefaultTableModel(1, 4) {
 		private static final long serialVersionUID = 1L;
 
@@ -81,7 +81,7 @@ public class MenuBarPanelWorkplace {
 		});
 		try {
 			Image add = ImageIO.read(MenuBarPanelWorkplace.class
-					.getResource("resources/refreshApplicant.png"));
+					.getResource("resources/job_refresh.png"));
 			buttonRefreshJob.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
@@ -95,10 +95,10 @@ public class MenuBarPanelWorkplace {
 				MenuBarPanelWorkplace.modelJob.fireTableDataChanged();
 			}
 		});
-		buttonJob.setToolTipText("Neue Arbeitstelle hinzufügen");
-		panelButtonWorkplace.add(buttonJob);
-		buttonJob.setPreferredSize(new Dimension(135, 135));
-		buttonJob.addActionListener(new ActionListener() {
+		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
+		panelButtonWorkplace.add(butttonAddJob);
+		butttonAddJob.setPreferredSize(new Dimension(135, 135));
+		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogAddVacancy.newVacancy();
 			}
@@ -106,8 +106,8 @@ public class MenuBarPanelWorkplace {
 
 		try {
 			Image job = ImageIO.read(MenuBarPanelWorkplace.class
-					.getResource("resources/job.png"));
-			buttonJob.setIcon(new ImageIcon(job));
+					.getResource("resources/job_add.png"));
+			butttonAddJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
 		buttonEditJob.setToolTipText("Bewerber bearbeiten");
@@ -115,7 +115,7 @@ public class MenuBarPanelWorkplace {
 		buttonEditJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/pencil.png"));
+					.getResource("resources/job_edit.png"));
 			buttonEditJob.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
@@ -124,7 +124,7 @@ public class MenuBarPanelWorkplace {
 		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/trashcan.png"));
+					.getResource("resources/job_delete.png"));
 			buttonDeleteJob.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
@@ -132,27 +132,27 @@ public class MenuBarPanelWorkplace {
 			public void actionPerformed(ActionEvent evt) {
 			}
 		});
-		buttonSettingsJob.setToolTipText("Einstellungen");
+		buttonSearchJob.setToolTipText("Einstellungen");
+		panelButtonWorkplace.add(buttonSearchJob);
+		buttonSearchJob.setPreferredSize(new Dimension(135, 135));
+		try {
+			Image settings = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/job_search.png"));
+			buttonSearchJob.setIcon(new ImageIcon(settings));
+		} catch (IOException ex) {
+		}
+		buttonSettingsJob.setToolTipText("Programm schließen");
 		panelButtonWorkplace.add(buttonSettingsJob);
 		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
 		try {
-			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/settings_big.png"));
-			buttonSettingsJob.setIcon(new ImageIcon(settings));
-		} catch (IOException ex) {
-		}
-		buttonExitJob.setToolTipText("Programm schließen");
-		panelButtonWorkplace.add(buttonExitJob);
-		buttonExitJob.setPreferredSize(new Dimension(135, 135));
-		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/close_big.png"));
-			buttonExitJob.setIcon(new ImageIcon(close));
+					.getResource("resources/job_settings.png"));
+			buttonSettingsJob.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonExitJob.addActionListener(new ActionListener() {
+		buttonSettingsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.frame.dispose();
+				
 			}
 		});
 

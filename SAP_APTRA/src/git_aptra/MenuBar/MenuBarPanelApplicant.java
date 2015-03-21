@@ -32,11 +32,11 @@ public class MenuBarPanelApplicant {
 	private static JPanel panelButtonApplicant = new JPanel();
 	private static JPanel panelContentApplicant = new JPanel();
 	private static JPanel panelInfoApplicant = new JPanel();
-	private static JButton buttonAdd = new JButton();
+	private static JButton buttonAddApplicant = new JButton();
 	private static JButton buttonDeleteApplicant = new JButton();
 	private static JButton buttonEditApplicant = new JButton();
 	private static JButton buttonSearchApplicant = new JButton();
-	private static JButton buttonExitApplicant = new JButton();
+	private static JButton buttonSettingsApplicant = new JButton();
 	private static JButton buttonRefreshApplicant = new JButton();
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
@@ -86,7 +86,7 @@ public class MenuBarPanelApplicant {
 		buttonRefreshApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image refreshApplicant = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/refreshApplicant.png"));
+					.getResource("resources/applicant_refresh.png"));
 			buttonRefreshApplicant.setIcon(new ImageIcon(refreshApplicant));
 		} catch (IOException ex) {
 		}
@@ -99,16 +99,16 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		buttonAdd.setToolTipText("Neuer Bewerber hinzufügen");
-		panelButtonApplicant.add(buttonAdd);
-		buttonAdd.setPreferredSize(new Dimension(135, 135));
+		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
+		panelButtonApplicant.add(buttonAddApplicant);
+		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/add.png"));
-			buttonAdd.setIcon(new ImageIcon(add));
+					.getResource("resources/applicant_add.png"));
+			buttonAddApplicant.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
-		buttonAdd.addActionListener(new ActionListener() {
+		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogAddApplicant.newApplicant();
 			}
@@ -118,7 +118,7 @@ public class MenuBarPanelApplicant {
 		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/pencil.png"));
+					.getResource("resources/applicant_edit.png"));
 			buttonEditApplicant.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
@@ -137,7 +137,7 @@ public class MenuBarPanelApplicant {
 		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/trashcan.png"));
+					.getResource("resources/applicant_delete.png"));
 			buttonDeleteApplicant.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
@@ -156,7 +156,7 @@ public class MenuBarPanelApplicant {
 		buttonSearchApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/search.png"));
+					.getResource("resources/applicant_search.png"));
 			buttonSearchApplicant.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
@@ -166,18 +166,18 @@ public class MenuBarPanelApplicant {
 			}
 		});
 
-		buttonExitApplicant.setToolTipText("Programm schließen");
-		panelButtonApplicant.add(buttonExitApplicant);
-		buttonExitApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonSettingsApplicant.setToolTipText("Programm schließen");
+		panelButtonApplicant.add(buttonSettingsApplicant);
+		buttonSettingsApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/close_big.png"));
-			buttonExitApplicant.setIcon(new ImageIcon(close));
+					.getResource("resources/applicant_settings.png"));
+			buttonSettingsApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonExitApplicant.addActionListener(new ActionListener() {
+		buttonSettingsApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.frame.dispose();
+				
 			}
 		});
 
