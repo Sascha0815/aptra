@@ -22,12 +22,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import DialogEditVacancy.DialogEditVacancy;
+import DialogEditVacancy.DialogEditVacancyWarning;
+import DialogEditVacancy.EditVacancy;
+
 public class MenuBarPanelWorkplace {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_JOB = new Vector() {
 		private static final long serialVersionUID = 1L;
 
 		{
+			add("Stellennummer");
 			add("Stellenbezeichnung");
 			add("Arbeitsbereich");
 			add("Anforderung");
@@ -56,7 +61,7 @@ public class MenuBarPanelWorkplace {
 			return false;
 		}
 	};
-	private static JTable tableJob = new JTable(modelJob);
+	public static JTable tableJob = new JTable(modelJob);
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {
@@ -103,7 +108,6 @@ public class MenuBarPanelWorkplace {
 				DialogAddVacancy.newVacancy();
 			}
 		});
-
 		try {
 			Image job = ImageIO.read(MenuBarPanelWorkplace.class
 					.getResource("resources/job_add.png"));
@@ -113,12 +117,23 @@ public class MenuBarPanelWorkplace {
 		buttonEditJob.setToolTipText("Bewerber bearbeiten");
 		panelButtonWorkplace.add(buttonEditJob);
 		buttonEditJob.setPreferredSize(new Dimension(135, 135));
+		buttonEditJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (tableJob.getSelectedRowCount() > 1) {
+					DialogEditVacancyWarning.selectOnlyOne();
+				} else {
+					EditVacancy.getSelectedRow();
+					DialogEditVacancy.editVacancy();
+				}
+			}
+		});
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/job_edit.png"));
 			buttonEditJob.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
+
 		buttonDeleteJob.setToolTipText("Bewerber löschen");
 		panelButtonWorkplace.add(buttonDeleteJob);
 		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
@@ -152,7 +167,7 @@ public class MenuBarPanelWorkplace {
 		}
 		buttonSettingsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
 

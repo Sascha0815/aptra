@@ -17,7 +17,7 @@ public class DialogAddVacancyHistory {
 	private static JLabel labelHistory = new JLabel();
 	private static JTextField fieldHistory = new JTextField();
 	
-	static void addVacancyHistory() {
+	public static void addVacancyHistory() {
 	panelDialogVacancyHistory.setBackground(Color.LIGHT_GRAY);
 	panelDialogVacancyHistory.setLayout(new BoxLayout(
 			panelDialogVacancyHistory, BoxLayout.Y_AXIS));

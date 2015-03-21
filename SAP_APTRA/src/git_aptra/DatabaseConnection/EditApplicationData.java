@@ -25,7 +25,11 @@ public class EditApplicationData {
 
 		try {
 			PreparedStatement preparedStatement = dbConnection
-					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, street = ?, houseNr = ?,  postalCode= ?, city = ?, telefonHome = ?, telefonMobil = ?, email = ?, vacancy = ?, date = ?, educationalAchievement = ? WHERE id = ?");
+					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, "
+							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
+							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
+							+ "vacancy = ?, date = ?, educationalAchievement = ? "
+							+ "WHERE id = ?");
 
 			preparedStatement
 					.setString(1, DialogEditApplicantGeneral.getName());

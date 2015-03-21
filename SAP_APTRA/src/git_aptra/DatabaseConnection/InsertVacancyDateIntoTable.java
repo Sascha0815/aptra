@@ -30,6 +30,7 @@ public class InsertVacancyDateIntoTable {
 				vacancy.add(rs.getString(6));
 				vacancy.add(rs.getString(7));
 				vacancy.add(rs.getString(8));
+				vacancy.add(rs.getString(9));
 				resultsVacancy.add(vacancy);
 			}
 		} catch (SQLException e) {
