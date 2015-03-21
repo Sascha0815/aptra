@@ -68,7 +68,7 @@ public class MenuBarPanelApplicant {
 		}
 	};
 
-	// legt das Panel Bewerber an
+	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new BorderLayout(5, 5));
 		panelApplicant.add(panelButtonApplicant, BorderLayout.EAST);

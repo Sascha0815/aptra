@@ -58,7 +58,7 @@ public class MenuBarPanelWorkplace {
 	};
 	private static JTable tableJob = new JTable(modelJob);
 
-	// legt das Panel Arbeitsstellen an
+	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {
 		panelWorkplace.setLayout(new BorderLayout(5, 5));
 		panelWorkplace.add(panelButtonWorkplace, BorderLayout.EAST);

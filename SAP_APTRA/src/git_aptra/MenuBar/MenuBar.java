@@ -31,7 +31,7 @@ public class MenuBar {
 	private static JMenuItem itemExit = new JMenuItem();
 	private static JMenuItem itemChangeDesign = new JMenuItem();
 
-	// MenuBar mit Reitern, Einträgen und ActionListenern
+	// SWING: MenuBar mit Reitern, Einträgen und ActionListenern
 	public static void addMenuBar() {
 		// MenuBar
 		Oberflaeche.frame.setJMenuBar(menuBar);
