@@ -10,6 +10,7 @@ import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditWarning;
 import git_aptra.DialogEditApplicant.EditApplicant;
+import git_aptra.DialogInfoApplicant.DialogInfoApplicant;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -38,7 +39,7 @@ public class MenuBarPanelOverview {
 			BorderLayout.LINE_START);
 	private static JButton buttonSearchApplicant = new JButton(
 			BorderLayout.LINE_START);
-	private static JButton buttonSettingsApplicant = new JButton(
+	private static JButton buttonInfoApplicant = new JButton(
 			BorderLayout.LINE_START);
 	private static JButton buttonRefreshApplicant = new JButton(
 			BorderLayout.LINE_START);
@@ -150,18 +151,18 @@ public class MenuBarPanelOverview {
 			}
 		});
 
-		buttonSettingsApplicant.setToolTipText("Programm schlieﬂen");
-		panelContentOverview.add(buttonSettingsApplicant);
-		buttonSettingsApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonInfoApplicant.setToolTipText("Programm schlieﬂen");
+		panelContentOverview.add(buttonInfoApplicant);
+		buttonInfoApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_settings.png"));
-			buttonSettingsApplicant.setIcon(new ImageIcon(close));
+					.getResource("resources/applicant_info.png"));
+			buttonInfoApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonSettingsApplicant.addActionListener(new ActionListener() {
+		buttonInfoApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				DialogInfoApplicant.infoApplicant();
 			}
 		});
 
