@@ -1,6 +1,5 @@
 package git_aptra.DialogApplicantSearch;
 
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -30,7 +29,6 @@ public class DialogSearchApplicantContact {
 	private static String telefonMobil;
 	private static String email;
 	public static JButton search = new JButton("Suchen");
-	
 
 	public static void searchApplicantContact() {
 		panelSearchDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
@@ -56,15 +54,15 @@ public class DialogSearchApplicantContact {
 		panelSearchDialogApplicantContact.add(search);
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-			try {
-				 	SearchControl.search();
+				try {
+					SearchControl.search();
 					CloseDialogSearchApplicant.closeSearchApplicant();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",
 				panelSearchDialogApplicantContact);
 	}
@@ -86,7 +84,7 @@ public class DialogSearchApplicantContact {
 		panelSearchDialogApplicantContact.removeAll();
 		ActionListener[] al = search.getActionListeners();
 		search.removeActionListener(al[0]);
-		
+
 	}
 
 	public static String getTelefonHome() {

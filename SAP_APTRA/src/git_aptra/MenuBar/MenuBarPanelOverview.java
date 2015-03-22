@@ -30,19 +30,26 @@ public class MenuBarPanelOverview {
 	private static JPanel panelContentOverview = new JPanel();
 	private static JPanel panelInfoOverview = new JPanel();
 
-	private static JButton buttonAddApplicant = new JButton(BorderLayout.LINE_START);
-	private static JButton buttonDeleteApplicant = new JButton(BorderLayout.LINE_START);
-	private static JButton buttonEditApplicant = new JButton(BorderLayout.LINE_START);
-	private static JButton buttonSearchApplicant = new JButton(BorderLayout.LINE_START);
-	private static JButton buttonSettingsApplicant = new JButton(BorderLayout.LINE_START);
-	private static JButton buttonRefreshApplicant = new JButton(BorderLayout.LINE_START);
-	
+	private static JButton buttonAddApplicant = new JButton(
+			BorderLayout.LINE_START);
+	private static JButton buttonDeleteApplicant = new JButton(
+			BorderLayout.LINE_START);
+	private static JButton buttonEditApplicant = new JButton(
+			BorderLayout.LINE_START);
+	private static JButton buttonSearchApplicant = new JButton(
+			BorderLayout.LINE_START);
+	private static JButton buttonSettingsApplicant = new JButton(
+			BorderLayout.LINE_START);
+	private static JButton buttonRefreshApplicant = new JButton(
+			BorderLayout.LINE_START);
+
 	private static JButton butttonAddJob = new JButton(BorderLayout.LINE_END);
 	private static JButton buttonRefreshJob = new JButton(BorderLayout.LINE_END);
 	private static JButton buttonDeleteJob = new JButton(BorderLayout.LINE_END);
 	private static JButton buttonEditJob = new JButton(BorderLayout.LINE_END);
 	private static JButton buttonSearchJob = new JButton(BorderLayout.LINE_END);
-	private static JButton buttonSettingsJob = new JButton(BorderLayout.LINE_END);
+	private static JButton buttonSettingsJob = new JButton(
+			BorderLayout.LINE_END);
 
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
@@ -88,7 +95,7 @@ public class MenuBarPanelOverview {
 				DialogAddApplicant.newApplicant();
 			}
 		});
-		
+
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
 		panelContentOverview.add(buttonEditApplicant);
 		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
@@ -119,9 +126,10 @@ public class MenuBarPanelOverview {
 		}
 		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-			DeleteApplicant.deleteApplicant();
+				DeleteApplicant.deleteApplicant();
 				@SuppressWarnings("rawtypes")
-				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
+				Vector resultsApplicant = InsertApplicantDataIntoTable
+						.insertApplicantDataIntoTable();
 				MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
 						MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 				MenuBarPanelApplicant.modelPool.fireTableDataChanged();
@@ -153,11 +161,10 @@ public class MenuBarPanelOverview {
 		}
 		buttonSettingsApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
-		
-		
+
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelContentOverview.add(buttonRefreshJob);
 		buttonRefreshJob.setPreferredSize(new Dimension(135, 135));
@@ -239,11 +246,9 @@ public class MenuBarPanelOverview {
 		}
 		buttonSettingsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
-
-
 
 	}
 

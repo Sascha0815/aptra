@@ -93,7 +93,8 @@ public class MenuBarPanelApplicant {
 		buttonRefreshApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				@SuppressWarnings("rawtypes")
-				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
+				Vector resultsApplicant = InsertApplicantDataIntoTable
+						.insertApplicantDataIntoTable();
 				modelPool.setDataVector(resultsApplicant,
 						COLUMN_IDENTIFIERS_APPLICANT);
 				modelPool.fireTableDataChanged();
@@ -143,9 +144,10 @@ public class MenuBarPanelApplicant {
 		}
 		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-			DeleteApplicant.deleteApplicant();
+				DeleteApplicant.deleteApplicant();
 				@SuppressWarnings("rawtypes")
-				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
+				Vector resultsApplicant = InsertApplicantDataIntoTable
+						.insertApplicantDataIntoTable();
 				modelPool.setDataVector(resultsApplicant,
 						COLUMN_IDENTIFIERS_APPLICANT);
 				modelPool.fireTableDataChanged();
@@ -177,7 +179,7 @@ public class MenuBarPanelApplicant {
 		}
 		buttonSettingsApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
 

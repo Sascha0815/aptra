@@ -204,7 +204,6 @@ public class SearchApplicant {
 			System.out.println("Datenbank - searchApplicant" + e.getMessage());
 		}
 
-		
 		return resultsSearchApplicant;
 
 	}

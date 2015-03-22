@@ -16,7 +16,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class DialogEditWarning {
 
 	private static JDialog dialogEditWarning = new JDialog(Oberflaeche.frame);
@@ -32,7 +31,8 @@ public class DialogEditWarning {
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
-		panelEditWarning.setLayout(new BoxLayout(panelEditWarning, BoxLayout.Y_AXIS));
+		panelEditWarning.setLayout(new BoxLayout(panelEditWarning,
+				BoxLayout.Y_AXIS));
 		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 5)));
 		panelEditWarning.add(labelEditWarning);
 		panelEditWarning.setBackground(Color.LIGHT_GRAY);

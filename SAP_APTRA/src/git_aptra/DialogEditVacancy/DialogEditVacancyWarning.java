@@ -31,7 +31,8 @@ public class DialogEditVacancyWarning {
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
-		panelEditWarning.setLayout(new BoxLayout(panelEditWarning, BoxLayout.Y_AXIS));
+		panelEditWarning.setLayout(new BoxLayout(panelEditWarning,
+				BoxLayout.Y_AXIS));
 		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 5)));
 		panelEditWarning.add(labelEditWarning);
 		panelEditWarning.setBackground(Color.LIGHT_GRAY);

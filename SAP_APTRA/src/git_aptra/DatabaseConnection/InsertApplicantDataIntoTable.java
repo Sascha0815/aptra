@@ -39,7 +39,7 @@ public class InsertApplicantDataIntoTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	
+
 		return resultsApplicant;
 	}
 }
