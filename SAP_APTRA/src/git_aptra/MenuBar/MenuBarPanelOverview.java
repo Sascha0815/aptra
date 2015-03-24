@@ -11,6 +11,7 @@ import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditWarning;
 import git_aptra.DialogEditApplicant.EditApplicant;
 import git_aptra.DialogInfoApplicant.DialogInfoApplicant;
+import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -228,6 +229,7 @@ public class MenuBarPanelOverview {
 			}
 		});
 		buttonSearchJob.setToolTipText("Einstellungen");
+		buttonSearchJob.setToolTipText("Stellen suchen");
 		panelContentOverview.add(buttonSearchJob);
 		buttonSearchJob.setPreferredSize(new Dimension(135, 135));
 		try {
@@ -236,6 +238,11 @@ public class MenuBarPanelOverview {
 			buttonSearchJob.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
+		buttonSearchJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogSearchVacancy.searchVacancy();
+			}
+		});
 		buttonSettingsJob.setToolTipText("Programm schlieﬂen");
 		panelContentOverview.add(buttonSettingsJob);
 		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));

@@ -4,7 +4,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.DatabaseConnection.DeleteVacancy;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
-import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
+//import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditVacancy.DialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
 import git_aptra.DialogEditVacancy.EditVacancy;
