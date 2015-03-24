@@ -4,9 +4,11 @@ import git_aptra.Oberflaeche;
 import git_aptra.DatabaseConnection.DeleteVacancy;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
+import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditVacancy.DialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
 import git_aptra.DialogEditVacancy.EditVacancy;
+import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -162,6 +164,11 @@ public class MenuBarPanelWorkplace {
 			buttonSearchJob.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
+		buttonSearchJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogSearchVacancy.searchVacancy();
+			}
+		});
 		buttonSettingsJob.setToolTipText("Programm schlieﬂen");
 		panelButtonWorkplace.add(buttonSettingsJob);
 		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
