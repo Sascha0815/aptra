@@ -34,7 +34,7 @@ public class EditVacancyData {
 					DialogEditVacancyGeneral.getPosition());
 			preparedStatement.setString(2, DialogEditVacancyGeneral.getArea());
 			preparedStatement.setString(3,
-					DialogEditVacancyGeneral.getlRequirementLevel());
+					DialogEditVacancyGeneral.getRequirementLevel());
 			preparedStatement.setString(4,
 					DialogEditVacancyGeneral.getTermsOfEmployment());
 			preparedStatement.setString(5,

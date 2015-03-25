@@ -62,7 +62,6 @@ public class DialogSearchVacancy {
 		dialogSearchVacancy.setResizable(false);
 		dialogSearchVacancy.setTitle("Stellenausschreibung suchen");
 		dialogSearchVacancy.add(tabSearchVacancy);
-		DialogSearchVacancy.searchVacancy();
 		DialogSearchVacancyGeneral.searchVacancyGeneral();
 		DialogSearchVacancySpecification.searchVacancySpecification();	
 		SwingUtilities.updateComponentTreeUI(dialogSearchVacancy);		

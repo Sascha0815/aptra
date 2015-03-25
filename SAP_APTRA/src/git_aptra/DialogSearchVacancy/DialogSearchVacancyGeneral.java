@@ -106,40 +106,29 @@ public class DialogSearchVacancyGeneral {
 			area = fieldArea.getText();
 			requirementLevel = String.valueOf(boxRequirementLevel
 					.getSelectedItem());
+			if (requirementLevel.equals("Bitte auswählen")) {
+				requirementLevel = "";
+			}
 			termsOfEmployment = String.valueOf(boxTermsOfEmployment
 					.getSelectedItem());
+			if (termsOfEmployment.equals("Bitte auswählen")) {
+				termsOfEmployment = "";
+			}
 			educationalAchievementVacancy = String.valueOf(boxEducationalAchievement
 					.getSelectedItem());
+			if (educationalAchievementVacancy.equals("Bitte auswählen")) {
+				educationalAchievementVacancy = "";
+			}
 			vacancyStatus = String.valueOf(boxVacancyStatus
 					.getSelectedItem());
+			if (vacancyStatus.equals("Bitte auswählen")) {
+				vacancyStatus = "";
+			}
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
 	}
-/*
-		if (area.equals("")) {
-			return false;
-		}
-		if (position.equals("")) {
-			return false;
-		} 
-		if (requirementLevel.equals("")) {
-			return false;
-		}
-		if (termsOfEmployment.equals("")) {
-			return false;
-		}
-		if (educationalAchievementVacancy.equals("")) {
-			return false;
-		}
-		if (vacancyStatus.equals("")) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-*/	
+	
 	public static void reset() {
 		panelSearchDialogVacancyMain.removeAll();
 		fieldArea.setText("");
@@ -150,7 +139,7 @@ public class DialogSearchVacancyGeneral {
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
-	public static String getlRequirementLevel() {
+	public static String getRequirementLevel() {
 		return requirementLevel;
 	}
 

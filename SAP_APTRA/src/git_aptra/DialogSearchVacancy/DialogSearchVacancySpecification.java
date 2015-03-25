@@ -109,13 +109,6 @@ public class DialogSearchVacancySpecification {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-/*
-		if (level.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
-		*/
 	}
 	
 	public static void reset() {
@@ -125,6 +118,8 @@ public class DialogSearchVacancySpecification {
 		boxMonth.setSelectedIndex(0);
 		boxYear.setSelectedIndex(0);
 		panelSearchVacancySpecification.removeAll();
+		ActionListener[] al = search.getActionListeners();
+		search.removeActionListener(al[0]);
 	}
 
 	public static String getLevel() {

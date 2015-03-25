@@ -1,8 +1,8 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.DialogApplicantSearch.DialogSearchApplicantApplication;
-import git_aptra.DialogApplicantSearch.DialogSearchApplicantContact;
-import git_aptra.DialogApplicantSearch.DialogSearchApplicantGeneral;
+import git_aptra.DialogSearchApplicant.DialogSearchApplicantApplication;
+import git_aptra.DialogSearchApplicant.DialogSearchApplicantContact;
+import git_aptra.DialogSearchApplicant.DialogSearchApplicantGeneral;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

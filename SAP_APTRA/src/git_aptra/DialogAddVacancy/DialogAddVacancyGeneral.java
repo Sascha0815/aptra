@@ -148,7 +148,7 @@ public class DialogAddVacancyGeneral {
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
-	public static String getlRequirementLevel() {
+	public static String getRequirementLevel() {
 		return requirementLevel;
 	}
 

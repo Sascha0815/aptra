@@ -6,11 +6,11 @@ import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
-import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;
 import git_aptra.DialogEditApplicant.DialogEditWarning;
 import git_aptra.DialogEditApplicant.EditApplicant;
 import git_aptra.DialogInfoApplicant.DialogInfoApplicant;
+import git_aptra.DialogSearchApplicant.DialogSearchApplicant;
 import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
 
 import java.awt.BorderLayout;

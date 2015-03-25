@@ -5,7 +5,7 @@ import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
-import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
+import git_aptra.DialogSearchApplicant.DialogSearchApplicant;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

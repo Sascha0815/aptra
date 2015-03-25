@@ -26,7 +26,7 @@ public class InsertVacancyData {
 					DialogAddVacancyGeneral.getPosition());
 			preparedStatement.setString(2, DialogAddVacancyGeneral.getArea());
 			preparedStatement.setString(3,
-					DialogAddVacancyGeneral.getlRequirementLevel());
+					DialogAddVacancyGeneral.getRequirementLevel());
 			preparedStatement.setString(4,
 					DialogAddVacancyGeneral.getTermsOfEmployment());
 			preparedStatement.setString(5,
