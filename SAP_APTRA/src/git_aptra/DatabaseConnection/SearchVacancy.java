@@ -20,7 +20,7 @@ public class SearchVacancy {
 	private static String educationalAchievementVacancy;
 	private static String level;
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector searchVacancy() {
 		Connection dbConnection = null;
 		Vector resultsSearchVacancy = new Vector();

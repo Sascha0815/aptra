@@ -6,6 +6,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
 import git_aptra.DialogSearchApplicant.DialogSearchApplicant;
+import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,19 +27,23 @@ public class MenuBar {
 
 	private static JMenuItem itemApplicant = new JMenuItem();
 	private static JMenuItem itemJob = new JMenuItem();
-	private static JMenuItem itemSearch = new JMenuItem();
+	private static JMenuItem itemSearchApplicant = new JMenuItem();
+	private static JMenuItem itemSearchJob = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
 	private static JMenuItem itemChangeDesign = new JMenuItem();
 
 	// SWING: MenuBar mit Reitern, Einträgen und ActionListenern
 	public static void addMenuBar() {
+		
 		// MenuBar
 		Oberflaeche.frame.setJMenuBar(menuBar);
 
-		// MenuNew
+		// Menu Neu
 		menuBar.add(menuNew);
 		menuNew.setText("Neu");
+		
+		// MenuItem Neuer Bewerber
 		menuNew.add(itemApplicant);
 		itemApplicant.setText("Neuer Bewerber");
 		try {
@@ -52,6 +57,8 @@ public class MenuBar {
 				DialogAddApplicant.newApplicant();
 			}
 		});
+		
+		// MenuItem Neue Arbeitsstelle
 		menuNew.add(itemJob);
 		itemJob.setText("Neues Stellenangebot");
 		try {
@@ -65,19 +72,38 @@ public class MenuBar {
 				DialogAddVacancy.newVacancy();
 			}
 		});
-		menuNew.add(itemSearch);
-		itemSearch.setText("Bewerber suchen");
+		
+		// MenuItem Bewerber suchen
+		menuNew.add(itemSearchApplicant);
+		itemSearchApplicant.setText("Bewerber suchen");
 		try {
 			Image close = ImageIO.read(MenuBar.class
 					.getResource("resources/search_small.png"));
-			itemSearch.setIcon(new ImageIcon(close));
+			itemSearchApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		itemSearch.addActionListener(new ActionListener() {
+		itemSearchApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogSearchApplicant.searchApplicant();
 			}
 		});
+		
+		// MenuItem Arbeitsstelle suchen
+		menuNew.add(itemSearchJob);
+		itemSearchJob.setText("Arbeitsstelle suchen");
+		try {
+			Image close = ImageIO.read(MenuBar.class
+					.getResource("resources/search_small.png"));
+			itemSearchJob.setIcon(new ImageIcon(close));
+		} catch (IOException ex) {
+		}
+		itemSearchJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogSearchVacancy.searchVacancy();
+			}
+		});
+		
+		// MenuItem Programm beenden
 		menuNew.add(itemExit);
 		itemExit.setText("Beenden");
 		try {
@@ -92,10 +118,12 @@ public class MenuBar {
 			}
 		});
 
-		// MenuSettings
+		// Menu Einstellungen
 		menuBar.add(menuSettings);
 		menuSettings.setText("Einstellungen");
 		menuSettings.add(itemChangeDesign);
+		
+		// MenuItem Design ändern
 		itemChangeDesign.setText("Desgin ändern");
 		try {
 			Image settings = ImageIO.read(MenuBar.class
@@ -109,7 +137,7 @@ public class MenuBar {
 			}
 		});
 
-		// MenuHelp
+		// Menu Hilfe
 		menuBar.add(menuHelp);
 		menuHelp.setText("Hilfe");
 		menuHelp.add(itemAbout);
