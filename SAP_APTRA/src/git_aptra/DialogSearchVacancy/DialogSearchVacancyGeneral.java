@@ -19,11 +19,13 @@ public class DialogSearchVacancyGeneral {
 
 	private static JPanel panelSearchDialogVacancyMain = new JPanel();
 
+	private static JLabel labelVacancyID = new JLabel();
 	private static JLabel labelArea = new JLabel();
 	private static JLabel labelInstruction2 = new JLabel();
 	private static JLabel labelPosition = new JLabel();
 	private static JLabel labelRequirementLevel = new JLabel();
 
+	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
 
@@ -59,8 +61,13 @@ public class DialogSearchVacancyGeneral {
 		panelSearchDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelSearchDialogVacancyMain.add(labelInstruction2);
 		labelInstruction2
-				.setText("Bitte tragen Sie alle erfoderlichen Daten ein!");
+				.setText("Bitte tragen Sie die gesuchten Daten ein!");
 		labelInstruction2.setFont(fontHeadline);
+		
+		panelSearchDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelSearchDialogVacancyMain.add(labelVacancyID);
+		labelVacancyID.setText("Identifikationsnummer:");
+		panelSearchDialogVacancyMain.add(fieldVacancyID);
 		panelSearchDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelSearchDialogVacancyMain.add(labelPosition);
 		labelPosition.setText("Stellenbezeichnung:");
@@ -93,6 +100,7 @@ public class DialogSearchVacancyGeneral {
 
 	}
 
+	private static String vacancyID;
 	private static String position;
 	private static String area;
 	private static String requirementLevel;
@@ -102,6 +110,7 @@ public class DialogSearchVacancyGeneral {
 	
 	public static void getGeneral() {
 		try {
+			vacancyID = fieldVacancyID.getText();
 			position = fieldPosition.getText();
 			area = fieldArea.getText();
 			requirementLevel = String.valueOf(boxRequirementLevel
@@ -131,6 +140,7 @@ public class DialogSearchVacancyGeneral {
 	
 	public static void reset() {
 		panelSearchDialogVacancyMain.removeAll();
+		fieldVacancyID.setText("");
 		fieldArea.setText("");
 		fieldPosition.setText("");
 		boxRequirementLevel.setSelectedIndex(0);
@@ -139,6 +149,9 @@ public class DialogSearchVacancyGeneral {
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
+	public static String getVacancyID(){
+		return vacancyID;
+	}
 	public static String getRequirementLevel() {
 		return requirementLevel;
 	}

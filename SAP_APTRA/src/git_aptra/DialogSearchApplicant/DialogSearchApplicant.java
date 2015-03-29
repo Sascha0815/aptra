@@ -57,7 +57,7 @@ public class DialogSearchApplicant {
 			}
 		});
 		dialogSearchApplicant.setVisible(true);
-		dialogSearchApplicant.setSize(450, 400);
+		dialogSearchApplicant.setSize(450, 500);
 		dialogSearchApplicant.setLocationRelativeTo(null);
 		dialogSearchApplicant.setResizable(false);
 		dialogSearchApplicant.setTitle("Bewerber suchen");

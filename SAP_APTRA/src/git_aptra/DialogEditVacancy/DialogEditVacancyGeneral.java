@@ -20,9 +20,11 @@ public class DialogEditVacancyGeneral {
 
 	private static JLabel labelArea = new JLabel();
 	private static JLabel labelInstruction2 = new JLabel();
+	private static JLabel labelVacancyID = new JLabel();
 	private static JLabel labelPosition = new JLabel();
 	private static JLabel labelRequirementLevel = new JLabel();
 
+	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
 
@@ -60,6 +62,12 @@ public class DialogEditVacancyGeneral {
 		labelInstruction2
 				.setText("Bitte tragen Sie alle erfoderlichen Daten ein!");
 		labelInstruction2.setFont(fontHeadline);
+		
+		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogVacancyMain.add(labelVacancyID);
+		labelVacancyID.setText("Identifikationsnummer:");
+		panelDialogVacancyMain.add(fieldVacancyID);
+		
 		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelDialogVacancyMain.add(labelPosition);
 		labelPosition.setText("Stellenbezeichnung:");
@@ -101,6 +109,7 @@ public class DialogEditVacancyGeneral {
 
 	}
 
+	private static String vacancyID;
 	private static String position;
 	private static String area;
 	private static String requirementLevel;
@@ -110,6 +119,7 @@ public class DialogEditVacancyGeneral {
 
 	public static boolean getGeneral() {
 		try {
+			vacancyID = fieldVacancyID.getText();
 			position = fieldPosition.getText();
 			area = fieldArea.getText();
 			requirementLevel = String.valueOf(boxRequirementLevel
@@ -123,6 +133,9 @@ public class DialogEditVacancyGeneral {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
 
+		if (vacancyID.equals(" ")){
+			return false;
+		}
 		if (area.equals("")) {
 			return false;
 		}
@@ -147,6 +160,7 @@ public class DialogEditVacancyGeneral {
 
 	public static void reset() {
 		panelDialogVacancyMain.removeAll();
+		fieldVacancyID.setText("");
 		fieldArea.setText("");
 		fieldPosition.setText("");
 		boxRequirementLevel.setSelectedIndex(0);
@@ -155,6 +169,9 @@ public class DialogEditVacancyGeneral {
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
+	public static String getVacancyID(){
+		return vacancyID;
+	}
 	public static String getRequirementLevel() {
 		return requirementLevel;
 	}

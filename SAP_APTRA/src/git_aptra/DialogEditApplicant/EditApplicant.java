@@ -3,6 +3,7 @@ package git_aptra.DialogEditApplicant;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class EditApplicant {
+	private static String DataSetApplicantID;
 	private static String DataSetName;
 	private static String DataSetFirstName;
 	private static String DataSetStreet;
@@ -20,6 +21,8 @@ public class EditApplicant {
 	private static String DataSetEducationalAchievement;
 
 	public static void getSelectedRow() {
+	//	DataSetApplicantID = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
+	//			MenuBarPanelApplicant.tableApplicant.getSelectedRow(),...);
 		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
 				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
 
@@ -70,6 +73,9 @@ public class EditApplicant {
 						12);
 	}
 
+	public static String getDataSetVacancyID(){
+		return DataSetApplicantID;
+	}
 	public static String getDataSetName() {
 		return DataSetName;
 	}
@@ -124,6 +130,10 @@ public class EditApplicant {
 
 	public static int getDataSetDay() {
 		return DataSetDay;
+	}
+
+	public static String getDataSetApplicantID() {
+		return null;
 	}
 
 }

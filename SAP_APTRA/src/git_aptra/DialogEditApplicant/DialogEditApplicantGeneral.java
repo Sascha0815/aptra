@@ -11,24 +11,28 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class DialogEditApplicantGeneral {
+	private static JLabel labelApplicantID = new JLabel("Identifikationsnummer:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straße:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
 	private static JLabel labelInstruction = new JLabel(
-			"Bitte tragen Sie alle erforderlichen Daten ein!");
+			"Änderungen der Stammdaten!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
 	public static JPanel panelDialogEditApplicantMain = new JPanel();
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	
 
+	private static String applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -40,10 +44,17 @@ public class DialogEditApplicantGeneral {
 		panelDialogEditApplicantMain.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditApplicantMain.setLayout(new BoxLayout(
 				panelDialogEditApplicantMain, BoxLayout.Y_AXIS));
+		
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
 		panelDialogEditApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
+		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
+				10)));
+		fieldApplicantID.setFont(fontTextField);
+		panelDialogEditApplicantMain.add(labelApplicantID);
+		panelDialogEditApplicantMain.add(fieldApplicantID);
+		//labelApplicantID.setText(EditApplicant.getDataSetApplicantID());
 		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
 		panelDialogEditApplicantMain.add(labelName);
@@ -88,6 +99,7 @@ public class DialogEditApplicantGeneral {
 
 	public static void reset() {
 		panelDialogEditApplicantMain.removeAll();
+		fieldApplicantID.setText("");
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
@@ -97,6 +109,7 @@ public class DialogEditApplicantGeneral {
 	}
 
 	public static boolean getGeneral() {
+		applicantID = fieldApplicantID.getText();
 		name = fieldName.getText();
 		firstName = fieldFirstName.getText();
 		street = fieldStreet.getText();
@@ -104,6 +117,9 @@ public class DialogEditApplicantGeneral {
 		postalCode = Integer.parseInt(fieldPostalCode.getText());
 		city = fieldCity.getText();
 
+		if (applicantID.equals(" ")){
+			return false;
+		}
 		if (name.equals("")) {
 			return false;
 		}
@@ -124,6 +140,10 @@ public class DialogEditApplicantGeneral {
 		} else {
 			return true;
 		}
+	}
+
+	public static String getApplicantID() {
+		return applicantID;
 	}
 
 	public static String getName() {

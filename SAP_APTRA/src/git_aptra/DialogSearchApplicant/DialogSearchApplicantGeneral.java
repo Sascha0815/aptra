@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class DialogSearchApplicantGeneral {
+	private static JLabel labelApplicantID = new JLabel("Identifikationsnummer:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straﬂe:");
@@ -22,6 +23,7 @@ public class DialogSearchApplicantGeneral {
 	public static JPanel panelDialogSearchApplicantMain = new JPanel();
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
@@ -29,12 +31,15 @@ public class DialogSearchApplicantGeneral {
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
 
+	private static String applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
 	private static int houseNr;
 	private static int postalCode;
 	private static String city;
+
+
 
 	public static void searchApplicantGeneral() {
 		panelDialogSearchApplicantMain.setBackground(Color.LIGHT_GRAY);
@@ -44,6 +49,12 @@ public class DialogSearchApplicantGeneral {
 				10)));
 		panelDialogSearchApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
+		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
+				10)));
+		fieldApplicantID.setFont(fontTextField);
+		panelDialogSearchApplicantMain.add(labelApplicantID);
+		panelDialogSearchApplicantMain.add(fieldApplicantID);
+		//labelApplicantID.setText(EditApplicant.getDataSetApplicantID());
 		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
 		panelDialogSearchApplicantMain.add(labelName);
@@ -93,6 +104,7 @@ public class DialogSearchApplicantGeneral {
 		} catch (Exception e) {
 			postalCode = 0;
 		}
+		applicantID = fieldApplicantID.getText();
 		name = fieldName.getText();
 		firstName = fieldFirstName.getText();
 		street = fieldStreet.getText();
@@ -101,12 +113,18 @@ public class DialogSearchApplicantGeneral {
 
 	public static void reset() {
 		panelDialogSearchApplicantMain.removeAll();
+		fieldApplicantID.setText("");
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
+	}
+
+
+	public static String getApplicantID() {
+		return applicantID;
 	}
 
 	public static String getName() {
@@ -132,4 +150,10 @@ public class DialogSearchApplicantGeneral {
 	public static String getCity() {
 		return city;
 	}
+
+	public static JLabel getLabelApplicantID() {
+		return labelApplicantID;
+	}
+
+	
 }

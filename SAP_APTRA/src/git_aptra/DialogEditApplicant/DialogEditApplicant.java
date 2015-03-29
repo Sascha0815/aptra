@@ -57,7 +57,7 @@ public class DialogEditApplicant {
 			}
 		});
 		dialogEditApplicant.setVisible(true);
-		dialogEditApplicant.setSize(450, 400);
+		dialogEditApplicant.setSize(450, 500);
 		dialogEditApplicant.setLocationRelativeTo(null);
 		dialogEditApplicant.setResizable(false);
 		dialogEditApplicant.setTitle("Bewerber bearbeiten");
