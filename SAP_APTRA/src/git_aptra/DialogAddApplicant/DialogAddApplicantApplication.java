@@ -35,7 +35,6 @@ public class DialogAddApplicantApplication {
 			1973, 1972, 1971, 1970 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxYear = new JComboBox(boxListYear);
-	private static JLabel labelVacancy = new JLabel("Bewerbung für die Stelle:");
 	private static JLabel labelDate = new JLabel("Geburtsdatum:");
 	
 	//Bewerbungseingang
@@ -54,10 +53,12 @@ public class DialogAddApplicantApplication {
 	private static JComboBox boxApplyYear = new JComboBox(boxListYear);
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	
-	
+	private static JLabel labelVacancy = new JLabel("Stellenbeschreibung:");
+	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JTextField fieldVacancy = new JTextField();
+	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
@@ -68,6 +69,7 @@ public class DialogAddApplicantApplication {
 	private static Calendar cal = Calendar.getInstance();
 	private static String educationalAchievement;
 	private static String vacancy;
+	private static String vacancyID;
 
 	public static void addApplicantApplication() {
 		panelDialogApplicantApplication.setBackground(Color.LIGHT_GRAY);
@@ -89,9 +91,16 @@ public class DialogAddApplicantApplication {
 		
 		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
+		panelDialogApplicantApplication.add(labelVacancyID);
+		labelVacancyID.setFont(fontTextField);
+		panelDialogApplicantApplication.add(fieldVacancyID);
+		
+		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+				0, 10)));
 		panelDialogApplicantApplication.add(labelVacancy);
 		labelVacancy.setFont(fontTextField);
 		panelDialogApplicantApplication.add(fieldVacancy);
+		
 		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		fieldVacancy.setFont(fontTextField);
@@ -121,6 +130,7 @@ public class DialogAddApplicantApplication {
 
 	public static boolean getApplication() {
 		try {
+			vacancyID = fieldVacancyID.getText();
 			vacancy = fieldVacancy.getText();
 			day = (int) boxDay.getSelectedItem();
 			month = (int) boxMonth.getSelectedItem();
@@ -134,6 +144,9 @@ public class DialogAddApplicantApplication {
 
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());
+		if (vacancyID.equals("")){
+			return false;
+		}
 		if (vacancy.equals("")) {
 			return false;
 		}
@@ -147,6 +160,7 @@ public class DialogAddApplicantApplication {
 
 	public static void reset() {
 		panelDialogApplicantApplication.removeAll();
+		fieldVacancyID.setText("");
 		fieldVacancy.setText("");
 		fieldDate.setText("");
 		boxDay.setSelectedIndex(0);
@@ -161,6 +175,9 @@ public class DialogAddApplicantApplication {
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
+	}
+	public static String getVacancyID(){
+		return vacancyID;
 	}
 
 	public static String getVacancy() {

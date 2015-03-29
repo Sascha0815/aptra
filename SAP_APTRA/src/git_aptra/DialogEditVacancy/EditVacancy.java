@@ -3,6 +3,7 @@ package git_aptra.DialogEditVacancy;
 import git_aptra.MenuBar.MenuBarPanelWorkplace;
 
 public class EditVacancy {
+	private static String DataSetVacancyID;
 	private static String DataSetPosition;
 	private static String DataSetArea;
 	private static String DataSetRequirementLevel;
@@ -16,6 +17,8 @@ public class EditVacancy {
 	private static int DataSetYear;
 
 	public static void getSelectedRow() {
+		//DataSetVacancyID = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
+		//		MenuBarPanelWorkplace.tableJob.getSelectedRow(), ...);
 		DataSetPosition = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
 				MenuBarPanelWorkplace.tableJob.getSelectedRow(), 1);
 		DataSetArea = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
@@ -36,6 +39,9 @@ public class EditVacancy {
 		DataSetYear = Integer.parseInt(split[0].toString());
 		DataSetMonth = Integer.parseInt(split[1].toString());
 		DataSetDay = Integer.parseInt(split[2].toString());
+	}
+	public static String getDataSetVacancyID(){
+		return DataSetVacancyID;
 	}
 
 	public static String getDataSetPosition() {
