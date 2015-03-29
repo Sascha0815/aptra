@@ -19,6 +19,7 @@ public class DialogAddApplicantApplication {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(
 			boxListEducationalAchievement);
+	//Geburtsdatum
 	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
 			29, 30, 31 };
@@ -36,7 +37,24 @@ public class DialogAddApplicantApplication {
 	private static JComboBox boxYear = new JComboBox(boxListYear);
 	private static JLabel labelVacancy = new JLabel("Bewerbung für die Stelle:");
 	private static JLabel labelDate = new JLabel("Geburtsdatum:");
-	@SuppressWarnings("unused")
+	
+	//Bewerbungseingang
+	private static Integer[] boxListApplyDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+		12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+		29, 30, 31 };
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxApplyDay = new JComboBox(boxListApplyDay);
+	private static Integer[] boxListApplyMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+		11, 12 };
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxApplyMonth = new JComboBox(boxListApplyMonth);
+	private static Integer[] boxListApplyYear = { 2015, 2016, 2017, 2018, 2019,
+		2020, 2021, 2022, 2023, 2024};
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxApplyYear = new JComboBox(boxListYear);
+	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
+	
+	
 	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JTextField fieldVacancy = new JTextField();
@@ -55,6 +73,20 @@ public class DialogAddApplicantApplication {
 		panelDialogApplicantApplication.setBackground(Color.LIGHT_GRAY);
 		panelDialogApplicantApplication.setLayout(new BoxLayout(
 				panelDialogApplicantApplication, BoxLayout.Y_AXIS));
+		
+		panelDialogApplicantApplication.add(labelApplyDate);
+		labelApplyDate.setFont(fontTextField);
+		boxApplyDay.setToolTipText("Tag");
+		panelDialogApplicantApplication.add(boxApplyDay);
+		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+				0, 10)));
+		boxApplyMonth.setToolTipText("Monat");
+		panelDialogApplicantApplication.add(boxApplyMonth);
+		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
+				0, 10)));
+		boxApplyYear.setToolTipText("Jahr");
+		panelDialogApplicantApplication.add(boxApplyYear);
+		
 		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		panelDialogApplicantApplication.add(labelVacancy);
@@ -134,5 +166,18 @@ public class DialogAddApplicantApplication {
 	public static String getVacancy() {
 		return vacancy;
 	}
+
+	public static JLabel getLabelApplyVacancy() {
+		return labelApplyDate;
+	}
+
+	public static Integer[] getBoxListApplyYear() {
+		return boxListApplyYear;
+	}
+
+	public Font getFontHeadline() {
+		return fontHeadline;
+	}
+
 
 }
