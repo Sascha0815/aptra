@@ -53,7 +53,7 @@ public class DialogAddVacancySpecification {
 		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		panelDialogVacancySpecification.add(labelLevel);
-		labelLevel.setText("Art des Bewerbers:");
+		labelLevel.setText("Zusatz/Vermerk:");
 		panelDialogVacancySpecification.add(fieldLevel);
 		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
 				0, 10)));
@@ -80,6 +80,7 @@ public class DialogAddVacancySpecification {
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewVacancy.save();
+				
 			}
 		});
 	}

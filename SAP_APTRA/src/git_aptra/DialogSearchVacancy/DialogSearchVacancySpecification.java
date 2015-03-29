@@ -53,7 +53,7 @@ public class DialogSearchVacancySpecification {
 		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		panelSearchVacancySpecification.add(labelLevel);
-		labelLevel.setText("Art des Bewerbers:");
+		labelLevel.setText("Zusatz/Vermerk:");
 		panelSearchVacancySpecification.add(fieldLevel);
 		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
 				0, 10)));

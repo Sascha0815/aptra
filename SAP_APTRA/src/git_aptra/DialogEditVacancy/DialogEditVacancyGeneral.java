@@ -39,7 +39,7 @@ public class DialogEditVacancyGeneral {
 			boxListTermsOfEmployment);
 	private static JLabel labelVacancyStatus = new JLabel();
 	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben",
-			"", "Bewerbungsgespräche", "Vorauswahl", "Abgeschlossen" };
+			"Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche","Entscheidung", "Abgeschlossen" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxVacancyStatus = new JComboBox(boxListVacancyStatus);
 	private static JLabel labelEducationalAchievement = new JLabel(
