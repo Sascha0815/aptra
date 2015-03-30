@@ -12,7 +12,8 @@ import java.sql.Statement;
 import java.util.Vector;
 
 public class SearchApplicant {
-
+	
+	private static String applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -153,7 +154,7 @@ public class SearchApplicant {
 			vacancy = "";
 		}
 		if (!DialogSearchApplicantApplication.getEducationalAchievement()
-				.equals("")) {
+				.equals("Bitte auswählen")) {
 			if (first == true) {
 				educationalAcievement = "where educationalAchievement = '"
 						+ DialogSearchApplicantApplication
