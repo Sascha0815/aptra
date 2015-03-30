@@ -1,11 +1,14 @@
 package git_aptra;
 
 import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
 import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelOverview;
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.MenuBar.MenuBarPanelWorkplace;
 
 public class Oberflaeche extends JFrame {
@@ -38,6 +41,7 @@ public class Oberflaeche extends JFrame {
 		MenuBarPanelOverview.addPanelOverview();
 		MenuBarPanelApplicant.addPanelApplicant();
 		MenuBarPanelWorkplace.addPanelWorkplace();
+		MenuBarPanelVacancyManagement.addPanelVacancyManagement();
 
 	}
 

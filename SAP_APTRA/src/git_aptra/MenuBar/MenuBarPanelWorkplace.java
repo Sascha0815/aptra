@@ -23,6 +23,7 @@ import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -67,6 +68,8 @@ public class MenuBarPanelWorkplace {
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {
+		
+		
 		panelWorkplace.setLayout(new BorderLayout(5, 5));
 		panelWorkplace.add(panelButtonWorkplace, BorderLayout.EAST);
 		panelWorkplace.add(panelContentWorkplace, BorderLayout.CENTER);
