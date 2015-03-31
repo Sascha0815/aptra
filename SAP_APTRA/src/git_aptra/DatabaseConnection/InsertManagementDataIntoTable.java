@@ -17,12 +17,13 @@ public class InsertManagementDataIntoTable {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select name,firstName from applicant");
+			ResultSet rs = stmt.executeQuery("Select applicantID, name, firstName from applicant");
 
 			while (rs.next()) {
 				Vector vacancyManagement = new Vector();
 				vacancyManagement.add(rs.getString(1));
 				vacancyManagement.add(rs.getString(2));
+				vacancyManagement.add(rs.getString(3));
 				
 				resultsVacancyManagement.add(vacancyManagement);
 			}

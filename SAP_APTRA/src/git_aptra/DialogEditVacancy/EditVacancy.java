@@ -1,6 +1,6 @@
 package git_aptra.DialogEditVacancy;
 
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class EditVacancy {
 	private static String DataSetVacancyID;
@@ -19,22 +19,22 @@ public class EditVacancy {
 	public static void getSelectedRow() {
 		//DataSetVacancyID = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
 		//		MenuBarPanelWorkplace.tableJob.getSelectedRow(), ...);
-		DataSetPosition = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
-				MenuBarPanelWorkplace.tableJob.getSelectedRow(), 1);
-		DataSetArea = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
-				MenuBarPanelWorkplace.tableJob.getSelectedRow(), 2);
-		DataSetRequirementLevel = (String) MenuBarPanelWorkplace.tableJob
-				.getValueAt(MenuBarPanelWorkplace.tableJob.getSelectedRow(), 3);
-		DataSetTermsOfEmployment = (String) MenuBarPanelWorkplace.tableJob
-				.getValueAt(MenuBarPanelWorkplace.tableJob.getSelectedRow(), 4);
-		DataSetVacancyStatus = (String) MenuBarPanelWorkplace.tableJob
-				.getValueAt(MenuBarPanelWorkplace.tableJob.getSelectedRow(), 5);
-		DataSetEducationalAchievement = (String) MenuBarPanelWorkplace.tableJob
-				.getValueAt(MenuBarPanelWorkplace.tableJob.getSelectedRow(), 6);
-		DataSetLevel = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
-				MenuBarPanelWorkplace.tableJob.getSelectedRow(), 7);
-		DataSetDate = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
-				MenuBarPanelWorkplace.tableJob.getSelectedRow(), 8);
+		DataSetPosition = (String) MenuBarPanelVacancy.tableJob.getValueAt(
+				MenuBarPanelVacancy.tableJob.getSelectedRow(), 1);
+		DataSetArea = (String) MenuBarPanelVacancy.tableJob.getValueAt(
+				MenuBarPanelVacancy.tableJob.getSelectedRow(), 2);
+		DataSetRequirementLevel = (String) MenuBarPanelVacancy.tableJob
+				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 3);
+		DataSetTermsOfEmployment = (String) MenuBarPanelVacancy.tableJob
+				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 4);
+		DataSetVacancyStatus = (String) MenuBarPanelVacancy.tableJob
+				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 5);
+		DataSetEducationalAchievement = (String) MenuBarPanelVacancy.tableJob
+				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 6);
+		DataSetLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(
+				MenuBarPanelVacancy.tableJob.getSelectedRow(), 7);
+		DataSetDate = (String) MenuBarPanelVacancy.tableJob.getValueAt(
+				MenuBarPanelVacancy.tableJob.getSelectedRow(), 8);
 		String[] split = DataSetDate.split("-");
 		DataSetYear = Integer.parseInt(split[0].toString());
 		DataSetMonth = Integer.parseInt(split[1].toString());

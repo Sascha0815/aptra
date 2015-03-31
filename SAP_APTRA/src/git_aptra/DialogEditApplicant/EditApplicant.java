@@ -21,8 +21,6 @@ public class EditApplicant {
 	private static String DataSetEducationalAchievement;
 
 	public static void getSelectedRow() {
-	//	DataSetApplicantID = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
-	//			MenuBarPanelApplicant.tableApplicant.getSelectedRow(),...);
 		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
 				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
 

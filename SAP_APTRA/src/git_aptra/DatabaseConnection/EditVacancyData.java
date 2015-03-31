@@ -2,7 +2,7 @@ package git_aptra.DatabaseConnection;
 
 import git_aptra.DialogEditVacancy.DialogEditVacancyGeneral;
 import git_aptra.DialogEditVacancy.DialogEditVacancySpecification;
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class EditVacancyData {
 
 	public static void editVacancyData() throws SQLException {
 		Connection dbConnection = null;
-		int id = MenuBarPanelWorkplace.tableJob.getSelectedRow() + 1;
+		int id = MenuBarPanelVacancy.tableJob.getSelectedRow() + 1;
 
 		try {
 			dbConnection = DriverManager.getConnection(

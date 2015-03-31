@@ -3,7 +3,7 @@ package git_aptra.DatabaseConnection;
 import git_aptra.DialogEditVacancy.CloseDialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyGeneral;
 import git_aptra.DialogEditVacancy.DialogEditVacancySpecification;
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
 import java.util.Vector;
@@ -21,9 +21,9 @@ public class SaveDataEditVacancy {
 			@SuppressWarnings("rawtypes")
 			Vector resultsVacancy = InsertVacancyDateIntoTable
 					.insertVacancyDataIntoTable();
-			MenuBarPanelWorkplace.modelJob.setDataVector(resultsVacancy,
-					MenuBarPanelWorkplace.COLUMN_IDENTIFIERS_JOB);
-			MenuBarPanelWorkplace.modelJob.fireTableDataChanged();
+			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
+					MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
+			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			CloseDialogEditVacancy.close();
 
 		}

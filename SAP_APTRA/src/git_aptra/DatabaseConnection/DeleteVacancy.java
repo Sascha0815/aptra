@@ -1,6 +1,6 @@
 package git_aptra.DatabaseConnection;
 
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,10 +21,10 @@ public class DeleteVacancy {
 			System.out.println("Datenbank - deleteVacancy" + e.getMessage());
 		}
 
-		int[] rows = MenuBarPanelWorkplace.tableJob.getSelectedRows();
+		int[] rows = MenuBarPanelVacancy.tableJob.getSelectedRows();
 		for (int i = 0; i < (rows.length); i++) {
 			try {
-				String ids = (String) MenuBarPanelWorkplace.tableJob
+				String ids = (String) MenuBarPanelVacancy.tableJob
 						.getValueAt(rows[i], 0);
 				int id = Integer.parseInt(ids);
 				String query = "delete from vacancy where vacancyID = " + id;

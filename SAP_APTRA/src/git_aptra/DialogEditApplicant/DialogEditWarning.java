@@ -26,7 +26,7 @@ public class DialogEditWarning {
 
 	public static void selectOnlyOne() {
 		dialogEditWarning.setVisible(true);
-		dialogEditWarning.setSize(400, 100);
+		dialogEditWarning.setSize(550, 100);
 		dialogEditWarning.setLocationRelativeTo(null);
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
@@ -37,7 +37,7 @@ public class DialogEditWarning {
 		panelEditWarning.add(labelEditWarning);
 		panelEditWarning.setBackground(Color.LIGHT_GRAY);
 		labelEditWarning.setSize(400, 50);
-		labelEditWarning.setText("Bitte nur einen Bewerber auswählen!");
+		labelEditWarning.setText("Sie haben entweder keinen oder mehr als einen Bewerber ausgewählt!");
 		labelEditWarning.setAlignmentX(Component.CENTER_ALIGNMENT);
 		labelEditWarning.setFont(fontWarning);
 		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 20)));

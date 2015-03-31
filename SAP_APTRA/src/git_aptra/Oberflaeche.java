@@ -9,7 +9,7 @@ import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelOverview;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class Oberflaeche extends JFrame {
 
@@ -29,7 +29,7 @@ public class Oberflaeche extends JFrame {
 		frame.setSize(1200, 800);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
-		frame.setTitle("Bewerberverwaltung");
+		frame.setTitle("aptra - Bewerberverwaltung");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 		frame.add(tabBar);
@@ -40,7 +40,7 @@ public class Oberflaeche extends JFrame {
 		MenuBar.addMenuBar();
 		MenuBarPanelOverview.addPanelOverview();
 		MenuBarPanelApplicant.addPanelApplicant();
-		MenuBarPanelWorkplace.addPanelWorkplace();
+		MenuBarPanelVacancy.addPanelWorkplace();
 		MenuBarPanelVacancyManagement.addPanelVacancyManagement();
 
 	}

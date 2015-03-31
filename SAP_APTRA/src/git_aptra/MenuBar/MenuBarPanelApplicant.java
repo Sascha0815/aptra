@@ -58,7 +58,7 @@ public class MenuBarPanelApplicant {
 		private static final long serialVersionUID = 1L;
 
 		{
-			add("Bewerbernummer");
+			add("Bewerber-ID");
 			add("Name");
 			add("Vorname");
 			add("Straße");
@@ -135,7 +135,7 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableApplicant.getSelectedRowCount() > 1) {
+				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
 					DialogEditWarning.selectOnlyOne();
 				} else {
 					EditApplicant.getSelectedRow();

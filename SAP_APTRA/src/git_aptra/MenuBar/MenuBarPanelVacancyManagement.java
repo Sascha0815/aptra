@@ -36,9 +36,9 @@ public class MenuBarPanelVacancyManagement {
 		private static final long serialVersionUID = 1L;
 
 		{
+			add("Bewerber-ID");
 			add("Name");
 			add("Vorname");
-			add("Bewerbernummer");
 			add("Status");
 			add("Rückmeldung");
 
@@ -120,7 +120,7 @@ public class MenuBarPanelVacancyManagement {
 				.setPreferredSize(new Dimension(135, 135));
 		buttonRefreshVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fieldManagementCount.setText(String.valueOf(MenuBarPanelApplicant.tableApplicant.getRowCount()));
+				
 			}
 		});
 		try {

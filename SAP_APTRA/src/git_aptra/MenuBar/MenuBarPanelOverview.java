@@ -176,7 +176,7 @@ public class MenuBarPanelOverview {
 			}
 		});
 		try {
-			Image add = ImageIO.read(MenuBarPanelWorkplace.class
+			Image add = ImageIO.read(MenuBarPanelVacancy.class
 					.getResource("resources/job_refresh.png"));
 			buttonRefreshJob.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
@@ -186,9 +186,9 @@ public class MenuBarPanelOverview {
 			public void actionPerformed(ActionEvent e) {
 				Vector resultsVacancy = InsertVacancyDateIntoTable
 						.insertVacancyDataIntoTable();
-				MenuBarPanelWorkplace.modelJob.setDataVector(resultsVacancy,
-						MenuBarPanelWorkplace.COLUMN_IDENTIFIERS_JOB);
-				MenuBarPanelWorkplace.modelJob.fireTableDataChanged();
+				MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
+						MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
+				MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			}
 		});
 		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
@@ -201,7 +201,7 @@ public class MenuBarPanelOverview {
 		});
 
 		try {
-			Image job = ImageIO.read(MenuBarPanelWorkplace.class
+			Image job = ImageIO.read(MenuBarPanelVacancy.class
 					.getResource("resources/job_add.png"));
 			butttonAddJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {

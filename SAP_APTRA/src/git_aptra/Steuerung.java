@@ -5,7 +5,7 @@ import git_aptra.DatabaseConnection.InsertManagementDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-import git_aptra.MenuBar.MenuBarPanelWorkplace;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.util.Vector;
 
@@ -22,9 +22,9 @@ public class Steuerung {
 		MenuBarPanelApplicant.modelPool.fireTableDataChanged();
 		Vector resultsVacancy = InsertVacancyDateIntoTable
 				.insertVacancyDataIntoTable();
-		MenuBarPanelWorkplace.modelJob.setDataVector(resultsVacancy,
-				MenuBarPanelWorkplace.COLUMN_IDENTIFIERS_JOB);
-		MenuBarPanelWorkplace.modelJob.fireTableDataChanged();
+		MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
+				MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
+		MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 		Vector resultsVacancyManagement = InsertManagementDataIntoTable
 				.insertManagementDataIntoTable();
 		MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancyManagement,
