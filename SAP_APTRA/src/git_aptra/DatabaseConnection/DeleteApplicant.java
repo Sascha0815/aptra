@@ -27,24 +27,13 @@ public class DeleteApplicant {
 				String ids = (String) MenuBarPanelApplicant.tableApplicant
 						.getValueAt(rows[i], 0);
 				int id = Integer.parseInt(ids);
-				String query = "delete from applicant where id = " + id;
+				String query = "delete from applicant where applicantID = " + id;
 				PreparedStatement preparedStmt = dbConnection
 						.prepareStatement(query);
 				preparedStmt.execute();
 			} catch (Exception e) {
-				System.out.println("exception search methode");
+				System.out.println("exception delete methode");
 			}
-		}
-
-		try {
-			String query = "ALTER TABLE `applicant` DROP `id`";
-			PreparedStatement preparedStmt = dbConnection
-					.prepareStatement(query);
-			preparedStmt.execute();
-			query = "ALTER TABLE `applicant` ADD `id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST";
-			preparedStmt = dbConnection.prepareStatement(query);
-			preparedStmt.execute();
-		} catch (Exception e) {
 		}
 
 	}

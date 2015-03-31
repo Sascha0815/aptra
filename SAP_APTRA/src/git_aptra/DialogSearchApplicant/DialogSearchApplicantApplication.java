@@ -14,50 +14,49 @@ import javax.swing.JTextField;
 
 public class DialogSearchApplicantApplication {
 	public static JPanel panelDialogSearchApplicantApplication = new JPanel();
-	private static String[] boxListEducationalAchievement = { "Bitte auswählen",
-		"Haupptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+	private static String[] boxListEducationalAchievement = {
+			"Bitte auswählen", "Haupptschulabschluss", "Mittlere Reife",
+			"Abitur", "Studium" };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(
-		boxListEducationalAchievement);
-	//Geburtsdatum
+			boxListEducationalAchievement);
+	// Geburtsdatum
 	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-		12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-		29, 30, 31 };
+			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+			29, 30, 31 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxDay = new JComboBox(boxListDay);
 	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-		11, 12 };
+			11, 12 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxMonth = new JComboBox(boxListMonth);
 	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-		1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-		1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-		1973, 1972, 1971, 1970 };
+			1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
+			1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
+			1973, 1972, 1971, 1970 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxYear = new JComboBox(boxListYear);
-	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelVacancy = new JLabel("Stellenbeschreibung:");
 	@SuppressWarnings("unused")
 	private static JLabel labelDate = new JLabel("Geburtsdatum:");
 
-	//Bewerbungseingang
-	private static Integer[] boxListApplyDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-	12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-	29, 30, 31 };
+	// Bewerbungseingang
+	private static Integer[] boxListApplyDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+			11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+			28, 29, 30, 31 };
 	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private static JComboBox boxApplyDay = new JComboBox(boxListApplyDay);
-	private static Integer[] boxListApplyMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-	11, 12 };
+	private static Integer[] boxListApplyMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9,
+			10, 11, 12 };
 	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private static JComboBox boxApplyMonth = new JComboBox(boxListApplyMonth);
 	private static Integer[] boxListApplyYear = { 2015, 2016, 2017, 2018, 2019,
-	2020, 2021, 2022, 2023, 2024};
+			2020, 2021, 2022, 2023, 2024 };
 	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private static JComboBox boxApplyYear = new JComboBox(boxListYear);
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldVacancy = new JTextField();
 	private static JTextField fieldDate = new JTextField();
 	private static JLabel labelEducationalAchievement = new JLabel(
@@ -68,7 +67,6 @@ public class DialogSearchApplicantApplication {
 	private static int year;
 	private static Calendar cal = Calendar.getInstance();
 	private static String educationalAchievement;
-	private static String vacancyID;
 	private static String vacancy;
 
 	public static void searchApplicantApplication() {
@@ -77,12 +75,6 @@ public class DialogSearchApplicantApplication {
 				panelDialogSearchApplicantApplication, BoxLayout.Y_AXIS));
 		panelDialogSearchApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
-		panelDialogSearchApplicantApplication.add(labelVacancyID);
-		labelVacancyID.setFont(fontTextField);
-		panelDialogSearchApplicantApplication.add(fieldVacancyID);
-		panelDialogSearchApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		fieldVacancyID.setFont(fontTextField);
 		panelDialogSearchApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogSearchApplicantApplication.add(labelVacancy);
@@ -93,17 +85,15 @@ public class DialogSearchApplicantApplication {
 		fieldVacancy.setFont(fontTextField);
 		/*
 		 * panelDialogSearchApplicantApplication.add(labelApplyDate);
-		labelApplyDate.setFont(fontTextField);
-		boxApplyDay.setToolTipText("Tag");
-		panelDialogSearchApplicantApplication.add(boxApplyDay);
-		panelDialogSerachApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxApplyMonth.setToolTipText("Monat");
-		panelDialogSearchApplicantApplication.add(boxApplyMonth);
-		panelDialogSearchApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxApplyYear.setToolTipText("Jahr");
-		panelDialogSearchApplicantApplication.add(boxApplyYear);
+		 * labelApplyDate.setFont(fontTextField);
+		 * boxApplyDay.setToolTipText("Tag");
+		 * panelDialogSearchApplicantApplication.add(boxApplyDay);
+		 * panelDialogSerachApplicantApplication.add(Box.createRigidArea(new
+		 * Dimension( 0, 10))); boxApplyMonth.setToolTipText("Monat");
+		 * panelDialogSearchApplicantApplication.add(boxApplyMonth);
+		 * panelDialogSearchApplicantApplication.add(Box.createRigidArea(new
+		 * Dimension( 0, 10))); boxApplyYear.setToolTipText("Jahr");
+		 * panelDialogSearchApplicantApplication.add(boxApplyYear);
 		 * panelDialogSearchApplicantApplication.add(labelDate);
 		 * labelDate.setFont(fontTextField); boxDay.setToolTipText("Tag");
 		 * panelDialogSearchApplicantApplication.add(boxDay);
@@ -128,7 +118,6 @@ public class DialogSearchApplicantApplication {
 
 	public static void getApplication() {
 		try {
-			vacancyID = fieldVacancy.getText();
 			vacancy = fieldVacancy.getText();
 			day = (int) boxDay.getSelectedItem();
 			month = (int) boxMonth.getSelectedItem();
@@ -150,7 +139,6 @@ public class DialogSearchApplicantApplication {
 
 	public static void reset() {
 		panelDialogSearchApplicantApplication.removeAll();
-		fieldVacancyID.setText("");
 		fieldVacancy.setText("");
 		fieldDate.setText("");
 		boxDay.setSelectedIndex(0);
@@ -161,9 +149,6 @@ public class DialogSearchApplicantApplication {
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
-	}
-	public static String getVacancyID() {
-		return vacancyID;
 	}
 
 	public static String getVacancy() {

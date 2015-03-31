@@ -35,17 +35,5 @@ public class DeleteVacancy {
 				System.out.println("exception search methode");
 			}
 		}
-
-		try {
-			String query = "ALTER TABLE `vacancy` DROP `id`";
-			PreparedStatement preparedStmt = dbConnection
-					.prepareStatement(query);
-			preparedStmt.execute();
-			query = "ALTER TABLE `vacancy` ADD `id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST";
-			preparedStmt = dbConnection.prepareStatement(query);
-			preparedStmt.execute();
-		} catch (Exception e) {
-		}
-
 	}
 }

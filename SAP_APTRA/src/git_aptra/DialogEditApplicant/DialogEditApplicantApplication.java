@@ -35,8 +35,6 @@ public class DialogEditApplicantApplication {
 			1973, 1972, 1971, 1970 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxYear = new JComboBox(boxListYear);
-	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer");
-	private static JLabel labelVacancy = new JLabel("Stellenbeschreibung:");
 	private static JLabel labelDate = new JLabel("Geburtsdatum:");
 	
 	//Bewerbungseingang
@@ -67,7 +65,6 @@ public class DialogEditApplicantApplication {
 	private static int year;
 	private static Calendar cal = Calendar.getInstance();
 	private static String educationalAchievement;
-	private static String vacancyID;
 	private static String vacancy;
 
 	public static void editApplicantApplication() {
@@ -90,14 +87,8 @@ public class DialogEditApplicantApplication {
 		
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditApplicantApplication.add(labelVacancyID);
-		labelVacancyID.setFont(fontTextField);
-		panelDialogEditApplicantApplication.add(fieldVacancyID);
-		
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditApplicantApplication.add(labelVacancy);
-		labelVacancy.setFont(fontTextField);
 		panelDialogEditApplicantApplication.add(fieldVacancy);
 		panelDialogEditApplicantApplication.add(Box
 				.createRigidArea(new Dimension(0, 10)));
@@ -133,7 +124,6 @@ public class DialogEditApplicantApplication {
 	}
 
 	public static boolean getApplication() {
-		vacancyID = fieldVacancyID.getText();
 		vacancy = fieldVacancy.getText();
 		day = (int) boxDay.getSelectedItem();
 		month = (int) boxMonth.getSelectedItem();
@@ -144,9 +134,6 @@ public class DialogEditApplicantApplication {
 
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());
-		if (vacancyID.equals("")) {
-			return false;
-		}
 		if (vacancy.equals("")) {
 			return false;
 		}
@@ -175,9 +162,6 @@ public class DialogEditApplicantApplication {
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
-	}
-	public static String getVacancyID() {
-		return vacancyID;
 	}
 	public static String getVacancy() {
 		return vacancy;
