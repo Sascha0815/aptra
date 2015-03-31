@@ -27,7 +27,7 @@ public class DeleteVacancy {
 				String ids = (String) MenuBarPanelWorkplace.tableJob
 						.getValueAt(rows[i], 0);
 				int id = Integer.parseInt(ids);
-				String query = "delete from vacancy where id = " + id;
+				String query = "delete from vacancy where vacancyID = " + id;
 				PreparedStatement preparedStmt = dbConnection
 						.prepareStatement(query);
 				preparedStmt.execute();

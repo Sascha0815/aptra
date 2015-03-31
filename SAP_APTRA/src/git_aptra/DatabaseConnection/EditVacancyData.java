@@ -28,7 +28,7 @@ public class EditVacancyData {
 					.prepareStatement("UPDATE vacancy SET position = ?, area = ?, "
 							+ "requirementLevel = ?, termsOfEmployment = ?,  "
 							+ "vacancyStatus= ?, educationalAchievement = ?, "
-							+ "level = ?, date = ? WHERE id = ?");
+							+ "level = ?, date = ? WHERE vacancyID = ?");
 
 			preparedStatement.setString(1,
 					DialogEditVacancyGeneral.getPosition());
