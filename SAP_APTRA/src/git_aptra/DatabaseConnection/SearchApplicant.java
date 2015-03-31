@@ -13,6 +13,7 @@ import java.util.Vector;
 
 public class SearchApplicant {
 	
+	@SuppressWarnings("unused")
 	private static String applicantID;
 	private static String name;
 	private static String firstName;

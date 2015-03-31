@@ -1,11 +1,9 @@
 package git_aptra.MenuBar;
+
 import git_aptra.Oberflaeche;
 import git_aptra.DatabaseConnection.DeleteVacancy;
 import git_aptra.DatabaseConnection.InsertManagementDataIntoTable;
-import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.DialogAddManagement.DialogAddVacancyManagement;
-import git_aptra.DialogAddVacancy.DialogAddVacancy;
-//import git_aptra.DialogApplicantSearch.DialogSearchApplicant;
 import git_aptra.DialogEditVacancy.DialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
 import git_aptra.DialogEditVacancy.EditVacancy;
@@ -43,7 +41,7 @@ public class MenuBarPanelVacancyManagement {
 			add("Bewerbernummer");
 			add("Status");
 			add("Rückmeldung");
-			
+
 		}
 	};
 	private static JPanel panelVacancyManagement = new JPanel();
@@ -51,15 +49,19 @@ public class MenuBarPanelVacancyManagement {
 	private static JPanel panelManagementInfo = new JPanel();
 	private static JPanel panelManagementButton = new JPanel();
 	private static JPanel panelManagementSummary = new JPanel();
-	
+
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	
+
 	private static JLabel labelManagementInfo = new JLabel("Info der Stelle");
-	private static JLabel labelManagementCount = new JLabel("Anzahl der Bewerber");
-	private static JLabel labelManagementEndOfApply = new JLabel("Bewerbungsschluss");
-	
-	private static JTextField fieldManagementCount = new JTextField("---------------");
-	private static JTextField fieldManagementEndOfApply = new JTextField("---------------");
+	private static JLabel labelManagementCount = new JLabel(
+			"Anzahl der Bewerber");
+	private static JLabel labelManagementEndOfApply = new JLabel(
+			"Bewerbungsschluss");
+
+	private static JTextField fieldManagementCount = new JTextField(
+			"---------------");
+	private static JTextField fieldManagementEndOfApply = new JTextField(
+			"---------------");
 
 	private static JButton butttonAddVacancyManagement = new JButton();
 	private static JButton buttonRefreshVacancyManagement = new JButton();
@@ -67,29 +69,31 @@ public class MenuBarPanelVacancyManagement {
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
 	private static JButton buttonSettingsVacancyManagement = new JButton();
-	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(1, 4) {
+	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(
+			1, 4) {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
 			return false;
 		}
 	};
-	public static JTable tableVacancyManagement = new JTable(modelVacancyManagement);
+	public static JTable tableVacancyManagement = new JTable(
+			modelVacancyManagement);
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
-		
-		
+
 		panelVacancyManagement.setLayout(new BorderLayout(5, 5));
 		panelVacancyManagement.add(panelManagementButton, BorderLayout.EAST);
 		panelVacancyManagement.add(panelManagementContent, BorderLayout.CENTER);
 		panelVacancyManagement.add(panelManagementInfo, BorderLayout.SOUTH);
-		panelVacancyManagement.add(panelManagementSummary,BorderLayout.WEST);
-		
+		panelVacancyManagement.add(panelManagementSummary, BorderLayout.WEST);
+
 		panelManagementSummary.setBackground(Color.LIGHT_GRAY);
-		panelManagementSummary.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
+		panelManagementSummary
+				.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		panelManagementSummary.setPreferredSize(new Dimension(150, 0));
-		
+
 		panelManagementSummary.add(labelManagementInfo);
 		labelManagementInfo.setFont(fontHeadline);
 		panelManagementSummary.add(labelManagementInfo);
@@ -99,10 +103,11 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementEndOfApply);
 		panelManagementSummary.add(fieldManagementEndOfApply);
 		fieldManagementEndOfApply.setBackground(Color.LIGHT_GRAY);
-		
-		panelManagementContent.setLayout(new FlowLayout(FlowLayout.CENTER,20,20));
-		panelManagementButton
-				.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+
+		panelManagementContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
+				20));
+		panelManagementButton.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
+				20));
 		panelManagementButton.setBackground(Color.LIGHT_GRAY);
 		panelManagementButton.setPreferredSize(new Dimension(150, 0));
 		panelManagementContent.setBackground(Color.LIGHT_GRAY);
@@ -110,7 +115,8 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementInfo.setPreferredSize(new Dimension(0, 20));
 		buttonRefreshVacancyManagement.setToolTipText("Tabelle aktualisieren");
 		panelManagementButton.add(buttonRefreshVacancyManagement);
-		buttonRefreshVacancyManagement.setPreferredSize(new Dimension(135, 135));
+		buttonRefreshVacancyManagement
+				.setPreferredSize(new Dimension(135, 135));
 		buttonRefreshVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -127,12 +133,16 @@ public class MenuBarPanelVacancyManagement {
 			public void actionPerformed(ActionEvent e) {
 				Vector resultsVacancyManagement = InsertManagementDataIntoTable
 						.insertManagementDataIntoTable();
-				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancyManagement,
-						MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-				MenuBarPanelVacancyManagement.modelVacancyManagement.fireTableDataChanged();
+				MenuBarPanelVacancyManagement.modelVacancyManagement
+						.setDataVector(
+								resultsVacancyManagement,
+								MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+				MenuBarPanelVacancyManagement.modelVacancyManagement
+						.fireTableDataChanged();
 			}
 		});
-		butttonAddVacancyManagement.setToolTipText("Neue Arbeitstelle hinzufügen");
+		butttonAddVacancyManagement
+				.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelManagementButton.add(butttonAddVacancyManagement);
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
@@ -181,7 +191,8 @@ public class MenuBarPanelVacancyManagement {
 				@SuppressWarnings("rawtypes")
 				Vector resultsVacancyManagement = InsertManagementDataIntoTable
 						.insertManagementDataIntoTable();
-				modelVacancyManagement.setDataVector(resultsVacancyManagement, COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+				modelVacancyManagement.setDataVector(resultsVacancyManagement,
+						COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				modelVacancyManagement.fireTableDataChanged();
 			}
 		});
@@ -201,7 +212,8 @@ public class MenuBarPanelVacancyManagement {
 		});
 		buttonSettingsVacancyManagement.setToolTipText("Programm schließen");
 		panelManagementButton.add(buttonSettingsVacancyManagement);
-		buttonSettingsVacancyManagement.setPreferredSize(new Dimension(135, 135));
+		buttonSettingsVacancyManagement
+				.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/job_settings.png"));
@@ -215,14 +227,16 @@ public class MenuBarPanelVacancyManagement {
 		});
 
 		// SWING:Table Arbeitsstellen
-		modelVacancyManagement.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+		modelVacancyManagement
+				.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		tableVacancyManagement.getTableHeader().setReorderingAllowed(false);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 		tableVacancyManagement = new JTable(modelVacancyManagement);
-		JScrollPane scrollPaneVacancyManagement = new JScrollPane(tableVacancyManagement);
+		JScrollPane scrollPaneVacancyManagement = new JScrollPane(
+				tableVacancyManagement);
 		panelVacancyManagement.add(scrollPaneVacancyManagement);
-		scrollPaneVacancyManagement.setPreferredSize(new Dimension(panelManagementContent
-				.getSize().width - 20,
+		scrollPaneVacancyManagement.setPreferredSize(new Dimension(
+				panelManagementContent.getSize().width - 20,
 				panelManagementContent.getSize().height - 15));
 		scrollPaneVacancyManagement
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -230,7 +244,7 @@ public class MenuBarPanelVacancyManagement {
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableVacancyManagement.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
-	
+
 	}
-	
+
 }
