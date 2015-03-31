@@ -14,6 +14,7 @@ public class SaveDataNewVacancy {
 		if (DialogAddVacancyGeneral.getGeneral() == true
 				&& DialogAddVacancySpecification.getSpecification() == true) {
 			try {
+				InsertVacancyDateIntoTable.insertVacancyDataIntoTable();
 				InsertVacancyData.insertVacancyData();
 			} catch (SQLException e) {
 				e.printStackTrace();

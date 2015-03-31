@@ -29,7 +29,7 @@ public class EditApplicationData {
 							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
 							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
 							+ "vacancy = ?, date = ?, educationalAchievement = ? "
-							+ "WHERE id = ?");
+							+ "WHERE applicantID = ?");
 
 			preparedStatement
 					.setString(1, DialogEditApplicantGeneral.getName());

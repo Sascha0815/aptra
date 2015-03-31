@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class DialogAddApplicantGeneral {
-	private static JLabel labelApplicantID = new JLabel("Identifikationsnummer:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straﬂe:");
@@ -23,7 +22,6 @@ public class DialogAddApplicantGeneral {
 	public static JPanel panelDialogApplicantMain = new JPanel();
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
@@ -31,14 +29,12 @@ public class DialogAddApplicantGeneral {
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
 
-	private static String applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
 	private static int houseNr;
 	private static int postalCode;
 	private static String city;
-
 
 	public static void addApplicantGeneral() {
 		panelDialogApplicantMain.setBackground(Color.LIGHT_GRAY);
@@ -47,10 +43,6 @@ public class DialogAddApplicantGeneral {
 		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelDialogApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
-		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogApplicantMain.add(labelApplicantID);
-		panelDialogApplicantMain.add(fieldApplicantID);
-		fieldApplicantID.setEditable(true);
 		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelDialogApplicantMain.add(labelName);
 		panelDialogApplicantMain.add(fieldName);
@@ -81,7 +73,6 @@ public class DialogAddApplicantGeneral {
 
 	public static boolean getGeneral() {
 		try {
-			applicantID = fieldApplicantID.getText();
 			name = fieldName.getText();
 			firstName = fieldFirstName.getText();
 			street = fieldStreet.getText();
@@ -92,9 +83,6 @@ public class DialogAddApplicantGeneral {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
 
-		if (applicantID.equals("")){
-			return false;
-		}
 		if (name.equals("")) {
 			return false;
 		}
@@ -119,7 +107,6 @@ public class DialogAddApplicantGeneral {
 
 	public static void reset() {
 		panelDialogApplicantMain.removeAll();
-		fieldApplicantID.setText("");
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
@@ -128,10 +115,6 @@ public class DialogAddApplicantGeneral {
 		fieldCity.setText("");
 	}
 
-
-	public static String getApplicantID(){
-		return applicantID;
-	}
 	public static String getName() {
 		return name;
 	}
