@@ -58,8 +58,7 @@ public class MenuBarPanelVacancyManagement {
 	private static JLabel labelManagementEndOfApply = new JLabel(
 			"Bewerbungsschluss");
 
-	private static JTextField fieldManagementCount = new JTextField(
-			"---------------");
+	private static JTextField fieldManagementCount = new JTextField();
 	private static JTextField fieldManagementEndOfApply = new JTextField(
 			"---------------");
 
@@ -100,6 +99,8 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementCount);
 		panelManagementSummary.add(fieldManagementCount);
 		fieldManagementCount.setBackground(Color.LIGHT_GRAY);
+		
+		fieldManagementCount.setEditable(false);
 		panelManagementSummary.add(labelManagementEndOfApply);
 		panelManagementSummary.add(fieldManagementEndOfApply);
 		fieldManagementEndOfApply.setBackground(Color.LIGHT_GRAY);
@@ -119,7 +120,7 @@ public class MenuBarPanelVacancyManagement {
 				.setPreferredSize(new Dimension(135, 135));
 		buttonRefreshVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				fieldManagementCount.setText(String.valueOf(MenuBarPanelApplicant.tableApplicant.getRowCount()));
 			}
 		});
 		try {

@@ -23,6 +23,7 @@ import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -33,12 +34,16 @@ public class MenuBarPanelApplicant {
 	private static JPanel panelButtonApplicant = new JPanel();
 	private static JPanel panelContentApplicant = new JPanel();
 	private static JPanel panelInfoApplicant = new JPanel();
+	
+	private static JLabel labelApplicantInfo = new JLabel();
+	
 	private static JButton buttonAddApplicant = new JButton();
 	private static JButton buttonDeleteApplicant = new JButton();
 	private static JButton buttonEditApplicant = new JButton();
 	private static JButton buttonSearchApplicant = new JButton();
 	private static JButton buttonInfoApplicant = new JButton();
 	private static JButton buttonRefreshApplicant = new JButton();
+	
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
 		private static final long serialVersionUID = 1L;
@@ -75,6 +80,10 @@ public class MenuBarPanelApplicant {
 		panelApplicant.add(panelButtonApplicant, BorderLayout.EAST);
 		panelApplicant.add(panelContentApplicant, BorderLayout.CENTER);
 		panelApplicant.add(panelInfoApplicant, BorderLayout.SOUTH);
+		panelInfoApplicant.add(labelApplicantInfo);
+		labelApplicantInfo.setHorizontalAlignment(JLabel.LEFT);
+		labelApplicantInfo.setText("Test");
+
 		panelButtonApplicant
 				.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 		panelButtonApplicant.setBackground(Color.LIGHT_GRAY);
