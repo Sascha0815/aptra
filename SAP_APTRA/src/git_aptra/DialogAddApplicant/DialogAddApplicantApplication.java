@@ -143,40 +143,30 @@ public class DialogAddApplicantApplication {
 				panelDialogApplicantApplication);
 	}
 
-	public static boolean getApplication() {
+	public static void getApplication() {
 		try {
 			vacancy = fieldVacancy.getText();
-			vacancyID = fieldVacancy.getText();
-			day = (int) boxDay.getSelectedItem();
-			month = (int) boxMonth.getSelectedItem();
-			year = (int) boxYear.getSelectedItem();
-			cal.set(Calendar.YEAR, year);
-			cal.set(Calendar.MONTH, (month - 1));
-			cal.set(Calendar.DAY_OF_MONTH, day);
-			dayApply = (int) boxApplyDay.getSelectedItem();
-			monthApply = (int) boxApplyMonth.getSelectedItem();
-			yearApply = (int) boxApplyYear.getSelectedItem();
-			calApply.set(Calendar.YEAR, yearApply);
-			calApply.set(Calendar.MONTH, (monthApply - 1));
-			calApply.set(Calendar.DAY_OF_MONTH, dayApply);
-			educationalAchievement = String.valueOf(boxEducationalAchievement
-					.getSelectedItem());
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
+		}
+		try {
+			vacancyID = fieldVacancy.getText();
+		} catch (Exception e) {
 		}
 
-		if (vacancyID.equals("")) {
-			return false;
-		}
-		if (vacancy.equals("")) {
-			return false;
-		}
-		if (educationalAchievement.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
-
+		day = (int) boxDay.getSelectedItem();
+		month = (int) boxMonth.getSelectedItem();
+		year = (int) boxYear.getSelectedItem();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, (month - 1));
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		dayApply = (int) boxApplyDay.getSelectedItem();
+		monthApply = (int) boxApplyMonth.getSelectedItem();
+		yearApply = (int) boxApplyYear.getSelectedItem();
+		calApply.set(Calendar.YEAR, yearApply);
+		calApply.set(Calendar.MONTH, (monthApply - 1));
+		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
+		educationalAchievement = String.valueOf(boxEducationalAchievement
+				.getSelectedItem());
 	}
 
 	public static void reset() {
@@ -193,7 +183,7 @@ public class DialogAddApplicantApplication {
 	public static Calendar getCal() {
 		return cal;
 	}
-	
+
 	public static Calendar getCalApply() {
 		return calApply;
 	}
@@ -209,6 +199,5 @@ public class DialogAddApplicantApplication {
 	public static String getVacancyID() {
 		return vacancyID;
 	}
-
 
 }

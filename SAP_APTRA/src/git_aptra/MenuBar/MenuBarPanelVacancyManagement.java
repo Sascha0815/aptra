@@ -40,7 +40,7 @@ public class MenuBarPanelVacancyManagement {
 			add("Name");
 			add("Vorname");
 			add("Status");
-			add("Bewerbungsgespräch");
+			add("Rückmeldung");
 
 		}
 	};

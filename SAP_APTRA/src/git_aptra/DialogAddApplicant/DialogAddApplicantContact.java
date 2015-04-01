@@ -63,25 +63,18 @@ public class DialogAddApplicantContact {
 				panelDialogApplicantContact);
 	}
 
-	public static boolean getContact() {
+	public static void getContact() {
 		try {
 			telefonHome = fieldTelefonHome.getText();
-			telefonMobil = fieldTelefonMobil.getText();
+		} catch (Exception e) {
+		}
+		try {
 			email = fieldEmail.getText();
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
 		}
-
-		if (telefonHome.equals("")) {
-			return false;
-		}
-		if (telefonMobil.equals("")) {
-			return false;
-		}
-		if (email.equals("")) {
-			return false;
-		} else {
-			return true;
+		try {
+			telefonMobil = fieldTelefonMobil.getText();
+		} catch (Exception e) {
 		}
 	}
 

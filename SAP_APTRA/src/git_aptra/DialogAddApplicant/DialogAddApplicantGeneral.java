@@ -71,38 +71,32 @@ public class DialogAddApplicantGeneral {
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 
-	public static boolean getGeneral() {
+	public static void getGeneral() {
 		try {
 			name = fieldName.getText();
+		} catch (Exception e) {
+		}
+		try {
 			firstName = fieldFirstName.getText();
+		} catch (Exception e) {
+		}
+		try {
 			street = fieldStreet.getText();
+		} catch (Exception e) {
+		}
+		try {
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
+		} catch (Exception e) {
+		}
+		try {
 			postalCode = Integer.parseInt(fieldPostalCode.getText());
+		} catch (Exception e) {
+		}
+		try {
 			city = fieldCity.getText();
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
 		}
 
-		if (name.equals("")) {
-			return false;
-		}
-		if (firstName.equals("")) {
-			return false;
-		}
-		if (street.equals("")) {
-			return false;
-		}
-		if ((houseNr == 0)) {
-			return false;
-		}
-		if ((postalCode == 0)) {
-			return false;
-		}
-		if (city.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 
 	public static void reset() {

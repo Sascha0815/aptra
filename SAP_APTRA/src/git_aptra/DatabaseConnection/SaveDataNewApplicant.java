@@ -11,9 +11,9 @@ import java.util.Vector;
 
 public class SaveDataNewApplicant {
 	public static void save() {
-		if (DialogAddApplicantGeneral.getGeneral() == true
-				&& DialogAddApplicantApplication.getApplication() == true
-				&& DialogAddApplicantContact.getContact() == true) {
+			DialogAddApplicantGeneral.getGeneral();
+			DialogAddApplicantApplication.getApplication();
+			DialogAddApplicantContact.getContact();
 			try {
 				InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				InsertApplicationData.insertApplicantData();
@@ -32,4 +32,4 @@ public class SaveDataNewApplicant {
 		}
 	}
 
-}
+
