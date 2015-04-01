@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Vector;
 
 public class OpenVancancy {
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector openVacancy(int id) {
 		Vector resultsOpenVacancy = new Vector();
 		try {
@@ -16,7 +16,9 @@ public class OpenVancancy {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.dateConversation FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID =" + id);
+			ResultSet rs = stmt
+					.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.dateConversation FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID ="
+							+ id);
 			while (rs.next()) {
 				Vector vacancy = new Vector();
 				vacancy.add(rs.getString(1));

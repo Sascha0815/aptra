@@ -12,7 +12,7 @@ public class DialogAddVacancy {
 
 	public static void newVacancy() {
 		dialogNewVacancy.setVisible(true);
-		dialogNewVacancy.setSize(450, 500);
+		dialogNewVacancy.setSize(450, 375);
 		dialogNewVacancy.setLocationRelativeTo(null);
 		dialogNewVacancy.setResizable(false);
 		dialogNewVacancy.setTitle("Neue Stelle");

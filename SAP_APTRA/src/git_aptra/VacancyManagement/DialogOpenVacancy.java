@@ -11,9 +11,6 @@ import java.awt.event.WindowListener;
 import java.util.Vector;
 
 import git_aptra.Oberflaeche;
-import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
-import git_aptra.DatabaseConnection.SaveDataNewApplicant;
-import git_aptra.DialogAddApplicant.CloseDialogAddApplicant;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import javax.swing.Box;
@@ -34,6 +31,7 @@ public class DialogOpenVacancy {
 	private static JTextField fieldID = new JTextField();
 	private static JButton searchVacancy = new JButton("Suchen");
 	
+	@SuppressWarnings("static-access")
 	public static void addVacancyManagement() {
 		dialogAddVacancyManagement.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
@@ -105,6 +103,7 @@ public class DialogOpenVacancy {
 		searchVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int id= Integer.parseInt(fieldID.getText());
+				@SuppressWarnings("rawtypes")
 				Vector resultsVacancy = OpenVancancy.openVacancy(id);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				panelAddCacancyManagement.removeAll();
