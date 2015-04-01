@@ -25,11 +25,7 @@ public class Steuerung {
 		MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 				MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 		MenuBarPanelVacancy.modelJob.fireTableDataChanged();
-		Vector resultsVacancyManagement = InsertManagementDataIntoTable
-				.insertManagementDataIntoTable();
-		MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancyManagement,
-				MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-		MenuBarPanelVacancyManagement.modelVacancyManagement.fireTableDataChanged();
+		
 	}
 
 }

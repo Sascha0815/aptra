@@ -3,11 +3,11 @@ package git_aptra.MenuBar;
 import git_aptra.Oberflaeche;
 import git_aptra.DatabaseConnection.DeleteVacancy;
 import git_aptra.DatabaseConnection.InsertManagementDataIntoTable;
-import git_aptra.DialogAddManagement.DialogAddVacancyManagement;
 import git_aptra.DialogEditVacancy.DialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
 import git_aptra.DialogEditVacancy.EditVacancy;
 import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
+import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +40,7 @@ public class MenuBarPanelVacancyManagement {
 			add("Name");
 			add("Vorname");
 			add("Status");
-			add("Rückmeldung");
+			add("Bewerbungsgespräch");
 
 		}
 	};
@@ -148,7 +148,7 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddVacancyManagement.addVacancyManagement();
+				DialogOpenVacancy.addVacancyManagement();
 			}
 		});
 		try {
