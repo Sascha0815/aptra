@@ -1,14 +1,11 @@
 package git_aptra.InfoApplicant;
 
-import git_aptra.Oberflaeche;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,8 +27,6 @@ public class DialogInfoApplicantGeneral {
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
 	
-
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 
 	public static void infoApplicantGeneral() {

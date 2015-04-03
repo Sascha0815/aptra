@@ -1,9 +1,6 @@
 package git_aptra.InfoApplicant;
 
-import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -53,9 +50,6 @@ private static JPanel panelInfoApplicantManagementHistory = new JPanel();
 				JScrollPane scrollPaneInfoApplicantManagementHistory = new JScrollPane(
 						tableInfoApplicantManagementHistory);
 				panelInfoApplicantManagementHistory.add(scrollPaneInfoApplicantManagementHistory);
-				scrollPaneInfoApplicantManagementHistory.setPreferredSize(new Dimension(
-						DialogEditVacancyManagement.dialogEditVacancyManagement.getSize().width - 20,
-						DialogEditVacancyManagement.dialogEditVacancyManagement.getSize().height - 15));
 				scrollPaneInfoApplicantManagementHistory
 						.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 				scrollPaneInfoApplicantManagementHistory

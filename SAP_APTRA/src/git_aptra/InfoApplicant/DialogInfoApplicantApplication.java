@@ -1,7 +1,5 @@
 package git_aptra.InfoApplicant;
 
-import git_aptra.Oberflaeche;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
