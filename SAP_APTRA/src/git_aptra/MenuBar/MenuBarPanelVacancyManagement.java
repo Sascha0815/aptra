@@ -1,9 +1,6 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditVacancy.DialogEditVacancy;
-import git_aptra.EditVacancy.DialogEditVacancyWarning;
-import git_aptra.EditVacancy.EditVacancy;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;

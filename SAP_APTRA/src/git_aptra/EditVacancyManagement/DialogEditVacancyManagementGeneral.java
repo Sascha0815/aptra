@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,14 +38,12 @@ public class DialogEditVacancyManagementGeneral {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxDateYear = new JComboBox(boxListYear);
 	
-
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 
 	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldNote = new JTextField();
-
 
 	private static String[] status = {"Bitte auswählen", "Bewerbungseingang", "Rückmeldung",
 			"Einladung", "Termin", "Vorauswahl", "Zusage", "Absage",
@@ -55,6 +54,9 @@ public class DialogEditVacancyManagementGeneral {
 		"Johannes Vollmer", "Fabian Gierer", "Sascha Pfau", "Praktikant", "Sekretärin"};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxContributor = new JComboBox(contribute);
+	
+	private static JButton saveMain = new JButton ("Speichern");
+	
 	public static void editVacancyManagementGeneral() {
 		panelDialogEditVacancyManagementMain.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditVacancyManagementMain.setLayout(new BoxLayout(
@@ -65,16 +67,19 @@ public class DialogEditVacancyManagementGeneral {
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(fieldApplicantID);
+		fieldApplicantID.setEditable(false);
 		fieldApplicantID.setFont(fontTextField);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(labelName);
 		panelDialogEditVacancyManagementMain.add(fieldName);
+		fieldName.setEditable(false);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldName.setFont(fontTextField);
 		panelDialogEditVacancyManagementMain.add(labelFirstName);
 		panelDialogEditVacancyManagementMain.add(fieldFirstName);
+		fieldFirstName.setEditable(false);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldFirstName.setFont(fontTextField);
@@ -104,9 +109,8 @@ public class DialogEditVacancyManagementGeneral {
 		panelDialogEditVacancyManagementMain.add(boxContributor);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
+		panelDialogEditVacancyManagementMain.add(saveMain);
 		
-		
-
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",
 				panelDialogEditVacancyManagementMain);
 	}

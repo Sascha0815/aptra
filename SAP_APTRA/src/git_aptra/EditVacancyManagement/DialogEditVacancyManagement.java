@@ -19,6 +19,8 @@ public class DialogEditVacancyManagement {
 		dialogEditVacancyManagement.setTitle("Arbeitsstellenmanagement");
 		dialogEditVacancyManagement.add(tabEditVacancyManagment);
 		DialogEditVacancyManagementGeneral.editVacancyManagementGeneral();
+		DialogEditVacancyManagementDetails.editVacancyManagementDetails();
+		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);
 	}
 }
