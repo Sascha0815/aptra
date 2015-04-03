@@ -58,12 +58,16 @@ public class DialogInfoApplicant {
 			}
 		});
 		dialogInfoApplicant.setVisible(true);
-		dialogInfoApplicant.setSize(400, 500);
+		dialogInfoApplicant.setSize(425, 500);
 		dialogInfoApplicant.setLocationRelativeTo(null);
 		dialogInfoApplicant.setResizable(false);
 		dialogInfoApplicant.setTitle("Bewerberinformationen");
 		dialogInfoApplicant.add(tabInfo);
 		DialogInfoApplicantGeneral.infoApplicantGeneral();
+		DialogInfoApplicantApplication.infoApplicantApplication();
+		DialogInfoApplicantContact.infoApplicantContact();
+		DialogInfoApplicantDetails.infoApplicantManagementDetails();
+		DialogInfoApplicantHistory.infoApplicantManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogInfoApplicant);
 	}
 
