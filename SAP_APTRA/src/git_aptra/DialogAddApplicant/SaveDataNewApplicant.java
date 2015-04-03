@@ -1,9 +1,6 @@
-package git_aptra.DatabaseConnection;
+package git_aptra.DialogAddApplicant;
 
-import git_aptra.DialogAddApplicant.CloseDialogAddApplicant;
-import git_aptra.DialogAddApplicant.DialogAddApplicantApplication;
-import git_aptra.DialogAddApplicant.DialogAddApplicantContact;
-import git_aptra.DialogAddApplicant.DialogAddApplicantGeneral;
+import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.SQLException;
@@ -16,7 +13,7 @@ public class SaveDataNewApplicant {
 			DialogAddApplicantContact.getContact();
 			try {
 				InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
-				InsertApplicationData.insertApplicantData();
+				InsertApplicationDataIntoDatabase.insertApplicantData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

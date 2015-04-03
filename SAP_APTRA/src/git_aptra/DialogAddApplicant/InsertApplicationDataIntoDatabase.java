@@ -1,15 +1,11 @@
-package git_aptra.DatabaseConnection;
-
-import git_aptra.DialogAddApplicant.DialogAddApplicantApplication;
-import git_aptra.DialogAddApplicant.DialogAddApplicantContact;
-import git_aptra.DialogAddApplicant.DialogAddApplicantGeneral;
+package git_aptra.DialogAddApplicant;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertApplicationData {
+public class InsertApplicationDataIntoDatabase {
 	public static void insertApplicantData() throws SQLException {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;

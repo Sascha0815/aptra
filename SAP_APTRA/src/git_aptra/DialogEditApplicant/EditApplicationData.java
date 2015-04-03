@@ -1,8 +1,5 @@
-package git_aptra.DatabaseConnection;
+package git_aptra.DialogEditApplicant;
 
-import git_aptra.DialogEditApplicant.DialogEditApplicantApplication;
-import git_aptra.DialogEditApplicant.DialogEditApplicantContact;
-import git_aptra.DialogEditApplicant.DialogEditApplicantGeneral;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.Connection;

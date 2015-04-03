@@ -1,7 +1,5 @@
 package git_aptra.DialogEditVacancy;
 
-import git_aptra.DatabaseConnection.SaveDataEditVacancy;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;

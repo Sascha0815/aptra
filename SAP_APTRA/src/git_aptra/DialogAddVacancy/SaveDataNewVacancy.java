@@ -1,8 +1,6 @@
-package git_aptra.DatabaseConnection;
+package git_aptra.DialogAddVacancy;
 
-import git_aptra.DialogAddVacancy.CloseDialogAddVacancy;
-import git_aptra.DialogAddVacancy.DialogAddVacancyGeneral;
-import git_aptra.DialogAddVacancy.DialogAddVacancySpecification;
+import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
@@ -15,7 +13,7 @@ public class SaveDataNewVacancy {
 				&& DialogAddVacancySpecification.getSpecification() == true) {
 			try {
 				InsertVacancyDateIntoTable.insertVacancyDataIntoTable();
-				InsertVacancyData.insertVacancyData();
+				InsertVacancyDataIntoDatabase.insertVacancyData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

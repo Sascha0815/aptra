@@ -1,7 +1,6 @@
 package git_aptra;
 
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
-import git_aptra.DatabaseConnection.InsertManagementDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;

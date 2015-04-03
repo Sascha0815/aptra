@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 
-import git_aptra.DatabaseConnection.SearchApplicant;
+
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class SearchControlApplicant {

@@ -1,7 +1,5 @@
-package git_aptra.DatabaseConnection;
+package git_aptra.DialogEditVacancy;
 
-import git_aptra.DialogEditVacancy.DialogEditVacancyGeneral;
-import git_aptra.DialogEditVacancy.DialogEditVacancySpecification;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.Connection;

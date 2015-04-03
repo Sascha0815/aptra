@@ -1,7 +1,5 @@
 package git_aptra.DialogEditApplicant;
 
-import git_aptra.DatabaseConnection.SaveDataEditApplicant;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;

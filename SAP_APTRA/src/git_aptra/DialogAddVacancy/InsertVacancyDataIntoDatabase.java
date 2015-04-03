@@ -1,14 +1,11 @@
-package git_aptra.DatabaseConnection;
-
-import git_aptra.DialogAddVacancy.DialogAddVacancyGeneral;
-import git_aptra.DialogAddVacancy.DialogAddVacancySpecification;
+package git_aptra.DialogAddVacancy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertVacancyData {
+public class InsertVacancyDataIntoDatabase {
 	public static void insertVacancyData() throws SQLException {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;

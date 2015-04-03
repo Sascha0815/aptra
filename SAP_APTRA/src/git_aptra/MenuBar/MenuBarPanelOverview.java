@@ -1,9 +1,9 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.DatabaseConnection.DeleteApplicant;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
+import git_aptra.Delete.DeleteApplicant;
 import git_aptra.DialogAddApplicant.DialogAddApplicant;
 import git_aptra.DialogAddVacancy.DialogAddVacancy;
 import git_aptra.DialogEditApplicant.DialogEditApplicant;

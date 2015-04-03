@@ -3,7 +3,6 @@ package git_aptra.DialogSearchVacancy;
 import java.sql.SQLException;
 import java.util.Vector;
 
-import git_aptra.DatabaseConnection.SearchVacancy;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class SearchControlVacancy {

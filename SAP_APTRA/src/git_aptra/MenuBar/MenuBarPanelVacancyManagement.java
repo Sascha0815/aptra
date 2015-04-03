@@ -1,8 +1,6 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.DatabaseConnection.DeleteVacancy;
-import git_aptra.DatabaseConnection.InsertManagementDataIntoTable;
 import git_aptra.DialogEditVacancy.DialogEditVacancy;
 import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
 import git_aptra.DialogEditVacancy.EditVacancy;
@@ -63,7 +61,6 @@ public class MenuBarPanelVacancyManagement {
 			"---------------");
 
 	private static JButton butttonAddVacancyManagement = new JButton();
-	private static JButton buttonRefreshVacancyManagement = new JButton();
 	private static JButton buttonDeleteVacancyManagement = new JButton();
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
@@ -114,34 +111,6 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementContent.setBackground(Color.LIGHT_GRAY);
 		panelManagementInfo.setBackground(Color.LIGHT_GRAY);
 		panelManagementInfo.setPreferredSize(new Dimension(0, 20));
-		buttonRefreshVacancyManagement.setToolTipText("Tabelle aktualisieren");
-		panelManagementButton.add(buttonRefreshVacancyManagement);
-		buttonRefreshVacancyManagement
-				.setPreferredSize(new Dimension(135, 135));
-		buttonRefreshVacancyManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		try {
-			Image add = ImageIO.read(MenuBarPanelVacancyManagement.class
-					.getResource("resources/job_refresh.png"));
-			buttonRefreshVacancyManagement.setIcon(new ImageIcon(add));
-		} catch (IOException ex) {
-		}
-		buttonRefreshVacancyManagement.addActionListener(new ActionListener() {
-			@SuppressWarnings("rawtypes")
-			public void actionPerformed(ActionEvent e) {
-				Vector resultsVacancyManagement = InsertManagementDataIntoTable
-						.insertManagementDataIntoTable();
-				MenuBarPanelVacancyManagement.modelVacancyManagement
-						.setDataVector(
-								resultsVacancyManagement,
-								MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-				MenuBarPanelVacancyManagement.modelVacancyManagement
-						.fireTableDataChanged();
-			}
-		});
 		butttonAddVacancyManagement
 				.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelManagementButton.add(butttonAddVacancyManagement);
@@ -188,13 +157,7 @@ public class MenuBarPanelVacancyManagement {
 		}
 		buttonDeleteVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DeleteVacancy.deleteVacancy();
-				@SuppressWarnings("rawtypes")
-				Vector resultsVacancyManagement = InsertManagementDataIntoTable
-						.insertManagementDataIntoTable();
-				modelVacancyManagement.setDataVector(resultsVacancyManagement,
-						COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-				modelVacancyManagement.fireTableDataChanged();
+				
 			}
 		});
 		buttonSearchVacancyManagement.setToolTipText("Einstellungen");
