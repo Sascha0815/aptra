@@ -3,7 +3,6 @@ package git_aptra;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
-import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.util.Vector;
@@ -24,7 +23,7 @@ public class Steuerung {
 		MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 				MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 		MenuBarPanelVacancy.modelJob.fireTableDataChanged();
-		
+
 	}
 
 }

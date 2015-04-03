@@ -1,7 +1,9 @@
 package git_aptra;
 
 import javax.swing.SwingUtilities;
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
+
+import git_aptra.AddApplicant.DialogAddApplicant;
+
 import javax.swing.UIManager;
 
 public class ChangeDesign {

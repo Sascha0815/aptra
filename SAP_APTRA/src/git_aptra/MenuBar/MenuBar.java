@@ -3,10 +3,10 @@ package git_aptra.MenuBar;
 import git_aptra.DialogAbout;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
-import git_aptra.DialogAddVacancy.DialogAddVacancy;
-import git_aptra.DialogSearchApplicant.DialogSearchApplicant;
-import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
+import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddVacancy.DialogAddVacancy;
+import git_aptra.SearchApplicant.DialogSearchApplicant;
+import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

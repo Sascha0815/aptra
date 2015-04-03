@@ -1,10 +1,10 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.DialogEditVacancy.DialogEditVacancy;
-import git_aptra.DialogEditVacancy.DialogEditVacancyWarning;
-import git_aptra.DialogEditVacancy.EditVacancy;
-import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
+import git_aptra.EditVacancy.DialogEditVacancy;
+import git_aptra.EditVacancy.DialogEditVacancyWarning;
+import git_aptra.EditVacancy.EditVacancy;
+import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.BorderLayout;

@@ -1,17 +1,17 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
 import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.Delete.DeleteApplicant;
-import git_aptra.DialogAddApplicant.DialogAddApplicant;
-import git_aptra.DialogAddVacancy.DialogAddVacancy;
-import git_aptra.DialogEditApplicant.DialogEditApplicant;
-import git_aptra.DialogEditApplicant.DialogEditWarning;
-import git_aptra.DialogEditApplicant.EditApplicant;
-import git_aptra.DialogInfoApplicant.DialogInfoApplicant;
-import git_aptra.DialogSearchApplicant.DialogSearchApplicant;
-import git_aptra.DialogSearchVacancy.DialogSearchVacancy;
+import git_aptra.EditApplicant.DialogEditApplicant;
+import git_aptra.EditApplicant.DialogEditWarning;
+import git_aptra.EditApplicant.EditApplicant;
+import git_aptra.InfoApplicant.DialogInfoApplicant;
+import git_aptra.SearchApplicant.DialogSearchApplicant;
+import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
