@@ -56,7 +56,7 @@ public class MenuBarPanelVacancyManagement {
 	private static JLabel labelManagementEndOfApply = new JLabel(
 			"Bewerbungsschluss");
 
-	private static JTextField fieldManagementCount = new JTextField();
+	public static JTextField fieldManagementCount = new JTextField();
 	private static JTextField fieldManagementEndOfApply = new JTextField(
 			"---------------");
 
@@ -118,6 +118,7 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogOpenVacancy.addVacancyManagement();
+				
 			}
 		});
 		try {
