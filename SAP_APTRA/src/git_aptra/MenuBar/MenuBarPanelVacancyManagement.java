@@ -4,6 +4,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
 import git_aptra.EditVacancy.EditVacancy;
+import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
@@ -132,12 +133,7 @@ public class MenuBarPanelVacancyManagement {
 		buttonEditVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableVacancyManagement.getSelectedRowCount() > 1) {
-					DialogEditVacancyWarning.selectOnlyOne();
-				} else {
-					EditVacancy.getSelectedRow();
-					DialogEditVacancy.editVacancy();
-				}
+				DialogEditVacancyManagement.editVacancyManagement();
 			}
 		});
 		try {
