@@ -13,7 +13,7 @@ public class DialogEditVacancyManagement {
 	
 	public static void editVacancyManagement() {
 		dialogEditVacancyManagement.setVisible(true);
-		dialogEditVacancyManagement.setSize(450, 400);
+		dialogEditVacancyManagement.setSize(450, 550);
 		dialogEditVacancyManagement.setLocationRelativeTo(null);
 		dialogEditVacancyManagement.setResizable(false);
 		dialogEditVacancyManagement.setTitle("Arbeitsstellenmanagement");
