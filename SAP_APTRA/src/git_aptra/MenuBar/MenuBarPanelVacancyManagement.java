@@ -1,9 +1,7 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-
 import git_aptra.EditApplicant.DialogEditWarning;
-
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
@@ -53,16 +51,7 @@ public class MenuBarPanelVacancyManagement {
 	private static JPanel panelManagementSummary = new JPanel();
 
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-
-	private static JLabel labelManagementInfo = new JLabel("Info der Stelle");
-	private static JLabel labelManagementCount = new JLabel(
-			"Anzahl der Bewerber");
-	private static JLabel labelManagementEndOfApply = new JLabel(
-			"Bewerbungsschluss");
-
-	public static JTextField fieldManagementCount = new JTextField();
-	private static JTextField fieldManagementEndOfApply = new JTextField(
-			"---------------");
+	
 
 	private static JButton butttonAddVacancyManagement = new JButton();
 	private static JButton buttonDeleteVacancyManagement = new JButton();
@@ -79,6 +68,34 @@ public class MenuBarPanelVacancyManagement {
 	};
 	public static JTable tableVacancyManagement = new JTable(
 			modelVacancyManagement);
+	
+	private static JLabel labelManagementInfo = new JLabel(
+			"Info der Stelle");
+	private static JLabel labelManagementCount = new JLabel(
+			"Anzahl der Bewerber");
+	private static JLabel labelManagementEndOfApply = new JLabel(
+			"Bewerbungsschluss");
+	private static JLabel labelManagementPosition = new JLabel(
+			"Stellenbezeichnung:");
+	private static JLabel labelManagementArea = new JLabel(
+			"Arbeitsbereich:");
+	private static JLabel labelManagementRequirementLevel = new JLabel(
+			"Anforderung:");
+	private static JLabel labelManagementTermsOfEmployment = new JLabel(
+			"Anstellungsverhältnis:");
+	private static JLabel labelManagementVacancyStatus = new JLabel(
+			"Status:");
+	private static JLabel labelManagementEducationalAchievement = new JLabel(
+			"Bildungsabschluss:");
+
+	public static JTextField fieldManagementCount = new JTextField();
+	private static JTextField fieldManagementEndOfApply = new JTextField();
+	private static JTextField fieldManagementPosition = new JTextField();
+	private static JTextField fieldManagementArea = new JTextField();
+	private static JTextField fieldManagementRequirementLevel = new JTextField();
+	private static JTextField fieldManagementTermsOfEmplyment = new JTextField();
+	private static JTextField fieldManagementVacancyStatus = new JTextField();
+	private static JTextField fieldManagementEducationalAchievement = new JTextField();
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
@@ -89,23 +106,48 @@ public class MenuBarPanelVacancyManagement {
 		panelVacancyManagement.add(panelManagementInfo, BorderLayout.SOUTH);
 		panelVacancyManagement.add(panelManagementSummary, BorderLayout.WEST);
 
+		// Management-Stelleninfo (links)
 		panelManagementSummary.setBackground(Color.LIGHT_GRAY);
 		panelManagementSummary
 				.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		panelManagementSummary.setPreferredSize(new Dimension(150, 0));
-
 		panelManagementSummary.add(labelManagementInfo);
 		labelManagementInfo.setFont(fontHeadline);
 		panelManagementSummary.add(labelManagementInfo);
 		panelManagementSummary.add(labelManagementCount);
 		panelManagementSummary.add(fieldManagementCount);
 		fieldManagementCount.setBackground(Color.LIGHT_GRAY);
-
 		fieldManagementCount.setEditable(false);
 		panelManagementSummary.add(labelManagementEndOfApply);
 		panelManagementSummary.add(fieldManagementEndOfApply);
 		fieldManagementEndOfApply.setBackground(Color.LIGHT_GRAY);
-
+		panelManagementSummary.add(labelManagementPosition);
+		panelManagementSummary.add(fieldManagementPosition);
+		fieldManagementPosition.setBackground(Color.LIGHT_GRAY);
+		fieldManagementPosition.setEditable(false);
+		panelManagementSummary.add(labelManagementArea);
+		panelManagementSummary.add(fieldManagementArea);
+		fieldManagementArea.setBackground(Color.LIGHT_GRAY);
+		fieldManagementArea.setEditable(false);
+		panelManagementSummary.add(labelManagementRequirementLevel);
+		panelManagementSummary.add(fieldManagementRequirementLevel);
+		fieldManagementRequirementLevel.setBackground(Color.LIGHT_GRAY);
+		fieldManagementRequirementLevel.setEditable(false);
+		panelManagementSummary.add(labelManagementTermsOfEmployment);
+		panelManagementSummary.add(fieldManagementTermsOfEmplyment);
+		fieldManagementTermsOfEmplyment.setBackground(Color.LIGHT_GRAY);
+		fieldManagementTermsOfEmplyment.setEditable(false);
+		panelManagementSummary.add(labelManagementVacancyStatus);
+		panelManagementSummary.add(fieldManagementVacancyStatus);
+		fieldManagementVacancyStatus.setBackground(Color.LIGHT_GRAY);
+		fieldManagementVacancyStatus.setEditable(false);
+		panelManagementSummary.add(labelManagementEducationalAchievement);
+		panelManagementSummary.add(fieldManagementEducationalAchievement);
+		fieldManagementEducationalAchievement.setBackground(Color.LIGHT_GRAY);
+		fieldManagementEducationalAchievement.setEditable(false);
+			
+	
+	
 		panelManagementContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
 				20));
 		panelManagementButton.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
