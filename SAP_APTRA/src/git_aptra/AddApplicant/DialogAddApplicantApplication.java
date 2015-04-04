@@ -70,7 +70,7 @@ public class DialogAddApplicantApplication {
 	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
 	private static String vacancy;
-	private static String vacancyID;
+	private static int vacancyID;
 
 	public static void addApplicantApplication() {
 		panelDialogApplicantApplication.setBackground(Color.LIGHT_GRAY);
@@ -149,10 +149,10 @@ public class DialogAddApplicantApplication {
 		} catch (Exception e) {
 		}
 		try {
-			vacancyID = fieldVacancy.getText();
+			vacancyID = Integer.parseInt(fieldVacancyID.getText());
 		} catch (Exception e) {
+			vacancyID = 0;
 		}
-
 		day = (int) boxDay.getSelectedItem();
 		month = (int) boxMonth.getSelectedItem();
 		year = (int) boxYear.getSelectedItem();
@@ -167,6 +167,8 @@ public class DialogAddApplicantApplication {
 		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());
+		
+		
 	}
 
 	public static void reset() {
@@ -178,6 +180,9 @@ public class DialogAddApplicantApplication {
 		boxMonth.setSelectedIndex(0);
 		boxYear.setSelectedIndex(0);
 		boxEducationalAchievement.setSelectedIndex(0);
+		boxApplyDay.setSelectedIndex(0);
+		boxApplyMonth.setSelectedIndex(0);
+		boxApplyYear.setSelectedIndex(0);
 	}
 
 	public static Calendar getCal() {
@@ -196,7 +201,7 @@ public class DialogAddApplicantApplication {
 		return vacancy;
 	}
 
-	public static String getVacancyID() {
+	public static int getVacancyID() {
 		return vacancyID;
 	}
 

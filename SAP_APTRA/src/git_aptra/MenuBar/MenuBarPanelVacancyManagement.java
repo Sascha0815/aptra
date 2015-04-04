@@ -36,7 +36,9 @@ public class MenuBarPanelVacancyManagement {
 			add("Name");
 			add("Vorname");
 			add("Status");
-			add("Rückmeldung");
+			add("Neuste Notiz");
+			add("Datum der Notiz");
+			add("Anmerkung zu der Notiz");
 
 		}
 	};

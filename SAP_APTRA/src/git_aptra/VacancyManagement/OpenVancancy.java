@@ -17,7 +17,7 @@ public class OpenVancancy {
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt
-					.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.dateConversation FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID ="
+					.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.latestNoteType, relationship.latestDate, relationship.latestNote FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID ="
 							+ id);
 			while (rs.next()) {
 				Vector vacancy = new Vector();
@@ -26,6 +26,9 @@ public class OpenVancancy {
 				vacancy.add(rs.getString(3));
 				vacancy.add(rs.getString(4));
 				vacancy.add(rs.getString(5));
+				vacancy.add(rs.getString(6));
+				vacancy.add(rs.getString(7));
+
 				resultsOpenVacancy.add(vacancy);
 			}
 		} catch (SQLException e) {
