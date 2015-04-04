@@ -1,7 +1,11 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+
+import git_aptra.EditApplicant.DialogEditWarning;
+
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
+import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
@@ -96,7 +100,7 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementCount);
 		panelManagementSummary.add(fieldManagementCount);
 		fieldManagementCount.setBackground(Color.LIGHT_GRAY);
-		
+
 		fieldManagementCount.setEditable(false);
 		panelManagementSummary.add(labelManagementEndOfApply);
 		panelManagementSummary.add(fieldManagementEndOfApply);
@@ -118,7 +122,7 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogOpenVacancy.addVacancyManagement();
-				
+
 			}
 		});
 		try {
@@ -132,7 +136,13 @@ public class MenuBarPanelVacancyManagement {
 		buttonEditVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogEditVacancyManagement.editVacancyManagement();
+				if (tableVacancyManagement.getSelectedRowCount() > 1
+						|| tableVacancyManagement.getSelectedRowCount() == 0) {
+					DialogEditWarning.selectOnlyOne();
+				} else {
+					EditVacancyManagement.getSelectedRow();
+					DialogEditVacancyManagement.editVacancyManagement();
+				}
 			}
 		});
 		try {
@@ -153,7 +163,7 @@ public class MenuBarPanelVacancyManagement {
 		}
 		buttonDeleteVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+
 			}
 		});
 		buttonSearchVacancyManagement.setToolTipText("Einstellungen");
