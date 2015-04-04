@@ -48,6 +48,7 @@ public class DialogInfoApplicantGeneral {
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldStreet.setFont(fontTextField);
 		panelInfoApplicantGeneral.add(labelHouseNr);
+		panelInfoApplicantGeneral.add(fieldHouseNr);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldHouseNr.setFont(fontTextField);
 		panelInfoApplicantGeneral.add(labelPostalCode);
@@ -61,5 +62,14 @@ public class DialogInfoApplicantGeneral {
 		
 		DialogInfoApplicant.tabInfo.addTab("Allgemein",
 				panelInfoApplicantGeneral);
+	}
+	
+	public static void reset() {
+		panelInfoApplicantGeneral.removeAll();
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldStreet.setText("");
+		fieldPostalCode.setText("");
+		fieldCity.setText("");
 	}
 }

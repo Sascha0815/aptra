@@ -51,4 +51,11 @@ public class DialogInfoApplicantContact {
 				panelInfoApplicantContact);
 		
 	}
+	
+	public static void reset() {
+		panelInfoApplicantContact.removeAll();
+		fieldTelefonHome.setText("");
+		fieldTelefonMobil.setText("");
+		fieldEmail.setText("");
+	}
 }

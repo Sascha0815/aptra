@@ -17,7 +17,7 @@ public class DialogEditApplicant {
 	public static void editApplicant() {
 		dialogEditApplicant.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
-				CloseDialogEditApplicant.closeEditApplicant();
+				CloseDialogEditApplicant.close();
 			}
 
 			@Override

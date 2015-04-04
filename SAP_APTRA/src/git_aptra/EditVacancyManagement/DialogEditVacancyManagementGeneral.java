@@ -114,4 +114,13 @@ public class DialogEditVacancyManagementGeneral {
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",
 				panelDialogEditVacancyManagementMain);
 	}
+	public static void reset() {
+		panelDialogEditVacancyManagementMain.removeAll();
+		fieldApplicantID.setText("");
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldNote.setText("");
+		boxStatus.setSelectedIndex(0);
+		boxContributor.setSelectedIndex(0);
+	}
 }

@@ -63,4 +63,11 @@ public class DialogInfoApplicantDetails {
 		DialogInfoApplicant.tabInfo.addTab("Details",
 				panelInfoApplicantManagementDetails);
 	}
+	public static void reset() {
+		panelInfoApplicantManagementDetails.removeAll();
+		fieldMarkApplicant.setText("");
+		fieldMarkApplication.setText("");
+		checkCL.setSelected(false);
+		checkCV.setSelected(false);
+	}
 }

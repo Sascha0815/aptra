@@ -47,6 +47,7 @@ public class DialogEditApplicantApplication {
 		11, 12 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxApplyMonth = new JComboBox(boxListApplyMonth);
+	@SuppressWarnings("unused")
 	private static Integer[] boxListApplyYear = { 2015, 2016, 2017, 2018, 2019,
 		2020, 2021, 2022, 2023, 2024};
 	@SuppressWarnings({ "rawtypes", "unchecked" })

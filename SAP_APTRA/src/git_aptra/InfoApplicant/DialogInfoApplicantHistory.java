@@ -59,5 +59,10 @@ private static JPanel panelInfoApplicantManagementHistory = new JPanel();
 	DialogInfoApplicant.tabInfo.addTab("Dokumentation",
 			panelInfoApplicantManagementHistory);
 	}	
+	public static void reset() {
+		panelInfoApplicantManagementHistory.removeAll();
+		tableInfoApplicantManagementHistory.removeAll();
+
+	}
 	
 }

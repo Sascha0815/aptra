@@ -1,7 +1,6 @@
 package git_aptra.InfoApplicant;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditApplicant.CloseDialogEditApplicant;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -18,7 +17,7 @@ public class DialogInfoApplicant {
 	public static void infoApplicant() {
 		dialogInfoApplicant.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
-				CloseDialogEditApplicant.closeEditApplicant();
+				CloseDialogInfoApplicant.close();
 			}
 
 			@Override

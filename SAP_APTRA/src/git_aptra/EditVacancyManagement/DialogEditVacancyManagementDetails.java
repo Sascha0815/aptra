@@ -17,34 +17,36 @@ public class DialogEditVacancyManagementDetails {
 
 	private static JPanel panelDialogEditVacancyManagementDetails = new JPanel();
 
-	private static JLabel labelMarkApplicant = new JLabel("Eindruck des Bewerber:");
-	private static JLabel labelMarkApplication = new JLabel("Eindruck der Bewerbung:");
-	private static JLabel labelComplete = new JLabel("Vollständigkeit der Bewerbung:");
-	private static JLabel labelCheckCL = new JLabel ("Anschreiben");
-	private static JLabel labelCheckCV = new JLabel ("Lebenslauf");
-	
+	private static JLabel labelMarkApplicant = new JLabel(
+			"Eindruck des Bewerber:");
+	private static JLabel labelMarkApplication = new JLabel(
+			"Eindruck der Bewerbung:");
+	private static JLabel labelComplete = new JLabel(
+			"Vollständigkeit der Bewerbung:");
+	private static JLabel labelCheckCL = new JLabel("Anschreiben");
+	private static JLabel labelCheckCV = new JLabel("Lebenslauf");
+
 	private static JCheckBox checkCL = new JCheckBox("Anschreiben");
 	private static JCheckBox checkCV = new JCheckBox("Lebenslauf");
-	
+
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 
 	private static JTextField fieldMarkApplicant = new JTextField();
 	private static JTextField fieldMarkApplication = new JTextField();
-	
+
 	private static JButton saveDetails = new JButton("Speichern");
 
-
-
-	private static String[] status = {"Bitte auswählen", "Bewerbungseingang", "Rückmeldung",
-			"Einladung", "Termin", "Vorauswahl", "Zusage", "Absage",
-			"Wartepool", "Sonstiges" };
-	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
+	private static String[] status = { "Bitte auswählen", "Bewerbungseingang",
+			"Rückmeldung", "Einladung", "Termin", "Vorauswahl", "Zusage",
+			"Absage", "Wartepool", "Sonstiges" };
+	@SuppressWarnings({ "unchecked", "rawtypes", })
 	private static JComboBox boxStatus = new JComboBox(status);
-	private static String[] contribute = {"Bitte auswählen", 
-		"Johannes Vollmer", "Fabian Gierer", "Sascha Pfau", "Praktikant", "Sekretärin"};
-	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
+	private static String[] contribute = { "Bitte auswählen",
+			"Johannes Vollmer", "Fabian Gierer", "Sascha Pfau", "Praktikant",
+			"Sekretärin" };
+	@SuppressWarnings({ "unchecked", "rawtypes", })
 	private static JComboBox boxContributor = new JComboBox(contribute);
-	
+
 	public static void editVacancyManagementDetails() {
 		panelDialogEditVacancyManagementDetails.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditVacancyManagementDetails.setLayout(new BoxLayout(
@@ -78,5 +80,15 @@ public class DialogEditVacancyManagementDetails {
 
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Details",
 				panelDialogEditVacancyManagementDetails);
+	}
+
+	public static void reset() {
+		panelDialogEditVacancyManagementDetails.removeAll();
+		fieldMarkApplicant.setText("");
+		fieldMarkApplication.setText("");
+		checkCL.setSelected(false);
+		checkCV.setSelected(false);
+		boxStatus.setSelectedIndex(0);
+		boxContributor.setSelectedIndex(0);
 	}
 }

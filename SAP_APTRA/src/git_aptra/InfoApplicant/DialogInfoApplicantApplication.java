@@ -82,5 +82,14 @@ public class DialogInfoApplicantApplication {
 				panelInfoApplicantApplication);
 	
 	}
+	
+	public static void reset() {
+		panelInfoApplicantApplication.removeAll();
+		fieldDateOfBirth.setText("");
+		fieldVacancyID.setText("");
+		fieldVacancy.setText("");
+		fieldDateOfApplication.setText("");
+		fieldEducationalAchievement.setText("");
+	}
 
 }
