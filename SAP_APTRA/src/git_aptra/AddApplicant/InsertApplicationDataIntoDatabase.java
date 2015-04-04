@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Vector;
 
 public class InsertApplicationDataIntoDatabase {
 	public static void insertApplicantData() throws SQLException {
@@ -16,8 +15,8 @@ public class InsertApplicationDataIntoDatabase {
 		int id = 0;
 
 		String query = "INSERT INTO applicant"
-				+ "(name, firstName, street, houseNr, postalCode, city, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(name, firstName, street, houseNr, postalCode, city, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = DriverManager.getConnection(
@@ -45,7 +44,11 @@ public class InsertApplicationDataIntoDatabase {
 					DialogAddApplicantApplication.getCal().getTimeInMillis()));
 			preparedStatement.setString(12,
 					DialogAddApplicantApplication.getEducationalAchievement());
+			preparedStatement.setDate(13, new java.sql.Date(
+					DialogAddApplicantApplication.getCalApply().getTimeInMillis()));
+			preparedStatement.setInt(14, DialogAddApplicantApplication.getVacancyID());
 			preparedStatement.executeUpdate();
+			
 		} catch (SQLException e) {
 			System.out
 					.println("insert problems - Datenbank - insert Applicant data"
@@ -68,9 +71,6 @@ public class InsertApplicationDataIntoDatabase {
 			e.printStackTrace();
 		}
 
-		
-		
-		
 		if (DialogAddApplicantApplication.getVacancyID()!=0) {
 			query = "INSERT INTO relationship"			
 					+ "(applicantID, vacancyID, status, dateApplication, latestNoteType, latestDate) VALUES"

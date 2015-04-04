@@ -34,31 +34,42 @@ public class DialogInfoApplicantGeneral {
 		panelInfoApplicantGeneral.setLayout(new BoxLayout(
 				panelInfoApplicantGeneral, BoxLayout.Y_AXIS));
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelInfoApplicantGeneral.add(labelName);
 		panelInfoApplicantGeneral.add(fieldName);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldName.setFont(fontTextField);
+		fieldName.setEditable(false);
+		fieldName.setText(InfoApplicant.getDataSetName());
 		panelInfoApplicantGeneral.add(labelFirstName);
 		panelInfoApplicantGeneral.add(fieldFirstName);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldFirstName.setFont(fontTextField);
+		fieldFirstName.setEditable(false);
+		fieldFirstName.setText(InfoApplicant.getDataSetFirstName());
 		panelInfoApplicantGeneral.add(labelStreet);
 		panelInfoApplicantGeneral.add(fieldStreet);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldStreet.setFont(fontTextField);
+		fieldStreet.setEditable(false);
+		fieldStreet.setText(InfoApplicant.getDataSetStreet());
 		panelInfoApplicantGeneral.add(labelHouseNr);
 		panelInfoApplicantGeneral.add(fieldHouseNr);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldHouseNr.setFont(fontTextField);
+		fieldHouseNr.setEditable(false);
+		fieldHouseNr.setText(InfoApplicant.getDataSetHouseNr());
 		panelInfoApplicantGeneral.add(labelPostalCode);
 		panelInfoApplicantGeneral.add(fieldPostalCode);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldPostalCode.setFont(fontTextField);
+		fieldPostalCode.setEditable(false);
+		fieldPostalCode.setText(InfoApplicant.getDataSetPostalCode());
 		panelInfoApplicantGeneral.add(labelCity);
 		panelInfoApplicantGeneral.add(fieldCity);
 		panelInfoApplicantGeneral.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldCity.setFont(fontTextField);
+		fieldCity.setEditable(false);
+		fieldCity.setText(InfoApplicant.getDataSetCity());
 		
 		DialogInfoApplicant.tabInfo.addTab("Allgemein",
 				panelInfoApplicantGeneral);

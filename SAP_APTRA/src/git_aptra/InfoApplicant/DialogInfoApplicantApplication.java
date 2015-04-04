@@ -42,6 +42,9 @@ public class DialogInfoApplicantApplication {
 				0, 10)));
 		labelDateOfApplication.setFont(fontTextField);
 		panelInfoApplicantApplication.add(fieldDateOfApplication);
+		fieldDateOfApplication.setEditable(false);
+		fieldDateOfApplication.setFont(fontTextField);
+		fieldDateOfApplication.setText(InfoApplicant.getDataSetDateApplication());
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 
@@ -51,6 +54,8 @@ public class DialogInfoApplicantApplication {
 				0, 10)));
 		panelInfoApplicantApplication.add(fieldVacancyID);
 		fieldVacancyID.setFont(fontTextField);
+		fieldVacancyID.setEditable(false);
+		fieldVacancyID.setText(InfoApplicant.getDataSetDateVacancyID());
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 
@@ -60,6 +65,8 @@ public class DialogInfoApplicantApplication {
 				0, 10)));
 		panelInfoApplicantApplication.add(fieldVacancy);
 		fieldVacancy.setFont(fontTextField);
+		fieldVacancy.setEditable(false);
+		fieldVacancy.setText(InfoApplicant.getDataSetVacancy());
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 
@@ -68,11 +75,17 @@ public class DialogInfoApplicantApplication {
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		panelInfoApplicantApplication.add(fieldDateOfBirth);
+		fieldDateOfBirth.setFont(fontTextField);
+		fieldDateOfBirth.setEditable(false);
+		fieldDateOfBirth.setText(InfoApplicant.getDataSetDate());
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		
 		panelInfoApplicantApplication.add(labelEducationalAchievement);
 		labelEducationalAchievement.setFont(fontTextField);
+		fieldEducationalAchievement.setFont(fontTextField);
+		fieldEducationalAchievement.setEditable(false);
+		fieldEducationalAchievement.setText(InfoApplicant.getDataSetEducationalAchievement());
 		panelInfoApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 		panelInfoApplicantApplication.add(fieldEducationalAchievement);

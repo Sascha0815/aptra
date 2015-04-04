@@ -8,6 +8,7 @@ import git_aptra.EditApplicant.DialogEditApplicant;
 import git_aptra.EditApplicant.DialogEditWarning;
 import git_aptra.EditApplicant.EditApplicant;
 import git_aptra.InfoApplicant.DialogInfoApplicant;
+import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 
 import java.awt.BorderLayout;
@@ -189,7 +190,12 @@ public class MenuBarPanelApplicant {
 		}
 		buttonInfoApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogInfoApplicant.infoApplicant();
+				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
+					DialogEditWarning.selectOnlyOne();
+				} else {
+					InfoApplicant.getSelectedRow();
+					DialogInfoApplicant.infoApplicant();
+				}
 			}
 		});
 
