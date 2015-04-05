@@ -3,6 +3,10 @@ package git_aptra.EditVacancyManagement;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -57,6 +61,14 @@ public class DialogEditVacancyManagementGeneral {
 
 	private static JButton saveMain = new JButton("Speichern");
 
+	private static String statusNote;
+	private static int dayNote;
+	private static int monthNote;
+	private static int yearNote;
+	private static String note;
+	private static String employee;
+	private static Calendar calNote = Calendar.getInstance();
+
 	public static void editVacancyManagementGeneral() {
 		panelDialogEditVacancyManagementMain.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditVacancyManagementMain.setLayout(new BoxLayout(
@@ -109,6 +121,7 @@ public class DialogEditVacancyManagementGeneral {
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(labelNote);
 		panelDialogEditVacancyManagementMain.add(fieldNote);
+		fieldNote.setFont(fontTextField);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(labelContributor);
@@ -120,6 +133,17 @@ public class DialogEditVacancyManagementGeneral {
 
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",
 				panelDialogEditVacancyManagementMain);
+		saveMain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				SaveDataEditVacancyManagement.save();
+				try {
+					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	public static void reset() {
@@ -131,4 +155,43 @@ public class DialogEditVacancyManagementGeneral {
 		boxStatus.setSelectedIndex(0);
 		boxContributor.setSelectedIndex(0);
 	}
+
+	public static void getGeneral() {
+		try {
+			statusNote = (String) boxStatus.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
+			note = fieldNote.getText();
+		} catch (Exception e) {
+		}
+		try {
+			employee = (String) boxContributor.getSelectedItem();
+		} catch (Exception e) {
+		}
+		dayNote = (int) boxDateDay.getSelectedItem();
+		monthNote = (int) boxDateMonth.getSelectedItem();
+		yearNote = (int) boxDateYear.getSelectedItem();
+		calNote.set(Calendar.YEAR, yearNote);
+		calNote.set(Calendar.MONTH, (monthNote - 1));
+		calNote.set(Calendar.DAY_OF_MONTH, dayNote);
+
+	}
+
+	public static Calendar getCalNote() {
+		return calNote;
+	}
+
+	public static String getStatusNote() {
+		return statusNote;
+	}
+
+	public static String getNote() {
+		return note;
+	}
+
+	public static String getEmployee() {
+		return employee;
+	}
+
 }

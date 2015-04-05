@@ -1,10 +1,6 @@
 package git_aptra.EditVacancyManagement;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 public class EditVacancyManagement {
@@ -19,6 +15,11 @@ public class EditVacancyManagement {
 	private static int DataSetYear;
 
 	public static void getSelectedRow() {
+		
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
 
 		DataSetName = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
 				.getValueAt(
@@ -46,19 +47,6 @@ public class EditVacancyManagement {
 	}
 
 	public static String getDataSetApplicantID() {
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from applicant");
-
-			while (rs.next()) {
-				DataSetApplicantID = rs.getString(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		return DataSetApplicantID;
 	}
 
@@ -85,4 +73,5 @@ public class EditVacancyManagement {
 	public static int getDataSetDay() {
 		return DataSetDay;
 	}
+	
 }
