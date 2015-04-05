@@ -81,6 +81,8 @@ public class DialogAddApplicantContact {
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
 		panelDialogApplicantContact.removeAll();
+		ActionListener[] al = save.getActionListeners();
+		save.removeActionListener(al[0]);
 	}
 
 	public static String getTelefonHome() {
