@@ -55,14 +55,14 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		try {
 			PreparedStatement ps = dbConnection
 					.prepareStatement("UPDATE relationship SET latestNoteType = ?, latestDate = ?, latestNote = ? WHERE applicantID =" + id);
-			preparedStatement.setString(8,
+			ps.setString(8,
 					DialogEditVacancyManagementGeneral.getStatusNote());
-			preparedStatement.setDate(11, new java.sql.Date(
+			ps.setDate(11, new java.sql.Date(
 					DialogEditVacancyManagementGeneral.getCalNote()
 							.getTimeInMillis()));
-			preparedStatement.setString(3,
+			ps.setString(3,
 					DialogEditVacancyManagementGeneral.getNote());
-
+			ps.executeUpdate();
 		} catch (SQLException e) {
 
 		}
