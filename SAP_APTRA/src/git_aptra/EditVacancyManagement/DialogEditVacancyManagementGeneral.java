@@ -139,7 +139,6 @@ public class DialogEditVacancyManagementGeneral {
 				try {
 					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -154,6 +153,8 @@ public class DialogEditVacancyManagementGeneral {
 		fieldNote.setText("");
 		boxStatus.setSelectedIndex(0);
 		boxContributor.setSelectedIndex(0);
+		ActionListener[] al = saveMain.getActionListeners();
+		saveMain.removeActionListener(al[0]);
 	}
 
 	public static void getGeneral() {
