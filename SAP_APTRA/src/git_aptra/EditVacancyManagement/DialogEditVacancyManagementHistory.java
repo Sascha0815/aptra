@@ -1,7 +1,15 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+
 import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -64,6 +72,36 @@ public class DialogEditVacancyManagementHistory {
 		scrollPaneVacancyManagementHistory
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableVacancyManagementHistory.setRowHeight(20);
+		
+		@SuppressWarnings("rawtypes")
+		Vector results = new Vector();
+		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT notes.noteType, notes.date, notes.note, notes.employee FROM relationship INNER JOIN notes ON relationship.applicantID = notes.applicantID where notes.applicantID = " +id);
+
+			while (rs.next()) {
+				Vector applicant = new Vector();
+				applicant.add(rs.getString(1));
+				applicant.add(rs.getString(2));
+				applicant.add(rs.getString(3));
+				applicant.add(rs.getString(4));
+				results.add(applicant);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+		modelVacancyManagementHistory.setDataVector(results,
+				COLUMN_IDENTIFIERS_VACANCYMANAGEMENTHISTORY);
+		modelVacancyManagementHistory.fireTableDataChanged();
 
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab(
 				"Dokumentation", panelDialogVacancyManagementHistory);
