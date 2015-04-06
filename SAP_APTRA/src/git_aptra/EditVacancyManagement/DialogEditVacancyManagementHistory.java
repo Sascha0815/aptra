@@ -1,6 +1,6 @@
 package git_aptra.EditVacancyManagement;
 
-import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
+
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import java.awt.Color;
@@ -45,6 +45,7 @@ public class DialogEditVacancyManagementHistory {
 	public static JTable tableVacancyManagementHistory = new JTable(
 			modelVacancyManagementHistory);
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void editVacancyManagementHistory() {
 		panelDialogVacancyManagementHistory.setBackground(Color.LIGHT_GRAY);
 		panelDialogVacancyManagementHistory.setLayout(new BoxLayout(
@@ -73,7 +74,7 @@ public class DialogEditVacancyManagementHistory {
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableVacancyManagementHistory.setRowHeight(20);
 		
-		@SuppressWarnings("rawtypes")
+
 		Vector results = new Vector();
 		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
 				.getValueAt(

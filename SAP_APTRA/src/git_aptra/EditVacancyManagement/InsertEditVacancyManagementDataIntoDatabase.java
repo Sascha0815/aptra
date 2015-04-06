@@ -54,17 +54,48 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 
 		try {
 			PreparedStatement ps = dbConnection
-					.prepareStatement("UPDATE relationship SET latestNoteType = ?, latestDate = ?, latestNote = ? WHERE applicantID =" + id);
-			ps.setString(1,
-					DialogEditVacancyManagementGeneral.getStatusNote());
-			ps.setDate(2,new java.sql.Date(
-					DialogEditVacancyManagementGeneral.getCalNote()
-							.getTimeInMillis()));
-			ps.setString(3,
-					DialogEditVacancyManagementGeneral.getNote());
+					.prepareStatement("UPDATE relationship SET latestNoteType = ?, latestDate = ?, latestNote = ? WHERE applicantID ="
+							+ id);
+			ps.setString(1, DialogEditVacancyManagementGeneral.getStatusNote());
+			ps.setDate(2, new java.sql.Date(DialogEditVacancyManagementGeneral
+					.getCalNote().getTimeInMillis()));
+			ps.setString(3, DialogEditVacancyManagementGeneral.getNote());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 
 		}
+
 	}
+
+	public static void insertEditVacancyManagementDataDetails()
+			throws SQLException {
+		Connection dbConnection = null;
+		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			dbConnection = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+		} catch (SQLException e) {
+			System.out.println("Datenbank - editApplicant" + e.getMessage());
+		}
+
+		try {
+			PreparedStatement ps = dbConnection
+					.prepareStatement("UPDATE applicant SET markApplicant = ?, markApplication = ?, CL = ?, CV = ? WHERE applicantID ="
+							+ id);
+			ps.setString(1,
+					DialogEditVacancyManagementDetails.getMarkApplicant());
+			ps.setString(2,
+					DialogEditVacancyManagementDetails.getMarkApplication());
+			ps.setBoolean(3, DialogEditVacancyManagementDetails.getCL());
+			ps.setBoolean(4, DialogEditVacancyManagementDetails.getCV());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Datenbank - editApplicant" + e.getMessage());
+		}
+	}
+
 }

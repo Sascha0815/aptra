@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -50,6 +51,12 @@ public class DialogEditVacancyManagementDetails {
 	@SuppressWarnings({ "unchecked", "rawtypes", })
 	private static JComboBox boxContributor = new JComboBox(contribute);
 
+	private static String markApplicant;
+	private static String markApplication;
+	private static boolean CL;
+	private static boolean CV;
+	
+	
 	public static void editVacancyManagementDetails() {
 		panelDialogEditVacancyManagementDetails.setBackground(Color.LIGHT_GRAY);
 		panelDialogEditVacancyManagementDetails.setLayout(new BoxLayout(
@@ -85,7 +92,7 @@ public class DialogEditVacancyManagementDetails {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditVacancyManagement.save();
 				try {
-					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
+					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataDetails();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -106,5 +113,45 @@ public class DialogEditVacancyManagementDetails {
 		checkCV.setSelected(false);
 		boxStatus.setSelectedIndex(0);
 		boxContributor.setSelectedIndex(0);
+	}
+	
+	public static void getDetails() {
+		try {
+			markApplicant = fieldMarkApplicant.getText();
+		} catch (Exception e) {
+		}
+		try {
+			markApplication = fieldMarkApplication.getText();
+		} catch (Exception e) {
+		}
+		try {
+			if(checkCL.isSelected()){
+				CL = true;
+			}
+		} catch (Exception e) {
+		}
+		try {
+			if(checkCV.isSelected()){
+				CV = true;
+			}
+		} catch (Exception e) {
+		}
+		
+	}
+	
+	public static String getMarkApplicant() {
+		return markApplicant;
+	}
+	
+	public static String getMarkApplication() {
+		return markApplication;
+	}
+	
+	public static boolean getCL(){
+		return CL;
+	}
+	
+	public static boolean getCV(){
+		return CV;
 	}
 }

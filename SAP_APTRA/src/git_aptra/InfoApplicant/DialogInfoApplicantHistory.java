@@ -43,7 +43,7 @@ private static JPanel panelInfoApplicantManagementHistory = new JPanel();
 	public static JTable tableInfoApplicantManagementHistory = new JTable(
 			modelInfoApplicantManagementHistory);
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void infoApplicantManagementHistory(){
 		panelInfoApplicantManagementHistory.setBackground(Color.LIGHT_GRAY);
 		panelInfoApplicantManagementHistory.setLayout(new BoxLayout(
@@ -64,7 +64,7 @@ private static JPanel panelInfoApplicantManagementHistory = new JPanel();
 						.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 				tableInfoApplicantManagementHistory.setRowHeight(20);
 				
-				@SuppressWarnings("rawtypes")
+
 				Vector results = new Vector();
 				String id = (String) MenuBarPanelApplicant.tableApplicant
 						.getValueAt(
