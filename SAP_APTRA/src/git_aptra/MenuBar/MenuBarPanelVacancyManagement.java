@@ -89,14 +89,14 @@ public class MenuBarPanelVacancyManagement {
 	private static JLabel labelManagementVacancyStatus = new JLabel("Status:");
 	private static JLabel labelManagementEducationalAchievement = new JLabel(
 			"Bildungsabschluss:");
-	public static JLabel labelManagementCountContent = new JLabel();
-	public static JLabel labelManagementEndOfApplyContent = new JLabel();
-	public static JLabel labelManagementPositionContent = new JLabel();
-	public static JLabel labelManagementAreaContent = new JLabel();
-	public static JLabel labelManagementRequirementLevelContent = new JLabel();
-	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel();
-	public static JLabel labelManagementVacancyStatusContent = new JLabel();
-	public static JLabel labelManagementEducationalAchievementContent = new JLabel();
+	public static JLabel labelManagementCountContent = new JLabel(" ");
+	public static JLabel labelManagementEndOfApplyContent = new JLabel(" ");
+	public static JLabel labelManagementPositionContent = new JLabel(" ");
+	public static JLabel labelManagementAreaContent = new JLabel(" ");
+	public static JLabel labelManagementRequirementLevelContent = new JLabel(" ");
+	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel(" ");
+	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
+	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
