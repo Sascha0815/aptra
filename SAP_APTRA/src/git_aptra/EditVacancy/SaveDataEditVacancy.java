@@ -1,6 +1,6 @@
 package git_aptra.EditVacancy;
 
-import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
+import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ public class SaveDataEditVacancy {
 			}
 
 			@SuppressWarnings("rawtypes")
-			Vector resultsVacancy = InsertVacancyDateIntoTable
+			Vector resultsVacancy = InsertVacancyDataIntoTable
 					.insertVacancyDataIntoTable();
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 					MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);

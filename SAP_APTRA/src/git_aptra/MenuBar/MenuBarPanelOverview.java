@@ -2,9 +2,9 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.AddVacancy.DialogAddVacancy;
-import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
-import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
+import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.Delete.DeleteApplicant;
 import git_aptra.EditApplicant.DialogEditApplicant;
 import git_aptra.EditApplicant.DialogEditWarning;
@@ -184,7 +184,7 @@ public class MenuBarPanelOverview {
 		buttonRefreshJob.addActionListener(new ActionListener() {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent e) {
-				Vector resultsVacancy = InsertVacancyDateIntoTable
+				Vector resultsVacancy = InsertVacancyDataIntoTable
 						.insertVacancyDataIntoTable();
 				MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 						MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);

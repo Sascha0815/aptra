@@ -2,7 +2,7 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
-import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
+import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.Delete.DeleteVacancy;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
@@ -96,7 +96,7 @@ public class MenuBarPanelVacancy {
 		buttonRefreshJob.addActionListener(new ActionListener() {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent e) {
-				Vector resultsVacancy = InsertVacancyDateIntoTable
+				Vector resultsVacancy = InsertVacancyDataIntoTable
 						.insertVacancyDataIntoTable();
 				MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 						MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
@@ -150,7 +150,7 @@ public class MenuBarPanelVacancy {
 			public void actionPerformed(ActionEvent evt) {
 				DeleteVacancy.deleteVacancy();
 				@SuppressWarnings("rawtypes")
-				Vector resultsVacancy = InsertVacancyDateIntoTable
+				Vector resultsVacancy = InsertVacancyDataIntoTable
 						.insertVacancyDataIntoTable();
 				modelJob.setDataVector(resultsVacancy, COLUMN_IDENTIFIERS_JOB);
 				modelJob.fireTableDataChanged();

@@ -1,6 +1,6 @@
 package git_aptra.EditApplicant;
 
-import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
+import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.SQLException;

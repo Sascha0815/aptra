@@ -1,6 +1,5 @@
 package git_aptra.AddVacancy;
 
-import git_aptra.DatabaseConnection.InsertVacancyDateIntoTable;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
@@ -12,12 +11,12 @@ public class SaveDataNewVacancy {
 		if (DialogAddVacancyGeneral.getGeneral() == true
 				&& DialogAddVacancySpecification.getSpecification() == true) {
 			try {
-				InsertVacancyDateIntoTable.insertVacancyDataIntoTable();
+				InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
 				InsertVacancyDataIntoDatabase.insertVacancyData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			Vector resultsVacancy = InsertVacancyDateIntoTable
+			Vector resultsVacancy = InsertVacancyDataIntoTable
 					.insertVacancyDataIntoTable();
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 					MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);

@@ -2,7 +2,7 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
-import git_aptra.DatabaseConnection.InsertApplicantDataIntoTable;
+import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.Delete.DeleteApplicant;
 import git_aptra.EditApplicant.DialogEditApplicant;
 import git_aptra.EditApplicant.DialogEditWarning;
