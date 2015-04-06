@@ -111,7 +111,7 @@ public class DialogOpenVacancy {
 				ActionListener[] al = searchVacancy.getActionListeners();
 				searchVacancy.removeActionListener(al[0]);
 				dialogAddVacancyManagement.dispose();
-				MenuBarPanelVacancyManagement.fieldManagementCount.setText(String.valueOf(MenuBarPanelVacancyManagement.tableVacancyManagement.getRowCount()));
+				OpenVancancy.insertInfo(id);
 			}
 		});
 	}

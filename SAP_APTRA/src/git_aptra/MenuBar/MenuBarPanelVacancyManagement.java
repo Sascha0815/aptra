@@ -9,6 +9,7 @@ import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -19,6 +20,9 @@ import java.io.IOException;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -50,8 +54,9 @@ public class MenuBarPanelVacancyManagement {
 	private static JPanel panelManagementButton = new JPanel();
 	private static JPanel panelManagementSummary = new JPanel();
 
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	
+	private static Font fontHeadline = new Font("Arial", Font.BOLD, 22);
+	private static Font fontSubHeadline = new Font("Arial", Font.BOLD, 14);
+	private static Font fontContent = new Font("Arial", Font.ITALIC, 14);
 
 	private static JButton butttonAddVacancyManagement = new JButton();
 	private static JButton buttonDeleteVacancyManagement = new JButton();
@@ -68,34 +73,30 @@ public class MenuBarPanelVacancyManagement {
 	};
 	public static JTable tableVacancyManagement = new JTable(
 			modelVacancyManagement);
-	
-	private static JLabel labelManagementInfo = new JLabel(
-			"Info der Stelle");
+
+	private static JLabel labelManagementInfo = new JLabel("Info zur Stelle");
 	private static JLabel labelManagementCount = new JLabel(
-			"Anzahl der Bewerber");
+			"Anzahl der Bewerber:");
 	private static JLabel labelManagementEndOfApply = new JLabel(
-			"Bewerbungsschluss");
+			"Bewerbungsschluss:");
 	private static JLabel labelManagementPosition = new JLabel(
 			"Stellenbezeichnung:");
-	private static JLabel labelManagementArea = new JLabel(
-			"Arbeitsbereich:");
+	private static JLabel labelManagementArea = new JLabel("Arbeitsbereich:");
 	private static JLabel labelManagementRequirementLevel = new JLabel(
 			"Anforderung:");
 	private static JLabel labelManagementTermsOfEmployment = new JLabel(
 			"Anstellungsverhältnis:");
-	private static JLabel labelManagementVacancyStatus = new JLabel(
-			"Status:");
+	private static JLabel labelManagementVacancyStatus = new JLabel("Status:");
 	private static JLabel labelManagementEducationalAchievement = new JLabel(
 			"Bildungsabschluss:");
-
-	public static JTextField fieldManagementCount = new JTextField();
-	private static JTextField fieldManagementEndOfApply = new JTextField();
-	private static JTextField fieldManagementPosition = new JTextField();
-	private static JTextField fieldManagementArea = new JTextField();
-	private static JTextField fieldManagementRequirementLevel = new JTextField();
-	private static JTextField fieldManagementTermsOfEmplyment = new JTextField();
-	private static JTextField fieldManagementVacancyStatus = new JTextField();
-	private static JTextField fieldManagementEducationalAchievement = new JTextField();
+	public static JLabel labelManagementCountContent = new JLabel();
+	public static JLabel labelManagementEndOfApplyContent = new JLabel();
+	public static JLabel labelManagementPositionContent = new JLabel();
+	public static JLabel labelManagementAreaContent = new JLabel();
+	public static JLabel labelManagementRequirementLevelContent = new JLabel();
+	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel();
+	public static JLabel labelManagementVacancyStatusContent = new JLabel();
+	public static JLabel labelManagementEducationalAchievementContent = new JLabel();
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
@@ -108,46 +109,50 @@ public class MenuBarPanelVacancyManagement {
 
 		// Management-Stelleninfo (links)
 		panelManagementSummary.setBackground(Color.LIGHT_GRAY);
-		panelManagementSummary
-				.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-		panelManagementSummary.setPreferredSize(new Dimension(150, 0));
+		panelManagementSummary.setLayout(new BoxLayout(panelManagementSummary, BoxLayout.Y_AXIS));
+		panelManagementSummary.setPreferredSize(new Dimension(180, 0));
 		panelManagementSummary.add(labelManagementInfo);
 		labelManagementInfo.setFont(fontHeadline);
-		panelManagementSummary.add(labelManagementInfo);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 30)));
 		panelManagementSummary.add(labelManagementCount);
-		panelManagementSummary.add(fieldManagementCount);
-		fieldManagementCount.setBackground(Color.LIGHT_GRAY);
-		fieldManagementCount.setEditable(false);
+		labelManagementCount.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementCountContent);
+		labelManagementCountContent.setFont(fontContent);		
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementEndOfApply);
-		panelManagementSummary.add(fieldManagementEndOfApply);
-		fieldManagementEndOfApply.setBackground(Color.LIGHT_GRAY);
+		labelManagementEndOfApply.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementEndOfApplyContent);
+		labelManagementEndOfApplyContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementPosition);
-		panelManagementSummary.add(fieldManagementPosition);
-		fieldManagementPosition.setBackground(Color.LIGHT_GRAY);
-		fieldManagementPosition.setEditable(false);
+		labelManagementPosition.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementPositionContent);
+		labelManagementPositionContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementArea);
-		panelManagementSummary.add(fieldManagementArea);
-		fieldManagementArea.setBackground(Color.LIGHT_GRAY);
-		fieldManagementArea.setEditable(false);
+		labelManagementArea.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementAreaContent);
+		labelManagementAreaContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementRequirementLevel);
-		panelManagementSummary.add(fieldManagementRequirementLevel);
-		fieldManagementRequirementLevel.setBackground(Color.LIGHT_GRAY);
-		fieldManagementRequirementLevel.setEditable(false);
+		labelManagementRequirementLevel.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementRequirementLevelContent);
+		labelManagementRequirementLevelContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementTermsOfEmployment);
-		panelManagementSummary.add(fieldManagementTermsOfEmplyment);
-		fieldManagementTermsOfEmplyment.setBackground(Color.LIGHT_GRAY);
-		fieldManagementTermsOfEmplyment.setEditable(false);
+		labelManagementTermsOfEmployment.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementTermsOfEmploymentContent);
+		labelManagementTermsOfEmploymentContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementVacancyStatus);
-		panelManagementSummary.add(fieldManagementVacancyStatus);
-		fieldManagementVacancyStatus.setBackground(Color.LIGHT_GRAY);
-		fieldManagementVacancyStatus.setEditable(false);
+		labelManagementVacancyStatus.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementVacancyStatusContent);
+		labelManagementVacancyStatusContent.setFont(fontContent);
+		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementEducationalAchievement);
-		panelManagementSummary.add(fieldManagementEducationalAchievement);
-		fieldManagementEducationalAchievement.setBackground(Color.LIGHT_GRAY);
-		fieldManagementEducationalAchievement.setEditable(false);
-			
-	
-	
+		labelManagementEducationalAchievement.setFont(fontSubHeadline);
+		panelManagementSummary.add(labelManagementEducationalAchievementContent);
+		labelManagementEducationalAchievementContent.setFont(fontContent);		
 		panelManagementContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
 				20));
 		panelManagementButton.setLayout(new FlowLayout(FlowLayout.CENTER, 20,

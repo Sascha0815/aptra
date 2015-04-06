@@ -1,5 +1,7 @@
 package git_aptra.VacancyManagement;
 
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -36,5 +38,26 @@ public class OpenVancancy {
 		}
 
 		return resultsOpenVacancy;
+	}
+	private static String date;
+
+	public static void insertInfo(int id){
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from applicant");
+
+			while (rs.next()) {
+				date = rs.getString(9);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		String count = Integer.toString(MenuBarPanelVacancyManagement.tableVacancyManagement.getRowCount());
+		MenuBarPanelVacancyManagement.labelManagementCountContent.setText(count);
+		
+		
 	}
 }

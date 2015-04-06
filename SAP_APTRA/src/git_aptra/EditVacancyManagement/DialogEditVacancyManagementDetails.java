@@ -3,6 +3,9 @@ package git_aptra.EditVacancyManagement;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -77,10 +80,23 @@ public class DialogEditVacancyManagementDetails {
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(saveDetails);
+		
+		saveDetails.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				SaveDataEditVacancyManagement.save();
+				try {
+					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Details",
 				panelDialogEditVacancyManagementDetails);
 	}
+	
+	
 
 	public static void reset() {
 		panelDialogEditVacancyManagementDetails.removeAll();

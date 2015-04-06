@@ -152,7 +152,7 @@ public class InfoApplicant {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println(DataSetDateVacancyID);
 		return DataSetDateVacancyID;
 	}
 
