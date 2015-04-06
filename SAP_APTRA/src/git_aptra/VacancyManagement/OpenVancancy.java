@@ -40,6 +40,13 @@ public class OpenVancancy {
 		return resultsOpenVacancy;
 	}
 	private static String date;
+	private static String position;
+	private static String area;
+	private static String requirementLevel;
+	private static String termsOfEmployment;
+	private static String vacancyStatus;
+	private static String educationalAchievement;
+
 
 	public static void insertInfo(int id){
 		try {
@@ -47,17 +54,30 @@ public class OpenVancancy {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from applicant");
+			ResultSet rs = stmt.executeQuery("Select position, area, requirementLevel, termsOfEmployment, vacancyStatus, educationalAchievement, date from vacancy where vacancyID =" + id);
 
 			while (rs.next()) {
-				date = rs.getString(9);
+				
+				position = rs.getString(1);
+				area = rs.getString(2);
+				requirementLevel = rs.getString(3);
+				termsOfEmployment = rs.getString(4);
+				vacancyStatus = rs.getString(5);
+				educationalAchievement = rs.getString(6);
+				date = rs.getString(7);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		String count = Integer.toString(MenuBarPanelVacancyManagement.tableVacancyManagement.getRowCount());
 		MenuBarPanelVacancyManagement.labelManagementCountContent.setText(count);
-		
+		MenuBarPanelVacancyManagement.labelManagementEndOfApplyContent.setText(date);
+		MenuBarPanelVacancyManagement.labelManagementPositionContent.setText(position);
+		MenuBarPanelVacancyManagement.labelManagementAreaContent.setText(area);
+		MenuBarPanelVacancyManagement.labelManagementRequirementLevelContent.setText(requirementLevel);
+		MenuBarPanelVacancyManagement.labelManagementVacancyStatusContent.setText(vacancyStatus);
+		MenuBarPanelVacancyManagement.labelManagementEducationalAchievementContent.setText(educationalAchievement);
+		MenuBarPanelVacancyManagement.labelManagementTermsOfEmploymentContent.setText(termsOfEmployment);
 		
 	}
 }
