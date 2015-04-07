@@ -1,11 +1,14 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.InfoApplicant.InfoApplicant;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 
 
 import javax.swing.Box;
@@ -68,6 +71,7 @@ public class DialogEditVacancyManagementDetails {
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(fieldMarkApplicant);
 		fieldMarkApplicant.setFont(fontTextField);
+		fieldMarkApplicant.setText(InfoApplicant.getDataSetMarkApplicant());
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelMarkApplication);
@@ -75,15 +79,26 @@ public class DialogEditVacancyManagementDetails {
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldMarkApplication.setFont(fontTextField);
+		fieldMarkApplication.setText(InfoApplicant.getDataSetMarkApplication());
 		panelDialogEditVacancyManagementDetails.add(labelComplete);
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelCheckCL);
 		panelDialogEditVacancyManagementDetails.add(checkCL);
+		if(InfoApplicant.getDataSetCL()==true){
+			checkCL.setSelected(true);
+		}else {
+			checkCL.setSelected(false);
+		}
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelCheckCV);
 		panelDialogEditVacancyManagementDetails.add(checkCV);
+		if(InfoApplicant.getDataSetCV()==true){
+			checkCV.setSelected(true);
+		}else {
+			checkCV.setSelected(false);
+		}
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(saveDetails);
