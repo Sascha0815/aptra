@@ -12,8 +12,8 @@ public class Steuerung {
 
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
-		Rejecion.rejection();
-		//new Oberflaeche("Bewerberverwaltung");
+		//Rejecion.rejection();
+		new Oberflaeche("Bewerberverwaltung");
 		Vector resultsApplicant = InsertApplicantDataIntoTable
 				.insertApplicantDataIntoTable();
 		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
