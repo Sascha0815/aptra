@@ -24,6 +24,10 @@ public class InfoApplicant {
 	private static String DataSetEducationalAchievement;
 	private static String DataSetDateApplication;
 	private static String DataSetDateVacancyID;
+	private static String DataSetMarkApplicant;
+	private static String DataSetMarkApplication;
+	private static boolean DataSetCL;
+	private static boolean DataSetCV;
 
 	public static void getSelectedRow() {
 		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
@@ -152,8 +156,79 @@ public class InfoApplicant {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(DataSetDateVacancyID);
+
 		return DataSetDateVacancyID;
 	}
+	
+	public static String getDataSetMarkApplicant(){
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship");
+
+			while (rs.next()) {
+				DataSetMarkApplicant = rs.getString(5);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetMarkApplicant;
+	}
+	
+	public static String getDataSetMarkApplication(){
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship");
+
+			while (rs.next()) {
+				DataSetMarkApplication = rs.getString(6);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetMarkApplication;
+	}
+	
+	public static boolean getDataSetCL(){
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship");
+
+			while (rs.next()) {
+				DataSetCL = rs.getBoolean(8);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetCL;
+	}
+	
+	public static boolean getDataSetCV(){
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship");
+
+			while (rs.next()) {
+				DataSetCV = rs.getBoolean(7);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetCV;
+	}
+	
+	
+	
 
 }

@@ -41,6 +41,8 @@ public class DialogInfoApplicantDetails {
 				.createRigidArea(new Dimension(0, 10)));
 		panelInfoApplicantManagementDetails.add(fieldMarkApplicant);
 		fieldMarkApplicant.setFont(fontTextField);
+		fieldMarkApplicant.setText(InfoApplicant.getDataSetMarkApplicant());
+		fieldMarkApplicant.setEditable(false);
 		panelInfoApplicantManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelInfoApplicantManagementDetails.add(labelMarkApplication);
@@ -48,15 +50,29 @@ public class DialogInfoApplicantDetails {
 		panelInfoApplicantManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldMarkApplication.setFont(fontTextField);
+		fieldMarkApplication.setText(InfoApplicant.getDataSetMarkApplication());
+		fieldMarkApplication.setEditable(false);
 		panelInfoApplicantManagementDetails.add(labelComplete);
 		panelInfoApplicantManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelInfoApplicantManagementDetails.add(labelCheckCL);
 		panelInfoApplicantManagementDetails.add(checkCL);
+		if(InfoApplicant.getDataSetCL()==true){
+			checkCL.setSelected(true);
+		}else {
+			checkCL.setSelected(false);
+		}
+		checkCL.setEnabled(false);
 		panelInfoApplicantManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelInfoApplicantManagementDetails.add(labelCheckCV);
 		panelInfoApplicantManagementDetails.add(checkCV);
+		if(InfoApplicant.getDataSetCV()==true){
+			checkCV.setSelected(true);
+		}else {
+			checkCV.setSelected(false);
+		}
+		checkCV.setEnabled(false);
 		panelInfoApplicantManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 
