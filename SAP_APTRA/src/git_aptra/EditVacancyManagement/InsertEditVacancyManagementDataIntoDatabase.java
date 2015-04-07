@@ -84,7 +84,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 
 		try {
 			PreparedStatement ps = dbConnection
-					.prepareStatement("UPDATE applicant SET markApplicant = ?, markApplication = ?, CL = ?, CV = ? WHERE applicantID ="
+					.prepareStatement("UPDATE relationship SET impressionApplicant = ?, impressionApplication = ?, curriculumVitae = ?, coveringLetter = ? WHERE applicantID ="
 							+ id);
 			ps.setString(1,
 					DialogEditVacancyManagementDetails.getMarkApplicant());
@@ -94,6 +94,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 			ps.setBoolean(4, DialogEditVacancyManagementDetails.getCV());
 			ps.executeUpdate();
 		} catch (SQLException e) {
+			System.out.println(DialogEditVacancyManagementDetails.getMarkApplicant());
 			System.out.println("Datenbank - editApplicant" + e.getMessage());
 		}
 	}
