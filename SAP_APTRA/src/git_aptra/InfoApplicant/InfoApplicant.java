@@ -203,7 +203,7 @@ public class InfoApplicant {
 			ResultSet rs = stmt.executeQuery("Select * from relationship");
 
 			while (rs.next()) {
-				DataSetCL = rs.getBoolean(8);
+				DataSetCL = rs.getBoolean(7);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -220,7 +220,7 @@ public class InfoApplicant {
 			ResultSet rs = stmt.executeQuery("Select * from relationship");
 
 			while (rs.next()) {
-				DataSetCV = rs.getBoolean(7);
+				DataSetCV = rs.getBoolean(8);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

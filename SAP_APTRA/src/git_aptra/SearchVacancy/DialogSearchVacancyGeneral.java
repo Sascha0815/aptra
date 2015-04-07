@@ -23,9 +23,11 @@ public class DialogSearchVacancyGeneral {
 	private static JLabel labelInstruction2 = new JLabel();
 	private static JLabel labelPosition = new JLabel();
 	private static JLabel labelRequirementLevel = new JLabel();
+	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer");
 
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
+	private static JTextField fieldVacancyID = new JTextField();
 
 	static String[] boxListRequirementLevel = { "Bitte auswählen",
 			"Praktikant", "Auszubildender", "Student", "Angestellter" };
@@ -61,7 +63,9 @@ public class DialogSearchVacancyGeneral {
 		labelInstruction2
 				.setText("Bitte tragen Sie die gesuchten Daten ein!");
 		labelInstruction2.setFont(fontHeadline);
-		
+		panelSearchDialogVacancyMain.add(labelVacancyID);
+		panelSearchDialogVacancyMain.add(fieldVacancyID);
+		fieldVacancyID.setFont(fontTextField);
 		panelSearchDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelSearchDialogVacancyMain.add(labelPosition);
 		labelPosition.setText("Stellenbezeichnung:");
@@ -100,9 +104,17 @@ public class DialogSearchVacancyGeneral {
 	private static String termsOfEmployment;
 	private static String educationalAchievementVacancy;
 	private static String vacancyStatus;
+	private static int vacancyID;
+	
 	
 	public static void getGeneral() {
 		try {
+			try {
+				vacancyID = Integer.parseInt(fieldVacancyID.getText());
+
+			} catch (Exception e) {
+				vacancyID = 0;
+			}
 			position = fieldPosition.getText();
 			area = fieldArea.getText();
 			requirementLevel = String.valueOf(boxRequirementLevel
@@ -138,8 +150,12 @@ public class DialogSearchVacancyGeneral {
 		boxTermsOfEmployment.setSelectedIndex(0);
 		boxVacancyStatus.setSelectedIndex(0);
 		boxEducationalAchievement.setSelectedIndex(0);
+		fieldVacancyID.setText("");
 	}
-
+	
+	public static int getVacancyID() {
+		return vacancyID;
+	}
 	public static String getRequirementLevel() {
 		return requirementLevel;
 	}
@@ -163,5 +179,7 @@ public class DialogSearchVacancyGeneral {
 	public static String getPosition() {
 		return position;
 	}
+	
+
 }
 

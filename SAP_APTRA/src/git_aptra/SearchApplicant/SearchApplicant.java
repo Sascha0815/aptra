@@ -9,6 +9,7 @@ import java.util.Vector;
 
 public class SearchApplicant {
 	
+	private static String applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -27,6 +28,19 @@ public class SearchApplicant {
 		Vector resultsSearchApplicant = new Vector();
 		boolean first = true;
 
+		if (!(DialogSearchApplicantGeneral.getApplicantID() == 0)) {
+			if (first == true) {
+				applicantID = "where applicantID = '"
+						+ DialogSearchApplicantGeneral.getApplicantID() + "'";
+				first = false;
+			} else {
+				applicantID = " AND applicantID = '"
+						+ DialogSearchApplicantGeneral.getApplicantID() + "'";
+			}
+		} else {
+			applicantID = "";
+		}
+		
 		if (!DialogSearchApplicantGeneral.getName().equals("")) {
 			if (first == true) {
 				name = "where name = '"
@@ -164,7 +178,7 @@ public class SearchApplicant {
 			educationalAcievement = "";
 		}
 
-		System.out.println("select * from applicant " + name + firstName
+		System.out.println("select * from applicant " + applicantID + name + firstName
 				+ street + houseNr + postalCode + city + telefonHome
 				+ telefonMobil + email + vacancy + educationalAcievement);
 		try {
@@ -173,7 +187,7 @@ public class SearchApplicant {
 					"u474396146_aptra", "aptraDB");
 
 			Statement stmt = dbConnection.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from applicant " + name
+			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID +name
 					+ firstName + street + houseNr + postalCode + city
 					+ telefonHome + telefonMobil + email + vacancy
 					+ educationalAcievement);

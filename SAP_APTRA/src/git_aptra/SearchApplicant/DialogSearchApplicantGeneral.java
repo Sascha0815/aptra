@@ -19,6 +19,7 @@ public class DialogSearchApplicantGeneral {
 	private static JLabel labelInstruction = new JLabel(
 			"Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
+	private static JLabel labelApplicantID = new JLabel("Bewerbernummer:");
 	public static JPanel panelDialogSearchApplicantMain = new JPanel();
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
@@ -28,7 +29,9 @@ public class DialogSearchApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	private static JTextField fieldApplicantID = new JTextField();
 
+	private static int applicantID;
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -46,6 +49,9 @@ public class DialogSearchApplicantGeneral {
 		labelInstruction.setFont(fontHeadline);
 		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
+		panelDialogSearchApplicantMain.add(labelApplicantID);
+		panelDialogSearchApplicantMain.add(fieldApplicantID);
+		fieldApplicantID.setFont(fontTextField);
 		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
 				10)));
 		panelDialogSearchApplicantMain.add(labelName);
@@ -84,6 +90,12 @@ public class DialogSearchApplicantGeneral {
 
 	public static void getGeneral() {
 		try {
+			applicantID = Integer.parseInt(fieldApplicantID.getText());
+
+		} catch (Exception e) {
+			applicantID = 0;
+		}
+		try {
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
 
 		} catch (Exception e) {
@@ -109,6 +121,7 @@ public class DialogSearchApplicantGeneral {
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
+		fieldApplicantID.setText("");
 	}
 
 	public static String getName() {
@@ -134,5 +147,11 @@ public class DialogSearchApplicantGeneral {
 	public static String getCity() {
 		return city;
 	}
+	
+	public static int getApplicantID() {
+		return applicantID;
+	}
+	
+	
 
 }
