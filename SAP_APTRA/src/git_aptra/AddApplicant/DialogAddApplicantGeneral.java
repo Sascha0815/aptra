@@ -6,22 +6,32 @@ import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class DialogAddApplicantGeneral {
+	
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straﬂe:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
-	private static JLabel labelInstruction = new JLabel(
-			"Bitte tragen Sie alle erforderlichen Daten ein!");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
+	private static JLabel labelSex = new JLabel("Geschlecht:");
+	
+	private static String[] boxListSex = { "m‰nnlich", "weiblich"};
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxSex = new JComboBox(boxListSex);
+	
 	public static JPanel panelDialogApplicantMain = new JPanel();
+	
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
@@ -35,6 +45,7 @@ public class DialogAddApplicantGeneral {
 	private static int houseNr;
 	private static int postalCode;
 	private static String city;
+	private static String sex;
 
 	public static void addApplicantGeneral() {
 		panelDialogApplicantMain.setBackground(Color.LIGHT_GRAY);
@@ -68,6 +79,9 @@ public class DialogAddApplicantGeneral {
 		panelDialogApplicantMain.add(fieldCity);
 		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		fieldCity.setFont(fontTextField);
+		panelDialogApplicantMain.add(labelSex);
+		panelDialogApplicantMain.add(boxSex);
+		panelDialogApplicantMain.add(Box.createRigidArea(new Dimension(0, 10)));
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 
@@ -96,6 +110,11 @@ public class DialogAddApplicantGeneral {
 			city = fieldCity.getText();
 		} catch (Exception e) {
 		}
+		try {
+			sex = (String) boxSex.getSelectedItem();
+		} catch (Exception e) {
+		}
+		
 
 	}
 
@@ -107,6 +126,7 @@ public class DialogAddApplicantGeneral {
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
+		boxSex.setSelectedIndex(0);
 	}
 
 	public static String getName() {
@@ -131,5 +151,9 @@ public class DialogAddApplicantGeneral {
 
 	public static String getCity() {
 		return city;
+	}
+	
+	public static String getSex() {
+		return sex;
 	}
 }

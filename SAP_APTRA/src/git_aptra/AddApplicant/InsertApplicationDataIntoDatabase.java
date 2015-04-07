@@ -15,8 +15,8 @@ public class InsertApplicationDataIntoDatabase {
 		int id = 0;
 
 		String query = "INSERT INTO applicant"
-				+ "(name, firstName, street, houseNr, postalCode, city, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(name, firstName, street, houseNr, postalCode, city, sex, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = DriverManager.getConnection(
@@ -33,20 +33,22 @@ public class InsertApplicationDataIntoDatabase {
 					DialogAddApplicantGeneral.getPostalCode());
 			preparedStatement.setString(6, DialogAddApplicantGeneral.getCity());
 			preparedStatement.setString(7,
-					DialogAddApplicantContact.getTelefonHome());
+					DialogAddApplicantGeneral.getSex());
 			preparedStatement.setString(8,
+					DialogAddApplicantContact.getTelefonHome());
+			preparedStatement.setString(9,
 					DialogAddApplicantContact.getTelefonMobil());
 			preparedStatement
-					.setString(9, DialogAddApplicantContact.getEmail());
-			preparedStatement.setString(10,
+					.setString(10, DialogAddApplicantContact.getEmail());
+			preparedStatement.setString(11,
 					DialogAddApplicantApplication.getVacancy());
-			preparedStatement.setDate(11, new java.sql.Date(
+			preparedStatement.setDate(12, new java.sql.Date(
 					DialogAddApplicantApplication.getCal().getTimeInMillis()));
-			preparedStatement.setString(12,
+			preparedStatement.setString(13,
 					DialogAddApplicantApplication.getEducationalAchievement());
-			preparedStatement.setDate(13, new java.sql.Date(
+			preparedStatement.setDate(14, new java.sql.Date(
 					DialogAddApplicantApplication.getCalApply().getTimeInMillis()));
-			preparedStatement.setInt(14, DialogAddApplicantApplication.getVacancyID());
+			preparedStatement.setInt(15, DialogAddApplicantApplication.getVacancyID());
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {
