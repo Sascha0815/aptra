@@ -18,30 +18,30 @@ import com.itextpdf.text.Section;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.Image;
+import com.sun.org.apache.xpath.internal.operations.Equals;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.GregorianCalendar;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
 
 
 
 public class Rejection {
 	
 	static GregorianCalendar now = new GregorianCalendar(); 
-	static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);	
-	
+	static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);		
     private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
     private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
-	private static Document rejection = new Document();
-	private static Paragraph name  = new Paragraph("Fabian Gierer");
-	private static Paragraph streetHNR = new Paragraph("Steinenbach 15");
-	private static Paragraph PLZCity  = new Paragraph("88069 Tettnang");	
-	static String dates = df.format(now.getTime());	
-	static Chunk chunkDate = new Chunk(Rejection.dates);	            
-    static Paragraph date = new Paragraph(chunkDate);
+	private static Document rejection = new Document();	
+	private static String dates = df.format(now.getTime());	
+	private static Chunk chunkDate = new Chunk(Rejection.dates);	            
+    private static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
-	private static Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau [Empfänger]");
-	private static Paragraph salutationMale = new Paragraph("Sehr geehrter Herr [Empfänger]");
 	private static Paragraph introduction = new Paragraph("wir bedanken uns für Ihre Bewerbung und das damit zum Ausdruck gebrachte Interesse an einer Mitarbeit in unserem Unternehmen.");
 	private static Paragraph mainPart = new Paragraph("Wir haben inzwischen unsere Vorauswahl getroffen. Leider konnten wir Ihre Bewerbung nicht in die engere Wahl ziehen – wir haben uns für einige Kandidatinnen und Kandidaten entschieden, deren Profil noch genauer den Anforderungen der ausgeschriebenen Position entspricht.");
 	private static Paragraph noteOfThanks = new Paragraph("Wir danken Ihnen für Ihre Mühe, die Sie sich mit der Bewerbung gemacht haben und wünschen Ihnen alles Gute für Ihren weiteren Weg.");
@@ -50,17 +50,23 @@ public class Rejection {
 	
 	
 	
-	public static void rejection(int id){
+	public static void rejection(String fullName, String streetNr, String PCCity, String sex, String name){
 			try {
-				PdfWriter.getInstance(rejection, new FileOutputStream("Ablehnung.pdf"));			
+				PdfWriter.getInstance(rejection, new FileOutputStream("Ablehnung " + fullName + ".pdf"));			
 				rejection.open();
 				Image logo = Image.getInstance("SAP_APTRA/src/git_aptra/resources/Logo.png");
 				logo.scaleAbsolute(90, 90);
-				logo.setAbsolutePosition(500, 747);
+				logo.setAbsolutePosition(490, 737);
 				rejection.add(logo);
-				rejection.add(name);
-				rejection.add(streetHNR);
-				rejection.add(PLZCity);
+				Chunk chunkFullName = new Chunk(fullName);	            
+				Paragraph ParagraphFullName = new Paragraph(chunkFullName);
+				rejection.add(ParagraphFullName);
+				Chunk chunkStreetNr = new Chunk(streetNr);	            
+				Paragraph ParagraphStreetNr = new Paragraph(chunkStreetNr);
+				rejection.add(ParagraphStreetNr);
+				Chunk chunkPCCity = new Chunk(PCCity);	            
+				Paragraph ParagraphPCCity = new Paragraph(chunkPCCity);
+				rejection.add(ParagraphPCCity);
 				rejection.add(Chunk.NEWLINE);
 				rejection.add(Chunk.NEWLINE);
 				rejection.add(Chunk.NEWLINE);
@@ -68,8 +74,15 @@ public class Rejection {
 	            date.setSpacingAfter(30);
 	            rejection.add(date);
 				rejection.add(headline);
-				rejection.add(Chunk.NEWLINE);
-				rejection.add(salutationMale);
+				rejection.add(Chunk.NEWLINE);				
+				if (sex.equals("männlich")) {
+					Paragraph salutationMale = new Paragraph("Sehr geehrter Herr " + name);
+					rejection.add(salutationMale);
+				}
+				else {
+					Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau "+ name);
+					rejection.add(salutationFemale);
+				}				
 				rejection.add(introduction);
 				rejection.add(mainPart);
 				rejection.add(noteOfThanks);
@@ -77,6 +90,22 @@ public class Rejection {
 				rejection.add(ending);
 				rejection.add(signature);
 				rejection.close();
+				
+				PDDocument doc=null;
+				    try {
+				        doc = PDDocument.load("C:/Users/Fabi/git/aptra/Ablehnung " + fullName + ".pdf");
+				        doc.print();
+				    } catch (Exception ex) {
+				        ex.printStackTrace();
+				    } finally {
+				        if (doc != null) {
+				            try {
+				                doc.close();
+				            } catch (IOException ex1) {
+				                ex1.printStackTrace();
+				            }
+				        }
+				    }
 				
 			} catch (Exception e) {
 				e.printStackTrace();		

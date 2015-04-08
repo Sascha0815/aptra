@@ -128,6 +128,8 @@ public class DialogEditVacancyManagementDetails {
 		checkCV.setSelected(false);
 		boxStatus.setSelectedIndex(0);
 		boxContributor.setSelectedIndex(0);
+		ActionListener[] al = saveDetails.getActionListeners();
+		saveDetails.removeActionListener(al[0]);
 	}
 	
 	public static void getDetails() {

@@ -21,9 +21,9 @@ public class Acceptance {
 	private static Paragraph name  = new Paragraph("Fabian Gierer");
 	private static Paragraph streetHNR = new Paragraph("Steinenbach 15");
 	private static Paragraph PLZCity  = new Paragraph("88069 Tettnang");	
-	static String dates = df.format(now.getTime());	
-	static Chunk chunkDate = new Chunk(Rejection.dates);	            
-    static Paragraph date = new Paragraph(chunkDate);
+	private static String dates = df.format(now.getTime());	
+	private static Chunk chunkDate = new Chunk(Acceptance.dates);	            
+    private static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
 	private static Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau [Empfänger]");
 	private static Paragraph salutationMale = new Paragraph("Sehr geehrter Herr [Empfänger]");

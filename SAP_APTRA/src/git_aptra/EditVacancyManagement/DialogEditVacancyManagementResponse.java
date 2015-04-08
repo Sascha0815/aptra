@@ -1,6 +1,7 @@
 package git_aptra.EditVacancyManagement;
 
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+import git_aptra.ResponsePDF.ResponseControl;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -78,6 +79,8 @@ public class DialogEditVacancyManagementResponse {
 		panelDialogEditVacancyManagementResponse.removeAll();
 		boxResponse.setSelectedIndex(0);
 		boxContributor.setSelectedIndex(0);
+		ActionListener[] al = saveResponse.getActionListeners();
+		saveResponse.removeActionListener(al[0]);
 	}
 	
 	public static String getResponseType() {
