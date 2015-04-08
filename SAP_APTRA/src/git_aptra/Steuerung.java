@@ -4,6 +4,7 @@ import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
+import git_aptra.ResponsePDF.Rejection;
 import java.util.Vector;
 
 

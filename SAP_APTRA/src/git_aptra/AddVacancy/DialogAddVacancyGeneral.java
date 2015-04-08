@@ -46,7 +46,7 @@ public class DialogAddVacancyGeneral {
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
 	static String[] boxListEducationalAchievement = { "Bitte auswählen",
-			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+			"Haupptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxEducationalAchievement = new JComboBox(
 			boxListEducationalAchievement);

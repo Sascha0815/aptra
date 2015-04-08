@@ -4,14 +4,24 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
-
-
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.List;
+import com.itextpdf.text.ListItem;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Section;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.Image;
+import com.sun.org.apache.xpath.internal.operations.Equals;
 
-
-
-
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -26,8 +36,7 @@ public class Rejection {
 	static GregorianCalendar now = new GregorianCalendar(); 
 	static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);		
     private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
-    @SuppressWarnings("unused")
-	private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
+    private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
 	private static Document rejection = new Document();	
 	private static String dates = df.format(now.getTime());	
 	private static Chunk chunkDate = new Chunk(Rejection.dates);	            

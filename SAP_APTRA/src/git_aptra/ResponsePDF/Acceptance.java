@@ -16,8 +16,7 @@ public class Acceptance {
 	static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);	
 	
     private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
-    @SuppressWarnings("unused")
-	private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
+    private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
 	private static Document rejection = new Document();
 	private static Paragraph name  = new Paragraph("Fabian Gierer");
 	private static Paragraph streetHNR = new Paragraph("Steinenbach 15");
@@ -26,7 +25,6 @@ public class Acceptance {
 	private static Chunk chunkDate = new Chunk(Acceptance.dates);	            
     private static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
-	@SuppressWarnings("unused")
 	private static Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau [Empfänger]");
 	private static Paragraph salutationMale = new Paragraph("Sehr geehrter Herr [Empfänger]");
 	private static Paragraph introduction = new Paragraph("wir bedanken uns für Ihre Bewerbung und das damit zum Ausdruck gebrachte Interesse an einer Mitarbeit in unserem Unternehmen.");
