@@ -4,15 +4,15 @@ import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
-import git_aptra.ResponsePDF.Rejecion;
-
+import git_aptra.ResponsePDF.Rejection;
 import java.util.Vector;
+
+
 
 public class Steuerung {
 
 	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) {
-		//Rejecion.rejection();
+	public static void main(String[] args) {		
 		new Oberflaeche("Bewerberverwaltung");
 		Vector resultsApplicant = InsertApplicantDataIntoTable
 				.insertApplicantDataIntoTable();

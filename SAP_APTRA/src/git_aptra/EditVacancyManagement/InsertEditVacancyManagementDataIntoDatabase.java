@@ -6,8 +6,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.GregorianCalendar;
 
 public class InsertEditVacancyManagementDataIntoDatabase {
+	
+	
+	
+	static String response = "Rückmeldung versandt";
+
 	public static void insertEditVacancyManagementData() throws SQLException {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -94,8 +101,64 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 			ps.setBoolean(4, DialogEditVacancyManagementDetails.getCV());
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println(DialogEditVacancyManagementDetails.getMarkApplicant());
+			System.out.println(DialogEditVacancyManagementDetails
+					.getMarkApplicant());
 			System.out.println("Datenbank - editApplicant" + e.getMessage());
+		}
+	}
+
+	public static void insertEditVacancyManagementDataResponse() {
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;
+		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+
+		String query = "INSERT INTO notes"
+				+ "(applicantID, noteType, date, note, employee) VALUES"
+				+ "(?,?,?,?,?)";
+
+		try {
+			dbConnection = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			preparedStatement = dbConnection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.valueOf(EditVacancyManagement
+					.getDataSetApplicantID()));
+			preparedStatement.setString(2,
+					DialogEditVacancyManagementResponse.getResponseType());
+			preparedStatement.setDate(3, new java.sql.Date(System.currentTimeMillis()));
+			preparedStatement.setString(4, response);
+			preparedStatement.setString(5,
+					DialogEditVacancyManagementResponse.getName());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out
+					.println("insert problems - Datenbank - insert edit vacancy management data(response)"
+							+ e.getMessage());
+		}
+
+		try {
+			dbConnection = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+		} catch (SQLException e) {
+			System.out.println("Datenbank - editApplicant" + e.getMessage());
+		}
+
+		try {
+			PreparedStatement ps = dbConnection
+					.prepareStatement("UPDATE relationship SET latestNoteType = ?, latestDate = ?, latestNote = ? WHERE applicantID ="
+							+ id);
+			ps.setString(1,
+					DialogEditVacancyManagementResponse.getResponseType());
+			ps.setDate(2, new java.sql.Date(System.currentTimeMillis()));
+			ps.setString(3, response);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+
 		}
 	}
 

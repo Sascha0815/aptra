@@ -44,7 +44,7 @@ public class DialogEditVacancyManagementDetails {
 	private static JButton saveDetails = new JButton("Speichern");
 
 	private static String[] status = { "Bitte auswählen", "Bewerbungseingang",
-			"Rückmeldung", "Einladung", "Termin", "Vorauswahl", "Zusage",
+			"Einladung", "Termin", "Vorauswahl", "Zusage",
 			"Absage", "Wartepool", "Sonstiges" };
 	@SuppressWarnings({ "unchecked", "rawtypes", })
 	private static JComboBox boxStatus = new JComboBox(status);

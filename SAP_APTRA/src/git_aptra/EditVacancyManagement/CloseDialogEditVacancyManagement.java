@@ -6,6 +6,7 @@ public class CloseDialogEditVacancyManagement {
 		DialogEditVacancyManagementGeneral.reset();
 		DialogEditVacancyManagementDetails.reset();
 		DialogEditVacancyManagementHistory.reset();
+		DialogEditVacancyManagementResponse.reset();
 		DialogEditVacancyManagement.dialogEditVacancyManagement.dispose();
 	}
 }

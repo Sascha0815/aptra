@@ -4,6 +4,7 @@ public class SaveDataEditVacancyManagement {
 	public static void save(){
 		DialogEditVacancyManagementGeneral.getGeneral();
 		DialogEditVacancyManagementDetails.getDetails();
+		DialogEditVacancyManagementResponse.getResponse();
 		CloseDialogEditVacancyManagement.close();
 	}
 	

@@ -20,10 +20,25 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.Image;
 
 import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.util.GregorianCalendar;
 
-public class Rejecion {
-	private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
+
+
+public class Rejection {
+	
+	static GregorianCalendar now = new GregorianCalendar(); 
+	static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);	
+	
+    private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
+    private static Font FontText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
 	private static Document rejection = new Document();
+	private static Paragraph name  = new Paragraph("Fabian Gierer");
+	private static Paragraph streetHNR = new Paragraph("Steinenbach 15");
+	private static Paragraph PLZCity  = new Paragraph("88069 Tettnang");	
+	static String dates = df.format(now.getTime());	
+	static Chunk chunkDate = new Chunk(Rejection.dates);	            
+    static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
 	private static Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau [Empfänger]");
 	private static Paragraph salutationMale = new Paragraph("Sehr geehrter Herr [Empfänger]");
@@ -34,33 +49,38 @@ public class Rejecion {
 	private static Paragraph signature = new Paragraph("Aptra GmbH & Co. KG");
 	
 	
-	//public static void rejection(String firstName, String name, String streetHouseNR, String postalCode, String city){
-	public static void rejection(){
-		try {
-			PdfWriter.getInstance(rejection, new FileOutputStream("Ablehnung.pdf"));			
-			rejection.open();
-			Image logo = Image.getInstance("SAP_APTRA/src/git_aptra/resources/Logo.png");
-			logo.scaleAbsolute(90, 90);
-			logo.setAbsolutePosition(500, 747);
-			rejection.add(logo);
-			
-		
-			rejection.add(headline);
-			rejection.add(Chunk.NEWLINE);
-			rejection.add(salutationMale);
-			//rejection.add(Chunk.NEWLINE);
-			rejection.add(introduction);
-			rejection.add(mainPart);
-			rejection.add(noteOfThanks);
-			rejection.add(Chunk.NEWLINE);
-			rejection.add(ending);
-			rejection.add(signature);
-			rejection.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+	
+	public static void rejection(int id){
+			try {
+				PdfWriter.getInstance(rejection, new FileOutputStream("Ablehnung.pdf"));			
+				rejection.open();
+				Image logo = Image.getInstance("SAP_APTRA/src/git_aptra/resources/Logo.png");
+				logo.scaleAbsolute(90, 90);
+				logo.setAbsolutePosition(500, 747);
+				rejection.add(logo);
+				rejection.add(name);
+				rejection.add(streetHNR);
+				rejection.add(PLZCity);
+				rejection.add(Chunk.NEWLINE);
+				rejection.add(Chunk.NEWLINE);
+				rejection.add(Chunk.NEWLINE);
+	            date.setAlignment(Paragraph.ALIGN_RIGHT);
+	            date.setSpacingAfter(30);
+	            rejection.add(date);
+				rejection.add(headline);
+				rejection.add(Chunk.NEWLINE);
+				rejection.add(salutationMale);
+				rejection.add(introduction);
+				rejection.add(mainPart);
+				rejection.add(noteOfThanks);
+				rejection.add(Chunk.NEWLINE);
+				rejection.add(ending);
+				rejection.add(signature);
+				rejection.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();		
+			}
 		}
-		
-		
-	}
 }
+		
