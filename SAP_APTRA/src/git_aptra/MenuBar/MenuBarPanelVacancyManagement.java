@@ -97,6 +97,7 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel(" ");
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
+	
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
@@ -168,8 +169,13 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				int rows = MenuBarPanelVacancy.tableJob.getSelectedRowCount();
+				String[] id = new String[rows];
+				for(int i = 0; i<rows; i++){
+					id = (String[]) MenuBarPanelVacancy.tableJob.getValueAt(i, 0);
+				}
+				System.out.println(id);
 				DialogOpenVacancy.addVacancyManagement();
-
 			}
 		});
 		try {
