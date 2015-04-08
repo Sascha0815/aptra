@@ -9,7 +9,6 @@ import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -17,19 +16,23 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import javax.swing.table.DefaultTableModel;
 
 public class MenuBarPanelVacancyManagement {
@@ -97,8 +100,8 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel(" ");
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
-	
 
+	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
@@ -169,12 +172,27 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int rows = MenuBarPanelVacancy.tableJob.getSelectedRowCount();
-				String[] id = new String[rows];
-				for(int i = 0; i<rows; i++){
-					id = (String[]) MenuBarPanelVacancy.tableJob.getValueAt(i, 0);
+				ArrayList<String> id= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select vacancyID from vacancy");
+
+					while (rs.next()) {
+						 id.add(rs.getString(1));	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
-				System.out.println(id);
+				String[] result = new String[id.size()];
+				result = id.toArray(result);
+				
+				for(int i =0; i<result.length; i++){
+				    System.out.println(result[i]);
+				}
 				DialogOpenVacancy.addVacancyManagement();
 			}
 		});
