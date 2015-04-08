@@ -28,12 +28,12 @@ public class InsertApplicantDataIntoTable {
 				applicant.add(rs.getString(5));
 				applicant.add(rs.getString(6));
 				applicant.add(rs.getString(7));
-				applicant.add(rs.getString(8));
 				applicant.add(rs.getString(9));
 				applicant.add(rs.getString(10));
 				applicant.add(rs.getString(11));
 				applicant.add(rs.getString(12));
 				applicant.add(rs.getString(13));
+				applicant.add(rs.getString(14));
 				resultsApplicant.add(applicant);
 			}
 		} catch (SQLException e) {
