@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class DialogEditApplicantApplication {
 	public static JPanel panelDialogEditApplicantApplication = new JPanel();
 	private static String[] boxListEducationalAchievement = {
-			"Haupptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(
 			boxListEducationalAchievement);
