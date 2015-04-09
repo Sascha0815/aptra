@@ -1,9 +1,20 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.MenuBar.MenuBarPanelApplicant;
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
+import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -50,14 +61,14 @@ public class DialogAddApplicantApplication {
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	private static JLabel labelVacancyID = new JLabel(
 			"Stellenidentifikationsnummer:");
-	private static JLabel labelVacancy = new JLabel("Stellenbeschreibung:");
 	private static JLabel labelEducationalAchievement = new JLabel(
 			"Höchster Bildungsabschluss:");
 
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 
-	private static JTextField fieldVacancyID = new JTextField();
-	private static JTextField fieldVacancy = new JTextField();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxID = new JComboBox(
+			MenuBarPanelApplicant.getVacancyID());
 	private static JTextField fieldDate = new JTextField();
 
 	private static int day;
@@ -100,18 +111,7 @@ public class DialogAddApplicantApplication {
 		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 
-		panelDialogApplicantApplication.add(fieldVacancyID);
-		fieldVacancyID.setFont(fontTextField);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(labelVacancy);
-		labelVacancy.setFont(fontTextField);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(fieldVacancy);
-		fieldVacancy.setFont(fontTextField);
+		panelDialogApplicantApplication.add(boxID);
 		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
 				0, 10)));
 
@@ -141,17 +141,29 @@ public class DialogAddApplicantApplication {
 
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",
 				panelDialogApplicantApplication);
+
 	}
 
 	public static void getApplication() {
 		try {
-			vacancy = fieldVacancy.getText();
-		} catch (Exception e) {
-		}
-		try {
-			vacancyID = Integer.parseInt(fieldVacancyID.getText());
+			vacancyID = Integer.parseInt((String) boxID.getSelectedItem());
 		} catch (Exception e) {
 			vacancyID = 0;
+		}
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt
+					.executeQuery("Select position from vacancy where vacancyID = "
+							+ vacancyID);
+
+			while (rs.next()) {
+				vacancy = (rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		day = (int) boxDay.getSelectedItem();
 		month = (int) boxMonth.getSelectedItem();
@@ -167,14 +179,12 @@ public class DialogAddApplicantApplication {
 		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
 		educationalAchievement = String.valueOf(boxEducationalAchievement
 				.getSelectedItem());
-		
-		
+
 	}
 
 	public static void reset() {
 		panelDialogApplicantApplication.removeAll();
-		fieldVacancy.setText("");
-		fieldVacancyID.setText("");
+		boxID.setSelectedIndex(0);
 		fieldDate.setText("");
 		boxDay.setSelectedIndex(0);
 		boxMonth.setSelectedIndex(0);

@@ -191,9 +191,6 @@ public class MenuBarPanelVacancyManagement {
 				result = new String[id.size()];
 				result = id.toArray(result);
 				
-				for(int i =0; i<result.length; i++){
-				    System.out.println(result[i]);
-				}
 				DialogOpenVacancy.addVacancyManagement();
 			}
 		});

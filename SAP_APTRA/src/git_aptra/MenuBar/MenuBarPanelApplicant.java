@@ -11,6 +11,7 @@ import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +20,12 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -44,6 +51,8 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonSearchApplicant = new JButton();
 	private static JButton buttonInfoApplicant = new JButton();
 	private static JButton buttonRefreshApplicant = new JButton();
+	
+	private static String[] vacancyID;
 	
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
@@ -114,6 +123,23 @@ public class MenuBarPanelApplicant {
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant);
 		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
+		ArrayList<String> id= new ArrayList<String>();
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select vacancyID from vacancy");
+
+			while (rs.next()) {
+				 id.add(rs.getString(1));	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		vacancyID = new String[id.size()];
+		vacancyID = id.toArray(vacancyID);
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_add.png"));
@@ -216,6 +242,10 @@ public class MenuBarPanelApplicant {
 		tableApplicant.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 
+	}
+	
+	public static String[] getVacancyID(){
+		return vacancyID;
 	}
 
 }
