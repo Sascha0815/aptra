@@ -1,20 +1,19 @@
 package git_aptra.AddApplicant;
 
 import git_aptra.MenuBar.MenuBarPanelApplicant;
-import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
-import java.util.Vector;
+
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;

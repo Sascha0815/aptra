@@ -20,7 +20,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import javax.swing.SwingUtilities;
 
 public class DialogOpenVacancy {
@@ -30,6 +29,7 @@ public class DialogOpenVacancy {
 	private static JLabel instruction = new JLabel("Bitte gewünschte Stellenidentifikationsnummer eingeben.");
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JButton searchVacancy = new JButton("Suchen");
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelVacancyManagement.getResult());
 	
 	@SuppressWarnings("static-access")
