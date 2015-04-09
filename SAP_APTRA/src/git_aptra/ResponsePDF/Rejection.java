@@ -5,7 +5,6 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Image;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -19,11 +18,11 @@ public class Rejection {
   
   static GregorianCalendar now = new GregorianCalendar(); 
   static DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);   
-    private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
+  private static Font FontHeadline = new Font(Font.FontFamily.COURIER, 16, Font.BOLD);
   private static Document rejection = new Document(); 
   private static String dates = df.format(now.getTime()); 
   private static Chunk chunkDate = new Chunk(Rejection.dates);              
-    private static Paragraph date = new Paragraph(chunkDate);
+  private static Paragraph date = new Paragraph(chunkDate);
   private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
   private static Paragraph introduction = new Paragraph("wir bedanken uns für Ihre Bewerbung und das damit zum Ausdruck gebrachte Interesse an einer Mitarbeit in unserem Unternehmen.");
   private static Paragraph mainPart = new Paragraph("Wir haben inzwischen unsere Vorauswahl getroffen. Leider konnten wir Ihre Bewerbung nicht in die engere Wahl ziehen – wir haben uns für einige Kandidatinnen und Kandidaten entschieden, deren Profil noch genauer den Anforderungen der ausgeschriebenen Position entspricht.");
@@ -37,10 +36,6 @@ public class Rejection {
       try {
         PdfWriter.getInstance(rejection, new FileOutputStream("Ablehnung " + fullName + "(" + id + ").pdf"));     
         rejection.open();
-        Image logo = Image.getInstance("SAP_APTRA/src/git_aptra/resources/Logo.png");
-        logo.scaleAbsolute(90, 90);
-        logo.setAbsolutePosition(490, 737);
-        rejection.add(logo);
         Chunk chunkFullName = new Chunk(fullName);              
         Paragraph ParagraphFullName = new Paragraph(chunkFullName);
         rejection.add(ParagraphFullName);

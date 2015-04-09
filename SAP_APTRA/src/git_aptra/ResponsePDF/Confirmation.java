@@ -5,7 +5,6 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Image;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -37,10 +36,6 @@ public class Confirmation {
 			try {
 				PdfWriter.getInstance(rejection, new FileOutputStream("Bestätigung Bewerbungseingang " + fullName + "(" + id + ").pdf"));			
 				rejection.open();
-				Image logo = Image.getInstance("SAP_APTRA/src/git_aptra/resources/Logo.png");
-				logo.scaleAbsolute(90, 90);
-				logo.setAbsolutePosition(490, 737);
-				rejection.add(logo);
 				Chunk chunkFullName = new Chunk(fullName);	            
 				Paragraph ParagraphFullName = new Paragraph(chunkFullName);
 				rejection.add(ParagraphFullName);
