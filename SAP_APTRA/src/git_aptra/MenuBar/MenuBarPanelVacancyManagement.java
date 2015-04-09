@@ -101,7 +101,6 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
 
-	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
