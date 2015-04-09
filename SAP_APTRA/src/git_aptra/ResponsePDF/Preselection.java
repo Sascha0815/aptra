@@ -54,11 +54,11 @@ public class Preselection {
 				rejection.add(headline);
 				rejection.add(Chunk.NEWLINE);				
 				if (sex.equals("männlich")) {
-					Paragraph salutationMale = new Paragraph("Sehr geehrter Herr " + name);
+					Paragraph salutationMale = new Paragraph("Sehr geehrter Herr " + name +",");
 					rejection.add(salutationMale);
 				}
 				else {
-					Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau "+ name);
+					Paragraph salutationFemale = new Paragraph("Sehr geehrte Frau "+ name +",");
 					rejection.add(salutationFemale);
 				}				
 				rejection.add(introduction);
