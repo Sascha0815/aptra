@@ -30,7 +30,7 @@ public class DialogOpenVacancy {
 	private static JLabel instruction = new JLabel("Bitte gewünschte Stellenidentifikationsnummer eingeben.");
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	private static JButton searchVacancy = new JButton("Suchen");
-	private static JComboBox boxID = new JComboBox();
+	private static JComboBox boxID = new JComboBox(MenuBarPanelVacancyManagement.getResult());
 	
 	@SuppressWarnings("static-access")
 	public static void addVacancyManagement() {

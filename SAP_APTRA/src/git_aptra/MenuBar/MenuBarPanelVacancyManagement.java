@@ -101,6 +101,8 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
 
+	private static String[] result;
+	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
@@ -186,7 +188,7 @@ public class MenuBarPanelVacancyManagement {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				String[] result = new String[id.size()];
+				result = new String[id.size()];
 				result = id.toArray(result);
 				
 				for(int i =0; i<result.length; i++){
@@ -285,6 +287,10 @@ public class MenuBarPanelVacancyManagement {
 		tableVacancyManagement.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 
+	}
+
+	public static String[] getResult() {
+		return result;
 	}
 
 }
