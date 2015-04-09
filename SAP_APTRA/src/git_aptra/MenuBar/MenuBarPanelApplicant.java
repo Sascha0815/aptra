@@ -123,23 +123,6 @@ public class MenuBarPanelApplicant {
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant);
 		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
-		ArrayList<String> id= new ArrayList<String>();
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select vacancyID from vacancy");
-
-			while (rs.next()) {
-				 id.add(rs.getString(1));	
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		vacancyID = new String[id.size()];
-		vacancyID = id.toArray(vacancyID);
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_add.png"));
@@ -148,6 +131,23 @@ public class MenuBarPanelApplicant {
 		}
 		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				ArrayList<String> id= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select vacancyID from vacancy");
+
+					while (rs.next()) {
+						 id.add(rs.getString(1));	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				vacancyID = new String[id.size()];
+				vacancyID = id.toArray(vacancyID);
 				DialogAddApplicant.newApplicant();
 			}
 		});
