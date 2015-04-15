@@ -182,7 +182,7 @@ public class MenuBarPanelVacancyManagement {
 					ResultSet rs = stmt.executeQuery("Select vacancyID,position from vacancy");
 
 					while (rs.next()) {
-						 id.add(rs.getString(1));
+						 id.add(rs.getString(1)+" - "+rs.getString(2));
 
 					}
 				} catch (SQLException e) {
