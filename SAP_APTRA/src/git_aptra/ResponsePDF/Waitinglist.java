@@ -71,7 +71,7 @@ public class Waitinglist {
 				
 				PDDocument doc=null;
 				    try {
-				        doc = PDDocument.load("C:/Users/Fabi/git/aptra/Wartepool " + fullName + "(" + id + ").pdf");
+				        doc = PDDocument.load("C:/Users/Sascha/git/aptra/Wartepool " + fullName + "(" + id + ").pdf");
 				        doc.print();
 				    } catch (Exception ex) {
 				        ex.printStackTrace();
