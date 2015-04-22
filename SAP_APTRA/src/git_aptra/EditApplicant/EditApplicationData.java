@@ -10,8 +10,7 @@ import java.sql.SQLException;
 public class EditApplicationData {
 	public static void editApplicantData() throws SQLException {
 		Connection dbConnection = null;
-		int id = MenuBarPanelApplicant.tableApplicant.getSelectedRow() + 1;
-
+		int id = Integer.parseInt((String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0)) ;
 		try {
 			dbConnection = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",

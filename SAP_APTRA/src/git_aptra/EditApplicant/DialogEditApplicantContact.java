@@ -65,20 +65,18 @@ public class DialogEditApplicantContact {
 				panelDialogEditApplicantContact);
 	}
 
-	public static boolean getContact() {
-		telefonHome = fieldTelefonHome.getText();
-		telefonMobil = fieldTelefonMobil.getText();
-		email = fieldEmail.getText();
-		if (telefonHome.equals("")) {
-			return false;
+	public static void getContact() {
+		try {
+			telefonHome = fieldTelefonHome.getText();
+		} catch (Exception e) {
 		}
-		if (telefonMobil.equals("")) {
-			return false;
+		try {
+			telefonMobil = fieldTelefonMobil.getText();
+		} catch (Exception e) {
 		}
-		if (email.equals("")) {
-			return false;
-		} else {
-			return true;
+		try {
+			email = fieldEmail.getText();
+		} catch (Exception e) {
 		}
 	}
 

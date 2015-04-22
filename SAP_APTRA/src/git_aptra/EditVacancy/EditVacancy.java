@@ -17,8 +17,6 @@ public class EditVacancy {
 	private static int DataSetYear;
 
 	public static void getSelectedRow() {
-		//DataSetVacancyID = (String) MenuBarPanelWorkplace.tableJob.getValueAt(
-		//		MenuBarPanelWorkplace.tableJob.getSelectedRow(), ...);
 		DataSetPosition = (String) MenuBarPanelVacancy.tableJob.getValueAt(
 				MenuBarPanelVacancy.tableJob.getSelectedRow(), 1);
 		DataSetArea = (String) MenuBarPanelVacancy.tableJob.getValueAt(

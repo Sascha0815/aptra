@@ -93,23 +93,28 @@ public class DialogEditVacancySpecification {
 	private static int year;
 	private static Calendar calVacancy = Calendar.getInstance();
 
-	public static boolean getSpecification() {
+	public static void getSpecification() {
 		try {
 			level = fieldLevel.getText();
+		} catch (Exception e) {
+		}
+		try {
 			day = (int) boxDay.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
 			month = (int) boxMonth.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
 			year = (int) boxYear.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
 			calVacancy.set(Calendar.YEAR, year);
 			calVacancy.set(Calendar.MONTH, (month - 1));
 			calVacancy.set(Calendar.DAY_OF_MONTH, day);
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
-		}
-
-		if (level.equals("")) {
-			return false;
-		} else {
-			return true;
 		}
 	}
 

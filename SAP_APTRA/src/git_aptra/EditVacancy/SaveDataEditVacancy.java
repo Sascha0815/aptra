@@ -8,8 +8,8 @@ import java.util.Vector;
 
 public class SaveDataEditVacancy {
 	public static void save() {
-		if (DialogEditVacancyGeneral.getGeneral() == true
-				&& DialogEditVacancySpecification.getSpecification() == true) {
+			DialogEditVacancyGeneral.getGeneral();
+			DialogEditVacancySpecification.getSpecification();
 			try {
 				EditVacancyData.editVacancyData();
 			} catch (SQLException e) {
@@ -26,4 +26,4 @@ public class SaveDataEditVacancy {
 
 		}
 	}
-}
+

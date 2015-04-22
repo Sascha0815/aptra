@@ -11,7 +11,7 @@ public class EditVacancyData {
 
 	public static void editVacancyData() throws SQLException {
 		Connection dbConnection = null;
-		int id = MenuBarPanelVacancy.tableJob.getSelectedRow() + 1;
+		int id = Integer.parseInt((String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(),  0));
 
 		try {
 			dbConnection = DriverManager.getConnection(

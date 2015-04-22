@@ -133,30 +133,38 @@ public class DialogEditApplicantApplication {
 				panelDialogEditApplicantApplication);
 	}
 
-	public static boolean getApplication() {
-		vacancy = fieldVacancy.getText();
-		day = (int) boxDay.getSelectedItem();
-		month = (int) boxMonth.getSelectedItem();
-		year = (int) boxYear.getSelectedItem();
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, (month - 1));
-		cal.set(Calendar.DAY_OF_MONTH, day);
+	public static void getApplication() {
+		try {
+			vacancy = fieldVacancy.getText();
+		} catch (Exception e) {
+		}
+		try {
+			day = (int) boxDay.getSelectedItem();
+		} catch (Exception e) {
+		}	
+		try {
+			month = (int) boxMonth.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
+			year = (int) boxYear.getSelectedItem();
+		} catch (Exception e) {
+		}
+		try {
+			cal.set(Calendar.YEAR, year);
+			cal.set(Calendar.MONTH, (month - 1));
+			cal.set(Calendar.DAY_OF_MONTH, day);
+		} catch (Exception e) {
+		}
 		try {
 			vacancyID = fieldVacancy.getText();
 		} catch (Exception e) {
 		}
-
-		educationalAchievement = String.valueOf(boxEducationalAchievement
-				.getSelectedItem());
-		if (vacancy.equals("")) {
-			return false;
+		try {
+			educationalAchievement = String.valueOf(boxEducationalAchievement
+					.getSelectedItem());
+		} catch (Exception e) {
 		}
-		if (educationalAchievement.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
-
 	}
 
 	public static void reset() {

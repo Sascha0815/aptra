@@ -110,40 +110,33 @@ public class DialogEditVacancyGeneral {
 	private static String educationalAchievementVacancy;
 	private static String vacancyStatus;
 
-	public static boolean getGeneral() {
+	public static void getGeneral() {
 		try {
 			position = fieldPosition.getText();
+		} catch (Exception e) {
+		}
+		try {
 			area = fieldArea.getText();
+		} catch (Exception e) {
+		}
+		try {
 			requirementLevel = String.valueOf(boxRequirementLevel
 					.getSelectedItem());
+		} catch (Exception e) {
+		}
+		try {
 			termsOfEmployment = String.valueOf(boxTermsOfEmployment
 					.getSelectedItem());
+		} catch (Exception e) {
+		}
+		try {
 			educationalAchievementVacancy = String
 					.valueOf(boxEducationalAchievement.getSelectedItem());
+		} catch (Exception e) {
+		}
+		try {
 			vacancyStatus = String.valueOf(boxVacancyStatus.getSelectedItem());
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
-		}
-
-		if (area.equals("")) {
-			return false;
-		}
-		if (position.equals("")) {
-			return false;
-		}
-		if (requirementLevel.equals("")) {
-			return false;
-		}
-		if (termsOfEmployment.equals("")) {
-			return false;
-		}
-		if (educationalAchievementVacancy.equals("")) {
-			return false;
-		}
-		if (vacancyStatus.equals("")) {
-			return false;
-		} else {
-			return true;
 		}
 	}
 

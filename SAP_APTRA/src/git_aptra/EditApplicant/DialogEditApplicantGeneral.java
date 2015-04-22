@@ -98,33 +98,30 @@ public class DialogEditApplicantGeneral {
 		fieldCity.setText("");
 	}
 
-	public static boolean getGeneral() {
-		name = fieldName.getText();
-		firstName = fieldFirstName.getText();
-		street = fieldStreet.getText();
-		houseNr = Integer.parseInt(fieldHouseNr.getText());
-		postalCode = Integer.parseInt(fieldPostalCode.getText());
-		city = fieldCity.getText();
-
-		if (name.equals("")) {
-			return false;
+	public static void getGeneral() {
+		try {
+			name = fieldName.getText();
+		} catch (Exception e) {
 		}
-		if (firstName.equals("")) {
-			return false;
+		try {
+			firstName = fieldFirstName.getText();
+		} catch (Exception e) {
 		}
-		if (street.equals("")) {
-			return false;
+		try {
+			street = fieldStreet.getText();
+		} catch (Exception e) {
 		}
-		if ((houseNr == 0)) {
-			return false;
+		try {
+			houseNr = Integer.parseInt(fieldHouseNr.getText());
+		} catch (Exception e) {
 		}
-		if ((postalCode == 0)) {
-			return false;
+		try {
+			postalCode = Integer.parseInt(fieldPostalCode.getText());
+		} catch (Exception e) {
 		}
-		if (city.equals("")) {
-			return false;
-		} else {
-			return true;
+		try {
+			city = fieldCity.getText();
+		} catch (Exception e) {
 		}
 	}
 

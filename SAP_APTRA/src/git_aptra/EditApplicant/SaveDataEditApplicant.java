@@ -9,9 +9,9 @@ import java.util.Vector;
 public class SaveDataEditApplicant {
 
 	public static void save() {
-		if (DialogEditApplicantApplication.getApplication() == true
-				&& DialogEditApplicantGeneral.getGeneral() == true
-				&& DialogEditApplicantContact.getContact() == true) {
+			DialogEditApplicantApplication.getApplication();
+			DialogEditApplicantGeneral.getGeneral();
+			DialogEditApplicantContact.getContact();
 			try {				
 				EditApplicationData.editApplicantData();
 			} catch (SQLException e) {
@@ -32,4 +32,4 @@ public class SaveDataEditApplicant {
 
 		}
 	}
-}
+
