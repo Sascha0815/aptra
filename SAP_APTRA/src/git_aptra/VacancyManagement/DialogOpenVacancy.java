@@ -102,16 +102,18 @@ public class DialogOpenVacancy {
 		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);		
 		searchVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int id= Integer.parseInt((String) boxID.getSelectedItem());
+				String IDSplit = ((String) boxID.getSelectedItem());
+				String[] IDParts = IDSplit.split(" - ");
+				int id = Integer.parseInt(IDParts[0]);
 				@SuppressWarnings("rawtypes")
-				Vector resultsVacancy = OpenVancancy.openVacancy(id);						
+				Vector resultsVacancy = OpenVacancy.openVacancy(id);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				panelAddVacancyManagement.removeAll();
 				boxID.setSelectedIndex(0); 					
 				ActionListener[] al = searchVacancy.getActionListeners();
 				searchVacancy.removeActionListener(al[0]);
 				dialogAddVacancyManagement.dispose();
-				OpenVancancy.insertInfo(id);
+				OpenVacancy.insertInfo(id);
 			}
 		});
 	}

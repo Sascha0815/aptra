@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class OpenVancancy {
+public class OpenVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector openVacancy(int id) {
 		Vector resultsOpenVacancy = new Vector();
