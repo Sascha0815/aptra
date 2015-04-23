@@ -3,16 +3,17 @@ package git_aptra.AddApplicant;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+
 
 
 import javax.swing.Box;
@@ -145,7 +146,9 @@ public class DialogAddApplicantApplication {
 
 	public static void getApplication() {
 		try {
-			vacancyID = Integer.parseInt((String) boxID.getSelectedItem());
+			String IDSplit = ((String) boxID.getSelectedItem());
+			String[] IDParts = IDSplit.split(" - ");
+			vacancyID = Integer.parseInt(IDParts[0]);
 		} catch (Exception e) {
 			vacancyID = 0;
 		}

@@ -283,6 +283,7 @@ public class MenuBarPanelVacancyManagement {
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableVacancyManagement.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
+		tableVacancyManagement.setAutoCreateRowSorter(true);
 
 	}
 
