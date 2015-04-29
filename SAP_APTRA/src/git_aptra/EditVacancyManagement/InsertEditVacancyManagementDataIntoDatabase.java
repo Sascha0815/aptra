@@ -160,5 +160,34 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 
 		}
 	}
+	public static void insertEditVacancyManagementDataMatrix() {
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;
+		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		String query = ("UPDATE relationship SET scoreImpression = ? , scoreExperience = ?, "
+				+ "scoreSocialEngagement = ? WHERE applicantID = " +id);
+
+		try {
+			dbConnection = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			preparedStatement = dbConnection.prepareStatement(query);
+			preparedStatement.setInt(1, DialogEditVacancyManagementMatrix.getScoreImpression());
+			preparedStatement.setInt(2, DialogEditVacancyManagementMatrix.getScoreExperience());
+			preparedStatement.setInt(3, DialogEditVacancyManagementMatrix.getScoreSocialEngagement());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out
+					.println("insert problems - Datenbank - insert edit vacancy management data(matrix)"
+							+ e.getMessage());
+
+	}
+	}
+
+
 
 }
