@@ -5,6 +5,7 @@ public class SaveDataEditVacancyManagement {
 		DialogEditVacancyManagementGeneral.getGeneral();
 		DialogEditVacancyManagementDetails.getDetails();
 		DialogEditVacancyManagementResponse.getResponse();
+		DialogEditVacancyManagementMatrix.getMatrix();
 		CloseDialogEditVacancyManagement.close();
 	}
 	
