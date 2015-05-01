@@ -22,6 +22,11 @@ public class EditVacancyManagement {
 	private static int DataSetScoreImpression;
 	private static int DataSetScoreExperience;
 	private static int DataSetScoreSocialEngagement;
+	private static String DataSetApplicantImpression;
+	private static String DataSetApplicationImpression;
+	private static boolean DataSetCurriculumVitae;
+	private static boolean DataSetCoveringLetter;
+	
 
 	public static void getSelectedRow() {
 		
@@ -81,6 +86,90 @@ public class EditVacancyManagement {
 
 	public static int getDataSetDay() {
 		return DataSetDay;
+	}
+	
+	public static String getDataSetApplicantImpression() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetApplicantImpression = rs.getString(5);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetApplicantImpression;
+	}
+	
+	public static boolean getDataSetCurriculumVitae() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetCurriculumVitae = rs.getBoolean(7);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetCurriculumVitae;
+	}
+	
+	public static boolean getDataSetCoveringLetter() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetCoveringLetter = rs.getBoolean(8);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetCoveringLetter;
+	}
+	
+	public static String getDataSetApplicationImpression() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetApplicationImpression = rs.getString(6);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetApplicationImpression;
 	}
 	
 	public static int getDataSetScoreImpression() {

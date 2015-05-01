@@ -71,7 +71,7 @@ public class DialogEditVacancyManagementDetails {
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(fieldMarkApplicant);
 		fieldMarkApplicant.setFont(fontTextField);
-		fieldMarkApplicant.setText(InfoApplicant.getDataSetMarkApplicant());
+		fieldMarkApplicant.setText(EditVacancyManagement.getDataSetApplicantImpression());
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelMarkApplication);
@@ -79,13 +79,13 @@ public class DialogEditVacancyManagementDetails {
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		fieldMarkApplication.setFont(fontTextField);
-		fieldMarkApplication.setText(InfoApplicant.getDataSetMarkApplication());
+		fieldMarkApplication.setText(EditVacancyManagement.getDataSetApplicationImpression());
 		panelDialogEditVacancyManagementDetails.add(labelComplete);
 		panelDialogEditVacancyManagementDetails.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelCheckCL);
 		panelDialogEditVacancyManagementDetails.add(checkCL);
-		if(InfoApplicant.getDataSetCL()==true){
+		if(EditVacancyManagement.getDataSetCoveringLetter()==true){
 			checkCL.setSelected(true);
 		}else {
 			checkCL.setSelected(false);
@@ -94,7 +94,7 @@ public class DialogEditVacancyManagementDetails {
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementDetails.add(labelCheckCV);
 		panelDialogEditVacancyManagementDetails.add(checkCV);
-		if(InfoApplicant.getDataSetCV()==true){
+		if(EditVacancyManagement.getDataSetCurriculumVitae()==true){
 			checkCV.setSelected(true);
 		}else {
 			checkCV.setSelected(false);
