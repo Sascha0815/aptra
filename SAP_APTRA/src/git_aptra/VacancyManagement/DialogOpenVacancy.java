@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class DialogOpenVacancy {
-	
+	private static int id;
 	private static JDialog dialogAddVacancyManagement  = new JDialog(Oberflaeche.frame);
 	private static JPanel panelAddVacancyManagement = new JPanel();
 	private static JLabel instruction = new JLabel("Bitte gewünschte Stellenidentifikationsnummer eingeben.");
@@ -31,6 +31,7 @@ public class DialogOpenVacancy {
 	private static JButton searchVacancy = new JButton("Suchen");
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelVacancyManagement.getResult());
+	
 	
 	@SuppressWarnings("static-access")
 	public static void addVacancyManagement() {
@@ -104,7 +105,7 @@ public class DialogOpenVacancy {
 			public void actionPerformed(ActionEvent evt) {
 				String IDSplit = ((String) boxID.getSelectedItem());
 				String[] IDParts = IDSplit.split(" - ");
-				int id = Integer.parseInt(IDParts[0]);
+				id = Integer.parseInt(IDParts[0]);
 				@SuppressWarnings("rawtypes")
 				Vector resultsVacancy = OpenVacancy.openVacancy(id);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
@@ -116,5 +117,9 @@ public class DialogOpenVacancy {
 				OpenVacancy.insertInfo(id);
 			}
 		});
+	}
+	
+	public static int getID(){
+		return id;
 	}
 }

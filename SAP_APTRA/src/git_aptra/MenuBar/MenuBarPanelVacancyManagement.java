@@ -48,7 +48,7 @@ public class MenuBarPanelVacancyManagement {
 			add("Neuste Notiz");
 			add("Datum der Notiz");
 			add("Anmerkung zu der Notiz");
-
+			add("Bewertung");
 		}
 	};
 	private static JPanel panelVacancyManagement = new JPanel();

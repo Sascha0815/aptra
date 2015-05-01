@@ -1,11 +1,14 @@
 package git_aptra.EditVacancyManagement;
 
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+import git_aptra.VacancyManagement.DialogOpenVacancy;
+import git_aptra.VacancyManagement.OpenVacancy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Vector;
 
 
 public class InsertEditVacancyManagementDataIntoDatabase {
@@ -186,6 +189,10 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 							+ e.getMessage());
 
 	}
+		int idd = DialogOpenVacancy.getID();
+		@SuppressWarnings("rawtypes")
+		Vector resultsVacancy = OpenVacancy.openVacancy(idd);						
+		MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 	}
 
 
