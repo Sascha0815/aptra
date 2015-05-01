@@ -1,6 +1,12 @@
 package git_aptra.EditVacancyManagement;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 public class EditVacancyManagement {
@@ -13,6 +19,9 @@ public class EditVacancyManagement {
 	private static int DataSetDay;
 	private static int DataSetMonth;
 	private static int DataSetYear;
+	private static int DataSetScoreImpression;
+	private static int DataSetScoreExperience;
+	private static int DataSetScoreSocialEngagement;
 
 	public static void getSelectedRow() {
 		
@@ -73,5 +82,69 @@ public class EditVacancyManagement {
 	public static int getDataSetDay() {
 		return DataSetDay;
 	}
+	
+	public static int getDataSetScoreImpression() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetScoreImpression = rs.getInt(12);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetScoreImpression;
+	}
+	
+	public static int getDataSetScoreExperience() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID);
+
+			while (rs.next()) {
+				DataSetScoreExperience = rs.getInt(13);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetScoreExperience;
+	}
+	
+	public static int getDataSetScoreSocialEngagement() {
+		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
+				.getValueAt(
+						MenuBarPanelVacancyManagement.tableVacancyManagement
+								.getSelectedRow(), 0);
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
+
+			while (rs.next()) {
+				DataSetScoreSocialEngagement = rs.getInt(14);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return DataSetScoreSocialEngagement;
+	}
+	
 	
 }

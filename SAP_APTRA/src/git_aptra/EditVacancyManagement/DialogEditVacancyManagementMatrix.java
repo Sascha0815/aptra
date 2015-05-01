@@ -1,14 +1,10 @@
 package git_aptra.EditVacancyManagement;
 
-import git_aptra.EditVacancy.SaveDataEditVacancy;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.Calendar;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -55,7 +51,7 @@ public class DialogEditVacancyManagementMatrix {
 		sliderImpression.createStandardLabels(1);
 		sliderImpression.setPaintTicks(true);
 		sliderImpression.setPaintLabels(true);
-		sliderImpression.setValue(0);
+		sliderImpression.setValue(EditVacancyManagement.getDataSetScoreImpression());
 		panelDialogEditVacancyManagementMatrix.add(sliderImpression);
 
 		panelDialogEditVacancyManagementMatrix.add(Box
@@ -69,7 +65,7 @@ public class DialogEditVacancyManagementMatrix {
 		sliderExperience.createStandardLabels(1);
 		sliderExperience.setPaintTicks(true);
 		sliderExperience.setPaintLabels(true);
-		sliderExperience.setValue(0);
+		sliderExperience.setValue(EditVacancyManagement.getDataSetScoreExperience());
 		panelDialogEditVacancyManagementMatrix.add(sliderExperience);
 
 		panelDialogEditVacancyManagementMatrix.add(Box
@@ -83,7 +79,7 @@ public class DialogEditVacancyManagementMatrix {
 		sliderSocialEngagement.createStandardLabels(1);
 		sliderSocialEngagement.setPaintTicks(true);
 		sliderSocialEngagement.setPaintLabels(true);
-		sliderSocialEngagement.setValue(0);
+		sliderSocialEngagement.setValue(EditVacancyManagement.getDataSetScoreSocialEngagement());
 		panelDialogEditVacancyManagementMatrix.add(sliderSocialEngagement);
 		panelDialogEditVacancyManagementMatrix.add(Box
 				.createRigidArea(new Dimension(0, 10)));
