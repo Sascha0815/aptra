@@ -1,5 +1,6 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
@@ -7,7 +8,9 @@ import git_aptra.VacancyManagement.OpenVacancy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
 
 
@@ -16,8 +19,29 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 	
 	
 	static String response = "Rückmeldung versandt";
-
+	private static int IDEmployee = Login.getID();	
+	private static String name;
+	private static String firstName;
+	private static String fullName;
+	
 	public static void insertEditVacancyManagementData() throws SQLException {
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT name, firstName from employee where employeeID = " +  IDEmployee );
+		    while (rs.next()) {
+		        name = rs.getString(1);
+		        firstName = rs.getString(2);
+		        fullName = firstName + " " +name;
+		        System.out.println(fullName);
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen des aktuellen Users" +e.getMessage());
+		}
+		
+		
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
@@ -43,8 +67,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 							.getTimeInMillis()));
 			preparedStatement.setString(4,
 					DialogEditVacancyManagementGeneral.getNote());
-			preparedStatement.setString(5,
-					DialogEditVacancyManagementGeneral.getEmployee());
+			preparedStatement.setString(5, fullName);
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {

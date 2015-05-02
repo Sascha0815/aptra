@@ -15,7 +15,7 @@ public class Steuerung {
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {	
 		new DialogLogin();
-	//	new Oberflaeche();
+		//new Oberflaeche();
 		Vector resultsApplicant = InsertApplicantDataIntoTable
 				.insertApplicantDataIntoTable();
 		MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,

@@ -25,7 +25,6 @@ public class DialogEditVacancyManagementGeneral {
 	private static JLabel labelStatus = new JLabel("Status:");
 	private static JLabel labelDate = new JLabel("Datum:");
 	private static JLabel labelNote = new JLabel("Vermerk:");
-	private static JLabel labelContributor = new JLabel("Mitarbeiter:");
 
 	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
@@ -53,12 +52,6 @@ public class DialogEditVacancyManagementGeneral {
 			"Absage", "Wartepool", "Sonstiges" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxStatus = new JComboBox(status);
-	private static String[] contribute = { "Bitte auswählen",
-			"Johannes Vollmer", "Fabian Gierer", "Sascha Pfau", "Praktikant",
-			"Sekretärin" };
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static JComboBox boxContributor = new JComboBox(contribute);
-
 	private static JButton saveMain = new JButton("Speichern");
 
 	private static String statusNote;
@@ -124,9 +117,6 @@ public class DialogEditVacancyManagementGeneral {
 		fieldNote.setFont(fontTextField);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditVacancyManagementMain.add(labelContributor);
-		boxContributor.setToolTipText("Mitarbeiter");
-		panelDialogEditVacancyManagementMain.add(boxContributor);
 		panelDialogEditVacancyManagementMain.add(Box
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(saveMain);
@@ -152,7 +142,6 @@ public class DialogEditVacancyManagementGeneral {
 		fieldFirstName.setText("");
 		fieldNote.setText("");
 		boxStatus.setSelectedIndex(0);
-		boxContributor.setSelectedIndex(0);
 		ActionListener[] al = saveMain.getActionListeners();
 		saveMain.removeActionListener(al[0]);
 	}
@@ -164,10 +153,6 @@ public class DialogEditVacancyManagementGeneral {
 		}
 		try {
 			note = fieldNote.getText();
-		} catch (Exception e) {
-		}
-		try {
-			employee = (String) boxContributor.getSelectedItem();
 		} catch (Exception e) {
 		}
 		dayNote = (int) boxDateDay.getSelectedItem();

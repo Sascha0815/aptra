@@ -7,7 +7,8 @@ import java.sql.Statement;
 
 
 public class Login {
-	static int entitlement = 0;
+	private static int entitlement = 0;
+	private static int ID;
 	
 	public static int login(String username, String password) {
 		try {
@@ -15,14 +16,19 @@ public class Login {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("SELECT entitlement from employee where loginName = '" +  username + "' AND password = '" +  password +"'" );
+		    ResultSet rs = stmt.executeQuery("SELECT entitlement, employeeID from employee where BINARY loginName = '" +  username + "' AND BINARY password = '" +  password +"'" );
 		    while (rs.next()) {
 		        entitlement = rs.getInt(1);
+		        ID = rs.getInt(2);
 		        return entitlement;
 		    }
 		} catch (Exception e) {
 			return 0;
 		}
 		return 0;
+	}
+
+	public static int getID(){
+		return ID;
 	}
 }
