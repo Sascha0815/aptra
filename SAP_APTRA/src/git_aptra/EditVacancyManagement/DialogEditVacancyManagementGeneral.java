@@ -1,5 +1,9 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+import git_aptra.VacancyManagement.DialogOpenVacancy;
+import git_aptra.VacancyManagement.OpenVacancy;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -48,7 +52,7 @@ public class DialogEditVacancyManagementGeneral {
 	private static JTextField fieldNote = new JTextField();
 
 	private static String[] status = { "Bitte auswählen", "Bewerbungseingang",
-			"Rückmeldung", "Einladung", "Termin", "Vorauswahl", "Zusage",
+			"Rückmeldung", "Termin", "Vorauswahl", "Zusage",
 			"Absage", "Wartepool", "Sonstiges" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxStatus = new JComboBox(status);
@@ -125,13 +129,23 @@ public class DialogEditVacancyManagementGeneral {
 				panelDialogEditVacancyManagementMain);
 		saveMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				String meeting = "Termin";
+				if (meeting.equals((String) boxStatus.getSelectedItem())) {
+					DialogDetailsMeeting.detailsMeeting();
+				}
 				SaveDataEditVacancyManagement.save();
 				try {
 					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				
+				int idd = DialogOpenVacancy.getID();
+				@SuppressWarnings("rawtypes")
+				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(idd);						
+				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 			}
+		
 		});
 	}
 

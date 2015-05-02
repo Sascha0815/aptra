@@ -35,7 +35,6 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		        name = rs.getString(1);
 		        firstName = rs.getString(2);
 		        fullName = firstName + " " +name;
-		        System.out.println(fullName);
 		    }
 		} catch (Exception e) {
 			System.out.println("Fehler auslesen des aktuellen Users" +e.getMessage());
@@ -133,6 +132,20 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 	}
 
 	public static void insertEditVacancyManagementDataResponse() {
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT name, firstName from employee where employeeID = " +  IDEmployee );
+		    while (rs.next()) {
+		        name = rs.getString(1);
+		        firstName = rs.getString(2);
+		        fullName = firstName + " " +name;
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen des aktuellen Users" +e.getMessage());
+		}
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
@@ -155,8 +168,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 					DialogEditVacancyManagementResponse.getResponseType());
 			preparedStatement.setDate(3, new java.sql.Date(System.currentTimeMillis()));
 			preparedStatement.setString(4, response);
-			preparedStatement.setString(5,
-					DialogEditVacancyManagementResponse.getName());
+			preparedStatement.setString(5, fullName);
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
