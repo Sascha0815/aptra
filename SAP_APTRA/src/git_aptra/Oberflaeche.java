@@ -7,6 +7,7 @@ import javax.swing.JTabbedPane;
 
 import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+import git_aptra.MenuBar.MenuBarPanelMeeting;
 import git_aptra.MenuBar.MenuBarPanelOverview;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
@@ -40,6 +41,7 @@ public class Oberflaeche extends JFrame {
 		MenuBarPanelApplicant.addPanelApplicant();
 		MenuBarPanelVacancy.addPanelWorkplace();
 		MenuBarPanelVacancyManagement.addPanelVacancyManagement();
+		MenuBarPanelMeeting.addPanelEmployeeMeeting();
 
 	}
 
