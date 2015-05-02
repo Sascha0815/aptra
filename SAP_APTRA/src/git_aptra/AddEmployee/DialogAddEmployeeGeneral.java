@@ -89,8 +89,6 @@ public class DialogAddEmployeeGeneral {
 				String passwordString1 = String.valueOf(passwordChar1);
 				char[] passwordChar2 = fieldPasswordRepeat.getPassword();
 				String passwordString2 = String.valueOf(passwordChar2);
-				System.out.print(passwordString1);
-				System.out.print(passwordString2);
 				if (passwordString1.equalsIgnoreCase(passwordString2)){
 				try {
 					SaveDataNewEmployee.save();
@@ -123,6 +121,7 @@ public class DialogAddEmployeeGeneral {
 		try {
 			char[] passwordChar = fieldPassword.getPassword();
 			password = String.valueOf(passwordChar);
+			password.replace('"', '^');
 		} catch (Exception e) {
 		}
 		try {
