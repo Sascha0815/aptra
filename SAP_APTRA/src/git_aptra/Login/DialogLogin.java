@@ -79,6 +79,7 @@ public class DialogLogin extends JFrame {
 
 				case 1:
 					new Oberflaeche();
+					frameLogin.dispose();
 					break;
 				
 				case 2:
