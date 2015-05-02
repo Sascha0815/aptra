@@ -5,7 +5,6 @@ import git_aptra.EditApplicant.DialogEditWarning;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
-import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,12 +15,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -85,15 +78,15 @@ public class MenuBarPanelMeeting {
 			"Anzahl der Termine:");
 	private static JLabel labelMeetingNextDate = new JLabel(
 			"Nächster Termin am:");
-	private static JLabel labelMeetingNextClock = new JLabel(
+	private static JLabel labelMeetingNextTime = new JLabel(
 			"Nächster Termin um:");
-	private static JLabel labelMeetingRoom = new JLabel(
+	private static JLabel labelMeetingLocation = new JLabel(
 			"Nächster Terminort:");
 	
 	public static JLabel labelMeetingCountContent = new JLabel(" ");
 	public static JLabel labelMeetingNextDateContent = new JLabel(" ");
-	public static JLabel labelMeetingNextClockContent = new JLabel(" ");
-	public static JLabel labelMeetingRoomContent = new JLabel(" ");
+	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
+	public static JLabel labelMeetingLocationContent = new JLabel(" ");
 	
 	private static String[] result;
 	
@@ -124,15 +117,15 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingNextDateContent);
 		labelMeetingNextDateContent.setFont(fontContent);
 		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelMeetingSummary.add(labelMeetingNextClock);
-		labelMeetingNextClock.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingNextClockContent);
-		labelMeetingNextClockContent.setFont(fontContent);
+		panelMeetingSummary.add(labelMeetingNextTime);
+		labelMeetingNextTime.setFont(fontSubHeadline);
+		panelMeetingSummary.add(labelMeetingNextTimeContent);
+		labelMeetingNextTimeContent.setFont(fontContent);
 		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelMeetingSummary.add(labelMeetingRoom);
-		labelMeetingRoom.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingRoomContent);
-		labelMeetingRoomContent.setFont(fontContent);
+		panelMeetingSummary.add(labelMeetingLocation);
+		labelMeetingLocation.setFont(fontSubHeadline);
+		panelMeetingSummary.add(labelMeetingLocationContent);
+		labelMeetingLocationContent.setFont(fontContent);
 		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 			
 		panelMeetingContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
