@@ -70,7 +70,6 @@ public class DialogLogin extends JFrame {
 		buttonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				password = String.valueOf(fieldPassword.getPassword());
-				password.replace('"', '^');
 				username = fieldUsername.getText();
 				entitlement = Login.login(username, password);
 				switch (entitlement) {

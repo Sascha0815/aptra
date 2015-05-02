@@ -121,7 +121,6 @@ public class DialogAddEmployeeGeneral {
 		try {
 			char[] passwordChar = fieldPassword.getPassword();
 			password = String.valueOf(passwordChar);
-			password.replace('"', '^');
 		} catch (Exception e) {
 		}
 		try {
