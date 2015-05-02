@@ -22,10 +22,8 @@ public class Oberflaeche extends JFrame {
 	public static JTabbedPane tabBar = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 
-	public Oberflaeche(String title) {
-
+	public Oberflaeche() {
 		// Frame anlegen
-		super(title);
 		frame.setSize(1200, 800);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
@@ -45,8 +43,6 @@ public class Oberflaeche extends JFrame {
 
 	}
 
-	public Oberflaeche() {
-
-	}
+	
 
 }
