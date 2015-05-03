@@ -30,6 +30,7 @@ public class MenuBarPanelMeeting {
 
 		{
 			add("Stellenbezeichnung");
+			add("Arbeitsbereich");
 			add("Art des Termins");
 			add("Bewerber-ID");
 			add("Name");
@@ -37,6 +38,7 @@ public class MenuBarPanelMeeting {
 			add("Datum");
 			add("Ort");
 			add("Uhrzeit");
+			add("Zuständiger Mitarbeiter");
 			
 		}
 	};
