@@ -50,7 +50,7 @@ public class MenuBarPanelVacancy {
 	private static JPanel panelButtonWorkplace = new JPanel();
 
 	private static JButton butttonAddJob = new JButton();
-	private static JButton buttonRefreshJob = new JButton();
+	//private static JButton buttonRefreshJob = new JButton();
 	private static JButton buttonDeleteJob = new JButton();
 	private static JButton buttonEditJob = new JButton();
 	private static JButton buttonSearchJob = new JButton();
@@ -79,6 +79,8 @@ public class MenuBarPanelVacancy {
 		panelContentWorkplace.setBackground(Color.LIGHT_GRAY);
 		panelInfoWorkplace.setBackground(Color.LIGHT_GRAY);
 		panelInfoWorkplace.setPreferredSize(new Dimension(0, 20));
+		
+		/*
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob);
 		buttonRefreshJob.setPreferredSize(new Dimension(135, 135));
@@ -103,8 +105,12 @@ public class MenuBarPanelVacancy {
 				MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			}
 		});
+		*/
 		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelButtonWorkplace.add(butttonAddJob);
+		butttonAddJob.setBorderPainted(false);
+		butttonAddJob.setBorder(null);
+		butttonAddJob.setBackground(Color.LIGHT_GRAY);
 		butttonAddJob.setPreferredSize(new Dimension(135, 135));
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -113,12 +119,15 @@ public class MenuBarPanelVacancy {
 		});
 		try {
 			Image job = ImageIO.read(MenuBarPanelVacancy.class
-					.getResource("resources/job_add.png"));
+					.getResource("resources/vacancy_add.png"));
 			butttonAddJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
 		buttonEditJob.setToolTipText("Bewerber bearbeiten");
 		panelButtonWorkplace.add(buttonEditJob);
+		buttonEditJob.setBorderPainted(false);
+		buttonEditJob.setBorder(null);
+		buttonEditJob.setBackground(Color.LIGHT_GRAY);
 		buttonEditJob.setPreferredSize(new Dimension(135, 135));
 		buttonEditJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -132,17 +141,20 @@ public class MenuBarPanelVacancy {
 		});
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_edit.png"));
+					.getResource("resources/vacancy_edit.png"));
 			buttonEditJob.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
 
 		buttonDeleteJob.setToolTipText("Bewerber löschen");
 		panelButtonWorkplace.add(buttonDeleteJob);
+		buttonDeleteJob.setBorderPainted(false);
+		buttonDeleteJob.setBorder(null);
+		buttonDeleteJob.setBackground(Color.LIGHT_GRAY);
 		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_delete.png"));
+					.getResource("resources/vacancy_delete.png"));
 			buttonDeleteJob.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
@@ -158,10 +170,13 @@ public class MenuBarPanelVacancy {
 		});
 		buttonSearchJob.setToolTipText("Einstellungen");
 		panelButtonWorkplace.add(buttonSearchJob);
+		buttonSearchJob.setBorderPainted(false);
+		buttonSearchJob.setBorder(null);
+		buttonSearchJob.setBackground(Color.LIGHT_GRAY);
 		buttonSearchJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_search.png"));
+					.getResource("resources/vacancy_search.png"));
 			buttonSearchJob.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
@@ -170,12 +185,15 @@ public class MenuBarPanelVacancy {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
-		buttonSettingsJob.setToolTipText("Programm schließen");
+		buttonSettingsJob.setToolTipText("Ausschreibung anzeigen");
 		panelButtonWorkplace.add(buttonSettingsJob);
+		buttonSettingsJob.setBorderPainted(false);
+		buttonSettingsJob.setBorder(null);
+		buttonSettingsJob.setBackground(Color.LIGHT_GRAY);
 		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_settings.png"));
+					.getResource("resources/vacancy_info.png"));
 			buttonSettingsJob.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}

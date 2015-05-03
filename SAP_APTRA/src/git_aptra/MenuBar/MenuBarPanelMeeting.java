@@ -144,12 +144,15 @@ public class MenuBarPanelMeeting {
 		});
 		try {
 			Image job = ImageIO.read(MenuBarPanelMeeting.class
-					.getResource("resources/job_add.png"));
+					.getResource("resources/meeting_add.png"));
 			buttonAddMeeting.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
 		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
 		panelMeetingButton.add(buttonEditMeeting);
+		buttonEditMeeting.setBorderPainted(false);
+		buttonEditMeeting.setBorder(null);
+		buttonEditMeeting.setBackground(Color.LIGHT_GRAY);
 		buttonEditMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonEditMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -158,17 +161,20 @@ public class MenuBarPanelMeeting {
 		});
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_edit.png"));
+					.getResource("resources/meeting_edit.png"));
 			buttonEditMeeting.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
 
 		buttonDeleteMeeting.setToolTipText("Bewerber löschen");
 		panelMeetingButton.add(buttonDeleteMeeting);
+		buttonDeleteMeeting.setBorderPainted(false);
+		buttonDeleteMeeting.setBorder(null);
+		buttonDeleteMeeting.setBackground(Color.LIGHT_GRAY);
 		buttonDeleteMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_delete.png"));
+					.getResource("resources/meeting_delete.png"));
 			buttonDeleteMeeting.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
@@ -179,10 +185,13 @@ public class MenuBarPanelMeeting {
 		});
 		buttonSearchMeeting.setToolTipText("Einstellungen");
 		panelMeetingButton.add(buttonSearchMeeting);
+		buttonSearchMeeting.setBorderPainted(false);
+		buttonSearchMeeting.setBorder(null);
+		buttonSearchMeeting.setBackground(Color.LIGHT_GRAY);
 		buttonSearchMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_search.png"));
+					.getResource("resources/meeting_search.png"));
 			buttonSearchMeeting.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
@@ -191,13 +200,16 @@ public class MenuBarPanelMeeting {
 
 			}
 		});
-		buttonSettingsMeeting.setToolTipText("Programm schließen");
+		buttonSettingsMeeting.setToolTipText("Info zum Termin");
 		panelMeetingButton.add(buttonSettingsMeeting);
+		buttonSettingsMeeting.setBorderPainted(false);
+		buttonSettingsMeeting.setBorder(null);
+		buttonSettingsMeeting.setBackground(Color.LIGHT_GRAY);
 		buttonSettingsMeeting
 				.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_settings.png"));
+					.getResource("resources/meeting_info.png"));
 			buttonSettingsMeeting.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}

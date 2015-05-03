@@ -62,10 +62,10 @@ public class MenuBarPanelVacancyManagement {
 	private static Font fontContent = new Font("Arial", Font.ITALIC, 14);
 
 	private static JButton butttonAddVacancyManagement = new JButton();
-	private static JButton buttonDeleteVacancyManagement = new JButton();
+	//private static JButton buttonDeleteVacancyManagement = new JButton();
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
-	private static JButton buttonSettingsVacancyManagement = new JButton();
+	//private static JButton buttonSettingsVacancyManagement = new JButton();
 	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(
 			1, 4) {
 		private static final long serialVersionUID = 1L;
@@ -171,6 +171,9 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement
 				.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelManagementButton.add(butttonAddVacancyManagement);
+		butttonAddVacancyManagement.setBorderPainted(false);
+		butttonAddVacancyManagement.setBorder(null);
+		butttonAddVacancyManagement.setBackground(Color.LIGHT_GRAY);
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -197,12 +200,15 @@ public class MenuBarPanelVacancyManagement {
 		});
 		try {
 			Image job = ImageIO.read(MenuBarPanelVacancyManagement.class
-					.getResource("resources/job_add.png"));
+					.getResource("resources/management_open.png"));
 			butttonAddVacancyManagement.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
 		buttonEditVacancyManagement.setToolTipText("Bewerber bearbeiten");
 		panelManagementButton.add(buttonEditVacancyManagement);
+		buttonEditVacancyManagement.setBorderPainted(false);
+		buttonEditVacancyManagement.setBorder(null);
+		buttonEditVacancyManagement.setBackground(Color.LIGHT_GRAY);
 		buttonEditVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -218,13 +224,16 @@ public class MenuBarPanelVacancyManagement {
 		});
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_edit.png"));
+					.getResource("resources/management_rate.png"));
 			buttonEditVacancyManagement.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
-
+		/*
 		buttonDeleteVacancyManagement.setToolTipText("Bewerber löschen");
 		panelManagementButton.add(buttonDeleteVacancyManagement);
+		buttonDeleteVacancyManagement.setBorderPainted(false);
+		buttonDeleteVacancyManagement.setBorder(null);
+		buttonDeleteVacancyManagement.setBackground(Color.LIGHT_GRAY);
 		buttonDeleteVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
@@ -237,12 +246,16 @@ public class MenuBarPanelVacancyManagement {
 
 			}
 		});
-		buttonSearchVacancyManagement.setToolTipText("Einstellungen");
+		*/
+		buttonSearchVacancyManagement.setToolTipText("Bewerber suchen");
 		panelManagementButton.add(buttonSearchVacancyManagement);
+		buttonSearchVacancyManagement.setBorderPainted(false);
+		buttonSearchVacancyManagement.setBorder(null);
+		buttonSearchVacancyManagement.setBackground(Color.LIGHT_GRAY);
 		buttonSearchVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_search.png"));
+					.getResource("resources/management_search.png"));
 			buttonSearchVacancyManagement.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
@@ -251,8 +264,12 @@ public class MenuBarPanelVacancyManagement {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
+		/*
 		buttonSettingsVacancyManagement.setToolTipText("Programm schließen");
 		panelManagementButton.add(buttonSettingsVacancyManagement);
+		buttonSettingsVacancyManagement.setBorderPainted(false);
+		buttonSettingsVacancyManagement.setBorder(null);
+		buttonSettingsVacancyManagement.setBackground(Color.LIGHT_GRAY);
 		buttonSettingsVacancyManagement
 				.setPreferredSize(new Dimension(135, 135));
 		try {
@@ -266,7 +283,7 @@ public class MenuBarPanelVacancyManagement {
 
 			}
 		});
-
+		*/
 		// SWING:Table Arbeitsstellen
 		modelVacancyManagement
 				.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);

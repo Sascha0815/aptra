@@ -50,7 +50,7 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonEditApplicant = new JButton();
 	private static JButton buttonSearchApplicant = new JButton();
 	private static JButton buttonInfoApplicant = new JButton();
-	private static JButton buttonRefreshApplicant = new JButton();
+	//private static JButton buttonRefreshApplicant = new JButton();
 	
 	private static String[] vacancyID;
 	
@@ -101,6 +101,8 @@ public class MenuBarPanelApplicant {
 		panelContentApplicant.setBackground(Color.LIGHT_GRAY);
 		panelInfoApplicant.setBackground(Color.LIGHT_GRAY);
 		panelInfoApplicant.setPreferredSize(new Dimension(0, 20));
+		
+		/*
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant);
 		buttonRefreshApplicant.setPreferredSize(new Dimension(135, 135));
@@ -120,8 +122,12 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
+		*/
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant);
+		buttonAddApplicant.setBorderPainted(false);
+		buttonAddApplicant.setBorder(null);
+		buttonAddApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
@@ -153,6 +159,9 @@ public class MenuBarPanelApplicant {
 		});
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
 		panelButtonApplicant.add(buttonEditApplicant);
+		buttonEditApplicant.setBorderPainted(false);
+		buttonEditApplicant.setBorder(null);
+		buttonEditApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
@@ -172,6 +181,9 @@ public class MenuBarPanelApplicant {
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
 		panelButtonApplicant.add(buttonDeleteApplicant);
+		buttonDeleteApplicant.setBorderPainted(false);
+		buttonDeleteApplicant.setBorder(null);
+		buttonDeleteApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
@@ -192,6 +204,9 @@ public class MenuBarPanelApplicant {
 		});
 		buttonSearchApplicant.setToolTipText("Suchen");
 		panelButtonApplicant.add(buttonSearchApplicant);
+		buttonSearchApplicant.setBorderPainted(false);
+		buttonSearchApplicant.setBorder(null);
+		buttonSearchApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonSearchApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
@@ -207,6 +222,9 @@ public class MenuBarPanelApplicant {
 
 		buttonInfoApplicant.setToolTipText("Bewerberinformationen");
 		panelButtonApplicant.add(buttonInfoApplicant);
+		buttonInfoApplicant.setBorderPainted(false);
+		buttonInfoApplicant.setBorder(null);
+		buttonInfoApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonInfoApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
