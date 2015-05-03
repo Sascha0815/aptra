@@ -88,6 +88,7 @@ public class DialogDetailsMeeting {
 		dialogMeeting.setVisible(true);
 		dialogMeeting.setSize(400, 600);
 		dialogMeeting.setLocationRelativeTo(null);
+		dialogMeeting.setDefaultCloseOperation(dialogMeeting.DO_NOTHING_ON_CLOSE);
 		panelMeeting.setBackground(Color.LIGHT_GRAY);
 		dialogMeeting.setResizable(false);
 		panelMeeting.setLayout(new BoxLayout(panelMeeting, BoxLayout.Y_AXIS));
@@ -160,10 +161,20 @@ public class DialogDetailsMeeting {
 			int []rows = tableDialogEmployeeMeeting.getSelectedRows();
 			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
 			
+			
+			fieldType.setText("");
+			fieldLocation.setText("");
+			boxDateDay.setSelectedIndex(0);
+			boxDateMonth.setSelectedIndex(0);
+			boxDateYear.setSelectedIndex(0);
+			fieldTime.setText("");
+			panelMeeting.removeAll();
+			dialogMeeting.dispose();
 			}
 		});
 		dialogMeeting.add(panelMeeting);
 
 	}
+	
 
 }
