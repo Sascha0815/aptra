@@ -8,7 +8,8 @@ import javax.swing.UIManager;
 
 public class ChangeDesign {
 	private static boolean LaF = false;
-
+	
+	//METHODE: Design wechseln
 	public static void changeDesign() {
 		if (LaF == true) {
 			try {

@@ -8,11 +8,10 @@ import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.util.Vector;
 
-
-
 public class Steuerung {
 
 	@SuppressWarnings("rawtypes")
+	//METHODE: main
 	public static void main(String[] args) {	
 		new DialogLogin();
 		//new Oberflaeche();
@@ -27,7 +26,5 @@ public class Steuerung {
 				MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 		MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 	
-
 	}
-
 }

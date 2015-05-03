@@ -11,7 +11,8 @@ public class DialogAbout {
 	public static JDialog dialogAbout = new JDialog(Oberflaeche.frame);
 	public static JPanel panelAbout = new JPanel();
 	public static JLabel labelAbout = new JLabel();
-
+	
+	//METHODE: Über-Dialog
 	public static void about() {
 		dialogAbout.setVisible(true);
 		dialogAbout.setSize(400, 200);

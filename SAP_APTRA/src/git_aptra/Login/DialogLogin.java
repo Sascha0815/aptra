@@ -1,14 +1,12 @@
 package git_aptra.Login;
 
 import git_aptra.Oberflaeche;
-import git_aptra.AddApplicant.SaveDataNewApplicant;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -35,6 +33,7 @@ public class DialogLogin extends JFrame {
 	private String username;
 	private String password;
 	private int entitlement = 0;
+	
 
 	public DialogLogin() {
 		frameLogin.setSize(400, 250);
@@ -43,6 +42,7 @@ public class DialogLogin extends JFrame {
 		frameLogin.setResizable(false);
 		frameLogin.setLocationRelativeTo(null);
 		frameLogin.add(panelLogin);
+		
 		panelLogin.setLayout(new BoxLayout(panelLogin, BoxLayout.Y_AXIS));
 		panelLogin.setBackground(Color.LIGHT_GRAY);
 		panelLogin.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -65,8 +65,7 @@ public class DialogLogin extends JFrame {
 		labelWarning.setVisible(false);
 		labelWarning.setFont(fontLogin);
 		labelWarning.setForeground(Color.red);
-		
-		
+			
 		buttonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				password = String.valueOf(fieldPassword.getPassword());
@@ -89,8 +88,7 @@ public class DialogLogin extends JFrame {
 			}
 		});
 		
+		
 		frameLogin.setVisible(true);
-	}
-	
-	
+	}	
 }

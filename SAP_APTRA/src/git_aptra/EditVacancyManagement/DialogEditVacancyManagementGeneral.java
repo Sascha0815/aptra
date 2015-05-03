@@ -1,5 +1,7 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
+import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
@@ -11,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -131,6 +134,10 @@ public class DialogEditVacancyManagementGeneral {
 			public void actionPerformed(ActionEvent evt) {
 				String meeting = "Termin";
 				if (meeting.equals((String) boxStatus.getSelectedItem())) {
+					@SuppressWarnings("rawtypes")
+					Vector resultEmployee = InsertEmployeeDataIntoTable.insertEmployeeDataIntoTable();
+					DialogDetailsMeeting.modelDialogEmployeeMeeting.setDataVector(resultEmployee, DialogDetailsMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+					DialogDetailsMeeting.modelDialogEmployeeMeeting.fireTableDataChanged();
 					DialogDetailsMeeting.detailsMeeting();
 				}
 				SaveDataEditVacancyManagement.save();

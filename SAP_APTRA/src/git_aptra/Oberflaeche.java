@@ -14,14 +14,13 @@ import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class Oberflaeche extends JFrame {
 
-	// Swing-Elemente
+	//SWING-ELEMENTE:
 
 	private static final long serialVersionUID = 1L;
 
 	public static JFrame frame = new JFrame();
 
-	public static JTabbedPane tabBar = new JTabbedPane(JTabbedPane.TOP,
-			JTabbedPane.SCROLL_TAB_LAYOUT);
+	public static JTabbedPane tabBar = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 
 	public Oberflaeche() {
 		// Frame anlegen
@@ -36,6 +35,7 @@ public class Oberflaeche extends JFrame {
 				"resources/FrameIconSmall.gif");
 		frame.setIconImage(im);
 
+		//Panels der MenuBar hinzufügen
 		MenuBar.addMenuBar();
 		MenuBarPanelOverview.addPanelOverview();
 		MenuBarPanelApplicant.addPanelApplicant();

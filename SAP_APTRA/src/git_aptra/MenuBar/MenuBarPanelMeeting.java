@@ -1,11 +1,6 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditApplicant.DialogEditWarning;
-import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
-import git_aptra.EditVacancyManagement.EditVacancyManagement;
-import git_aptra.SearchVacancy.DialogSearchVacancy;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -157,13 +152,7 @@ public class MenuBarPanelMeeting {
 		buttonEditMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonEditMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableEmployeeMeeting.getSelectedRowCount() > 1
-						|| tableEmployeeMeeting.getSelectedRowCount() == 0) {
-					DialogEditWarning.selectOnlyOne();
-				} else {
-					EditVacancyManagement.getSelectedRow();
-					DialogEditVacancyManagement.editVacancyManagement();
-				}
+				
 			}
 		});
 		try {
@@ -198,7 +187,7 @@ public class MenuBarPanelMeeting {
 		}
 		buttonSearchMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogSearchVacancy.searchVacancy();
+
 			}
 		});
 		buttonSettingsMeeting.setToolTipText("Programm schlieﬂen");
