@@ -7,9 +7,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-
+import java.util.Calendar;
 import java.util.Vector;
 
 import javax.swing.Box;
@@ -20,47 +18,39 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
-import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 
-
 public class DialogDetailsMeeting {
-	
-	public static JDialog dialogMeeting = new JDialog(Oberflaeche.frame);
-	
-	public static JPanel panelMeeting = new JPanel();
-	public static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein.");
-	public static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
-	public static JLabel labelLocation = new JLabel("Ort:");
-	public static JLabel labelDate = new JLabel("Datum:");
-	public static JLabel labelTime = new JLabel("Uhrzeit:");
-	public static JLabel labelEmployee = new JLabel("Zuständiger Mitarbeiter:");
 
-	private static String[] boxListSortOfMeeting = { 
-		"Bitte auswählen", "Bewerbungsgespräch", "Workshop", "Gruppengespräch"};
+	private static JDialog dialogMeeting = new JDialog(Oberflaeche.frame);
+
+	private static JPanel panelMeeting = new JPanel();
+	private static JLabel labelInstruction = new JLabel(
+			"Bitte geben Sie die benötigten Daten ein.");
+	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
+	private static JLabel labelLocation = new JLabel("Ort:");
+	private static JLabel labelDate = new JLabel("Datum:");
+	private static JLabel labelTime = new JLabel("Uhrzeit:");
+	private static JLabel labelEmployee = new JLabel("Zuständige Mitarbeiter:");
+	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+			29, 30, 31 };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxSortOfMeeting = new JComboBox(boxListSortOfMeeting);
+	private static JComboBox boxDateDay = new JComboBox(boxListDay);
+	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+			11, 12 };
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxDateMonth = new JComboBox(boxListMonth);
+	private static Integer[] boxListYear = { 2015, 2016, 2017, 2018, 2019,
+			2020, 2021, 2022, 2023, 2024 };
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxDateYear = new JComboBox(boxListYear);
 
-	private static Integer valueHour = new Integer(0);
-	private static Integer minHour = new Integer(0);
-	private static Integer maxHour = new Integer(24);
-	private static Integer step = new Integer(1);
-	private static SpinnerNumberModel numberModelHour = new SpinnerNumberModel(valueHour, minHour, maxHour, step);
-	private static JSpinner spinnerHour = new JSpinner(numberModelHour);
-	
-	private static Integer valueminute = new Integer(0);
-	private static Integer minMinute = new Integer(0);
-	private static Integer maxMinute = new Integer(60);
-	private static SpinnerNumberModel numberModelMinute = new SpinnerNumberModel(valueminute, minMinute, maxMinute, step);
-	private static JSpinner spinnerMinute = new JSpinner(numberModelMinute);
-	
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING = new Vector() {
 		private static final long serialVersionUID = 1L;
@@ -71,7 +61,6 @@ public class DialogDetailsMeeting {
 			add("Vorname");
 		}
 	};
-	
 	public static DefaultTableModel modelDialogEmployeeMeeting = new DefaultTableModel(
 			1, 4) {
 		private static final long serialVersionUID = 1L;
@@ -80,77 +69,101 @@ public class DialogDetailsMeeting {
 			return false;
 		}
 	};
-	public static JTable tableDialogEmployeeMeeting = new JTable(modelDialogEmployeeMeeting);
-	
+	private static JTable tableDialogEmployeeMeeting = new JTable(
+			modelDialogEmployeeMeeting);
 	private static JButton save = new JButton("Speichern");
-	
 	private static JTextField fieldLocation = new JTextField();
+	private static JTextField fieldType = new JTextField();
+	private static JTextField fieldTime = new JTextField();
 	
-		public static void detailsMeeting(){		
-			dialogMeeting.setVisible(true);
-			dialogMeeting.setSize(400, 600);
-			dialogMeeting.setLocationRelativeTo(null);
-			panelMeeting.setBackground(Color.LIGHT_GRAY);
-			dialogMeeting.setResizable(false);
-			panelMeeting.setLayout(new BoxLayout(panelMeeting, BoxLayout.Y_AXIS));
-			dialogMeeting.setTitle("Meeting Details");
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			panelMeeting.add(labelInstruction);	
-			labelInstruction.setFont(fontHeadline);
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			panelMeeting.add(labelSortOfMeeting);
-			panelMeeting.add(boxSortOfMeeting);	
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			panelMeeting.add(labelLocation);
-			panelMeeting.add(fieldLocation);
-			fieldLocation.setFont(fontTextField);	
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			panelMeeting.add(labelDate);
-			labelDate.setFont(fontTextField);
-			//spinnerMonth.setToolTipText("Tag");
-			//panelMeeting.add(spinnerMonth);
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			//boxMonth.setToolTipText("Monat");
-			//panelMeeting.add(boxMonth);
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			//boxYear.setToolTipText("Jahr");
-			//panelMeeting.add(boxYear);
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			panelMeeting.add(labelTime);
-			labelTime.setFont(fontTextField);
-			spinnerHour.setToolTipText("Stunden");
-			panelMeeting.add(spinnerHour);
-			panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
-			spinnerMinute.setToolTipText("Minuten");
-			panelMeeting.add(spinnerMinute);
-			modelDialogEmployeeMeeting
-			.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
-			tableDialogEmployeeMeeting.getTableHeader().setReorderingAllowed(false);
-			tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
-			tableDialogEmployeeMeeting = new JTable(modelDialogEmployeeMeeting);
-			JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(
-					tableDialogEmployeeMeeting);
-			panelMeeting.add(scrollPaneEmployeeMeeting);
-			scrollPaneEmployeeMeeting.setBounds(0,400,400,100);
-			scrollPaneEmployeeMeeting
-			.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			scrollPaneEmployeeMeeting
-			.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-			tableDialogEmployeeMeeting.setRowHeight(20);
-			Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
-			tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
-			
-			panelMeeting.add(save);
+	private static String typeMeeting;
+	private static String locationMeeting;
+	private static int day;
+	private static int month;
+	private static int year;
+	private static String time;
+	private static Calendar calNote = Calendar.getInstance();
 
-			save.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					// Save-Methode
-				}
-			});
-			dialogMeeting.add(panelMeeting);
+	public static void detailsMeeting() {
+		dialogMeeting.setVisible(true);
+		dialogMeeting.setSize(400, 600);
+		dialogMeeting.setLocationRelativeTo(null);
+		panelMeeting.setBackground(Color.LIGHT_GRAY);
+		dialogMeeting.setResizable(false);
+		panelMeeting.setLayout(new BoxLayout(panelMeeting, BoxLayout.Y_AXIS));
+		dialogMeeting.setTitle("Meeting Details");
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelInstruction);
+		labelInstruction.setFont(fontHeadline);
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelSortOfMeeting);
+		labelSortOfMeeting.setFont(fontTextField);
+		panelMeeting.add(fieldType);
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelLocation);
+		labelLocation.setFont(fontTextField);
+		panelMeeting.add(fieldLocation);
+		fieldLocation.setFont(fontTextField);
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelDate);
+		labelDate.setFont(fontTextField);
+		boxDateDay.setToolTipText("Tag");
+		panelMeeting.add(boxDateDay);
+		panelMeeting.add(Box
+				.createRigidArea(new Dimension(0, 10)));
+		boxDateMonth.setToolTipText("Monat");
+		panelMeeting.add(boxDateMonth);
+		panelMeeting.add(Box
+				.createRigidArea(new Dimension(0, 10)));
+		boxDateYear.setToolTipText("Jahr");
+		panelMeeting.add(boxDateYear);
+		panelMeeting.add(Box
+				.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelTime);
+		labelTime.setFont(fontTextField);
+		panelMeeting.add(fieldTime);
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelMeeting.add(labelEmployee);
+		labelEmployee.setFont(fontTextField);
+		panelMeeting.add(Box.createRigidArea(new Dimension(0, 5)));
+		modelDialogEmployeeMeeting
+				.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+		tableDialogEmployeeMeeting.getTableHeader().setReorderingAllowed(false);
+		tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
+		tableDialogEmployeeMeeting = new JTable(modelDialogEmployeeMeeting);
+		JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(
+				tableDialogEmployeeMeeting);
+		panelMeeting.add(scrollPaneEmployeeMeeting);
+		scrollPaneEmployeeMeeting.setBounds(0, 400, 400, 100);
+		scrollPaneEmployeeMeeting
+				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneEmployeeMeeting
+				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		tableDialogEmployeeMeeting.setRowHeight(20);
+		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
+		tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
+
+		panelMeeting.add(save);
+
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			typeMeeting = fieldType.getText();
+			locationMeeting = fieldLocation.getText();
+			day = (int) boxDateDay.getSelectedItem();
+			month = (int) boxDateMonth.getSelectedItem();
+			year = (int) boxDateYear.getSelectedItem();
+			calNote.set(Calendar.YEAR, year);
+			calNote.set(Calendar.MONTH, month);
+			calNote.set(Calendar.DAY_OF_MONTH, day);
+			time = (String) fieldTime.getText();
 			
-		}
-		
+			int []rows = tableDialogEmployeeMeeting.getSelectedRows();
+			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
+			
+			}
+		});
+		dialogMeeting.add(panelMeeting);
+
 	}
 
-
+}

@@ -30,13 +30,12 @@ public class MenuBarPanelMeeting {
 
 		{
 			add("Stellenbezeichnung");
-			add("Abteilung");
 			add("Art des Termins");
 			add("Bewerber-ID");
 			add("Name");
 			add("Vorname");
 			add("Datum");
-			add("Raum-Nr.");
+			add("Ort");
 			add("Uhrzeit");
 			
 		}

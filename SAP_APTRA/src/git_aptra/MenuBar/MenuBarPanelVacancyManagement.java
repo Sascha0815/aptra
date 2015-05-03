@@ -102,6 +102,7 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
 
 	private static String[] result;
+	private static int idApplicant;
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
@@ -211,6 +212,7 @@ public class MenuBarPanelVacancyManagement {
 				} else {
 					EditVacancyManagement.getSelectedRow();
 					DialogEditVacancyManagement.editVacancyManagement();
+				    idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				}
 			}
 		});
@@ -289,6 +291,10 @@ public class MenuBarPanelVacancyManagement {
 
 	public static String[] getResult() {
 		return result;
+	}
+	
+	public static int getIDApplicant(){
+		return idApplicant;
 	}
 
 }
