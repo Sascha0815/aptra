@@ -80,6 +80,5 @@ public class InsertMeetingIntoDatabase {
 		}
 	}
 	
-	public static void insertParticipation;
 	
 }
