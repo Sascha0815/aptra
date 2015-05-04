@@ -159,6 +159,8 @@ public class DialogDetailsMeeting {
 			time = (String) fieldTime.getText();
 			
 			int []rows = tableDialogEmployeeMeeting.getSelectedRows();
+			
+			
 			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
 			
 			

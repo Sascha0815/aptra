@@ -17,6 +17,7 @@ public class InsertMeetingIntoDatabase {
 	static int idVacancy = DialogOpenVacancy.getID();
 	static String name;
 	static String firstName;
+	static String area;
 	public static void insertMeeting(String type, String location, Calendar cal, String time){
 		
 		try {
@@ -24,9 +25,10 @@ public class InsertMeetingIntoDatabase {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("SELECT position from vacancy where vacancyID = " +  idVacancy );
+		    ResultSet rs = stmt.executeQuery("SELECT position, area from vacancy where vacancyID = " +  idVacancy );
 		    while (rs.next()) {
 		        position = rs.getString(1);
+		        area = rs.getString(2);
 		    }
 		} catch (Exception e) {
 			System.out.println("Fehler auslesen der Position" +e.getMessage());
@@ -51,8 +53,8 @@ public class InsertMeetingIntoDatabase {
 		PreparedStatement preparedStatement = null;
 		
 		String query = "INSERT INTO meeting"
-				+ "(position, applicantID, name, firstName, typeMeeting, location, date, time) VALUES"
-				+ "(?,?,?,?,?,?,?,?)";
+				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = DriverManager.getConnection(
@@ -60,13 +62,14 @@ public class InsertMeetingIntoDatabase {
 					"u474396146_aptra", "aptraDB");
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setString(1, position);
-			preparedStatement.setInt(2, MenuBarPanelVacancyManagement.getIDApplicant());
-			preparedStatement.setString(3, name);
-			preparedStatement.setString(4, firstName);
-			preparedStatement.setString(5, type);
-			preparedStatement.setString(6, location);
-			preparedStatement.setDate(7, new java.sql.Date(cal.getTimeInMillis()));
-			preparedStatement.setString(8, time);
+			preparedStatement.setString(2, area);
+			preparedStatement.setInt(3, MenuBarPanelVacancyManagement.getIDApplicant());
+			preparedStatement.setString(4, name);
+			preparedStatement.setString(5, firstName);
+			preparedStatement.setString(6, type);
+			preparedStatement.setString(7, location);
+			preparedStatement.setDate(8, new java.sql.Date(cal.getTimeInMillis()));
+			preparedStatement.setString(9, time);
 	
 			preparedStatement.executeUpdate();
 			
@@ -76,4 +79,7 @@ public class InsertMeetingIntoDatabase {
 							+ e.getMessage());
 		}
 	}
+	
+	public static void insertParticipation;
+	
 }
