@@ -21,7 +21,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.itextpdf.text.pdf.parser.Vector;
 
 public class DialogEditVacancyManagementResponse {
 	private static JPanel panelDialogEditVacancyManagementResponse = new JPanel();

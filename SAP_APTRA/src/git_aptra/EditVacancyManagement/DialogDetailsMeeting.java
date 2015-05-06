@@ -84,6 +84,7 @@ public class DialogDetailsMeeting {
 	private static String time;
 	private static Calendar calNote = Calendar.getInstance();
 
+	@SuppressWarnings("static-access")
 	public static void detailsMeeting() {
 		dialogMeeting.setVisible(true);
 		dialogMeeting.setSize(400, 600);
@@ -147,6 +148,7 @@ public class DialogDetailsMeeting {
 		panelMeeting.add(save);
 
 		save.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent evt) {
 			typeMeeting = fieldType.getText();
 			locationMeeting = fieldLocation.getText();

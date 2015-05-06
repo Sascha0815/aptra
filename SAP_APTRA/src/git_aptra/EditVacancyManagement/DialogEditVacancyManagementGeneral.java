@@ -1,6 +1,5 @@
 package git_aptra.EditVacancyManagement;
 
-import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
