@@ -37,7 +37,7 @@ public class DialogLogin extends JFrame {
 		frameLogin.setSize(300, 230);
 		frameLogin.setTitle("Login");
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frameLogin.setResizable(true);
+		frameLogin.setResizable(false);
 		frameLogin.setLocationRelativeTo(null);
 		frameLogin.add(panelLogin);
 		gbc.fill = GridBagConstraints.HORIZONTAL;

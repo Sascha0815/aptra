@@ -56,7 +56,7 @@ public class DialogAddApplicant {
 			}
 		});
 		dialogNewApplicant.setVisible(true);
-		dialogNewApplicant.setSize(475, 500);
+		dialogNewApplicant.setSize(425, 450);
 		dialogNewApplicant.setLocationRelativeTo(null);
 		dialogNewApplicant.setResizable(false);
 		dialogNewApplicant.setTitle("Neuer Bewerber");
