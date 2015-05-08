@@ -36,11 +36,11 @@ public class MenuBarPanelMeeting {
 		{
 			add("Stellenbezeichnung");
 			add("Arbeitsbereich");
-			add("Art des Termins");
+			add("Meeting-ID");
 			add("Bewerber-ID");
 			add("Name");
 			add("Vorname");
-			add("Datum");
+			add("Art des Termins");
 			add("Ort");
 			add("Uhrzeit");
 			add("Zuständiger Mitarbeiter");
@@ -70,26 +70,22 @@ public class MenuBarPanelMeeting {
 			return false;
 		}
 	};
-	public static JTable tableEmployeeMeeting = new JTable(
-			modelEmployeeMeeting);
+	public static JTable tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
 
-	private static JLabel labelMeetingInfo = new JLabel(
-			"Termininfo");
-	private static JLabel labelMeetingCount = new JLabel(
-			"Anzahl der Termine:");
-	private static JLabel labelMeetingNextDate = new JLabel(
-			"Nächster Termin am:");
-	private static JLabel labelMeetingNextTime = new JLabel(
-			"Nächster Termin um:");
-	private static JLabel labelMeetingLocation = new JLabel(
-			"Nächster Terminort:");
+	private static JLabel labelMeetingInfo = new JLabel("Termininfo");
+	private static JLabel labelMeetingCount = new JLabel("Anzahl der Termine:");
+	private static JLabel labelMeetingNextDate = new JLabel("Nächster Termin am:");
+	private static JLabel labelMeetingNextTime = new JLabel("Nächster Termin um:");
+	private static JLabel labelMeetingLocation = new JLabel("Nächster Terminort:");
 	
 	public static JLabel labelMeetingCountContent = new JLabel(" ");
 	public static JLabel labelMeetingNextDateContent = new JLabel(" ");
 	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
 	public static JLabel labelMeetingLocationContent = new JLabel(" ");	
 	private static String[] result;
+	@SuppressWarnings("unused")
 	private static int entitlement;
+	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelEmployeeMeeting() {
 		try {

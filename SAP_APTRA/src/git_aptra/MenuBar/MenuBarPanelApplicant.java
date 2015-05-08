@@ -250,13 +250,9 @@ public class MenuBarPanelApplicant {
 		tableApplicant = new JTable(modelPool);
 		scrollPanePool = new JScrollPane(tableApplicant);
 		panelApplicant.add(scrollPanePool);
-		scrollPanePool.setPreferredSize(new Dimension(panelContentApplicant
-				.getSize().width - 20,
-				panelContentApplicant.getSize().height - 20));
-		scrollPanePool
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPanePool
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPanePool.setPreferredSize(new Dimension(panelContentApplicant.getSize().width - 20,panelContentApplicant.getSize().height - 20));
+		scrollPanePool.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPanePool.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableApplicant.setRowHeight(20);
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);
