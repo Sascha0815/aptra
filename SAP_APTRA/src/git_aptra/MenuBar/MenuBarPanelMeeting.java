@@ -1,6 +1,8 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+import git_aptra.Login.Login;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,6 +12,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -23,11 +29,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class MenuBarPanelMeeting {
+public class MenuBarPanelMeeting {	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT = new Vector() {
 		private static final long serialVersionUID = 1L;
-
 		{
 			add("Stellenbezeichnung");
 			add("Arbeitsbereich");
@@ -82,12 +87,23 @@ public class MenuBarPanelMeeting {
 	public static JLabel labelMeetingCountContent = new JLabel(" ");
 	public static JLabel labelMeetingNextDateContent = new JLabel(" ");
 	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
-	public static JLabel labelMeetingLocationContent = new JLabel(" ");
-	
+	public static JLabel labelMeetingLocationContent = new JLabel(" ");	
 	private static String[] result;
-	
+	private static int entitlement;
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelEmployeeMeeting() {
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT entitlement from employee where employeeID = " + Login.getID());
+		    while (rs.next()) {		    	
+		    	entitlement = rs.getInt(1);
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der Berechtigung" +e.getMessage());
+		}
 
 		panelEmployeeMeeting.setLayout(new BorderLayout(5, 5));
 		panelEmployeeMeeting.add(panelMeetingButton, BorderLayout.EAST);

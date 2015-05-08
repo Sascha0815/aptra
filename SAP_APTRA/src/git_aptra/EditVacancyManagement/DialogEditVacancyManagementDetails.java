@@ -43,12 +43,6 @@ public class DialogEditVacancyManagementDetails {
 			"Absage", "Wartepool", "Sonstiges" };
 	@SuppressWarnings({ "unchecked", "rawtypes", })
 	private static JComboBox boxStatus = new JComboBox(status);
-	private static String[] contribute = { "Bitte auswählen",
-			"Johannes Vollmer", "Fabian Gierer", "Sascha Pfau", "Praktikant",
-			"Sekretärin" };
-	@SuppressWarnings({ "unchecked", "rawtypes", })
-	private static JComboBox boxContributor = new JComboBox(contribute);
-
 	private static String markApplicant;
 	private static String markApplication;
 	private static boolean CL;
@@ -122,7 +116,6 @@ public class DialogEditVacancyManagementDetails {
 		checkCL.setSelected(false);
 		checkCV.setSelected(false);
 		boxStatus.setSelectedIndex(0);
-		boxContributor.setSelectedIndex(0);
 		ActionListener[] al = saveDetails.getActionListeners();
 		saveDetails.removeActionListener(al[0]);
 	}

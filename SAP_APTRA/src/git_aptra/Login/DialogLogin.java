@@ -39,6 +39,7 @@ public class DialogLogin extends JFrame {
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameLogin.setResizable(false);
 		frameLogin.setLocationRelativeTo(null);
+		frameLogin.getRootPane().setDefaultButton(buttonLogin);
 		frameLogin.add(panelLogin);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0;
