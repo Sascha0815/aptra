@@ -19,7 +19,7 @@ public class DialogAddVacancy {
 		dialogNewVacancy.add(tabVacancy);
 		DialogAddVacancyGeneral.addVacancyGeneral();
 		DialogAddVacancySpecification.addVacancySpecification();
-		DialogAddVacancyHistory.addVacancyHistory();
+		DialogAddVacancyMeetingSelection.addVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogNewVacancy);
 	}
 }
