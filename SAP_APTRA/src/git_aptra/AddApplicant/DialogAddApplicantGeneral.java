@@ -27,7 +27,7 @@ public class DialogAddApplicantGeneral {
 	public static JPanel panelDialogApplicantMain = new JPanel(new GridBagLayout());
 	
 	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	//private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();

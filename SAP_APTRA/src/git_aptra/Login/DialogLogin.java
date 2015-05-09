@@ -1,7 +1,6 @@
 package git_aptra.Login;
 
 import git_aptra.Oberflaeche;
-import git_aptra.Steuerung;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,7 +8,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,7 +32,7 @@ public class DialogLogin extends JFrame {
 	private String password;
 	private int entitlement = 0;
 	private GridBagConstraints gbc = new GridBagConstraints();
-	
+
 	public DialogLogin() {
 		frameLogin.setSize(300, 230);
 		frameLogin.setTitle("Login");
@@ -94,7 +92,5 @@ public class DialogLogin extends JFrame {
 			}
 		});
 		frameLogin.setVisible(true);
-	}
-
-	
+	}	
 }
