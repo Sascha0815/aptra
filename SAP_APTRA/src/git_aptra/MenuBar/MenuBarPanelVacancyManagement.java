@@ -16,6 +16,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -52,7 +53,7 @@ public class MenuBarPanelVacancyManagement {
 		}
 	};
 	private static JPanel panelVacancyManagement = new JPanel();
-	private static JPanel panelManagementContent = new JPanel();
+	public static JPanel panelManagementContent = new JPanel();
 	private static JPanel panelManagementInfo = new JPanel();
 	private static JPanel panelManagementButton = new JPanel();
 	private static JPanel panelManagementSummary = new JPanel();
@@ -217,7 +218,12 @@ public class MenuBarPanelVacancyManagement {
 					DialogEditWarning.selectOnlyOne();
 				} else {
 					EditVacancyManagement.getSelectedRow();
-					DialogEditVacancyManagement.editVacancyManagement();
+					try {
+						DialogEditVacancyManagement.editVacancyManagement();
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				    idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				}
 			}

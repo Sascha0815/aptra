@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class DialogEditVacancyManagementGeneral {
-	private static JPanel panelDialogEditVacancyManagementMain = new JPanel();
+	static JPanel panelDialogEditVacancyManagementMain = new JPanel();
 
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
 	private static JLabel labelName = new JLabel("Name:");
@@ -127,8 +127,7 @@ public class DialogEditVacancyManagementGeneral {
 				.createRigidArea(new Dimension(0, 10)));
 		panelDialogEditVacancyManagementMain.add(saveMain);
 
-		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",
-				panelDialogEditVacancyManagementMain);
+		
 		saveMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				String meeting = "Termin";
@@ -153,6 +152,8 @@ public class DialogEditVacancyManagementGeneral {
 			}
 		
 		});
+		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",
+				panelDialogEditVacancyManagementMain);
 	}
 
 	public static void reset() {
