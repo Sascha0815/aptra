@@ -25,7 +25,7 @@ public class DialogLogin extends JFrame {
 	
 	private JPanel panelLogin = new JPanel(new GridBagLayout());
 	
-	private JLabel labelInstruction = new JLabel("Bitte geben sie ihre Zugangsdaten ein.");
+	private JLabel labelInstruction = new JLabel("Bitte geben Sie ihre Zugangsdaten ein.");
 	private JLabel labelUsername = new JLabel("Benutzername:");
 	private JLabel labelPassword = new JLabel("Passwort:");
 	private JLabel labelWarning = new JLabel("Die Zugangsdaten sind nicht korrekt!");
@@ -119,8 +119,7 @@ public class DialogLogin extends JFrame {
 			public void actionPerformed(ActionEvent evt) {
 				frameLogin.dispose();
 			}
-		});
-		
+		});	
 		frameLogin.setVisible(true);
 	}	
 	

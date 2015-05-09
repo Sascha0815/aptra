@@ -73,7 +73,7 @@ public class DialogDetailsMeeting {
 			return false;
 		}
 	};
-	private static JTable tableDialogEmployeeMeeting = new JTable(
+	public static JTable tableDialogEmployeeMeeting = new JTable(
 			modelDialogEmployeeMeeting);
 	private static JButton save = new JButton("Speichern");
 	private static JTextField fieldLocation = new JTextField();
@@ -88,6 +88,8 @@ public class DialogDetailsMeeting {
 	private static int meetingID;
 	private static String time;
 	private static Calendar calNote = Calendar.getInstance();
+	private static String responsibleEmployeeName;
+	private static String responsibleEmployeeFirstName;
 
 	@SuppressWarnings("static-access")
 	public static void detailsMeeting() {
@@ -167,7 +169,7 @@ public class DialogDetailsMeeting {
 			int []rows = tableDialogEmployeeMeeting.getSelectedRows();
 			
 			
-			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
+			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time, responsibleEmployeeName,responsibleEmployeeFirstName);
 			try {
 				Connection con = DriverManager.getConnection(
 						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
