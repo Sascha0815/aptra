@@ -2,21 +2,38 @@ package git_aptra.EditVacancyManagement;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.net.MalformedURLException;
 
+import git_aptra.Loading;
 import git_aptra.Oberflaeche;
+import git_aptra.Steuerung;
+import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
-public class DialogEditVacancyManagement {
+import org.apache.pdfbox.pdmodel.common.DualCOSObjectable;
+
+public class DialogEditVacancyManagement implements Runnable{
 	public static JDialog dialogEditVacancyManagement = new JDialog(
 			Oberflaeche.frame);
 	public static JTabbedPane tabEditVacancyManagment = new JTabbedPane(
 			JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-
-	public static void editVacancyManagement() {
-		dialogEditVacancyManagement.addWindowListener(new WindowListener() {
+	
+	@Override
+	public void run() {
+		try {
+			editVacancyManagement();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		Loading.f.setVisible(false);
+		}
+	
+	public static void editVacancyManagement() throws MalformedURLException {
+			dialogEditVacancyManagement.setVisible(false);
+			dialogEditVacancyManagement.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
 				CloseDialogEditVacancyManagement.close();
 			}
@@ -57,7 +74,6 @@ public class DialogEditVacancyManagement {
 
 			}
 		});
-		dialogEditVacancyManagement.setVisible(true);
 		dialogEditVacancyManagement.setSize(450, 550);
 		dialogEditVacancyManagement.setLocationRelativeTo(null);
 		dialogEditVacancyManagement.setResizable(false);
@@ -69,5 +85,11 @@ public class DialogEditVacancyManagement {
 		DialogEditVacancyManagementResponse.editVacancyManagementResponse();
 		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);
+		dialogEditVacancyManagement.setVisible(true);
+		
 	}
+
+
+
+	
 }

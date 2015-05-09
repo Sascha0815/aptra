@@ -1,5 +1,6 @@
 package git_aptra.MenuBar;
 
+import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import git_aptra.EditApplicant.DialogEditWarning;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
@@ -16,6 +17,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -217,7 +219,12 @@ public class MenuBarPanelVacancyManagement {
 					DialogEditWarning.selectOnlyOne();
 				} else {
 					EditVacancyManagement.getSelectedRow();
-					DialogEditVacancyManagement.editVacancyManagement();
+					Loading loading = new Loading();
+					Thread threadLoading = new Thread(loading);
+					threadLoading.start();
+					DialogEditVacancyManagement edit = new DialogEditVacancyManagement();
+					Thread threadEdit = new Thread(edit);
+					threadEdit.start();
 				    idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				}
 			}
