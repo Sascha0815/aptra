@@ -18,7 +18,7 @@ public class InsertMeetingIntoDatabase {
 	static String name;
 	static String firstName;
 	static String area;
-	public static void insertMeeting(String type, String location, Calendar cal, String time){
+	public static void insertMeeting(String type, String location, Calendar cal, String time, String responsibleEmployeeName, String responsibleEmployeeFirstName ){
 		
 		try {
 			Connection con = DriverManager.getConnection(
@@ -53,8 +53,8 @@ public class InsertMeetingIntoDatabase {
 		PreparedStatement preparedStatement = null;
 		
 		String query = "INSERT INTO meeting"
-				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?)";
+				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time, responsibleEmployeeName, responsibleEmployeeFirstName ) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = DriverManager.getConnection(
@@ -70,7 +70,8 @@ public class InsertMeetingIntoDatabase {
 			preparedStatement.setString(7, location);
 			preparedStatement.setDate(8, new java.sql.Date(cal.getTimeInMillis()));
 			preparedStatement.setString(9, time);
-	
+			preparedStatement.setString(10, (String) DialogDetailsMeeting.tableDialogEmployeeMeeting.getValueAt(DialogDetailsMeeting.tableDialogEmployeeMeeting.getSelectedRow(), 1));
+			preparedStatement.setString(11, (String) DialogDetailsMeeting.tableDialogEmployeeMeeting.getValueAt(DialogDetailsMeeting.tableDialogEmployeeMeeting.getSelectedRow(), 2));
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -4,15 +4,18 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+
 
 
 
@@ -59,17 +62,19 @@ public class DialogAddApplicantApplication {
 
 	private static JLabel labelDate = new JLabel("Geburtsdatum:");
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
-	private static JLabel labelVacancyID = new JLabel(
-			"Stellenidentifikationsnummer:");
-	private static JLabel labelEducationalAchievement = new JLabel(
-			"Höchster Bildungsabschluss:");
+	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
+	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxID = new JComboBox(
-			MenuBarPanelApplicant.getVacancyID());
+	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
+	
 	private static JTextField fieldDate = new JTextField();
+	
+	private static GridBagConstraints gbc = new GridBagConstraints();
 
 	private static int day;
 	private static int month;
@@ -84,61 +89,48 @@ public class DialogAddApplicantApplication {
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
-		panelDialogApplicantApplication.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantApplication.setLayout(new BoxLayout(
-				panelDialogApplicantApplication, BoxLayout.Y_AXIS));
-
-		panelDialogApplicantApplication.add(labelApplyDate);
-		labelApplyDate.setFont(fontTextField);
-
-		boxApplyDay.setToolTipText("Tag");
-		panelDialogApplicantApplication.add(boxApplyDay);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		boxApplyMonth.setToolTipText("Monat");
-		panelDialogApplicantApplication.add(boxApplyMonth);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		boxApplyYear.setToolTipText("Jahr");
-		panelDialogApplicantApplication.add(boxApplyYear);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(labelVacancyID);
-		labelVacancyID.setFont(fontTextField);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(boxID);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(labelDate);
-		labelDate.setFont(fontTextField);
-		boxDay.setToolTipText("Tag");
-		panelDialogApplicantApplication.add(boxDay);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		boxMonth.setToolTipText("Monat");
-		panelDialogApplicantApplication.add(boxMonth);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		boxYear.setToolTipText("Jahr");
-		panelDialogApplicantApplication.add(boxYear);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
-		panelDialogApplicantApplication.add(labelEducationalAchievement);
-		labelEducationalAchievement.setFont(fontTextField);
-		boxEducationalAchievement.setToolTipText("Höchster Bildungsabschluss:");
-		panelDialogApplicantApplication.add(boxEducationalAchievement);
-		panelDialogApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridx = 0;
+	    gbc.gridy = 0;
+	    gbc.weighty = 1;
+	    labelInstruction.setFont(fontHeadline);
+	    panelDialogApplicantApplication.add(labelInstruction,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantApplication.add(labelApplyDate,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantApplication.add(boxApplyDay,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantApplication.add(boxApplyMonth,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantApplication.add(boxApplyYear,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantApplication.add(labelVacancyID,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 6;
+	    panelDialogApplicantApplication.add(boxID,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 7;
+	    panelDialogApplicantApplication.add(labelDate,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 8;
+	    panelDialogApplicantApplication.add(boxDay,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 9;
+	    panelDialogApplicantApplication.add(boxMonth,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 10;
+	    panelDialogApplicantApplication.add(boxYear,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 11;
+	    panelDialogApplicantApplication.add(labelEducationalAchievement,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 12;
+	    panelDialogApplicantApplication.add(boxEducationalAchievement,gbc);
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",
 				panelDialogApplicantApplication);
 

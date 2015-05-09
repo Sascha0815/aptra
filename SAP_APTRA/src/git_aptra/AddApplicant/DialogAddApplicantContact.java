@@ -3,6 +3,7 @@ package git_aptra.AddApplicant;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,42 +16,52 @@ import javax.swing.JTextField;
 
 public class DialogAddApplicantContact {
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
-	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil");
+	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil:");
 	private static JLabel labelEmail = new JLabel("E-Mail:");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	@SuppressWarnings("unused")
-	private Font fontHeadline = new Font("Arial", Font.BOLD, 18);
+	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	private static JTextField fieldTelefonHome = new JTextField();
-	private static JTextField fieldTelefonMobil = new JTextField();
-	private static JTextField fieldEmail = new JTextField();
+	private static JTextField fieldTelefonHome = new JTextField(35);
+	private static JTextField fieldTelefonMobil = new JTextField(35);
+	private static JTextField fieldEmail = new JTextField(35);
 	public static JPanel panelDialogApplicantContact = new JPanel();
 	private static JButton save = new JButton("Speichern");
+	private static GridBagConstraints gbc = new GridBagConstraints();
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
 
 	public static void addApplicantContact() {
-		panelDialogApplicantContact.setBackground(Color.LIGHT_GRAY);
-		panelDialogApplicantContact.setLayout(new BoxLayout(
-				panelDialogApplicantContact, BoxLayout.Y_AXIS));
-		panelDialogApplicantContact.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogApplicantContact.add(labelTelefonHome);
-		panelDialogApplicantContact.add(fieldTelefonHome);
-		panelDialogApplicantContact.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		fieldTelefonHome.setFont(fontTextField);
-		panelDialogApplicantContact.add(labelTelefonMobil);
-		panelDialogApplicantContact.add(fieldTelefonMobil);
-		panelDialogApplicantContact.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		fieldTelefonMobil.setFont(fontTextField);
-		panelDialogApplicantContact.add(labelEmail);
-		panelDialogApplicantContact.add(fieldEmail);
-		panelDialogApplicantContact.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		fieldEmail.setFont(fontTextField);
-		panelDialogApplicantContact.add(save);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridx = 0;
+	    gbc.gridy = 0;
+	    gbc.weighty = 2;
+	    labelInstruction.setFont(fontHeadline);
+	    panelDialogApplicantContact.add(labelInstruction,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    panelDialogApplicantContact.add(labelTelefonHome,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 2;
+	    panelDialogApplicantContact.add(fieldTelefonHome,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 3;
+	    panelDialogApplicantContact.add(labelTelefonMobil,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 4;
+	    panelDialogApplicantContact.add(fieldTelefonMobil,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 5;
+	    panelDialogApplicantContact.add(labelEmail,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 6;
+	    panelDialogApplicantContact.add(fieldEmail,gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 7;
+	    gbc.anchor = GridBagConstraints.WEST;
+	    gbc.fill = GridBagConstraints.NONE;
+	    panelDialogApplicantContact.add(save,gbc);
 
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

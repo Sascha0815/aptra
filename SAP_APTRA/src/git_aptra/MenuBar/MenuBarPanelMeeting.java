@@ -42,6 +42,7 @@ public class MenuBarPanelMeeting {
 			add("Vorname");
 			add("Art des Termins");
 			add("Ort");
+			add("Datum");
 			add("Uhrzeit");
 			add("Zuständiger Mitarbeiter");
 			
