@@ -155,6 +155,7 @@ public class DialogDetailsMeeting {
 		panelMeeting.add(save);
 
 		save.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent evt) {
 			typeMeeting = fieldType.getText();
 			locationMeeting = fieldLocation.getText();
