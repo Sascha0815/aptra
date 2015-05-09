@@ -28,8 +28,10 @@ public class InsertMeetingDataIntoTable {
 				meeting.add(rs.getString(5));
 				meeting.add(rs.getString(6));
 				meeting.add(rs.getString(7));
+				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(9));
-				meeting.add(rs.getString(10)+rs.getString(11));
+				meeting.add(rs.getString(10));
+				meeting.add(rs.getString(12)+" "+rs.getString(11));
 				resultsMeeting.add(meeting);
 			}
 		} catch (SQLException e) {
