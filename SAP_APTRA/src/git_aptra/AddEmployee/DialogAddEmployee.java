@@ -63,6 +63,7 @@ public class DialogAddEmployee {
 		dialogNewEmployee.add(tabAdd);
 		DialogAddEmployeeGeneral.addEmployeeGeneral();
 		SwingUtilities.updateComponentTreeUI(dialogNewEmployee);
+		dialogNewEmployee.setLocationRelativeTo(Oberflaeche.frame);
 
 	}
 }

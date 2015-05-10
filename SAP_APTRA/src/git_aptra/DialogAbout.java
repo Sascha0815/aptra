@@ -16,7 +16,6 @@ public class DialogAbout {
 	public static void about() {
 		dialogAbout.setVisible(true);
 		dialogAbout.setSize(400, 200);
-		dialogAbout.setLocationRelativeTo(null);
 		dialogAbout.setResizable(false);
 		dialogAbout.setTitle("Über");
 		dialogAbout.add(panelAbout);
@@ -24,6 +23,7 @@ public class DialogAbout {
 		panelAbout.setBackground(Color.LIGHT_GRAY);
 		labelAbout
 				.setText("Entwicklerteam: Fabian Gierer, Sascha Pfau, Johannes Vollmer");
+		dialogAbout.setLocationRelativeTo(Oberflaeche.frame);
 	}
 
 }

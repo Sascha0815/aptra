@@ -21,5 +21,6 @@ public class DialogAddVacancy {
 		DialogAddVacancySpecification.addVacancySpecification();
 		DialogAddVacancyMeetingSelection.addVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogNewVacancy);
+		dialogNewVacancy.setLocationRelativeTo(Oberflaeche.frame);
 	}
 }

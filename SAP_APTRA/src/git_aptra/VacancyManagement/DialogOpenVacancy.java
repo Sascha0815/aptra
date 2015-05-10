@@ -117,6 +117,7 @@ public class DialogOpenVacancy {
 				OpenVacancy.insertInfo(id);
 			}
 		});
+		dialogAddVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
 	}
 	
 	public static int getID(){

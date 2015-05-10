@@ -13,7 +13,7 @@ public class DialogAddApplicant {
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);
 
-	public static void newApplicant() {
+	public static void newApplicant() {		
 		dialogNewApplicant.addWindowListener(new WindowListener() {
 			public void windowClosing(WindowEvent arg0) {
 				CloseDialogAddApplicant.close();
@@ -65,6 +65,7 @@ public class DialogAddApplicant {
 		DialogAddApplicantApplication.addApplicantApplication();
 		DialogAddApplicantContact.addApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
+		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
 
 	}
 

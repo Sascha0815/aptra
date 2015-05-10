@@ -22,5 +22,6 @@ public class DialogEditVacancy {
 		DialogEditVacancySpecification.editVacancySpecification();
 		DialogEditVacancyMeetingSelection.editVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancy);
+		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
 	}
 }

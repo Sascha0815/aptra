@@ -68,6 +68,7 @@ public class DialogInfoApplicant {
 		DialogInfoApplicantDetails.infoApplicantManagementDetails();
 		DialogInfoApplicantHistory.infoApplicantManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogInfoApplicant);
+		dialogInfoApplicant.setLocationRelativeTo(Oberflaeche.frame);
 	}
 
 }

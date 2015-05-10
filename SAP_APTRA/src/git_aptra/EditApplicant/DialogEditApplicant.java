@@ -66,5 +66,6 @@ public class DialogEditApplicant {
 		DialogEditApplicantApplication.editApplicantApplication();
 		DialogEditApplicantContact.editApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogEditApplicant);
+		dialogEditApplicant.setLocationRelativeTo(Oberflaeche.frame);
 	}
 }

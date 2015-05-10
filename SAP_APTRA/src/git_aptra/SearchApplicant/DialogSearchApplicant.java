@@ -67,6 +67,7 @@ public class DialogSearchApplicant {
 
 		DialogSearchApplicantContact.searchApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogSearchApplicant);
+		dialogSearchApplicant.setLocationRelativeTo(Oberflaeche.frame);
 
 	}
 }

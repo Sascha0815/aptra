@@ -65,6 +65,7 @@ public class DialogSearchVacancy {
 		DialogSearchVacancyGeneral.searchVacancyGeneral();
 		DialogSearchVacancySpecification.searchVacancySpecification();	
 		SwingUtilities.updateComponentTreeUI(dialogSearchVacancy);		
+		dialogSearchVacancy.setLocationRelativeTo(Oberflaeche.frame);
 
 	}
 }
