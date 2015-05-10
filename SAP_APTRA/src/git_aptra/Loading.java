@@ -33,7 +33,7 @@ public class Loading extends JPanel implements Runnable{
             {
                 if (first == true) {
                 	first = false;
-                	f.setLocationRelativeTo(null);
+                	f.setLocationRelativeTo(Oberflaeche.frame);
                     f.setUndecorated(true);
                     
 
@@ -63,8 +63,7 @@ public class Loading extends JPanel implements Runnable{
         JPanel panel = new JPanel();
         BoxLayout layoutMgr = new BoxLayout(panel, BoxLayout.PAGE_AXIS);
         panel.setLayout(layoutMgr);
-
-        ImageIcon imageIcon = new ImageIcon("C:/Users/Fabi/git/aptra/SAP_APTRA/src/git_aptra/resources/loading.gif");
+        ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("resources/loading.gif"));
         JLabel iconLabel = new JLabel();
         iconLabel.setIcon(imageIcon);
         imageIcon.setImageObserver(iconLabel);

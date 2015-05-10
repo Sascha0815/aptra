@@ -85,6 +85,7 @@ public class DialogEditVacancyManagement implements Runnable{
 		DialogEditVacancyManagementResponse.editVacancyManagementResponse();
 		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);
+		dialogEditVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditVacancyManagement.setVisible(true);
 		
 	}
