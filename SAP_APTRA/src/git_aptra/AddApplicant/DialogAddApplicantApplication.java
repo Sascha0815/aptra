@@ -5,6 +5,7 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -19,12 +20,15 @@ import java.util.Calendar;
 
 
 
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantApplication {
 	public static JPanel panelDialogApplicantApplication = new JPanel();
@@ -89,48 +93,20 @@ public class DialogAddApplicantApplication {
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = 0;
-	    gbc.gridy = 0;
-	    gbc.weighty = 1;
-	    labelInstruction.setFont(fontHeadline);
-	    panelDialogApplicantApplication.add(labelInstruction,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantApplication.add(labelApplyDate,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantApplication.add(boxApplyDay,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantApplication.add(boxApplyMonth,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantApplication.add(boxApplyYear,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantApplication.add(labelVacancyID,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    panelDialogApplicantApplication.add(boxID,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 7;
-	    panelDialogApplicantApplication.add(labelDate,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 8;
-	    panelDialogApplicantApplication.add(boxDay,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 9;
-	    panelDialogApplicantApplication.add(boxMonth,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 10;
-	    panelDialogApplicantApplication.add(boxYear,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 11;
-	    panelDialogApplicantApplication.add(labelEducationalAchievement,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 12;
-	    panelDialogApplicantApplication.add(boxEducationalAchievement,gbc);
+		MigLayout layout = new MigLayout();		
+		panelDialogApplicantApplication.setLayout(layout);
+	    panelDialogApplicantApplication.add(labelApplyDate,"wrap");
+	    panelDialogApplicantApplication.add(boxApplyDay);
+	    panelDialogApplicantApplication.add(boxApplyMonth);
+	    panelDialogApplicantApplication.add(boxApplyYear, "wrap");
+	    panelDialogApplicantApplication.add(labelVacancyID,"wrap");
+	    panelDialogApplicantApplication.add(boxID,"wrap");
+	    panelDialogApplicantApplication.add(labelDate,"wrap");
+	    panelDialogApplicantApplication.add(boxDay);
+	    panelDialogApplicantApplication.add(boxMonth);
+	    panelDialogApplicantApplication.add(boxYear,"wrap");
+	    panelDialogApplicantApplication.add(labelEducationalAchievement,"wrap");
+	    panelDialogApplicantApplication.add(boxEducationalAchievement);
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",
 				panelDialogApplicantApplication);
 

@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogAddApplicantContact {
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
 	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil:");
@@ -27,42 +29,23 @@ public class DialogAddApplicantContact {
 	private static JTextField fieldEmail = new JTextField(35);
 	public static JPanel panelDialogApplicantContact = new JPanel();
 	private static JButton save = new JButton("Speichern");
-	private static GridBagConstraints gbc = new GridBagConstraints();
+	private static JButton buttonAbort = new JButton ("Abbrechen");
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
 
 	public static void addApplicantContact() {
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = 0;
-	    gbc.gridy = 0;
-	    gbc.weighty = 2;
-	    labelInstruction.setFont(fontHeadline);
-	    panelDialogApplicantContact.add(labelInstruction,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantContact.add(labelTelefonHome,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 2;
-	    panelDialogApplicantContact.add(fieldTelefonHome,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 3;
-	    panelDialogApplicantContact.add(labelTelefonMobil,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 4;
-	    panelDialogApplicantContact.add(fieldTelefonMobil,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 5;
-	    panelDialogApplicantContact.add(labelEmail,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    panelDialogApplicantContact.add(fieldEmail,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 7;
-	    gbc.anchor = GridBagConstraints.WEST;
-	    gbc.fill = GridBagConstraints.NONE;
-	    panelDialogApplicantContact.add(save,gbc);
-
+		MigLayout layout = new MigLayout();		
+		panelDialogApplicantContact.setLayout(layout);
+		layout.setLayoutConstraints("wrap");
+		panelDialogApplicantContact.add(labelTelefonHome, "wrap");
+		panelDialogApplicantContact.add(fieldTelefonHome, "growx");
+		panelDialogApplicantContact.add(labelTelefonMobil, "wrap");
+		panelDialogApplicantContact.add(fieldTelefonMobil, "growx");
+		panelDialogApplicantContact.add(labelEmail, "wrap");
+		panelDialogApplicantContact.add(fieldEmail, "growx");
+		panelDialogApplicantContact.add(save, "align left");
+		panelDialogApplicantContact.add(buttonAbort, "align right");
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewApplicant.save();
