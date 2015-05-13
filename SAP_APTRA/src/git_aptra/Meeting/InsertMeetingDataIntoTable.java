@@ -10,12 +10,12 @@ import java.sql.Statement;
 import java.util.Vector;
 
 public class InsertMeetingDataIntoTable {
-	private static String employeeName;
-	private static String employeeFirstName;
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertMeetingDataIntoTable() {
 		Vector resultsMeeting = new Vector();
-		if(Login.getEntitlement()==1){
+		int entitlement = Login.getEntitlement();
+		System.out.println(entitlement);
+		if(entitlement==1){
 		try {
 			Connection con = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
@@ -41,29 +41,18 @@ public class InsertMeetingDataIntoTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		}
 
-		if(Login.getEntitlement()==2){
+		if(entitlement==2){
 			try {
 				Connection con = DriverManager.getConnection(
 						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 						"u474396146_aptra", "aptraDB");
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT DISTINCT e.name, e.firstName FROM meeting m INNER JOIN"
-						+ "participation p ON m.meetingID = p.meetingID INNER JOIN employee e on e.employeeID = p.employeeID WHERE e.employeeID =" + Login.getID()  );
-				while (rs.next()) {
-					employeeName = rs.getString(1);
-					employeeFirstName = rs.getString(2);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}	
-			}
-			try {
-				Connection con = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
-				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT * FROM meeting WHERE responsibleEmployeeName = " + employeeName + "AND responsibleEmployeeFirstName = " + employeeFirstName);
+				ResultSet rs = stmt.executeQuery("SELECT m.position, m.area, m.typeMeeting, m.applicantID, m.name, m.firstName, m.date, m.location, m.time m.responsibleEmployeeName, responsibleEmployeeFirstName from meeting m"
+						+ "inner join participation p on p.meetingID = m.meetingID"
+						+ "inner join employee e on e.employeeID = p.employeeID"
+						+ "where p.employeeID = " + Login.getID());
 
 				while (rs.next()) {
 					Vector meeting = new Vector();
