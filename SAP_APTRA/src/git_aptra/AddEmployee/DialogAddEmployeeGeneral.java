@@ -1,20 +1,17 @@
 package git_aptra.AddEmployee;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogAddEmployeeGeneral {
 	
@@ -43,7 +40,8 @@ public class DialogAddEmployeeGeneral {
 	private static JPasswordField fieldPassword = new JPasswordField();
 	private static JPasswordField fieldPasswordRepeat = new JPasswordField();
 	
-	private static JButton save = new JButton("Speichern");
+	private static JButton buttonSave = new JButton("Speichern");
+	private static JButton buttonAbort = new JButton("Abbrechen");
 	
 	private static String name;
 	private static String firstName;
@@ -52,38 +50,31 @@ public class DialogAddEmployeeGeneral {
 	private static String password;
 	
 	public static void addEmployeeGeneral() {
-		panelDialogEmployeeMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogEmployeeMain.setLayout(new BoxLayout(panelDialogEmployeeMain, BoxLayout.Y_AXIS));
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(labelInstruction);
+		MigLayout layout = new MigLayout();		
+		panelDialogEmployeeMain.setLayout(layout);
+		layout.setLayoutConstraints("wrap");
+		panelDialogEmployeeMain.add(labelInstruction, "wrap");
 		labelInstruction.setFont(fontHeadline);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(labelName);
-		panelDialogEmployeeMain.add(fieldName);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogEmployeeMain.add(labelName, "wrap");		
+		panelDialogEmployeeMain.add(fieldName, "growx");
 		fieldName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelFirstName);
-		panelDialogEmployeeMain.add(fieldFirstName);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogEmployeeMain.add(labelFirstName, "wrap");
+		panelDialogEmployeeMain.add(fieldFirstName, "growx");
 		fieldFirstName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelLoginName);
-		panelDialogEmployeeMain.add(fieldLoginName);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
+		panelDialogEmployeeMain.add(labelLoginName, "wrap");
+		panelDialogEmployeeMain.add(fieldLoginName, "growx");
 		fieldLoginName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelPassword);
-		panelDialogEmployeeMain.add(fieldPassword);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(labelPasswordRepeat);
-		panelDialogEmployeeMain.add(fieldPasswordRepeat);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(labelEntitlement);
-		panelDialogEmployeeMain.add(boxEntitlement);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(labelWarning);
+		panelDialogEmployeeMain.add(labelPassword, "wrap");
+		panelDialogEmployeeMain.add(fieldPassword, "growx");
+		panelDialogEmployeeMain.add(labelPasswordRepeat, "wrap");
+		panelDialogEmployeeMain.add(fieldPasswordRepeat, "growx");
+		panelDialogEmployeeMain.add(labelEntitlement, "wrap");
+		panelDialogEmployeeMain.add(boxEntitlement, "growx");
+		panelDialogEmployeeMain.add(labelWarning, "wrap");
 		labelWarning.setVisible(false);
-		panelDialogEmployeeMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogEmployeeMain.add(save);
-		save.addActionListener(new ActionListener() {
+		panelDialogEmployeeMain.add(buttonSave, "align left");
+		panelDialogEmployeeMain.add(buttonAbort, "align right");
+		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				char[] passwordChar1 = fieldPassword.getPassword();
 				String passwordString1 = String.valueOf(passwordChar1);
@@ -137,8 +128,10 @@ public class DialogAddEmployeeGeneral {
 		fieldPassword.setText("");
 		fieldPasswordRepeat.setText("");
 		panelDialogEmployeeMain.removeAll();
-		ActionListener[] al = save.getActionListeners();
-		save.removeActionListener(al[0]);
+		ActionListener[] al = buttonSave.getActionListeners();
+		buttonSave.removeActionListener(al[0]);
+		ActionListener[] al1 = buttonAbort.getActionListeners();
+		buttonAbort.removeActionListener(al[0]);
 	}
 
 	public static String getName() {

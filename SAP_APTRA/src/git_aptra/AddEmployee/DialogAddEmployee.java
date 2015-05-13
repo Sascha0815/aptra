@@ -56,7 +56,7 @@ public class DialogAddEmployee {
 			}
 		});
 		dialogNewEmployee.setVisible(true);
-		dialogNewEmployee.setSize(475, 500);
+		dialogNewEmployee.setSize(420, 420);
 		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");

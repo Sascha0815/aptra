@@ -12,8 +12,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Loading extends JPanel implements Runnable{
-	public static JDialog f = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogLoading = new JDialog(Oberflaeche.frame);
 	static boolean first = true;
 	public void run() {
 		try {
@@ -33,8 +34,8 @@ public class Loading extends JPanel implements Runnable{
             {
                 if (first == true) {
                 	first = false;
-                	f.setLocationRelativeTo(Oberflaeche.frame);
-                    f.setUndecorated(true);
+                	dialogLoading.setLocationRelativeTo(Oberflaeche.frame);
+                	dialogLoading.setUndecorated(true);
                     
 
                     Loading imagePanel = new Loading();
@@ -42,18 +43,23 @@ public class Loading extends JPanel implements Runnable{
                     
                     try
                     {
-                        jp = imagePanel.loadingPanel();                      
+                        jp = imagePanel.loadingPanel();
+                        Oberflaeche.frame.add(imagePanel);
+                        
                     }
                     catch (MalformedURLException ex)
                     {
                         Logger.getLogger(Loading.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    f.add(jp);
-                    f.setBackground(new Color(0, 0, 0, 0)); 
-                    f.pack();                   	
+                    dialogLoading.add(jp);
+                    dialogLoading.setBackground(new Color(0, 0, 0, 0)); 
+                    dialogLoading.pack();                   	
 				}
-                f.setVisible(true);			               
+              //  dialogLoading.setVisible(true);	
+                
+                	dialogLoading.setLocationRelativeTo(Oberflaeche.frame);
+                
             }
         });
     }

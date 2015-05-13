@@ -28,7 +28,7 @@ public class DialogEditVacancyManagement implements Runnable{
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-		Loading.f.setVisible(false);
+		Loading.dialogLoading.setVisible(false);
 		}
 	
 	public static void editVacancyManagement() throws MalformedURLException {
