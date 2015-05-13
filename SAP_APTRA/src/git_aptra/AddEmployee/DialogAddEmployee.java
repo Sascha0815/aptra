@@ -30,7 +30,7 @@ public class DialogAddEmployee {
 
 	public static JPanel panelDialogEmployeeMain = new JPanel();
 	
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
+	private static Font fontHeadline = new Font("Arial", Font.BOLD, 14);
 	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	
 	private static JTextField fieldName = new JTextField();
@@ -55,37 +55,29 @@ public class DialogAddEmployee {
 
 	public static void addEmployee() {
 		dialogNewEmployee.setVisible(true);
-		dialogNewEmployee.setSize(420, 420);
+		dialogNewEmployee.setSize(420, 380);
 		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");
 		SwingUtilities.updateComponentTreeUI(dialogNewEmployee);
 		dialogNewEmployee.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewEmployee.add(panelDialogEmployeeMain);
-		MigLayout layout = new MigLayout();		
-		panelDialogEmployeeMain.setLayout(layout);
-		layout.setLayoutConstraints("wrap");
-		panelDialogEmployeeMain.add(labelInstruction, "wrap");
-		labelInstruction.setFont(fontHeadline);
-		panelDialogEmployeeMain.add(labelName, "wrap");		
-		panelDialogEmployeeMain.add(fieldName, "growx");
-		fieldName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelFirstName, "wrap");
-		panelDialogEmployeeMain.add(fieldFirstName, "growx");
-		fieldFirstName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelLoginName, "wrap");
-		panelDialogEmployeeMain.add(fieldLoginName, "growx");
-		fieldLoginName.setFont(fontTextField);
-		panelDialogEmployeeMain.add(labelPassword, "wrap");
-		panelDialogEmployeeMain.add(fieldPassword, "growx");
-		panelDialogEmployeeMain.add(labelPasswordRepeat, "wrap");
-		panelDialogEmployeeMain.add(fieldPasswordRepeat, "growx");
-		panelDialogEmployeeMain.add(labelEntitlement, "wrap");
-		panelDialogEmployeeMain.add(boxEntitlement, "growx");
-		panelDialogEmployeeMain.add(labelWarning, "wrap");
-		labelWarning.setVisible(false);
-		panelDialogEmployeeMain.add(buttonSave, "align left");
-		panelDialogEmployeeMain.add(buttonAbort, "align right");
+		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow,trailing][grow][]", "[30.00][][][][][][][][][][][][][30.00]"));
+		panelDialogEmployeeMain.add(labelInstruction, "cell 0 0,alignx right");
+		panelDialogEmployeeMain.add(labelName, "cell 0 1,alignx left");
+		panelDialogEmployeeMain.add(fieldName, "cell 0 2 3 1,growx");
+		panelDialogEmployeeMain.add(labelFirstName, "cell 0 3,alignx left");
+		panelDialogEmployeeMain.add(fieldFirstName, "cell 0 4 3 1,growx");
+		panelDialogEmployeeMain.add(labelLoginName, "cell 0 5,alignx left");
+		panelDialogEmployeeMain.add(fieldLoginName, "cell 0 6 3 1,growx");
+		panelDialogEmployeeMain.add(labelPassword, "cell 0 7,alignx left");
+		panelDialogEmployeeMain.add(fieldPassword, "cell 0 8 3 1,growx");
+		panelDialogEmployeeMain.add(labelPasswordRepeat, "cell 0 9,alignx left" );
+		panelDialogEmployeeMain.add(fieldPasswordRepeat, "cell 0 10 3 1,growx");
+		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 11,alignx left");
+		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 3 1,growx");
+		panelDialogEmployeeMain.add(buttonSave, "cell 0 13,alignx left");
+		panelDialogEmployeeMain.add(buttonAbort, "cell 2 13,alignx left");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				char[] passwordChar1 = fieldPassword.getPassword();
