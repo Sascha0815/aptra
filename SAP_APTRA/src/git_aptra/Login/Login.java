@@ -27,8 +27,15 @@ public class Login {
 		}
 		return 0;
 	}
-
+	
+	
 	public static int getID(){
 		return ID;
 	}
+	
+	public static int getEntitlement(){
+		return entitlement;
+	}
+	
+	
 }

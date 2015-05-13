@@ -117,7 +117,9 @@ public class DialogLogin extends JFrame {
 					break;
 				
 				case 2:
-					
+					new Oberflaeche();
+					frameLogin.dispose();
+					System.out.println("Eingeschränkter Zugriff auf das Programm");
 					break;
 				}
 			}
