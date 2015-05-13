@@ -49,10 +49,10 @@ public class InsertMeetingDataIntoTable {
 						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 						"u474396146_aptra", "aptraDB");
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT m.position, m.area, m.typeMeeting, m.applicantID, m.name, m.firstName, m.date, m.location, m.time m.responsibleEmployeeName, responsibleEmployeeFirstName from meeting m"
-						+ "inner join participation p on p.meetingID = m.meetingID"
-						+ "inner join employee e on e.employeeID = p.employeeID"
-						+ "where p.employeeID = " + Login.getID());
+				String query = ("SELECT m.position, m.area, m.typeMeeting, m.applicantID, m.name, m.firstName, m.date, m.location, m.time, m.responsibleEmployeeName, responsibleEmployeeFirstName from meeting m inner join participation p on p.meetingID = m.meetingID inner join employee e on e.employeeID = p.employeeID where p.employeeID = " + Login.getID());
+				System.out.println(query);
+
+				ResultSet rs = stmt.executeQuery(query);
 
 				while (rs.next()) {
 					Vector meeting = new Vector();
@@ -65,8 +65,7 @@ public class InsertMeetingDataIntoTable {
 					meeting.add(rs.getString(7));
 					meeting.add(rs.getString(8));
 					meeting.add(rs.getString(9));
-					meeting.add(rs.getString(10));
-					meeting.add(rs.getString(12)+" "+rs.getString(11));
+					meeting.add(rs.getString(11)+" "+rs.getString(10));
 					resultsMeeting.add(meeting);
 				}
 			} catch (SQLException e) {

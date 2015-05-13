@@ -99,6 +99,7 @@ public class InsertMeetingIntoDatabase {
 			
 	
 			preparedStatement.executeUpdate();
+			preparedStatement.close();
 			
 		} catch (SQLException e) {
 			System.out

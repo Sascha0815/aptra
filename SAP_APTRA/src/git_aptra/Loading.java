@@ -56,7 +56,7 @@ public class Loading extends JPanel implements Runnable{
                     dialogLoading.setBackground(new Color(0, 0, 0, 0)); 
                     dialogLoading.pack();                   	
 				}
-              //  dialogLoading.setVisible(true);	
+                	dialogLoading.setVisible(true);	
                 
                 	dialogLoading.setLocationRelativeTo(Oberflaeche.frame);
                 

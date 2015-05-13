@@ -2,6 +2,8 @@ package git_aptra.Meeting;
 
 import git_aptra.Oberflaeche;
 
+import git_aptra.Meeting.InsertMeetingIntoDatabase;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
