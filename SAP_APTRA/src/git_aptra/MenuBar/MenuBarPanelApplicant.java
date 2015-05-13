@@ -10,12 +10,11 @@ import git_aptra.EditApplicant.EditApplicant;
 import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
+import net.miginfocom.swing.MigLayout;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,19 +30,16 @@ import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelApplicant {
 	private static JPanel panelApplicant = new JPanel();
 	private static JPanel panelButtonApplicant = new JPanel();
-	private static JPanel panelContentApplicant = new JPanel();
-	private static JPanel panelInfoApplicant = new JPanel();
 	
-	private static JLabel labelApplicantInfo = new JLabel();
 	
 	private static JButton buttonAddApplicant = new JButton();
 	private static JButton buttonDeleteApplicant = new JButton();
@@ -86,21 +82,11 @@ public class MenuBarPanelApplicant {
 
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
-		panelApplicant.setLayout(new BorderLayout(5, 5));
-		panelApplicant.add(panelButtonApplicant, BorderLayout.EAST);
-		panelApplicant.add(panelContentApplicant, BorderLayout.CENTER);
-		panelApplicant.add(panelInfoApplicant, BorderLayout.SOUTH);
-		panelInfoApplicant.add(labelApplicantInfo);
-		labelApplicantInfo.setHorizontalAlignment(JLabel.LEFT);
-		labelApplicantInfo.setText("Test");
+		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
+		
+		
 
-		panelButtonApplicant
-				.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
-		panelButtonApplicant.setBackground(Color.LIGHT_GRAY);
-		panelButtonApplicant.setPreferredSize(new Dimension(150, 0));
-		panelContentApplicant.setBackground(Color.LIGHT_GRAY);
-		panelInfoApplicant.setBackground(Color.LIGHT_GRAY);
-		panelInfoApplicant.setPreferredSize(new Dimension(0, 20));
+		
 		
 		/*
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
@@ -126,8 +112,9 @@ public class MenuBarPanelApplicant {
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant);
 		buttonAddApplicant.setBorderPainted(false);
+		buttonAddApplicant.setOpaque(false);
+		buttonAddApplicant.setContentAreaFilled(false);
 		buttonAddApplicant.setBorder(null);
-		buttonAddApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
@@ -160,8 +147,9 @@ public class MenuBarPanelApplicant {
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
 		panelButtonApplicant.add(buttonEditApplicant);
 		buttonEditApplicant.setBorderPainted(false);
+		buttonEditApplicant.setOpaque(false);
+		buttonEditApplicant.setContentAreaFilled(false);
 		buttonEditApplicant.setBorder(null);
-		buttonEditApplicant.setBackground(Color.LIGHT_GRAY);
 		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
@@ -183,7 +171,8 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.add(buttonDeleteApplicant);
 		buttonDeleteApplicant.setBorderPainted(false);
 		buttonDeleteApplicant.setBorder(null);
-		buttonDeleteApplicant.setBackground(Color.LIGHT_GRAY);
+		buttonDeleteApplicant.setOpaque(false);
+		buttonDeleteApplicant.setContentAreaFilled(false);
 		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
@@ -206,7 +195,8 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.add(buttonSearchApplicant);
 		buttonSearchApplicant.setBorderPainted(false);
 		buttonSearchApplicant.setBorder(null);
-		buttonSearchApplicant.setBackground(Color.LIGHT_GRAY);
+		buttonSearchApplicant.setOpaque(false);
+		buttonSearchApplicant.setContentAreaFilled(false);
 		buttonSearchApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
@@ -224,7 +214,8 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.add(buttonInfoApplicant);
 		buttonInfoApplicant.setBorderPainted(false);
 		buttonInfoApplicant.setBorder(null);
-		buttonInfoApplicant.setBackground(Color.LIGHT_GRAY);
+		buttonInfoApplicant.setOpaque(false);
+		buttonInfoApplicant.setContentAreaFilled(false);
 		buttonInfoApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
@@ -243,17 +234,17 @@ public class MenuBarPanelApplicant {
 			}
 		});
 
-		// SWING: Table Bewerberpool
 		modelPool.setColumnIdentifiers(COLUMN_IDENTIFIERS_APPLICANT);
 		tableApplicant.getTableHeader().setReorderingAllowed(false);
 		tableApplicant.setAutoCreateRowSorter(true);
 		tableApplicant = new JTable(modelPool);
-		scrollPanePool = new JScrollPane(tableApplicant);
-		panelApplicant.add(scrollPanePool);
-		scrollPanePool.setPreferredSize(new Dimension(panelContentApplicant.getSize().width - 20,panelContentApplicant.getSize().height - 20));
+		scrollPanePool = new JScrollPane(tableApplicant);		
 		scrollPanePool.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPanePool.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableApplicant.setRowHeight(20);
+		
+		panelApplicant.add(scrollPanePool, "cell 0 0, w 600:1800: , h 400:1000:");
+		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h 400:1000:");
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);
 	}

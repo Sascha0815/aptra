@@ -17,7 +17,6 @@ public class MenuBarPanelOverview {
 		panelOverview.setLayout(new BorderLayout(5, 5));
 		panelOverview.add(panelContentOverview, BorderLayout.CENTER);
 		panelOverview.add(panelInfoOverview, BorderLayout.SOUTH);
-		panelContentOverview.setBackground(Color.LIGHT_GRAY);
 		panelInfoOverview.setBackground(Color.LIGHT_GRAY);
 		panelInfoOverview.setPreferredSize(new Dimension(0, 20));
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
