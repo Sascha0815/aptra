@@ -1,15 +1,13 @@
 package git_aptra.AddVacancy;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancyGeneral {
 
@@ -18,76 +16,49 @@ public class DialogAddVacancyGeneral {
 
 	private static JPanel panelDialogVacancyMain = new JPanel();
 
-	private static JLabel labelArea = new JLabel();
-	private static JLabel labelInstruction2 = new JLabel(
-			"Bitte tragen Sie alle erfoderlichen Daten ein!");
-	private static JLabel labelPosition = new JLabel();
-	private static JLabel labelRequirementLevel = new JLabel();
+	private static JLabel labelArea = new JLabel("Arbeitsbereich");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
+	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
+	private static JLabel labelRequirementLevel = new JLabel("Anfoderung");
+	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis");
+	private static JLabel labelVacancyStatus = new JLabel("Status");
+	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
 
-	static String[] boxListRequirementLevel = { "Bitte auswählen",
-			"Praktikant", "Auszubildender", "Student", "Angestellter" };
+	static String[] boxListRequirementLevel = { "Bitte auswählen", "Praktikant", "Auszubildender", "Student", "Angestellter" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxRequirementLevel = new JComboBox(
-			boxListRequirementLevel);
-	private static JLabel labelTermsOfEmployment = new JLabel();
+	static JComboBox boxRequirementLevel = new JComboBox(boxListRequirementLevel);
+	
 	static String[] boxListTermsOfEmployment = { "Bitte auswählen", "Vollzeit",
 			"Teilzeit", "Aushilfe", "Schichtarbeit" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxTermsOfEmployment = new JComboBox(
-			boxListTermsOfEmployment);
-	private static JLabel labelVacancyStatus = new JLabel();
-	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben",
-		"Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche","Entscheidung", "Abgeschlossen" };
+	static JComboBox boxTermsOfEmployment = new JComboBox(boxListTermsOfEmployment);
+	
+	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben","Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche","Entscheidung", "Abgeschlossen" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxVacancyStatus = new JComboBox(boxListVacancyStatus);
-	private static JLabel labelEducationalAchievement = new JLabel(
-			"Höchster Bildungsabschluss:");
-	static String[] boxListEducationalAchievement = { "Bitte auswählen",
-			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+	
+	static String[] boxListEducationalAchievement = { "Bitte auswählen","Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxEducationalAchievement = new JComboBox(
-			boxListEducationalAchievement);
+	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 
 	public static void addVacancyGeneral() {
-
-		panelDialogVacancyMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogVacancyMain.setLayout(new BoxLayout(panelDialogVacancyMain,
-				BoxLayout.Y_AXIS));
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogVacancyMain.add(labelInstruction2);
-		labelInstruction2.setFont(fontHeadline);
-		
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogVacancyMain.add(labelPosition);
-		labelPosition.setText("Stellenbezeichnung:");
-		panelDialogVacancyMain.add(fieldPosition);
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		fieldPosition.setFont(fontTextField);
-		panelDialogVacancyMain.add(labelArea);
-		labelArea.setText("Arbeitsbereich:");
-		panelDialogVacancyMain.add(fieldArea);
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		fieldArea.setFont(fontTextField);
-		labelRequirementLevel.setText("Anforderung:");
-		panelDialogVacancyMain.add(labelRequirementLevel);
-		boxRequirementLevel.setToolTipText("Anforderung");
-		panelDialogVacancyMain.add(boxRequirementLevel);
-		labelTermsOfEmployment.setText("Anstellungsverhältnis:");
-		panelDialogVacancyMain.add(labelTermsOfEmployment);
-		boxTermsOfEmployment.setToolTipText("Anstellungsverhältnis");
-		panelDialogVacancyMain.add(boxTermsOfEmployment);
-		labelVacancyStatus.setText("Status:");
-		panelDialogVacancyMain.add(labelVacancyStatus);
-		boxVacancyStatus.setToolTipText("Status");
-		panelDialogVacancyMain.add(boxVacancyStatus);
-
-		panelDialogVacancyMain.add(labelEducationalAchievement);
-		boxEducationalAchievement
-				.setToolTipText("Benötigter Bildungsabschluss:");
-		panelDialogVacancyMain.add(boxEducationalAchievement);
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
+		panelDialogVacancyMain.add(labelInstruction, "cell 1 0,alignx left");
+		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
+		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 3 1,growx");
+		panelDialogVacancyMain.add(labelArea, "cell 0 3");
+		panelDialogVacancyMain.add(fieldArea, "cell 0 4 3 1,growx");
+		panelDialogVacancyMain.add(labelRequirementLevel, "cell 0 5");
+		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 3 1,growx");
+		panelDialogVacancyMain.add(labelTermsOfEmployment, "cell 0 7");
+		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 3 1,growx");
+		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9");
+		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 3 1,growx");
+		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
+		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 3 1,growx");
 		DialogAddVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
 
 	}
