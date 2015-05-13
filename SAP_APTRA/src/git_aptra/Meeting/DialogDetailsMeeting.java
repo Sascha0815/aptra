@@ -1,4 +1,4 @@
-package git_aptra.EditVacancyManagement;
+package git_aptra.Meeting;
 
 import git_aptra.Oberflaeche;
 
@@ -155,7 +155,6 @@ public class DialogDetailsMeeting {
 		panelMeeting.add(save);
 
 		save.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent evt) {
 			typeMeeting = fieldType.getText();
 			locationMeeting = fieldLocation.getText();

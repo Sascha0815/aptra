@@ -38,7 +38,6 @@ public class DialogLogin extends JFrame {
 	private JCheckBox checkRemember = new JCheckBox("Login-Daten merken?");
 	
 	private Font fontLogin = new Font("Arial", Font.BOLD, 12);
-	private Font fontInstruction = new Font("Arial", Font.BOLD, 14);
 	
 	private String username;
 	private String password;

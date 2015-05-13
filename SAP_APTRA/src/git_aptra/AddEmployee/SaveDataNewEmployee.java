@@ -5,8 +5,9 @@ import java.sql.SQLException;
 
 public class SaveDataNewEmployee {
 	public static void save() throws SQLException {
-		DialogAddEmployeeGeneral.getGeneral();
+		DialogAddEmployee.getGeneral();
 		InsertEmployeeDataIntoDatabase.insertEmployeeData();
-		CloseDialogAddEmployee.close();
+		DialogAddEmployee.dialogNewEmployee.dispose();
+		DialogAddEmployee.reset();
 	}
 }

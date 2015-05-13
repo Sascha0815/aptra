@@ -1,4 +1,4 @@
-package git_aptra.EditVacancyManagement;
+package git_aptra.Meeting;
 
 
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;

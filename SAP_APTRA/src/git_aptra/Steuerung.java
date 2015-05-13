@@ -2,8 +2,8 @@ package git_aptra;
 
 import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
-import git_aptra.EditVacancyManagement.InsertMeetingDataIntoTable;
 import git_aptra.Login.DialogLogin;
+import git_aptra.Meeting.InsertMeetingDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 import git_aptra.MenuBar.MenuBarPanelVacancy;

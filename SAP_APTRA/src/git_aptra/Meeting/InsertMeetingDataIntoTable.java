@@ -1,4 +1,4 @@
-package git_aptra.EditVacancyManagement;
+package git_aptra.Meeting;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

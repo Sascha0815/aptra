@@ -1,60 +1,15 @@
 package git_aptra.AddApplicant;
 
 import git_aptra.Oberflaeche;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 public class DialogAddApplicant {
-	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,
-			JTabbedPane.SCROLL_TAB_LAYOUT);
+	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);
 
 	public static void newApplicant() {		
-		dialogNewApplicant.addWindowListener(new WindowListener() {
-			public void windowClosing(WindowEvent arg0) {
-				CloseDialogAddApplicant.close();
-			}
-
-			@Override
-			public void windowActivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowClosed(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowDeactivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowDeiconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowIconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowOpened(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 		dialogNewApplicant.setVisible(true);
 		dialogNewApplicant.setSize(425, 450);
 		dialogNewApplicant.setLocationRelativeTo(null);
@@ -66,7 +21,5 @@ public class DialogAddApplicant {
 		DialogAddApplicantContact.addApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
 		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
-
 	}
-
 }

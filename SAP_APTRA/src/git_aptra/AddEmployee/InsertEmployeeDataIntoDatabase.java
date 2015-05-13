@@ -19,11 +19,11 @@ public class InsertEmployeeDataIntoDatabase {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			preparedStatement = dbConnection.prepareStatement(query);
-			preparedStatement.setString(1, DialogAddEmployeeGeneral.getName());
-			preparedStatement.setString(2, DialogAddEmployeeGeneral.getFirstName());
-			preparedStatement.setString(3, DialogAddEmployeeGeneral.getLoginName());
-			preparedStatement.setString(4, DialogAddEmployeeGeneral.getPassword());
-			preparedStatement.setInt(5, DialogAddEmployeeGeneral.getEntitlement());
+			preparedStatement.setString(1, DialogAddEmployee.getName());
+			preparedStatement.setString(2, DialogAddEmployee.getFirstName());
+			preparedStatement.setString(3, DialogAddEmployee.getLoginName());
+			preparedStatement.setString(4, DialogAddEmployee.getPassword());
+			preparedStatement.setInt(5, DialogAddEmployee.getEntitlement());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.out

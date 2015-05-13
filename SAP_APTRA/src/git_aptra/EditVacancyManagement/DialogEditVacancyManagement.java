@@ -6,14 +6,9 @@ import java.net.MalformedURLException;
 
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
-import git_aptra.Steuerung;
-import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
-
-import org.apache.pdfbox.pdmodel.common.DualCOSObjectable;
 
 public class DialogEditVacancyManagement implements Runnable{
 	public static JDialog dialogEditVacancyManagement = new JDialog(

@@ -86,7 +86,7 @@ public class MenuBar {
 		}
 		itemEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogAddEmployee.newEmployee();
+				DialogAddEmployee.addEmployee();
 			}
 		});
 		
