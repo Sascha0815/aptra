@@ -87,7 +87,6 @@ public class DialogDetailsMeeting {
 	private static int day;
 	private static int month;
 	private static int year;
-	private static int meetingID;
 	private static String time;
 	private static Calendar calNote = Calendar.getInstance();
 	private static String responsibleEmployeeName;
@@ -166,29 +165,10 @@ public class DialogDetailsMeeting {
 			calNote.set(Calendar.YEAR, year);
 			calNote.set(Calendar.MONTH, month);
 			calNote.set(Calendar.DAY_OF_MONTH, day);
-			time = (String) fieldTime.getText();			
-			int []rows = tableDialogEmployeeMeeting.getSelectedRows();
-			
-			
+			time = (String) fieldTime.getText();					
 			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time, responsibleEmployeeName,responsibleEmployeeFirstName);
-			try {
-				Connection con = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
-				Statement stmt =  con.createStatement();
-			    ResultSet rs = stmt.executeQuery("SELECT MAX(meetingID) from meeting");
-			    while (rs.next()) {
-			        meetingID = rs.getInt(1);
-			    }
-			} catch (Exception e) {
-				System.out.println("Fehler auslesen der MeetingID" +e.getMessage());
-			}
-			
-			
-			for (int i = 0; i < rows.length; i++) {
-				int id = Integer.parseInt((String) tableDialogEmployeeMeeting.getValueAt(i, 0));
-				InsertMeetingIntoDatabase.insertParticipation(id, meetingID);				
-			}
+			InsertMeetingIntoDatabase.insertParticipation();				
+
 			
 			
 			fieldType.setText("");
