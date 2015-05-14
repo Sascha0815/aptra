@@ -8,18 +8,15 @@ import java.util.Vector;
 public class SaveDataNewVacancy {
 	@SuppressWarnings("rawtypes")
 	public static void save() {
-		if (DialogAddVacancyGeneral.getGeneral() == true
-				&& DialogAddVacancySpecification.getSpecification() == true) {
+		if (DialogAddVacancyGeneral.getGeneral() == true && DialogAddVacancySpecification.getSpecification() == true) {
 			try {
 				InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
 				InsertVacancyDataIntoDatabase.insertVacancyData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			Vector resultsVacancy = InsertVacancyDataIntoTable
-					.insertVacancyDataIntoTable();
-			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
-					MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
+			Vector resultsVacancy = InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
+			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			CloseDialogAddVacancy.close();
 		}
