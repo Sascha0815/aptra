@@ -63,7 +63,7 @@ public class DialogAddApplicantGeneral {
 		labelFemale.setFont(fontText);
 		labelMale.setFont(fontText);
 		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0,alignx right");
+	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0,alignx left");
 	    panelDialogApplicantMain.add(labelName,"cell 0 1,alignx left");
 	    panelDialogApplicantMain.add(fieldName,"cell 0 2 3 1,growx");
 	    panelDialogApplicantMain.add(labelFirstName,"cell 0 3,alignx left");

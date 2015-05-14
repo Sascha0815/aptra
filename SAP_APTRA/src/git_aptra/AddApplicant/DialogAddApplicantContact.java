@@ -1,14 +1,17 @@
 package git_aptra.AddApplicant;
 
-
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -22,27 +25,22 @@ public class DialogAddApplicantContact {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelBirthday = new JLabel("Geburtsdatum:");
 	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontText = new Font("Calibri", Font.BOLD, 14);
+	
 	private static JTextField fieldTelefonHome = new JTextField();
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
 	
-	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-		12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-		29, 30, 31 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDay = new JComboBox(boxListDay);
-	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-		11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-		1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-		1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-		1973, 1972, 1971, 1970 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxYear = new JComboBox(boxListYear);
+	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
+	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
+	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
 	
-	private static JButton save = new JButton("Speichern");
+	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
+	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
+	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
+	
+	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAbort = new JButton ("Abbrechen");
 	
 	private static String telefonHome;
@@ -54,8 +52,13 @@ public class DialogAddApplicantContact {
 	private static Calendar cal = Calendar.getInstance();
 
 	public static void addApplicantContact() {
+		labelInstruction.setFont(fontHeadline);
+		labelTelefonHome.setFont(fontText);
+		labelTelefonMobil.setFont(fontText);
+		labelEmail.setFont(fontText);
+		labelBirthday.setFont(fontText);
 		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelDialogApplicantContact.add(labelInstruction,"cell 0 0,alignx right");
+		panelDialogApplicantContact.add(labelInstruction,"cell 0 0,alignx left");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
 		panelDialogApplicantContact.add(fieldTelefonHome, "cell 0 2 3 1,growx");
 		panelDialogApplicantContact.add(labelTelefonMobil, "cell 0 3,alignx left");
@@ -63,14 +66,19 @@ public class DialogAddApplicantContact {
 		panelDialogApplicantContact.add(labelEmail, "cell 0 5,alignx left");
 		panelDialogApplicantContact.add(fieldEmail, "cell 0 6 3 1,growx");
 		panelDialogApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
-		panelDialogApplicantContact.add(boxDay, "cell 0 8");
-		panelDialogApplicantContact.add(boxMonth, "cell 0 8 1");
-		panelDialogApplicantContact.add(boxYear, "cell 0 8 2");
-		panelDialogApplicantContact.add(save, "cell 0 9,alignx left");
-		panelDialogApplicantContact.add(buttonAbort, "cell 2 9,alignx right");
-		save.addActionListener(new ActionListener() {
+		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 3, growx");
+		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 3 1, growx");
+		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 3 2, growx");
+		panelDialogApplicantContact.add(buttonSave, "cell 0 9,alignx left");
+		panelDialogApplicantContact.add(buttonAbort, "cell 0 9,alignx right ");
+		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewApplicant.save();
+			}
+		});
+		buttonAbort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddApplicant.dialogNewApplicant.dispose();
 			}
 		});
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",
@@ -90,9 +98,45 @@ public class DialogAddApplicantContact {
 			telefonMobil = fieldTelefonMobil.getText();
 		} catch (Exception e) {
 		}
-		day = (int) boxDay.getSelectedItem();
-		month = (int) boxMonth.getSelectedItem();
-		year = (int) boxYear.getSelectedItem();
+		day = (int) spinnerDay.getValue();
+		String valueSpinnerMonth = (String) spinnerMonth.getValue();
+		if(valueSpinnerMonth.equals("Januar")){
+			month = 1;
+		}
+		if(valueSpinnerMonth.equals("Februar")){
+			month = 2;
+		}
+		if(valueSpinnerMonth.equals("März")){
+			month = 3;
+		}
+		if(valueSpinnerMonth.equals("April")){
+			month = 4;
+		}
+		if(valueSpinnerMonth.equals("Mai")){
+			month = 5;
+		}
+		if(valueSpinnerMonth.equals("Juni")){
+			month = 6;
+		}
+		if(valueSpinnerMonth.equals("Juli")){
+			month = 7;
+		}
+		if(valueSpinnerMonth.equals("August")){
+			month = 8;
+		}
+		if(valueSpinnerMonth.equals("September")){
+			month = 9;
+		}
+		if(valueSpinnerMonth.equals("Oktober")){
+			month = 10;
+		}
+		if(valueSpinnerMonth.equals("November")){
+			month = 11;
+		}
+		if(valueSpinnerMonth.equals("Dezember")){
+			month = 12;
+		}
+		year = (int) spinnerYear.getValue();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, (month - 1));
 		cal.set(Calendar.DAY_OF_MONTH, day);
@@ -102,9 +146,6 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
-		panelDialogApplicantContact.removeAll();
-		ActionListener[] al = save.getActionListeners();
-		save.removeActionListener(al[0]);
 	}
 
 	public static String getTelefonHome() {

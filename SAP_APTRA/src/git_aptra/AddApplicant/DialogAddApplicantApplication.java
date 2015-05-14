@@ -2,14 +2,7 @@ package git_aptra.AddApplicant;
 
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
-
-
-
-
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,70 +10,45 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-
-
-
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
 
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantApplication {
 	public static JPanel panelDialogApplicantApplication = new JPanel();
 
-	private static String[] boxListEducationalAchievement = {
-			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+	private static String[] boxListEducationalAchievement = {"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxEducationalAchievement = new JComboBox(
-			boxListEducationalAchievement);
+	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 
-	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-			29, 30, 31 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDay = new JComboBox(boxListDay);
-	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-			11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-			1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-			1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-			1973, 1972, 1971, 1970 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxYear = new JComboBox(boxListYear);
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyDay = new JComboBox(boxListDay);
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListApplyYear = { 2015, 2016, 2017, 2018, 2019,
-			2020, 2021, 2022, 2023, 2024 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyYear = new JComboBox(boxListApplyYear);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontText = new Font("Calibri", Font.BOLD, 14);
+	
+	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
+	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
+	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
 
+	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
+	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
+	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
 	
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
 	
 	private static JTextField fieldDate = new JTextField();
 	
-	private static GridBagConstraints gbc = new GridBagConstraints();
-
-
 	private static int dayApply;
 	private static int monthApply;
 	private static int yearApply;
@@ -90,18 +58,21 @@ public class DialogAddApplicantApplication {
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
+		labelInstruction.setFont(fontHeadline);
+		labelApplyDate.setFont(fontText);
+		labelVacancyID.setFont(fontText);
+		labelEducationalAchievement.setFont(fontText);
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
-		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0,alignx center");
+		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0,alignx left");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
-	    panelDialogApplicantApplication.add(boxApplyDay, "cell 0 2");
-	    panelDialogApplicantApplication.add(boxApplyMonth, "cell 0 2 1");
-	    panelDialogApplicantApplication.add(boxApplyYear, "cell 0 2 2");
+	    panelDialogApplicantApplication.add(spinnerDay, "cell 0 2 3, growx");
+	    panelDialogApplicantApplication.add(spinnerMonth, "cell 0 2 3 1, growx");
+	    panelDialogApplicantApplication.add(spinnerYear, "cell 0 2 3 2, growx");
 	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
-	    panelDialogApplicantApplication.add(boxID, "cell 0 4");
+	    panelDialogApplicantApplication.add(boxID, "cell 0 4 3, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
-	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8");
-		DialogAddApplicant.tabAdd.addTab("Bewerbung",
-				panelDialogApplicantApplication);
+	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 3, growx");
+		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 
 	}
 
@@ -118,9 +89,7 @@ public class DialogAddApplicantApplication {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt
-					.executeQuery("Select position from vacancy where vacancyID = "
-							+ vacancyID);
+			ResultSet rs = stmt.executeQuery("Select position from vacancy where vacancyID = " + vacancyID);
 
 			while (rs.next()) {
 				vacancy = (rs.getString(1));
@@ -129,31 +98,60 @@ public class DialogAddApplicantApplication {
 			e.printStackTrace();
 		}
 		
-		dayApply = (int) boxApplyDay.getSelectedItem();
-		monthApply = (int) boxApplyMonth.getSelectedItem();
-		yearApply = (int) boxApplyYear.getSelectedItem();
+		dayApply = (int) spinnerDay.getValue();
+		String valueSpinnerMonth = (String) spinnerMonth.getValue();
+		if(valueSpinnerMonth.equals("Januar")){
+			monthApply = 1;
+		}
+		if(valueSpinnerMonth.equals("Februar")){
+			monthApply = 2;
+		}
+		if(valueSpinnerMonth.equals("März")){
+			monthApply = 3;
+		}
+		if(valueSpinnerMonth.equals("April")){
+			monthApply = 4;
+		}
+		if(valueSpinnerMonth.equals("Mai")){
+			monthApply = 5;
+		}
+		if(valueSpinnerMonth.equals("Juni")){
+			monthApply = 6;
+		}
+		if(valueSpinnerMonth.equals("Juli")){
+			monthApply = 7;
+		}
+		if(valueSpinnerMonth.equals("August")){
+			monthApply = 8;
+		}
+		if(valueSpinnerMonth.equals("September")){
+			monthApply = 9;
+		}
+		if(valueSpinnerMonth.equals("Oktober")){
+			monthApply = 10;
+		}
+		if(valueSpinnerMonth.equals("November")){
+			monthApply = 11;
+		}
+		if(valueSpinnerMonth.equals("Dezember")){
+			monthApply = 12;
+		}
+		yearApply = (int) spinnerYear.getValue();
 		calApply.set(Calendar.YEAR, yearApply);
 		calApply.set(Calendar.MONTH, (monthApply - 1));
 		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
-		educationalAchievement = String.valueOf(boxEducationalAchievement
-				.getSelectedItem());
-
+		educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
 	}
 
 	public static void reset() {
 		panelDialogApplicantApplication.removeAll();
 		boxID.setSelectedIndex(0);
 		fieldDate.setText("");
-		boxDay.setSelectedIndex(0);
-		boxMonth.setSelectedIndex(0);
-		boxYear.setSelectedIndex(0);
+		spinnerDay.setValue(1);
+		spinnerMonth.setValue(1);
+		spinnerYear.setValue(2015);
 		boxEducationalAchievement.setSelectedIndex(0);
-		boxApplyDay.setSelectedIndex(0);
-		boxApplyMonth.setSelectedIndex(0);
-		boxApplyYear.setSelectedIndex(0);
 	}
-
-
 
 	public static Calendar getCalApply() {
 		return calApply;
