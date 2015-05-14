@@ -43,7 +43,7 @@ public class InsertApplicationDataIntoDatabase {
 			preparedStatement.setString(11,
 					DialogAddApplicantApplication.getVacancy());
 			preparedStatement.setDate(12, new java.sql.Date(
-					DialogAddApplicantApplication.getCal().getTimeInMillis()));
+					DialogAddApplicantContact.getCal().getTimeInMillis()));
 			preparedStatement.setString(13,
 					DialogAddApplicantApplication.getEducationalAchievement());
 			preparedStatement.setDate(14, new java.sql.Date(

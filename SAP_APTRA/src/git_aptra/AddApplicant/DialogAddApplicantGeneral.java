@@ -1,12 +1,11 @@
 package git_aptra.AddApplicant;
 
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
-import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
@@ -21,13 +20,15 @@ public class DialogAddApplicantGeneral {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
 	private static JLabel labelSex = new JLabel("Geschlecht:");
+	private static JLabel labelFemale = new JLabel("weiblich:");
+	private static JLabel labelMale = new JLabel("männlich:");
 	
-	private static String[] boxListSex = {"männlich", "weiblich"};
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxSex = new JComboBox(boxListSex);
+	private static JRadioButton radioButtonFemale = new JRadioButton();
+	private static JRadioButton radioButtonMale = new JRadioButton();
 	
-	public static JPanel panelDialogApplicantMain = new JPanel(new GridBagLayout());
+	private static ButtonGroup radioButtonGroup = new ButtonGroup();
+	
+	public static JPanel panelDialogApplicantMain = new JPanel();
 	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
@@ -35,6 +36,9 @@ public class DialogAddApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontText = new Font("Calibri", Font.BOLD, 14);
 	
 	private static String name;
 	private static String firstName;
@@ -45,6 +49,19 @@ public class DialogAddApplicantGeneral {
 	private static String sex;
 
 	public static void addApplicantGeneral() {
+		radioButtonGroup.add(radioButtonFemale);
+		radioButtonGroup.add(radioButtonMale);
+		radioButtonGroup.clearSelection();
+		labelInstruction.setFont(fontHeadline);
+		labelName.setFont(fontText);
+		labelFirstName.setFont(fontText);
+		labelStreet.setFont(fontText);
+		labelHouseNr.setFont(fontText);
+		labelPostalCode.setFont(fontText);
+		labelCity.setFont(fontText);
+		labelSex.setFont(fontText);
+		labelFemale.setFont(fontText);
+		labelMale.setFont(fontText);
 		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
 	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0,alignx right");
 	    panelDialogApplicantMain.add(labelName,"cell 0 1,alignx left");
@@ -52,7 +69,7 @@ public class DialogAddApplicantGeneral {
 	    panelDialogApplicantMain.add(labelFirstName,"cell 0 3,alignx left");
 	    panelDialogApplicantMain.add(fieldFirstName,"cell 0 4 3 1,growx");
 	    panelDialogApplicantMain.add(labelStreet,"cell 0 5,alignx left");
-	    panelDialogApplicantMain.add(fieldStreet,"cell 0 6 3 1,growx");
+	    panelDialogApplicantMain.add(fieldStreet, "cell 0 6 3 1,growx");
 	    panelDialogApplicantMain.add(labelHouseNr,"cell 0 7,alignx left");
 	    panelDialogApplicantMain.add(fieldHouseNr,"cell 0 8 3 1,growx");
 	    panelDialogApplicantMain.add(labelPostalCode,"cell 0 9,alignx left");
@@ -60,7 +77,10 @@ public class DialogAddApplicantGeneral {
 	    panelDialogApplicantMain.add(labelCity,"cell 0 11,alignx left");
 	    panelDialogApplicantMain.add(fieldCity, "cell 0 12 3 1,growx");
 	    panelDialogApplicantMain.add(labelSex, "cell 0 13,alignx left");
-	    panelDialogApplicantMain.add(boxSex, "cell 0 14 3 1,growx");
+	    panelDialogApplicantMain.add(labelFemale, "cell 0 14,alignx left");
+	    panelDialogApplicantMain.add(radioButtonFemale, "cell 0 14 1,alignx left");
+	    panelDialogApplicantMain.add(labelMale, "cell 0 14 2,alignx left");
+	    panelDialogApplicantMain.add(radioButtonMale, "cell 0 14 3,alignx left");
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 
@@ -90,7 +110,13 @@ public class DialogAddApplicantGeneral {
 		} catch (Exception e) {
 		}
 		try {
-			sex = (String) boxSex.getSelectedItem();
+			if(radioButtonFemale.isSelected()){
+				sex = "weiblich";
+			}
+			if(radioButtonMale.isSelected()){
+				sex = "männlich";
+			}
+			
 		} catch (Exception e) {
 		}
 		
@@ -105,7 +131,8 @@ public class DialogAddApplicantGeneral {
 		fieldHouseNr.setText("");
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
-		boxSex.setSelectedIndex(0);
+		radioButtonFemale.setSelected(false);
+		radioButtonMale.setSelected(false);
 	}
 
 	public static String getName() {

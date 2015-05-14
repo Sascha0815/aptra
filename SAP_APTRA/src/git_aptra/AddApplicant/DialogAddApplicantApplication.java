@@ -64,7 +64,7 @@ public class DialogAddApplicantApplication {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxApplyYear = new JComboBox(boxListApplyYear);
 
-	private static JLabel labelDate = new JLabel("Geburtsdatum:");
+	
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
@@ -80,10 +80,7 @@ public class DialogAddApplicantApplication {
 	
 	private static GridBagConstraints gbc = new GridBagConstraints();
 
-	private static int day;
-	private static int month;
-	private static int year;
-	private static Calendar cal = Calendar.getInstance();
+
 	private static int dayApply;
 	private static int monthApply;
 	private static int yearApply;
@@ -101,10 +98,6 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxApplyYear, "cell 0 2 2");
 	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4");
-	    panelDialogApplicantApplication.add(labelDate, "cell 0 5,alignx left");
-	    panelDialogApplicantApplication.add(boxDay, "cell 0 6");
-	    panelDialogApplicantApplication.add(boxMonth, "cell 0 6 1");
-	    panelDialogApplicantApplication.add(boxYear, "cell 0 6 2");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8");
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",
@@ -135,12 +128,7 @@ public class DialogAddApplicantApplication {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		day = (int) boxDay.getSelectedItem();
-		month = (int) boxMonth.getSelectedItem();
-		year = (int) boxYear.getSelectedItem();
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, (month - 1));
-		cal.set(Calendar.DAY_OF_MONTH, day);
+		
 		dayApply = (int) boxApplyDay.getSelectedItem();
 		monthApply = (int) boxApplyMonth.getSelectedItem();
 		yearApply = (int) boxApplyYear.getSelectedItem();
@@ -165,9 +153,7 @@ public class DialogAddApplicantApplication {
 		boxApplyYear.setSelectedIndex(0);
 	}
 
-	public static Calendar getCal() {
-		return cal;
-	}
+
 
 	public static Calendar getCalApply() {
 		return calApply;

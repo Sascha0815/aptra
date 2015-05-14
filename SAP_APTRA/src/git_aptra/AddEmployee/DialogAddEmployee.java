@@ -37,7 +37,7 @@ public class DialogAddEmployee {
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldLoginName = new JTextField();
 	
-	private static Integer[] boxListEntitlement = { 1, 2, 3};
+	private static Integer[] boxListEntitlement = { 1, 2};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxEntitlement = new JComboBox(boxListEntitlement);
 	
@@ -54,9 +54,9 @@ public class DialogAddEmployee {
 	private static String password;
 
 	public static void addEmployee() {
+		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setVisible(true);
 		dialogNewEmployee.setSize(420, 380);
-		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");
 		SwingUtilities.updateComponentTreeUI(dialogNewEmployee);
@@ -72,7 +72,7 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(fieldLoginName, "cell 0 6 3 1,growx");
 		panelDialogEmployeeMain.add(labelPassword, "cell 0 7,alignx left");
 		panelDialogEmployeeMain.add(fieldPassword, "cell 0 8 3 1,growx");
-		panelDialogEmployeeMain.add(labelPasswordRepeat, "cell 0 9,alignx left" );
+		panelDialogEmployeeMain.add(labelPasswordRepeat, "cell 0 9,alignx left");
 		panelDialogEmployeeMain.add(fieldPasswordRepeat, "cell 0 10 3 1,growx");
 		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 11,alignx left");
 		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 3 1,growx");
