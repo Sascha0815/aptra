@@ -18,6 +18,7 @@ public class InsertMeetingIntoDatabase {
 	static String name;
 	static String firstName;
 	static String area;
+	static int meetingID;
 	public static void insertMeeting(String type, String location, Calendar cal, String time, String responsibleEmployeeName, String responsibleEmployeeFirstName ){
 		
 		try {
@@ -81,31 +82,50 @@ public class InsertMeetingIntoDatabase {
 		}
 	}
 	
-	public static void insertParticipation(int ID, int meetingID){
-		Connection dbConnection = null;
-		PreparedStatement preparedStatement = null;
-		
-		String query = "INSERT INTO participation"
-				+ "(employeeID, meetingID) VALUES"
-				+ "(?,?)";
-
+	public static void insertParticipation(){	
 		try {
-			dbConnection = DriverManager.getConnection(
+			Connection con = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
-			preparedStatement = dbConnection.prepareStatement(query);
-			preparedStatement.setInt(1, ID);
-			preparedStatement.setInt(2, meetingID);
-			
-	
-			preparedStatement.executeUpdate();
-			preparedStatement.close();
-			
-		} catch (SQLException e) {
-			System.out
-					.println("insert problems - Datenbank - insert participation data"
-							+ e.getMessage());
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT MAX(meetingID) from meeting");
+		    while (rs.next()) {
+		        meetingID = rs.getInt(1);
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der MeetingID" +e.getMessage());
 		}
+		
+		int []rows = DialogDetailsMeeting.tableDialogEmployeeMeeting.getSelectedRows();
+		
+		for (int i = 0; i < rows.length; i++) {
+			int id = Integer.parseInt((String) DialogDetailsMeeting.tableDialogEmployeeMeeting.getValueAt(i, 0));
+			Connection dbConnection = null;
+			PreparedStatement preparedStatement = null;
+			
+			String query = "INSERT INTO participation"
+					+ "(employeeID, meetingID) VALUES"
+					+ "(?,?)";
+
+			try {
+				dbConnection = DriverManager.getConnection(
+						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+						"u474396146_aptra", "aptraDB");
+				preparedStatement = dbConnection.prepareStatement(query);
+				preparedStatement.setInt(1, id);
+				preparedStatement.setInt(2, meetingID);
+				
+		
+				preparedStatement.executeUpdate();
+				preparedStatement.close();
+				
+			} catch (SQLException e) {
+				System.out
+						.println("insert problems - Datenbank - insert participation data"
+								+ e.getMessage());
+			}
+		}
+		
 		
 	}
 	
