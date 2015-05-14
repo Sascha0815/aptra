@@ -93,20 +93,20 @@ public class DialogAddApplicantApplication {
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
-		MigLayout layout = new MigLayout();		
-		panelDialogApplicantApplication.setLayout(layout);
-	    panelDialogApplicantApplication.add(labelApplyDate,"wrap");
-	    panelDialogApplicantApplication.add(boxApplyDay);
-	    panelDialogApplicantApplication.add(boxApplyMonth);
-	    panelDialogApplicantApplication.add(boxApplyYear, "wrap");
-	    panelDialogApplicantApplication.add(labelVacancyID,"wrap");
-	    panelDialogApplicantApplication.add(boxID,"wrap");
-	    panelDialogApplicantApplication.add(labelDate,"wrap");
-	    panelDialogApplicantApplication.add(boxDay);
-	    panelDialogApplicantApplication.add(boxMonth);
-	    panelDialogApplicantApplication.add(boxYear,"wrap");
-	    panelDialogApplicantApplication.add(labelEducationalAchievement,"wrap");
-	    panelDialogApplicantApplication.add(boxEducationalAchievement);
+		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
+		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0,alignx center");
+	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
+	    panelDialogApplicantApplication.add(boxApplyDay, "cell 0 2");
+	    panelDialogApplicantApplication.add(boxApplyMonth, "cell 0 2 1");
+	    panelDialogApplicantApplication.add(boxApplyYear, "cell 0 2 2");
+	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
+	    panelDialogApplicantApplication.add(boxID, "cell 0 4");
+	    panelDialogApplicantApplication.add(labelDate, "cell 0 5,alignx left");
+	    panelDialogApplicantApplication.add(boxDay, "cell 0 6");
+	    panelDialogApplicantApplication.add(boxMonth, "cell 0 6 1");
+	    panelDialogApplicantApplication.add(boxYear, "cell 0 6 2");
+	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
+	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8");
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",
 				panelDialogApplicantApplication);
 
