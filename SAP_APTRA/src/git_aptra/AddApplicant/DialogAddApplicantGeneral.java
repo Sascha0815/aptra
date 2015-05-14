@@ -3,10 +3,13 @@ package git_aptra.AddApplicant;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantGeneral {
 	
@@ -19,15 +22,12 @@ public class DialogAddApplicantGeneral {
 	private static JLabel labelCity = new JLabel("Wohnort:");
 	private static JLabel labelSex = new JLabel("Geschlecht:");
 	
-	private static String[] boxListSex = { "männlich", "weiblich"};
+	private static String[] boxListSex = {"männlich", "weiblich"};
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxSex = new JComboBox(boxListSex);
 	
 	public static JPanel panelDialogApplicantMain = new JPanel(new GridBagLayout());
-	
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
@@ -36,8 +36,6 @@ public class DialogAddApplicantGeneral {
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
 	
-	private static GridBagConstraints gbc = new GridBagConstraints();
-
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -47,54 +45,22 @@ public class DialogAddApplicantGeneral {
 	private static String sex;
 
 	public static void addApplicantGeneral() {
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = 0;
-	    gbc.gridy = 0;
-	    gbc.weighty = 1;
-	    labelInstruction.setFont(fontHeadline);
-	    panelDialogApplicantMain.add(labelInstruction,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    panelDialogApplicantMain.add(labelName,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 2;
-	    panelDialogApplicantMain.add(fieldName,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 3;
-	    panelDialogApplicantMain.add(labelFirstName,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 4;
-	    panelDialogApplicantMain.add(fieldFirstName,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 5;
-	    panelDialogApplicantMain.add(labelStreet,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    panelDialogApplicantMain.add(fieldStreet,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 7;
-	    panelDialogApplicantMain.add(labelHouseNr,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 8;
-	    panelDialogApplicantMain.add(fieldHouseNr,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 9;
-	    panelDialogApplicantMain.add(labelPostalCode,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 10;
-	    panelDialogApplicantMain.add(fieldPostalCode,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 11;
-	    panelDialogApplicantMain.add(labelCity,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 12;
-	    panelDialogApplicantMain.add(fieldCity,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 13;
-	    panelDialogApplicantMain.add(labelSex,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 14;
-	    panelDialogApplicantMain.add(boxSex,gbc);
+		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
+	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0,alignx right");
+	    panelDialogApplicantMain.add(labelName,"cell 0 1,alignx left");
+	    panelDialogApplicantMain.add(fieldName,"cell 0 2 3 1,growx");
+	    panelDialogApplicantMain.add(labelFirstName,"cell 0 3,alignx left");
+	    panelDialogApplicantMain.add(fieldFirstName,"cell 0 4 3 1,growx");
+	    panelDialogApplicantMain.add(labelStreet,"cell 0 5,alignx left");
+	    panelDialogApplicantMain.add(fieldStreet,"cell 0 6 3 1,growx");
+	    panelDialogApplicantMain.add(labelHouseNr,"cell 0 7,alignx left");
+	    panelDialogApplicantMain.add(fieldHouseNr,"cell 0 8 3 1,growx");
+	    panelDialogApplicantMain.add(labelPostalCode,"cell 0 9,alignx left");
+	    panelDialogApplicantMain.add(fieldPostalCode,"cell 0 10 3 1,growx");
+	    panelDialogApplicantMain.add(labelCity,"cell 0 11,alignx left");
+	    panelDialogApplicantMain.add(fieldCity, "cell 0 12 3 1,growx");
+	    panelDialogApplicantMain.add(labelSex, "cell 0 13,alignx left");
+	    panelDialogApplicantMain.add(boxSex, "cell 0 14 3 1,growx");
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 
