@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -35,27 +36,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.TabExpander;
+
+import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelVacancyManagement {
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT = new Vector() {
-		private static final long serialVersionUID = 1L;
+	
+	private static JScrollPane scrollPaneVacancyManagement = new JScrollPane();
+	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(1, 4) {
+	private static final long serialVersionUID = 1L;
 
-		{
-			add("Bewerber-ID");
-			add("Name");
-			add("Vorname");
-			add("Status");
-			add("Neuste Notiz");
-			add("Datum");
-			add("Anmerkung zu der Notiz");
-			add("Bewertung");
-		}
-	};
+	public boolean isCellEditable(int row, int column) {
+		return false;
+	}
+};
 	private static JPanel panelVacancyManagement = new JPanel();
-	private static JPanel panelManagementContent = new JPanel();
-	private static JPanel panelManagementInfo = new JPanel();
 	private static JPanel panelManagementButton = new JPanel();
 	private static JPanel panelManagementSummary = new JPanel();
 
@@ -64,18 +62,9 @@ public class MenuBarPanelVacancyManagement {
 	private static Font fontContent = new Font("Arial", Font.ITALIC, 14);
 
 	private static JButton butttonAddVacancyManagement = new JButton();
-	//private static JButton buttonDeleteVacancyManagement = new JButton();
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
-	//private static JButton buttonSettingsVacancyManagement = new JButton();
-	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(
-			1, 4) {
-		private static final long serialVersionUID = 1L;
-
-		public boolean isCellEditable(int row, int column) {
-			return false;
-		}
-	};
+			
 	public static JTable tableVacancyManagement = new JTable(
 			modelVacancyManagement);
 
@@ -105,77 +94,70 @@ public class MenuBarPanelVacancyManagement {
 
 	private static String[] result;
 	private static int idApplicant;
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT = new Vector() {
+		private static final long serialVersionUID = 1L;
+
+		{
+			add("Bewerber-ID");
+			add("Name");
+			add("Vorname");
+			add("Status");
+			add("Neuste Notiz");
+			add("Datum");
+			add("Anmerkung zu der Notiz");
+			add("Bewertung");
+		}
+	};
+	
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
-		panelVacancyManagement.setLayout(new BorderLayout(5, 5));
-		panelVacancyManagement.add(panelManagementButton, BorderLayout.EAST);
-		panelVacancyManagement.add(panelManagementContent, BorderLayout.CENTER);
-		panelVacancyManagement.add(panelManagementInfo, BorderLayout.SOUTH);
-		panelVacancyManagement.add(panelManagementSummary, BorderLayout.WEST);
+		panelVacancyManagement.setLayout(new MigLayout("", "[]5[]5[]"));
 
 		// Management-Stelleninfo (links)
-		panelManagementSummary.setBackground(Color.LIGHT_GRAY);
-		panelManagementSummary.setLayout(new BoxLayout(panelManagementSummary, BoxLayout.Y_AXIS));
-		panelManagementSummary.setPreferredSize(new Dimension(180, 0));
 		panelManagementSummary.add(labelManagementInfo);
 		labelManagementInfo.setFont(fontHeadline);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 30)));
 		panelManagementSummary.add(labelManagementCount);
 		labelManagementCount.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementCountContent);
 		labelManagementCountContent.setFont(fontContent);		
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementEndOfApply);
 		labelManagementEndOfApply.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementEndOfApplyContent);
 		labelManagementEndOfApplyContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementPosition);
 		labelManagementPosition.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementPositionContent);
 		labelManagementPositionContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementArea);
 		labelManagementArea.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementAreaContent);
 		labelManagementAreaContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementRequirementLevel);
 		labelManagementRequirementLevel.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementRequirementLevelContent);
 		labelManagementRequirementLevelContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementTermsOfEmployment);
 		labelManagementTermsOfEmployment.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementTermsOfEmploymentContent);
 		labelManagementTermsOfEmploymentContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementVacancyStatus);
 		labelManagementVacancyStatus.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementVacancyStatusContent);
 		labelManagementVacancyStatusContent.setFont(fontContent);
-		panelManagementSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelManagementSummary.add(labelManagementEducationalAchievement);
 		labelManagementEducationalAchievement.setFont(fontSubHeadline);
 		panelManagementSummary.add(labelManagementEducationalAchievementContent);
-		labelManagementEducationalAchievementContent.setFont(fontContent);		
-		panelManagementContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
-				20));
-		panelManagementButton.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
-				20));
-		panelManagementButton.setBackground(Color.LIGHT_GRAY);
-		panelManagementButton.setPreferredSize(new Dimension(150, 0));
-		panelManagementContent.setBackground(Color.LIGHT_GRAY);
-		panelManagementInfo.setBackground(Color.LIGHT_GRAY);
-		panelManagementInfo.setPreferredSize(new Dimension(0, 20));
+		labelManagementEducationalAchievementContent.setFont(fontContent);
 		butttonAddVacancyManagement
 				.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelManagementButton.add(butttonAddVacancyManagement);
 		butttonAddVacancyManagement.setBorderPainted(false);
 		butttonAddVacancyManagement.setBorder(null);
-		butttonAddVacancyManagement.setBackground(Color.LIGHT_GRAY);
+		butttonAddVacancyManagement.setOpaque(false);
+		butttonAddVacancyManagement.setContentAreaFilled(false);
 		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -210,7 +192,8 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementButton.add(buttonEditVacancyManagement);
 		buttonEditVacancyManagement.setBorderPainted(false);
 		buttonEditVacancyManagement.setBorder(null);
-		buttonEditVacancyManagement.setBackground(Color.LIGHT_GRAY);
+		buttonEditVacancyManagement.setOpaque(false);
+		buttonEditVacancyManagement.setContentAreaFilled(false);
 		buttonEditVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -235,30 +218,13 @@ public class MenuBarPanelVacancyManagement {
 			buttonEditVacancyManagement.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
-		/*
-		buttonDeleteVacancyManagement.setToolTipText("Bewerber löschen");
-		panelManagementButton.add(buttonDeleteVacancyManagement);
-		buttonDeleteVacancyManagement.setBorderPainted(false);
-		buttonDeleteVacancyManagement.setBorder(null);
-		buttonDeleteVacancyManagement.setBackground(Color.LIGHT_GRAY);
-		buttonDeleteVacancyManagement.setPreferredSize(new Dimension(135, 135));
-		try {
-			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_delete.png"));
-			buttonDeleteVacancyManagement.setIcon(new ImageIcon(trashcan));
-		} catch (IOException ex) {
-		}
-		buttonDeleteVacancyManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-
-			}
-		});
-		*/
+		
 		buttonSearchVacancyManagement.setToolTipText("Bewerber suchen");
 		panelManagementButton.add(buttonSearchVacancyManagement);
 		buttonSearchVacancyManagement.setBorderPainted(false);
 		buttonSearchVacancyManagement.setBorder(null);
-		buttonSearchVacancyManagement.setBackground(Color.LIGHT_GRAY);
+		buttonSearchVacancyManagement.setOpaque(false);
+		buttonSearchVacancyManagement.setContentAreaFilled(false);
 		buttonSearchVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
@@ -271,43 +237,23 @@ public class MenuBarPanelVacancyManagement {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
-		/*
-		buttonSettingsVacancyManagement.setToolTipText("Programm schließen");
-		panelManagementButton.add(buttonSettingsVacancyManagement);
-		buttonSettingsVacancyManagement.setBorderPainted(false);
-		buttonSettingsVacancyManagement.setBorder(null);
-		buttonSettingsVacancyManagement.setBackground(Color.LIGHT_GRAY);
-		buttonSettingsVacancyManagement
-				.setPreferredSize(new Dimension(135, 135));
-		try {
-			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/job_settings.png"));
-			buttonSettingsVacancyManagement.setIcon(new ImageIcon(close));
-		} catch (IOException ex) {
-		}
-		buttonSettingsVacancyManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-
-			}
-		});
-		*/
+	
 		// SWING:Table Arbeitsstellen
-		modelVacancyManagement
-				.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+		modelVacancyManagement.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		tableVacancyManagement.getTableHeader().setReorderingAllowed(false);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 		tableVacancyManagement = new JTable(modelVacancyManagement);
-		JScrollPane scrollPaneVacancyManagement = new JScrollPane(
-				tableVacancyManagement);
-		panelVacancyManagement.add(scrollPaneVacancyManagement);
-		scrollPaneVacancyManagement.setPreferredSize(new Dimension(
-				panelManagementContent.getSize().width - 20,
-				panelManagementContent.getSize().height - 15));
-		scrollPaneVacancyManagement
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneVacancyManagement
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		tableVacancyManagement.setRowHeight(20);
+		scrollPaneVacancyManagement = new JScrollPane(tableVacancyManagement);
+		scrollPaneVacancyManagement.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneVacancyManagement.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		tableVacancyManagement.setRowHeight(20);	
+		Border border = new LineBorder(Color.gray, 1);
+		panelManagementSummary.setBorder(border);
+		panelManagementButton.setBorder(border);
+		scrollPaneVacancyManagement.setBorder(border);
+		panelVacancyManagement.add(panelManagementSummary, "cell 0 0, w 200:200: , h 400:1000:");
+		panelVacancyManagement.add(scrollPaneVacancyManagement, "cell 1 0, w 600:1800: , h 400:1000:");
+		panelVacancyManagement.add(panelManagementButton, "cell 2 0, w 150:150:150, h 400:1000:" );
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 

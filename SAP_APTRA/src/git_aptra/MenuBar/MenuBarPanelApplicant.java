@@ -13,6 +13,7 @@ import git_aptra.SearchApplicant.DialogSearchApplicant;
 import net.miginfocom.swing.MigLayout;
 
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -33,7 +34,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
 import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelApplicant {
@@ -46,7 +50,7 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonEditApplicant = new JButton();
 	private static JButton buttonSearchApplicant = new JButton();
 	private static JButton buttonInfoApplicant = new JButton();
-	//private static JButton buttonRefreshApplicant = new JButton();
+	private static JButton buttonRefreshApplicant = new JButton();
 	
 	private static String[] vacancyID;
 	
@@ -83,14 +87,9 @@ public class MenuBarPanelApplicant {
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
-		
-		
-
-		
-		
-		/*
+		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
-		panelButtonApplicant.add(buttonRefreshApplicant);
+		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
 		buttonRefreshApplicant.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image refreshApplicant = ImageIO.read(MenuBarPanelApplicant.class
@@ -108,9 +107,9 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		*/
+		
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
-		panelButtonApplicant.add(buttonAddApplicant);
+		panelButtonApplicant.add(buttonAddApplicant, "cell 0 1");
 		buttonAddApplicant.setBorderPainted(false);
 		buttonAddApplicant.setOpaque(false);
 		buttonAddApplicant.setContentAreaFilled(false);
@@ -145,7 +144,7 @@ public class MenuBarPanelApplicant {
 			}
 		});
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
-		panelButtonApplicant.add(buttonEditApplicant);
+		panelButtonApplicant.add(buttonEditApplicant, "cell 0 2");
 		buttonEditApplicant.setBorderPainted(false);
 		buttonEditApplicant.setOpaque(false);
 		buttonEditApplicant.setContentAreaFilled(false);
@@ -168,7 +167,7 @@ public class MenuBarPanelApplicant {
 			}
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
-		panelButtonApplicant.add(buttonDeleteApplicant);
+		panelButtonApplicant.add(buttonDeleteApplicant, "cell 0 3");
 		buttonDeleteApplicant.setBorderPainted(false);
 		buttonDeleteApplicant.setBorder(null);
 		buttonDeleteApplicant.setOpaque(false);
@@ -192,7 +191,7 @@ public class MenuBarPanelApplicant {
 			}
 		});
 		buttonSearchApplicant.setToolTipText("Suchen");
-		panelButtonApplicant.add(buttonSearchApplicant);
+		panelButtonApplicant.add(buttonSearchApplicant, "cell 0 4");
 		buttonSearchApplicant.setBorderPainted(false);
 		buttonSearchApplicant.setBorder(null);
 		buttonSearchApplicant.setOpaque(false);
@@ -211,7 +210,7 @@ public class MenuBarPanelApplicant {
 		});
 
 		buttonInfoApplicant.setToolTipText("Bewerberinformationen");
-		panelButtonApplicant.add(buttonInfoApplicant);
+		panelButtonApplicant.add(buttonInfoApplicant, "cell 0 5");
 		buttonInfoApplicant.setBorderPainted(false);
 		buttonInfoApplicant.setBorder(null);
 		buttonInfoApplicant.setOpaque(false);
@@ -242,7 +241,9 @@ public class MenuBarPanelApplicant {
 		scrollPanePool.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPanePool.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableApplicant.setRowHeight(20);
-		
+		Border border = new LineBorder(Color.gray, 1);
+		scrollPanePool.setBorder(border);
+		panelButtonApplicant.setBorder(border);
 		panelApplicant.add(scrollPanePool, "cell 0 0, w 600:1800: , h 400:1000:");
 		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h 400:1000:");
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
