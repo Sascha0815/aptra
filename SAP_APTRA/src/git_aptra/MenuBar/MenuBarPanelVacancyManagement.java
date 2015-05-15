@@ -98,7 +98,7 @@ public class MenuBarPanelVacancyManagement {
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
-		panelVacancyManagement.setLayout(new MigLayout("", "[]"));
+		panelVacancyManagement.setLayout(new MigLayout("", "[]5[]5[]"));
 		panelManagementSummary.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][]"));
 		
 		// Management-Stelleninfo (links)
@@ -137,7 +137,8 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementEducationalAchievement, "cell 0 15,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Neue Arbeitstelle hinzufügen");
-		panelManagementButton.add(butttonAddVacancyManagement);
+		panelManagementButton.setLayout(new MigLayout("", "[]", "[]15[]15[]"));
+		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0");
 		butttonAddVacancyManagement.setBorderPainted(false);
 		butttonAddVacancyManagement.setBorder(null);
 		butttonAddVacancyManagement.setOpaque(false);
@@ -173,7 +174,7 @@ public class MenuBarPanelVacancyManagement {
 		} catch (IOException ex) {
 		}
 		buttonEditVacancyManagement.setToolTipText("Bewerber bearbeiten");
-		panelManagementButton.add(buttonEditVacancyManagement);
+		panelManagementButton.add(buttonEditVacancyManagement, "cell 0 1");
 		buttonEditVacancyManagement.setBorderPainted(false);
 		buttonEditVacancyManagement.setBorder(null);
 		buttonEditVacancyManagement.setOpaque(false);
@@ -204,7 +205,7 @@ public class MenuBarPanelVacancyManagement {
 		}
 		
 		buttonSearchVacancyManagement.setToolTipText("Bewerber suchen");
-		panelManagementButton.add(buttonSearchVacancyManagement);
+		panelManagementButton.add(buttonSearchVacancyManagement, "cell 0 2");
 		buttonSearchVacancyManagement.setBorderPainted(false);
 		buttonSearchVacancyManagement.setBorder(null);
 		buttonSearchVacancyManagement.setOpaque(false);
@@ -235,9 +236,9 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.setBorder(border);
 		panelManagementButton.setBorder(border);
 		scrollPaneVacancyManagement.setBorder(border);
-		panelVacancyManagement.add(panelManagementSummary, "cell 0 0, w 200:200: , h 400:1000:");
-		panelVacancyManagement.add(scrollPaneVacancyManagement, "cell 1 0, w 600:1800: , h 400:1000:");
-		panelVacancyManagement.add(panelManagementButton, "cell 2 0, w 150:150:150, h 400:1000:" );
+		panelVacancyManagement.add(panelManagementSummary, "cell 0 0, w 200:200:200 , h :1000:");
+		panelVacancyManagement.add(scrollPaneVacancyManagement, "cell 1 0, w :1800: , h :1000:");
+		panelVacancyManagement.add(panelManagementButton, "cell 2 0, w 150:150:150, h :1000:" );
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 

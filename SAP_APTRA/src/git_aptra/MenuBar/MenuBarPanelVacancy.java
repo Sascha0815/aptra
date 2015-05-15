@@ -25,7 +25,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -44,13 +48,12 @@ public class MenuBarPanelVacancy {
 			add("Bewerbungsschluss");
 		}
 	};
+	private static JScrollPane scrollPaneJob = new JScrollPane();
 	private static JPanel panelWorkplace = new JPanel();
-	private static JPanel panelContentWorkplace = new JPanel();
-	private static JPanel panelInfoWorkplace = new JPanel();
 	private static JPanel panelButtonWorkplace = new JPanel();
 
 	private static JButton butttonAddJob = new JButton();
-	//private static JButton buttonRefreshJob = new JButton();
+	private static JButton buttonRefreshJob = new JButton();
 	private static JButton buttonDeleteJob = new JButton();
 	private static JButton buttonEditJob = new JButton();
 	private static JButton buttonSearchJob = new JButton();
@@ -65,24 +68,11 @@ public class MenuBarPanelVacancy {
 	public static JTable tableJob = new JTable(modelJob);
 
 	// SWING: Arbeitsstellen Panel
-	public static void addPanelWorkplace() {
-		
-		
-		panelWorkplace.setLayout(new BorderLayout(5, 5));
-		panelWorkplace.add(panelButtonWorkplace, BorderLayout.EAST);
-		panelWorkplace.add(panelContentWorkplace, BorderLayout.CENTER);
-		panelWorkplace.add(panelInfoWorkplace, BorderLayout.SOUTH);
-		panelButtonWorkplace
-				.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
-		panelButtonWorkplace.setBackground(Color.LIGHT_GRAY);
-		panelButtonWorkplace.setPreferredSize(new Dimension(150, 0));
-		panelContentWorkplace.setBackground(Color.LIGHT_GRAY);
-		panelInfoWorkplace.setBackground(Color.LIGHT_GRAY);
-		panelInfoWorkplace.setPreferredSize(new Dimension(0, 20));
-		
-		/*
+	public static void addPanelWorkplace() {		
+		panelWorkplace.setLayout(new MigLayout("", "[]5[]"));	
+		panelButtonWorkplace.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
-		panelButtonWorkplace.add(buttonRefreshJob);
+		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
 		buttonRefreshJob.setPreferredSize(new Dimension(135, 135));
 		buttonRefreshJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,12 +95,13 @@ public class MenuBarPanelVacancy {
 				MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			}
 		});
-		*/
+		
 		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
-		panelButtonWorkplace.add(butttonAddJob);
+		panelButtonWorkplace.add(butttonAddJob, "cell 0 1");
 		butttonAddJob.setBorderPainted(false);
 		butttonAddJob.setBorder(null);
-		butttonAddJob.setBackground(Color.LIGHT_GRAY);
+		butttonAddJob.setOpaque(false);
+		butttonAddJob.setContentAreaFilled(false);
 		butttonAddJob.setPreferredSize(new Dimension(135, 135));
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -124,10 +115,11 @@ public class MenuBarPanelVacancy {
 		} catch (IOException ex) {
 		}
 		buttonEditJob.setToolTipText("Bewerber bearbeiten");
-		panelButtonWorkplace.add(buttonEditJob);
+		panelButtonWorkplace.add(buttonEditJob, "cell 0 2");
 		buttonEditJob.setBorderPainted(false);
 		buttonEditJob.setBorder(null);
-		buttonEditJob.setBackground(Color.LIGHT_GRAY);
+		buttonEditJob.setOpaque(false);
+		buttonEditJob.setContentAreaFilled(false);
 		buttonEditJob.setPreferredSize(new Dimension(135, 135));
 		buttonEditJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -147,10 +139,11 @@ public class MenuBarPanelVacancy {
 		}
 
 		buttonDeleteJob.setToolTipText("Bewerber löschen");
-		panelButtonWorkplace.add(buttonDeleteJob);
+		panelButtonWorkplace.add(buttonDeleteJob, "cell 0 3");
 		buttonDeleteJob.setBorderPainted(false);
 		buttonDeleteJob.setBorder(null);
-		buttonDeleteJob.setBackground(Color.LIGHT_GRAY);
+		buttonDeleteJob.setOpaque(false);
+		buttonDeleteJob.setContentAreaFilled(false);
 		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
@@ -169,10 +162,11 @@ public class MenuBarPanelVacancy {
 			}
 		});
 		buttonSearchJob.setToolTipText("Einstellungen");
-		panelButtonWorkplace.add(buttonSearchJob);
+		panelButtonWorkplace.add(buttonSearchJob, "cell 0 4");
 		buttonSearchJob.setBorderPainted(false);
 		buttonSearchJob.setBorder(null);
-		buttonSearchJob.setBackground(Color.LIGHT_GRAY);
+		buttonSearchJob.setOpaque(false);
+		buttonSearchJob.setContentAreaFilled(false);
 		buttonSearchJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
@@ -186,10 +180,11 @@ public class MenuBarPanelVacancy {
 			}
 		});
 		buttonSettingsJob.setToolTipText("Ausschreibung anzeigen");
-		panelButtonWorkplace.add(buttonSettingsJob);
+		panelButtonWorkplace.add(buttonSettingsJob, "cell 0 5");
 		buttonSettingsJob.setBorderPainted(false);
 		buttonSettingsJob.setBorder(null);
-		buttonSettingsJob.setBackground(Color.LIGHT_GRAY);
+		buttonSettingsJob.setOpaque(false);
+		buttonSettingsJob.setContentAreaFilled(false);
 		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
@@ -208,16 +203,17 @@ public class MenuBarPanelVacancy {
 		tableJob.getTableHeader().setReorderingAllowed(false);
 		tableJob.setAutoCreateRowSorter(true);
 		tableJob = new JTable(modelJob);
-		JScrollPane scrollPaneJob = new JScrollPane(tableJob);
-		panelWorkplace.add(scrollPaneJob);
-		scrollPaneJob.setPreferredSize(new Dimension(panelContentWorkplace
-				.getSize().width - 20,
-				panelContentWorkplace.getSize().height - 15));
+		scrollPaneJob = new JScrollPane(tableJob);		
 		scrollPaneJob
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneJob
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableJob.setRowHeight(20);
+		Border border = new LineBorder(Color.gray, 1);
+		scrollPaneJob.setBorder(border);
+		panelButtonWorkplace.setBorder(border);
+		panelWorkplace.add(scrollPaneJob, "cell 0 0, w :1800: , h :1000:");
+		panelWorkplace.add(panelButtonWorkplace, "cell 1 0, w 150:150:150, h :1000:");
 		Oberflaeche.tabBar.addTab("Arbeitststellen", panelWorkplace);
 		tableJob.setAutoCreateRowSorter(true);
 	}

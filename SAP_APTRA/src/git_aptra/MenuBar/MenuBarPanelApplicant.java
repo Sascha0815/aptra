@@ -87,7 +87,7 @@ public class MenuBarPanelApplicant {
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
-		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
+		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
 		buttonRefreshApplicant.setPreferredSize(new Dimension(135, 135));
@@ -244,8 +244,8 @@ public class MenuBarPanelApplicant {
 		Border border = new LineBorder(Color.gray, 1);
 		scrollPanePool.setBorder(border);
 		panelButtonApplicant.setBorder(border);
-		panelApplicant.add(scrollPanePool, "cell 0 0, w 600:1800: , h 400:1000:");
-		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h 400:1000:");
+		panelApplicant.add(scrollPanePool, "cell 0 0, w :1800: , h :1000:");
+		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h :1000:");
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);
 	}

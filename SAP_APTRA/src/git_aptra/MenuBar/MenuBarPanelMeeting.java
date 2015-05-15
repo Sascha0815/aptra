@@ -27,7 +27,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelMeeting {	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -48,8 +52,8 @@ public class MenuBarPanelMeeting {
 			
 		}
 	};
-	private static JPanel panelEmployeeMeeting = new JPanel();
-	private static JPanel panelMeetingContent = new JPanel();
+
+	private static JPanel panelMeeting = new JPanel();
 	private static JPanel panelMeetingInfo = new JPanel();
 	private static JPanel panelMeetingButton = new JPanel();
 	private static JPanel panelMeetingSummary = new JPanel();
@@ -72,6 +76,7 @@ public class MenuBarPanelMeeting {
 		}
 	};
 	public static JTable tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
+	private static JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(tableEmployeeMeeting);	
 
 	private static JLabel labelMeetingInfo = new JLabel("Termininfo");
 	private static JLabel labelMeetingCount = new JLabel("Anzahl der Termine:");
@@ -102,53 +107,34 @@ public class MenuBarPanelMeeting {
 			System.out.println("Fehler auslesen der Berechtigung" +e.getMessage());
 		}
 
-		panelEmployeeMeeting.setLayout(new BorderLayout(5, 5));
-		panelEmployeeMeeting.add(panelMeetingButton, BorderLayout.EAST);
-		panelEmployeeMeeting.add(panelMeetingContent, BorderLayout.CENTER);
-		panelEmployeeMeeting.add(panelMeetingInfo, BorderLayout.SOUTH);
-		panelEmployeeMeeting.add(panelMeetingSummary, BorderLayout.WEST);
+		panelMeeting.setLayout(new MigLayout("", "[]5[]5[]"));
 
 		// Management-Stelleninfo (links)
-		panelMeetingSummary.setBackground(Color.LIGHT_GRAY);
-		panelMeetingSummary.setLayout(new BoxLayout(panelMeetingSummary, BoxLayout.Y_AXIS));
-		panelMeetingSummary.setPreferredSize(new Dimension(180, 0));
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 30)));
 		panelMeetingSummary.add(labelMeetingInfo);
 		labelMeetingInfo.setFont(fontHeadline);
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 30)));
 		panelMeetingSummary.add(labelMeetingCount);
 		labelMeetingCount.setFont(fontSubHeadline);
 		panelMeetingSummary.add(labelMeetingCountContent);
-		labelMeetingCountContent.setFont(fontContent);		
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
+		labelMeetingCountContent.setFont(fontContent);	
 		panelMeetingSummary.add(labelMeetingNextDate);
 		labelMeetingNextDate.setFont(fontSubHeadline);
 		panelMeetingSummary.add(labelMeetingNextDateContent);
 		labelMeetingNextDateContent.setFont(fontContent);
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelMeetingSummary.add(labelMeetingNextTime);
 		labelMeetingNextTime.setFont(fontSubHeadline);
 		panelMeetingSummary.add(labelMeetingNextTimeContent);
 		labelMeetingNextTimeContent.setFont(fontContent);
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
 		panelMeetingSummary.add(labelMeetingLocation);
 		labelMeetingLocation.setFont(fontSubHeadline);
 		panelMeetingSummary.add(labelMeetingLocationContent);
 		labelMeetingLocationContent.setFont(fontContent);
-		panelMeetingSummary.add(Box.createRigidArea(new Dimension(0, 10)));
-			
-		panelMeetingContent.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
-				20));
-		panelMeetingButton.setLayout(new FlowLayout(FlowLayout.CENTER, 20,
-				20));
-		panelMeetingButton.setBackground(Color.LIGHT_GRAY);
-		panelMeetingButton.setPreferredSize(new Dimension(150, 0));
-		panelMeetingContent.setBackground(Color.LIGHT_GRAY);
-		panelMeetingInfo.setBackground(Color.LIGHT_GRAY);
-		panelMeetingInfo.setPreferredSize(new Dimension(0, 20));
-		buttonAddMeeting
-				.setToolTipText("Neuen Termin hinzufügen");
-		panelMeetingButton.add(buttonAddMeeting);
+		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
+		panelMeetingButton.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
+		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
+		buttonAddMeeting.setBorderPainted(false);
+		buttonAddMeeting.setBorder(null);
+		buttonAddMeeting.setOpaque(false);
+		buttonAddMeeting.setContentAreaFilled(false);
 		buttonAddMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -162,10 +148,11 @@ public class MenuBarPanelMeeting {
 		} catch (IOException ex) {
 		}
 		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
-		panelMeetingButton.add(buttonEditMeeting);
+		panelMeetingButton.add(buttonEditMeeting, "cell 0 1");
 		buttonEditMeeting.setBorderPainted(false);
 		buttonEditMeeting.setBorder(null);
-		buttonEditMeeting.setBackground(Color.LIGHT_GRAY);
+		buttonEditMeeting.setOpaque(false);
+		buttonEditMeeting.setContentAreaFilled(false);
 		buttonEditMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonEditMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -180,10 +167,11 @@ public class MenuBarPanelMeeting {
 		}
 
 		buttonDeleteMeeting.setToolTipText("Bewerber löschen");
-		panelMeetingButton.add(buttonDeleteMeeting);
+		panelMeetingButton.add(buttonDeleteMeeting, "cell 0 2");
 		buttonDeleteMeeting.setBorderPainted(false);
 		buttonDeleteMeeting.setBorder(null);
-		buttonDeleteMeeting.setBackground(Color.LIGHT_GRAY);
+		buttonDeleteMeeting.setOpaque(false);
+		buttonDeleteMeeting.setContentAreaFilled(false);
 		buttonDeleteMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
@@ -197,10 +185,11 @@ public class MenuBarPanelMeeting {
 			}
 		});
 		buttonSearchMeeting.setToolTipText("Einstellungen");
-		panelMeetingButton.add(buttonSearchMeeting);
+		panelMeetingButton.add(buttonSearchMeeting, "cell 0 3");
 		buttonSearchMeeting.setBorderPainted(false);
 		buttonSearchMeeting.setBorder(null);
-		buttonSearchMeeting.setBackground(Color.LIGHT_GRAY);
+		buttonSearchMeeting.setOpaque(false);
+		buttonSearchMeeting.setContentAreaFilled(false);
 		buttonSearchMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
@@ -214,10 +203,11 @@ public class MenuBarPanelMeeting {
 			}
 		});
 		buttonSettingsMeeting.setToolTipText("Info zum Termin");
-		panelMeetingButton.add(buttonSettingsMeeting);
+		panelMeetingButton.add(buttonSettingsMeeting, "cell 0 4");
 		buttonSettingsMeeting.setBorderPainted(false);
 		buttonSettingsMeeting.setBorder(null);
-		buttonSettingsMeeting.setBackground(Color.LIGHT_GRAY);
+		buttonSettingsMeeting.setOpaque(false);
+		buttonSettingsMeeting.setContentAreaFilled(false);
 		buttonSettingsMeeting
 				.setPreferredSize(new Dimension(135, 135));
 		try {
@@ -233,23 +223,26 @@ public class MenuBarPanelMeeting {
 		});
 
 		// SWING:Table Arbeitsstellen
-		modelEmployeeMeeting
-				.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+		modelEmployeeMeeting.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		tableEmployeeMeeting.getTableHeader().setReorderingAllowed(false);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 		tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
-		JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(
+		scrollPaneEmployeeMeeting = new JScrollPane(
 				tableEmployeeMeeting);
-		panelEmployeeMeeting.add(scrollPaneEmployeeMeeting);
-		scrollPaneEmployeeMeeting.setPreferredSize(new Dimension(
-				panelMeetingContent.getSize().width - 20,
-				panelMeetingContent.getSize().height - 15));
+		panelMeeting.add(scrollPaneEmployeeMeeting);		
 		scrollPaneEmployeeMeeting
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneEmployeeMeeting
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableEmployeeMeeting.setRowHeight(20);
-		Oberflaeche.tabBar.addTab("Terminübersicht", panelEmployeeMeeting);
+		Border border = new LineBorder(Color.gray, 1);
+		panelMeetingSummary.setBorder(border);
+		panelMeetingButton.setBorder(border);
+		scrollPaneEmployeeMeeting.setBorder(border);
+		panelMeeting.add(panelMeetingSummary, "cell 0 0, w 200:200:200 , h :1000:");
+		panelMeeting.add(scrollPaneEmployeeMeeting, "cell 1 0, w :1800: , h :1000:");
+		panelMeeting.add(panelMeetingButton, "cell 2 0, w 150:150:150, h :1000:" );
+		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 
 	}
