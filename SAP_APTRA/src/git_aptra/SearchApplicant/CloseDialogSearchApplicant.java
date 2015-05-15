@@ -7,5 +7,4 @@ public class CloseDialogSearchApplicant {
 		DialogSearchApplicantGeneral.reset();
 		DialogSearchApplicant.dialogSearchApplicant.dispose();
 	}
-
 }

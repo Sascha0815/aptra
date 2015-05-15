@@ -1,35 +1,36 @@
 package git_aptra.SearchApplicant;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogSearchApplicantGeneral {
+	
+	public static JPanel panelDialogSearchApplicantMain = new JPanel();
+	
+	private static JLabel labelApplicantID = new JLabel("Bewerbernummer:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straﬂe:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
-	private static JLabel labelInstruction = new JLabel(
-			"Bitte tragen Sie die gesuchten Daten ein!");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
-	private static JLabel labelApplicantID = new JLabel("Bewerbernummer:");
-	public static JPanel panelDialogSearchApplicantMain = new JPanel();
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+
+	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
-	private static JTextField fieldApplicantID = new JTextField();
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	private static int applicantID;
 	private static String name;
@@ -40,52 +41,38 @@ public class DialogSearchApplicantGeneral {
 	private static String city;
 
 	public static void searchApplicantGeneral() {
-		panelDialogSearchApplicantMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogSearchApplicantMain.setLayout(new BoxLayout(
-				panelDialogSearchApplicantMain, BoxLayout.Y_AXIS));
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		panelDialogSearchApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		panelDialogSearchApplicantMain.add(labelApplicantID);
-		panelDialogSearchApplicantMain.add(fieldApplicantID);
-		fieldApplicantID.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		panelDialogSearchApplicantMain.add(labelName);
-		panelDialogSearchApplicantMain.add(fieldName);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldName.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(labelFirstName);
-		panelDialogSearchApplicantMain.add(fieldFirstName);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldFirstName.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(labelStreet);
-		panelDialogSearchApplicantMain.add(fieldStreet);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldStreet.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(labelHouseNr);
-		panelDialogSearchApplicantMain.add(fieldHouseNr);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldHouseNr.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(labelPostalCode);
-		panelDialogSearchApplicantMain.add(fieldPostalCode);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldPostalCode.setFont(fontTextField);
-		panelDialogSearchApplicantMain.add(labelCity);
-		panelDialogSearchApplicantMain.add(fieldCity);
-		panelDialogSearchApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldCity.setFont(fontTextField);
-		DialogSearchApplicant.tabSearch.addTab("Allgemein",
-				panelDialogSearchApplicantMain);
+		labelApplicantID.setFont(fontSubHeadline);
+		labelName.setFont(fontSubHeadline);
+		labelFirstName.setFont(fontSubHeadline);
+		labelStreet.setFont(fontSubHeadline);
+		labelHouseNr.setFont(fontSubHeadline);
+		labelPostalCode.setFont(fontSubHeadline);
+		labelCity.setFont(fontSubHeadline);
+		fieldName.setFont(fontText);
+		fieldFirstName.setFont(fontText);
+		fieldStreet.setFont(fontText);
+		fieldHouseNr.setFont(fontText);
+		fieldPostalCode.setFont(fontText);
+		fieldCity.setFont(fontText);
+		fieldApplicantID.setFont(fontText);
+		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
+		panelDialogSearchApplicantMain.add(labelInstruction,"cell 0 0,alignx left");
+		panelDialogSearchApplicantMain.add(labelApplicantID,"cell 0 1,alignx left");
+		panelDialogSearchApplicantMain.add(fieldApplicantID,"cell 0 2 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelName,"cell 0 3,alignx left");
+		panelDialogSearchApplicantMain.add(fieldName,"cell 0 4 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelFirstName,"cell 0 5,alignx left");
+		panelDialogSearchApplicantMain.add(fieldFirstName,"cell 0 6 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelStreet,"cell 0 7,alignx left");
+		panelDialogSearchApplicantMain.add(fieldStreet, "cell 0 8 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelHouseNr,"cell 0 9,alignx left");
+		panelDialogSearchApplicantMain.add(fieldHouseNr,"cell 0 10 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelPostalCode,"cell 0 11,alignx left");
+		panelDialogSearchApplicantMain.add(fieldPostalCode,"cell 0 12 3 1,growx");
+		panelDialogSearchApplicantMain.add(labelCity,"cell 0 13,alignx left");
+		panelDialogSearchApplicantMain.add(fieldCity, "cell 0 14 3 1,growx");
+		DialogSearchApplicant.tabSearch.addTab("Allgemein",panelDialogSearchApplicantMain);
 	}
 
 	public static void getGeneral() {
@@ -114,7 +101,6 @@ public class DialogSearchApplicantGeneral {
 	}
 
 	public static void reset() {
-		panelDialogSearchApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
