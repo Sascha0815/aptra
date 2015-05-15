@@ -34,6 +34,7 @@ public class DialogSearchApplicantContact {
 	private static String telefonHome;
 	private static String telefonMobil;
 	private static String email;
+	static boolean first = true;
 	
 	public static void searchApplicantContact() {
 		labelInstruction.setFont(fontHeadline);
@@ -53,22 +54,26 @@ public class DialogSearchApplicantContact {
 		panelSearchDialogApplicantContact.add(fieldEmail,"cell 0 6 3 1,growx");
 		panelSearchDialogApplicantContact.add(buttonSearch, "cell 0 7,alignx left");
 		panelSearchDialogApplicantContact.add(buttonAbort, "cell 0 7,alignx right ");
-		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",panelSearchDialogApplicantContact);
-		buttonSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				try {
-					SearchControlApplicant.search();
-					CloseDialogSearchApplicant.closeSearchApplicant();
-				} catch (SQLException e) {
-					e.printStackTrace();
+		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",panelSearchDialogApplicantContact);		
+		if (first==true) {
+			first=false;
+			buttonAbort.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					DialogSearchApplicant.dialogSearchApplicant.dispose();
 				}
-			}
-		});
-		buttonAbort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogSearchApplicant.dialogSearchApplicant.dispose();
-			}
-		});	
+			});		
+			buttonSearch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					try {
+						SearchControlApplicant.search();
+						CloseDialogSearchApplicant.closeSearchApplicant();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+		
 	}
 
 	public static void getContact() {

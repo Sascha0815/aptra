@@ -48,7 +48,7 @@ public class DialogSearchApplicantApplication {
 			educationalAchievement = "";
 		}
 		vacancy = String.valueOf(boxVacancy.getSelectedItem());
-		if (educationalAchievement.equals("Bitte auswählen")) {
+		if (vacancy.equals("Bitte auswählen")) {
 			vacancy = "";
 		}
 	}

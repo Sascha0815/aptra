@@ -1,24 +1,23 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.JPanel;
+
+import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelOverview {
 	private static JPanel panelOverview = new JPanel();
 	private static JPanel panelContentOverview = new JPanel();
-	private static JPanel panelInfoOverview = new JPanel();
-
 
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
-		panelOverview.setLayout(new BorderLayout(5, 5));
-		panelOverview.add(panelContentOverview, BorderLayout.CENTER);
-		panelOverview.add(panelInfoOverview, BorderLayout.SOUTH);
-		panelInfoOverview.setBackground(Color.LIGHT_GRAY);
-		panelInfoOverview.setPreferredSize(new Dimension(0, 20));
+		panelOverview.setLayout(new MigLayout("", "[]"));
+		panelOverview.add(panelContentOverview,	"cell 0 0");
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
 
 	}

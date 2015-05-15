@@ -163,7 +163,7 @@ public class SearchApplicant {
 			vacancy = "";
 		}
 		if (!DialogSearchApplicantApplication.getEducationalAchievement()
-				.equals("Bitte auswählen")) {
+				.equals("")) {
 			if (first == true) {
 				educationalAcievement = "where educationalAchievement = '"
 						+ DialogSearchApplicantApplication
@@ -178,9 +178,7 @@ public class SearchApplicant {
 			educationalAcievement = "";
 		}
 
-		System.out.println("select * from applicant " + applicantID + name + firstName
-				+ street + houseNr + postalCode + city + telefonHome
-				+ telefonMobil + email + vacancy + educationalAcievement);
+		
 		try {
 			dbConnection = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
@@ -191,6 +189,8 @@ public class SearchApplicant {
 					+ firstName + street + houseNr + postalCode + city
 					+ telefonHome + telefonMobil + email + vacancy
 					+ educationalAcievement);
+			
+			
 
 			while (rs.next()) {
 				Vector applicant = new Vector();
