@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
+import git_aptra.Meeting.OpenMeeting;
 import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
@@ -31,8 +32,7 @@ public class Oberflaeche extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 		frame.add(tabBar);
-		java.awt.Image im = Toolkit.getDefaultToolkit().getImage(
-				"resources/FrameIconSmall.gif");
+		java.awt.Image im = Toolkit.getDefaultToolkit().getImage("resources/FrameIconSmall.gif");
 		frame.setIconImage(im);
 
 		//Panels der MenuBar hinzufügen
@@ -42,6 +42,7 @@ public class Oberflaeche extends JFrame {
 		MenuBarPanelVacancy.addPanelWorkplace();
 		MenuBarPanelVacancyManagement.addPanelVacancyManagement();
 		MenuBarPanelMeeting.addPanelEmployeeMeeting();
+		OpenMeeting.insertInfo();
 
 	}
 

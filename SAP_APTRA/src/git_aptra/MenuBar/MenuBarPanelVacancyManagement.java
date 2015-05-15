@@ -58,7 +58,7 @@ public class MenuBarPanelVacancyManagement {
 			
 	public static JTable tableVacancyManagement = new JTable(modelVacancyManagement);
 
-	private static JLabel labelManagementInfo = new JLabel("Info zur Stelle");
+	private static JLabel labelManagementInfo = new JLabel("Stelleninformation");
 	private static JLabel labelManagementCount = new JLabel("Anzahl der Bewerber:");
 	private static JLabel labelManagementEndOfApply = new JLabel("Bewerbungsschluss:");
 	private static JLabel labelManagementPosition = new JLabel("Stellenbezeichnung:");

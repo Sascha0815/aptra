@@ -58,9 +58,11 @@ public class MenuBarPanelMeeting {
 	private static JPanel panelMeetingButton = new JPanel();
 	private static JPanel panelMeetingSummary = new JPanel();
 
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 22);
-	private static Font fontSubHeadline = new Font("Arial", Font.BOLD, 14);
-	private static Font fontContent = new Font("Arial", Font.ITALIC, 14);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 22);
+	private static Font fontContent = new Font("Calibri", Font.ITALIC, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
+	
+	
 
 	private static JButton buttonAddMeeting = new JButton();
 	private static JButton buttonDeleteMeeting = new JButton();
@@ -78,16 +80,16 @@ public class MenuBarPanelMeeting {
 	public static JTable tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
 	private static JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(tableEmployeeMeeting);	
 
-	private static JLabel labelMeetingInfo = new JLabel("Termininfo");
+	private static JLabel labelMeetingInfo = new JLabel("Termininformationen");
 	private static JLabel labelMeetingCount = new JLabel("Anzahl der Termine:");
 	private static JLabel labelMeetingNextDate = new JLabel("Nächster Termin am:");
 	private static JLabel labelMeetingNextTime = new JLabel("Nächster Termin um:");
 	private static JLabel labelMeetingLocation = new JLabel("Nächster Terminort:");
-	
-	public static JLabel labelMeetingCountContent = new JLabel(" ");
+	public static JLabel labelMeetingCountContent = new JLabel();
 	public static JLabel labelMeetingNextDateContent = new JLabel(" ");
 	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
 	public static JLabel labelMeetingLocationContent = new JLabel(" ");	
+	
 	private static String[] result;
 	@SuppressWarnings("unused")
 	private static int entitlement;
@@ -108,26 +110,28 @@ public class MenuBarPanelMeeting {
 		}
 
 		panelMeeting.setLayout(new MigLayout("", "[]5[]5[]"));
+		panelMeetingSummary.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][]"));
 
 		// Management-Stelleninfo (links)
-		panelMeetingSummary.add(labelMeetingInfo);
 		labelMeetingInfo.setFont(fontHeadline);
-		panelMeetingSummary.add(labelMeetingCount);
 		labelMeetingCount.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingCountContent);
-		labelMeetingCountContent.setFont(fontContent);	
-		panelMeetingSummary.add(labelMeetingNextDate);
 		labelMeetingNextDate.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingNextDateContent);
-		labelMeetingNextDateContent.setFont(fontContent);
-		panelMeetingSummary.add(labelMeetingNextTime);
 		labelMeetingNextTime.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingNextTimeContent);
-		labelMeetingNextTimeContent.setFont(fontContent);
-		panelMeetingSummary.add(labelMeetingLocation);
 		labelMeetingLocation.setFont(fontSubHeadline);
-		panelMeetingSummary.add(labelMeetingLocationContent);
+		labelMeetingCountContent.setFont(fontContent);	
+		labelMeetingNextDateContent.setFont(fontContent);
+		labelMeetingNextTimeContent.setFont(fontContent);
 		labelMeetingLocationContent.setFont(fontContent);
+		panelMeetingSummary.add(labelMeetingInfo, "cell 0 0,alignx left");		
+		panelMeetingSummary.add(labelMeetingCount, "cell 0 1,alignx left");		
+		panelMeetingSummary.add(labelMeetingCountContent, "cell 0 2,alignx left");		
+		panelMeetingSummary.add(labelMeetingNextDate, "cell 0 3,alignx left");		
+		panelMeetingSummary.add(labelMeetingNextDateContent, "cell 0 4,alignx left");		
+		panelMeetingSummary.add(labelMeetingNextTime, "cell 0 5,alignx left");	
+		panelMeetingSummary.add(labelMeetingNextTimeContent, "cell 0 6,alignx left");
+		panelMeetingSummary.add(labelMeetingLocation, "cell 0 7,alignx left");
+		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
+		
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
 		panelMeetingButton.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
