@@ -42,16 +42,16 @@ public class MenuBarPanelVacancyManagement {
 
 	public boolean isCellEditable(int row, int column) {
 		return false;
-	}
-};
+		}
+	};
 	private static JPanel panelVacancyManagement = new JPanel();
 	private static JPanel panelManagementButton = new JPanel();
 	private static JPanel panelManagementSummary = new JPanel();
-
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 22);
-	private static Font fontSubHeadline = new Font("Arial", Font.BOLD, 14);
-	private static Font fontContent = new Font("Arial", Font.ITALIC, 14);
-
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 22);
+	private static Font fontContent = new Font("Calibri", Font.ITALIC, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
+	
 	private static JButton butttonAddVacancyManagement = new JButton();
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
