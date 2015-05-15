@@ -7,17 +7,13 @@ import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,11 +21,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
-
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -39,7 +31,6 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.TabExpander;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -65,24 +56,17 @@ public class MenuBarPanelVacancyManagement {
 	private static JButton buttonEditVacancyManagement = new JButton();
 	private static JButton buttonSearchVacancyManagement = new JButton();
 			
-	public static JTable tableVacancyManagement = new JTable(
-			modelVacancyManagement);
+	public static JTable tableVacancyManagement = new JTable(modelVacancyManagement);
 
 	private static JLabel labelManagementInfo = new JLabel("Info zur Stelle");
-	private static JLabel labelManagementCount = new JLabel(
-			"Anzahl der Bewerber:");
-	private static JLabel labelManagementEndOfApply = new JLabel(
-			"Bewerbungsschluss:");
-	private static JLabel labelManagementPosition = new JLabel(
-			"Stellenbezeichnung:");
+	private static JLabel labelManagementCount = new JLabel("Anzahl der Bewerber:");
+	private static JLabel labelManagementEndOfApply = new JLabel("Bewerbungsschluss:");
+	private static JLabel labelManagementPosition = new JLabel("Stellenbezeichnung:");
 	private static JLabel labelManagementArea = new JLabel("Arbeitsbereich:");
-	private static JLabel labelManagementRequirementLevel = new JLabel(
-			"Anforderung:");
-	private static JLabel labelManagementTermsOfEmployment = new JLabel(
-			"Anstellungsverhältnis:");
+	private static JLabel labelManagementRequirementLevel = new JLabel("Anforderung:");
+	private static JLabel labelManagementTermsOfEmployment = new JLabel("Anstellungsverhältnis:");
 	private static JLabel labelManagementVacancyStatus = new JLabel("Status:");
-	private static JLabel labelManagementEducationalAchievement = new JLabel(
-			"Bildungsabschluss:");
+	private static JLabel labelManagementEducationalAchievement = new JLabel("Bildungsabschluss:");
 	public static JLabel labelManagementCountContent = new JLabel(" ");
 	public static JLabel labelManagementEndOfApplyContent = new JLabel(" ");
 	public static JLabel labelManagementPositionContent = new JLabel(" ");
@@ -91,9 +75,7 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel(" ");
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
-
-	private static String[] result;
-	private static int idApplicant;
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT = new Vector() {
 		private static final long serialVersionUID = 1L;
@@ -110,49 +92,51 @@ public class MenuBarPanelVacancyManagement {
 		}
 	};
 	
+	private static String[] result;
+	private static int idApplicant;
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
 
-		panelVacancyManagement.setLayout(new MigLayout("", "[]5[]5[]"));
-
+		panelVacancyManagement.setLayout(new MigLayout("", "[]"));
+		panelManagementSummary.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][]"));
+		
 		// Management-Stelleninfo (links)
-		panelManagementSummary.add(labelManagementInfo);
 		labelManagementInfo.setFont(fontHeadline);
-		panelManagementSummary.add(labelManagementCount);
 		labelManagementCount.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementCountContent);
-		labelManagementCountContent.setFont(fontContent);		
-		panelManagementSummary.add(labelManagementEndOfApply);
 		labelManagementEndOfApply.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementEndOfApplyContent);
-		labelManagementEndOfApplyContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementPosition);
 		labelManagementPosition.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementPositionContent);
-		labelManagementPositionContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementArea);
 		labelManagementArea.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementAreaContent);
-		labelManagementAreaContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementRequirementLevel);
 		labelManagementRequirementLevel.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementRequirementLevelContent);
-		labelManagementRequirementLevelContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementTermsOfEmployment);
 		labelManagementTermsOfEmployment.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementTermsOfEmploymentContent);
-		labelManagementTermsOfEmploymentContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementVacancyStatus);
 		labelManagementVacancyStatus.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementVacancyStatusContent);
-		labelManagementVacancyStatusContent.setFont(fontContent);
-		panelManagementSummary.add(labelManagementEducationalAchievement);
 		labelManagementEducationalAchievement.setFont(fontSubHeadline);
-		panelManagementSummary.add(labelManagementEducationalAchievementContent);
+		labelManagementCountContent.setFont(fontContent);
+		labelManagementEndOfApplyContent.setFont(fontContent);
+		labelManagementPositionContent.setFont(fontContent);
+		labelManagementAreaContent.setFont(fontContent);
+		labelManagementRequirementLevelContent.setFont(fontContent);
+		labelManagementTermsOfEmploymentContent.setFont(fontContent);
+		labelManagementVacancyStatusContent.setFont(fontContent);
 		labelManagementEducationalAchievementContent.setFont(fontContent);
-		butttonAddVacancyManagement
-				.setToolTipText("Neue Arbeitstelle hinzufügen");
+		panelManagementSummary.add(labelManagementInfo,"cell 0 0,alignx left");
+		panelManagementSummary.add(labelManagementCount, "cell 0 1,alignx left");
+		panelManagementSummary.add(labelManagementCountContent, "cell 0 2,alignx left");	
+		panelManagementSummary.add(labelManagementEndOfApply, "cell 0 3,alignx left");
+		panelManagementSummary.add(labelManagementEndOfApplyContent, "cell 0 4,alignx left");
+		panelManagementSummary.add(labelManagementPosition, "cell 0 5,alignx left");
+		panelManagementSummary.add(labelManagementPositionContent, "cell 0 6,alignx left");
+		panelManagementSummary.add(labelManagementArea, "cell 0 7,alignx left");
+		panelManagementSummary.add(labelManagementAreaContent, "cell 0 8,alignx left");
+		panelManagementSummary.add(labelManagementRequirementLevel, "cell 0 9,alignx left");
+		panelManagementSummary.add(labelManagementRequirementLevelContent, "cell 0 10,alignx left");
+		panelManagementSummary.add(labelManagementTermsOfEmployment, "cell 0 11,alignx left");
+		panelManagementSummary.add(labelManagementTermsOfEmploymentContent, "cell 0 12,alignx left");
+		panelManagementSummary.add(labelManagementVacancyStatus, "cell 0 13,alignx left");
+		panelManagementSummary.add(labelManagementVacancyStatusContent, "cell 0 14,alignx left");
+		panelManagementSummary.add(labelManagementEducationalAchievement, "cell 0 15,alignx left");
+		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
+		butttonAddVacancyManagement.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelManagementButton.add(butttonAddVacancyManagement);
 		butttonAddVacancyManagement.setBorderPainted(false);
 		butttonAddVacancyManagement.setBorder(null);
