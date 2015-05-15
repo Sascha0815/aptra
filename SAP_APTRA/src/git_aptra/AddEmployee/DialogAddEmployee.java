@@ -1,10 +1,13 @@
 package git_aptra.AddEmployee;
 
 import git_aptra.Oberflaeche;
+
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -30,8 +33,9 @@ public class DialogAddEmployee {
 
 	public static JPanel panelDialogEmployeeMain = new JPanel();
 	
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 14);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
@@ -56,13 +60,27 @@ public class DialogAddEmployee {
 	public static void addEmployee() {
 		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setVisible(true);
-		dialogNewEmployee.setSize(420, 380);
+		dialogNewEmployee.setSize(435, 380);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");
 		SwingUtilities.updateComponentTreeUI(dialogNewEmployee);
 		dialogNewEmployee.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewEmployee.add(panelDialogEmployeeMain);
-		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow,trailing][grow][]", "[30.00][][][][][][][][][][][][][30.00]"));
+		labelInstruction.setFont(fontHeadline);
+		labelName.setFont(fontSubHeadline);
+		labelFirstName.setFont(fontSubHeadline);
+		labelLoginName.setFont(fontSubHeadline);
+		labelPassword.setFont(fontSubHeadline);
+		labelPasswordRepeat.setFont(fontSubHeadline);
+		labelEntitlement.setFont(fontSubHeadline);
+		labelWarning.setFont(fontSubHeadline);
+		labelWarning.setForeground(Color.RED);
+		fieldName.setFont(fontText);
+		fieldFirstName.setFont(fontText);
+		fieldLoginName.setFont(fontText);
+		fieldPassword.setFont(fontText);
+		fieldPasswordRepeat.setFont(fontText);
+		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
 		panelDialogEmployeeMain.add(labelInstruction, "cell 0 0,alignx right");
 		panelDialogEmployeeMain.add(labelName, "cell 0 1,alignx left");
 		panelDialogEmployeeMain.add(fieldName, "cell 0 2 3 1,growx");
@@ -77,14 +95,14 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 11,alignx left");
 		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 3 1,growx");
 		panelDialogEmployeeMain.add(buttonSave, "cell 0 13,alignx left");
-		panelDialogEmployeeMain.add(buttonAbort, "cell 2 13,alignx left");
+		panelDialogEmployeeMain.add(buttonAbort, "cell 2 13,alignx right");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				char[] passwordChar1 = fieldPassword.getPassword();
 				String passwordString1 = String.valueOf(passwordChar1);
 				char[] passwordChar2 = fieldPasswordRepeat.getPassword();
 				String passwordString2 = String.valueOf(passwordChar2);
-				if (passwordString1.equalsIgnoreCase(passwordString2)){
+				if (passwordString1.equals(passwordString2)){
 				try {
 					SaveDataNewEmployee.save();
 				} catch (SQLException e) {
@@ -96,6 +114,12 @@ public class DialogAddEmployee {
 				}
 			}
 		});
+		buttonAbort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				dialogNewEmployee.dispose();
+			}
+		});
+		
 	}
 	
 	public static void reset() {

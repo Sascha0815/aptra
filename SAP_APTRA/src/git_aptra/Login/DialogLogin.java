@@ -4,11 +4,8 @@ import git_aptra.Oberflaeche;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -17,14 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogLogin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	public JFrame frameLogin = new JFrame();
 	
-	private JPanel panelLogin = new JPanel(new GridBagLayout());
+	private JPanel panelLogin = new JPanel();
 	
-	private JLabel labelInstruction = new JLabel("Bitte geben sie ihre Zugangsdaten ein.");
+	private JLabel labelInstruction = new JLabel("Bitte geben sie Ihre Zugangsdaten ein");
 	private JLabel labelUsername = new JLabel("Benutzername:");
 	private JLabel labelPassword = new JLabel("Passwort:");
 	private JLabel labelWarning = new JLabel("Die Zugangsdaten sind nicht korrekt!");
@@ -37,70 +36,42 @@ public class DialogLogin extends JFrame {
 	
 	private JCheckBox checkRemember = new JCheckBox("Login-Daten merken?");
 	
-	private Font fontLogin = new Font("Arial", Font.BOLD, 12);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	private String username;
 	private String password;
 	private int entitlement = 0;
 	
-	private GridBagConstraints gbc = new GridBagConstraints();
 
 	public DialogLogin() {
-		frameLogin.setSize(250, 230);
+		frameLogin.setSize(285, 230);
 		frameLogin.setTitle("Login");
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameLogin.setResizable(false);
 		frameLogin.setLocationRelativeTo(null);
 		frameLogin.getRootPane().setDefaultButton(buttonLogin);
 		frameLogin.add(panelLogin);
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = 0;
-	    gbc.gridy = 0;
-	    gbc.weighty = 1;
-	    panelLogin.add(labelInstruction,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    gbc.fill = GridBagConstraints.HORIZONTAL;
-	    panelLogin.add(labelUsername,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 2;
-	    panelLogin.add(fieldUsername,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 3;
-	    panelLogin.add(labelPassword,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 4;
-	    panelLogin.add(fieldPassword,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 5;
-	    gbc.weighty = 1;
-	    panelLogin.add(checkRemember,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    gbc.anchor = GridBagConstraints.WEST;
-	    gbc.fill = GridBagConstraints.NONE;
-	    panelLogin.add(buttonLogin,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    gbc.anchor = GridBagConstraints.EAST;
-	    panelLogin.add(buttonAbort,gbc);
+		labelInstruction.setFont(fontHeadline);
+		labelUsername.setFont(fontSubHeadline);
+		labelPassword.setFont(fontSubHeadline);
+		labelWarning.setFont(fontSubHeadline);
+		fieldUsername.setFont(fontText);
+		fieldPassword.setFont(fontText);
+		panelLogin.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
+		panelLogin.add(labelInstruction, "cell 0 0,alignx left");
+		panelLogin.add(labelUsername, "cell 0 1,alignx left");
+	    panelLogin.add(fieldUsername, "cell 0 2 3 1,growx");
+	    panelLogin.add(labelPassword, "cell 0 3,alignx left");
+	    panelLogin.add(fieldPassword, "cell 0 4 3 1,growx");
+	    panelLogin.add(checkRemember,"cell 0 5,alignx left");
+	    panelLogin.add(buttonLogin, "cell 0 6 ,alignx left");
+	    panelLogin.add(buttonAbort, "cell 0 6 ,alignx right");
 	    labelWarning.setVisible(false);
-		labelWarning.setFont(fontLogin);
 		labelWarning.setForeground(Color.red);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    gbc.gridy = 8;
-	    gbc.fill = GridBagConstraints.HORIZONTAL;
-	    panelLogin.add(labelWarning,gbc);
-	    labelWarning.setVisible(false);
-		labelWarning.setFont(fontLogin);
-		labelWarning.setForeground(Color.red);
-	    gbc.gridx = 0;
-	    gbc.gridy = 6;
-	    gbc.gridy = 8;
-	    gbc.fill = GridBagConstraints.HORIZONTAL;
-	    panelLogin.add(labelWarning,gbc);
-			
+	    panelLogin.add(labelWarning, "cell 0 7 3 1,growx");
+	    
 		buttonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				password = String.valueOf(fieldPassword.getPassword());
