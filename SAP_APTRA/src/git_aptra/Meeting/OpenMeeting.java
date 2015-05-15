@@ -1,8 +1,6 @@
 package git_aptra.Meeting;
 
 import git_aptra.MenuBar.MenuBarPanelMeeting;
-import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -31,7 +29,7 @@ public class OpenMeeting {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		String count = Integer.toString(MenuBarPanelVacancyManagement.tableVacancyManagement.getRowCount());
+		String count = Integer.toString(MenuBarPanelMeeting.tableEmployeeMeeting.getRowCount());
 		MenuBarPanelMeeting.labelMeetingCountContent.setText(count);
 		MenuBarPanelMeeting.labelMeetingNextDateContent.setText(date);
 		MenuBarPanelMeeting.labelMeetingNextTimeContent.setText(time);
