@@ -80,7 +80,7 @@ public class MenuBarPanelMeeting {
 	public static JTable tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
 	private static JScrollPane scrollPaneEmployeeMeeting = new JScrollPane(tableEmployeeMeeting);	
 
-	private static JLabel labelMeetingInfo = new JLabel("Termininformationen");
+	private static JLabel labelMeetingInfo = new JLabel("Termininformation");
 	private static JLabel labelMeetingCount = new JLabel("Anzahl der Termine:");
 	private static JLabel labelMeetingNextDate = new JLabel("Nächster Termin am:");
 	private static JLabel labelMeetingNextTime = new JLabel("Nächster Termin um:");
