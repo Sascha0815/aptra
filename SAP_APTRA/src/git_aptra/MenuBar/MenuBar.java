@@ -6,6 +6,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
+import git_aptra.EditSelection.DialogEditSelection;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
@@ -31,6 +32,7 @@ public class MenuBar {
 	private static JMenuItem itemEmployee = new JMenuItem();
 	private static JMenuItem itemSearchApplicant = new JMenuItem();
 	private static JMenuItem itemSearchJob = new JMenuItem();
+	private static JMenuItem itemEditSelection = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
 	private static JMenuItem itemChangeDesign = new JMenuItem();
@@ -119,6 +121,21 @@ public class MenuBar {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
+		
+		// MenuItem Bewerberkriterien bearbeiten
+				menuNew.add(itemEditSelection);
+				itemEditSelection.setText("Bewertungskriterien bearbeiten");
+				try {
+					Image close = ImageIO.read(MenuBar.class
+							.getResource("resources/search_small.png"));
+					itemEditSelection.setIcon(new ImageIcon(close));
+				} catch (IOException ex) {
+				}
+				itemEditSelection.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DialogEditSelection.editSelection();
+					}
+				});
 		
 		// MenuItem Programm beenden
 		menuNew.add(itemExit);
