@@ -28,9 +28,6 @@ public class DialogAddApplicantApplication {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 
-	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontText = new Font("Calibri", Font.BOLD, 14);
-	
 	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
 	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
 	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
@@ -49,6 +46,10 @@ public class DialogAddApplicantApplication {
 	
 	private static JTextField fieldDate = new JTextField();
 	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
+	
 	private static int dayApply;
 	private static int monthApply;
 	private static int yearApply;
@@ -59,19 +60,25 @@ public class DialogAddApplicantApplication {
 
 	public static void addApplicantApplication() {
 		labelInstruction.setFont(fontHeadline);
-		labelApplyDate.setFont(fontText);
-		labelVacancyID.setFont(fontText);
+		labelApplyDate.setFont(fontSubHeadline);
+		labelVacancyID.setFont(fontSubHeadline);
+		labelEducationalAchievement.setFont(fontSubHeadline);
+		boxID.setFont(fontSubHeadline);
+		spinnerDay.setFont(fontSubHeadline);
+		spinnerMonth.setFont(fontSubHeadline);
+		spinnerYear.setFont(fontSubHeadline);
+		fieldDate.setFont(fontText);
 		labelEducationalAchievement.setFont(fontText);
-		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
-		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0,alignx left");
+		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
-	    panelDialogApplicantApplication.add(spinnerDay, "cell 0 2 3, growx");
-	    panelDialogApplicantApplication.add(spinnerMonth, "cell 0 2 3 1, growx");
-	    panelDialogApplicantApplication.add(spinnerYear, "cell 0 2 3 2, growx");
+	    panelDialogApplicantApplication.add(spinnerDay, "cell 0 2 2, growx");
+	    panelDialogApplicantApplication.add(spinnerMonth, "cell 0 2 2 1, growx");
+	    panelDialogApplicantApplication.add(spinnerYear, "cell 0 2 2 2, growx");
 	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
-	    panelDialogApplicantApplication.add(boxID, "cell 0 4 3, growx");
+	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
-	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 3, growx");
+	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 
 	}

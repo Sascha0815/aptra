@@ -28,8 +28,8 @@ public class DialogLogin extends JFrame {
 	private JLabel labelPassword = new JLabel("Passwort:");
 	private JLabel labelWarning = new JLabel("Die Zugangsdaten sind leider nicht korrekt!");
 	
-	private JTextField fieldUsername = new JTextField(20);
-	private JPasswordField fieldPassword = new JPasswordField(20);
+	private JTextField fieldUsername = new JTextField();
+	private JPasswordField fieldPassword = new JPasswordField();
 	
 	private JButton buttonLogin = new JButton("Einloggen");
 	private JButton buttonAbort = new JButton("Abbrechen");
@@ -61,16 +61,16 @@ public class DialogLogin extends JFrame {
 		labelWarning.setForeground(Color.red);
 		fieldUsername.setFont(fontText);
 		fieldPassword.setFont(fontText);
-		panelLogin.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
-		panelLogin.add(labelInstruction, "cell 0 0,alignx left");
+		panelLogin.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelLogin.add(labelInstruction, "cell 0 0 2 1,alignx left");
 		panelLogin.add(labelUsername, "cell 0 1,alignx left");
-	    panelLogin.add(fieldUsername, "cell 0 2 3 1,growx");
+	    panelLogin.add(fieldUsername, "cell 0 2 2 1,growx");
 	    panelLogin.add(labelPassword, "cell 0 3,alignx left");
-	    panelLogin.add(fieldPassword, "cell 0 4 3 1,growx");
-	    panelLogin.add(checkRemember,"cell 0 5,alignx left");
-	    panelLogin.add(labelWarning, "cell 0 6 3 1,growx");
+	    panelLogin.add(fieldPassword, "cell 0 4 2 1,growx");
+	    panelLogin.add(checkRemember,"cell 0 5 2 1,alignx left");
+	    panelLogin.add(labelWarning, "cell 0 6 2 1,growx");
 	    panelLogin.add(buttonLogin, "cell 0 7 ,alignx left");
-	    panelLogin.add(buttonAbort, "cell 0 7 ,alignx right");
+	    panelLogin.add(buttonAbort, "cell 1 7,alignx right");
 	    
 		buttonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

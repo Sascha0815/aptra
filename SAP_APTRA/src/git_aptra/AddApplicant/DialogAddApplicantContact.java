@@ -26,7 +26,8 @@ public class DialogAddApplicantContact {
 	private static JLabel labelBirthday = new JLabel("Geburtsdatum:");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontText = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	private static JTextField fieldTelefonHome = new JTextField();
 	private static JTextField fieldTelefonMobil = new JTextField();
@@ -53,24 +54,32 @@ public class DialogAddApplicantContact {
 
 	public static void addApplicantContact() {
 		labelInstruction.setFont(fontHeadline);
-		labelTelefonHome.setFont(fontText);
-		labelTelefonMobil.setFont(fontText);
-		labelEmail.setFont(fontText);
-		labelBirthday.setFont(fontText);
-		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelDialogApplicantContact.add(labelInstruction,"cell 0 0,alignx left");
+		spinnerDay.setFont(fontSubHeadline);
+		spinnerMonth.setFont(fontSubHeadline);
+		spinnerYear.setFont(fontSubHeadline);
+		buttonSave.setFont(fontSubHeadline);
+		buttonAbort.setFont(fontSubHeadline);
+		labelTelefonHome.setFont(fontSubHeadline);
+		labelTelefonMobil.setFont(fontSubHeadline);
+		labelEmail.setFont(fontSubHeadline);
+		labelBirthday.setFont(fontSubHeadline);
+		fieldTelefonHome.setFont(fontText);
+		fieldTelefonMobil.setFont(fontText);
+		fieldEmail.setFont(fontText);
+		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]110[]"));
+		panelDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
-		panelDialogApplicantContact.add(fieldTelefonHome, "cell 0 2 3 1,growx");
+		panelDialogApplicantContact.add(fieldTelefonHome, "cell 0 2 2 1,growx");
 		panelDialogApplicantContact.add(labelTelefonMobil, "cell 0 3,alignx left");
-		panelDialogApplicantContact.add(fieldTelefonMobil, "cell 0 4 3 1,growx");
+		panelDialogApplicantContact.add(fieldTelefonMobil, "cell 0 4 2 1,growx");
 		panelDialogApplicantContact.add(labelEmail, "cell 0 5,alignx left");
-		panelDialogApplicantContact.add(fieldEmail, "cell 0 6 3 1,growx");
+		panelDialogApplicantContact.add(fieldEmail, "cell 0 6 2 1,growx");
 		panelDialogApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
-		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 3, growx");
-		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 3 1, growx");
-		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 3 2, growx");
+		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 2, growx");
+		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 2 1, growx");
+		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 2 2, growx");
 		panelDialogApplicantContact.add(buttonSave, "cell 0 9,alignx left");
-		panelDialogApplicantContact.add(buttonAbort, "cell 0 9,alignx right ");
+		panelDialogApplicantContact.add(buttonAbort, "cell 1 9,alignx right ");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewApplicant.save();
