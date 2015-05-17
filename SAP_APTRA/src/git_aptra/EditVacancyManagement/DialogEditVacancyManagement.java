@@ -1,9 +1,6 @@
 package git_aptra.EditVacancyManagement;
 
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.net.MalformedURLException;
-
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import javax.swing.JDialog;
@@ -27,49 +24,8 @@ public class DialogEditVacancyManagement implements Runnable{
 		}
 	
 	public static void editVacancyManagement() throws MalformedURLException {
-			dialogEditVacancyManagement.setVisible(false);
-			dialogEditVacancyManagement.addWindowListener(new WindowListener() {
-			public void windowClosing(WindowEvent arg0) {
-				CloseDialogEditVacancyManagement.close();
-			}
-
-			@Override
-			public void windowActivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowClosed(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowDeactivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowDeiconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowIconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void windowOpened(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		dialogEditVacancyManagement.setSize(450, 550);
+		dialogEditVacancyManagement.setVisible(false);
+		dialogEditVacancyManagement.setSize(425,425);
 		dialogEditVacancyManagement.setLocationRelativeTo(null);
 		dialogEditVacancyManagement.setResizable(false);
 		dialogEditVacancyManagement.setTitle("Arbeitsstellenmanagement");

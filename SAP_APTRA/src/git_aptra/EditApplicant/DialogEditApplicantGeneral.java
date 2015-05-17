@@ -1,27 +1,25 @@
 package git_aptra.EditApplicant;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogEditApplicantGeneral {
+	
+	private static JPanel panelDialogEditApplicantMain = new JPanel();
+	
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straße:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
-	private static JLabel labelInstruction = new JLabel(
-			"Änderungen der Stammdaten!");
+	private static JLabel labelInstruction = new JLabel("Änderungen der Stammdaten!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
-	public static JPanel panelDialogEditApplicantMain = new JPanel();
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldStreet = new JTextField();
@@ -29,7 +27,10 @@ public class DialogEditApplicantGeneral {
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
 	
-
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
+	
 	private static String name;
 	private static String firstName;
 	private static String street;
@@ -38,58 +39,43 @@ public class DialogEditApplicantGeneral {
 	private static String city;
 
 	public static void editApplicantGeneral() {
-		panelDialogEditApplicantMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogEditApplicantMain.setLayout(new BoxLayout(
-				panelDialogEditApplicantMain, BoxLayout.Y_AXIS));
-		
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		panelDialogEditApplicantMain.add(labelInstruction);
 		labelInstruction.setFont(fontHeadline);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		panelDialogEditApplicantMain.add(labelName);
-		panelDialogEditApplicantMain.add(fieldName);
+		labelName.setFont(fontSubHeadline);
+		labelFirstName.setFont(fontSubHeadline);
+		labelStreet.setFont(fontSubHeadline);
+		labelHouseNr.setFont(fontSubHeadline);
+		labelPostalCode.setFont(fontSubHeadline);
+		labelCity.setFont(fontSubHeadline);
+		fieldName.setFont(fontText);		
+		fieldFirstName.setFont(fontText);		
+		fieldStreet.setFont(fontText);		
+		fieldHouseNr.setFont(fontText);	
+		fieldPostalCode.setFont(fontText);
+		fieldCity.setFont(fontText);
 		fieldName.setText(EditApplicant.getDataSetName());
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
-		fieldName.setFont(fontTextField);
-		panelDialogEditApplicantMain.add(labelFirstName);
-		panelDialogEditApplicantMain.add(fieldFirstName);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
 		fieldFirstName.setText(EditApplicant.getDataSetFirstName());
-		fieldFirstName.setFont(fontTextField);
-		panelDialogEditApplicantMain.add(labelStreet);
-		panelDialogEditApplicantMain.add(fieldStreet);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
 		fieldStreet.setText(EditApplicant.getDataSetStreet());
-		fieldStreet.setFont(fontTextField);
-		panelDialogEditApplicantMain.add(labelHouseNr);
-		panelDialogEditApplicantMain.add(fieldHouseNr);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
 		fieldHouseNr.setText(EditApplicant.getDataSetHouseNr());
-		fieldHouseNr.setFont(fontTextField);
-		panelDialogEditApplicantMain.add(labelPostalCode);
-		panelDialogEditApplicantMain.add(fieldPostalCode);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
 		fieldPostalCode.setText(EditApplicant.getDataSetPostalCode());
-		fieldPostalCode.setFont(fontTextField);
-		panelDialogEditApplicantMain.add(labelCity);
-		panelDialogEditApplicantMain.add(fieldCity);
-		panelDialogEditApplicantMain.add(Box.createRigidArea(new Dimension(0,
-				10)));
 		fieldCity.setText(EditApplicant.getDataSetCity());
-		fieldCity.setFont(fontTextField);
-		DialogEditApplicant.tabEdit.addTab("Allgemein",
-				panelDialogEditApplicantMain);
+		panelDialogEditApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
+	    panelDialogEditApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
+	    panelDialogEditApplicantMain.add(labelName,"cell 0 1,alignx left");
+	    panelDialogEditApplicantMain.add(fieldName,"cell 0 2 2 1,growx");
+	    panelDialogEditApplicantMain.add(labelFirstName,"cell 0 3,alignx left");
+	    panelDialogEditApplicantMain.add(fieldFirstName,"cell 0 4 2 1,growx");
+	    panelDialogEditApplicantMain.add(labelStreet,"cell 0 5,alignx left");
+	    panelDialogEditApplicantMain.add(fieldStreet, "cell 0 6 2 1,growx");
+	    panelDialogEditApplicantMain.add(labelHouseNr,"cell 0 7,alignx left");
+	    panelDialogEditApplicantMain.add(fieldHouseNr,"cell 0 8 2 1,growx");
+	    panelDialogEditApplicantMain.add(labelPostalCode,"cell 0 9,alignx left");
+	    panelDialogEditApplicantMain.add(fieldPostalCode,"cell 0 10 2 1,growx");	
+	    panelDialogEditApplicantMain.add(labelCity,"cell 0 11,alignx left");
+	    panelDialogEditApplicantMain.add(fieldCity, "cell 0 12 2 1,growx");
+		DialogEditApplicant.tabEdit.addTab("Allgemein",panelDialogEditApplicantMain);
 	}
 
 	public static void reset() {
-		panelDialogEditApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");
