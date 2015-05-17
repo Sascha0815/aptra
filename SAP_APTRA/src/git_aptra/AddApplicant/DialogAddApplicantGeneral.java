@@ -131,7 +131,6 @@ public class DialogAddApplicantGeneral {
 	}
 
 	public static void reset() {
-		panelDialogApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");

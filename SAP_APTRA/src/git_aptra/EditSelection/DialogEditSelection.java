@@ -63,7 +63,7 @@ package git_aptra.EditSelection;
 				dialogEditSelection.setResizable(false);
 				dialogEditSelection.setTitle("Kriterien bearbeiten");
 				dialogEditSelection.add(tabEdit);
-				DialogEditSelectionGeneral.editSelectionGeneral();
+				DialogEditSelectionGeneral.EditSelectionGeneral();
 				SwingUtilities.updateComponentTreeUI(dialogEditSelection);
 				dialogEditSelection.setLocationRelativeTo(Oberflaeche.frame);
 

@@ -80,22 +80,22 @@ public class DialogAddEmployee {
 		fieldLoginName.setFont(fontText);
 		fieldPassword.setFont(fontText);
 		fieldPasswordRepeat.setFont(fontText);
-		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelDialogEmployeeMain.add(labelInstruction, "cell 0 0,alignx right");
+		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]15[]"));
+		panelDialogEmployeeMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogEmployeeMain.add(labelName, "cell 0 1,alignx left");
-		panelDialogEmployeeMain.add(fieldName, "cell 0 2 3 1,growx");
+		panelDialogEmployeeMain.add(fieldName, "cell 0 2 2 1,growx");
 		panelDialogEmployeeMain.add(labelFirstName, "cell 0 3,alignx left");
-		panelDialogEmployeeMain.add(fieldFirstName, "cell 0 4 3 1,growx");
+		panelDialogEmployeeMain.add(fieldFirstName, "cell 0 4 2 1,growx");
 		panelDialogEmployeeMain.add(labelLoginName, "cell 0 5,alignx left");
-		panelDialogEmployeeMain.add(fieldLoginName, "cell 0 6 3 1,growx");
+		panelDialogEmployeeMain.add(fieldLoginName, "cell 0 6 2 1,growx");
 		panelDialogEmployeeMain.add(labelPassword, "cell 0 7,alignx left");
-		panelDialogEmployeeMain.add(fieldPassword, "cell 0 8 3 1,growx");
+		panelDialogEmployeeMain.add(fieldPassword, "cell 0 8 32 1,growx");
 		panelDialogEmployeeMain.add(labelPasswordRepeat, "cell 0 9,alignx left");
-		panelDialogEmployeeMain.add(fieldPasswordRepeat, "cell 0 10 3 1,growx");
+		panelDialogEmployeeMain.add(fieldPasswordRepeat, "cell 0 10 2 1,growx");
 		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 11,alignx left");
-		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 3 1,growx");
+		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 2 1,growx");
 		panelDialogEmployeeMain.add(buttonSave, "cell 0 13,alignx left");
-		panelDialogEmployeeMain.add(buttonAbort, "cell 2 13,alignx right");
+		panelDialogEmployeeMain.add(buttonAbort, "cell 1 13,alignx right");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				char[] passwordChar1 = fieldPassword.getPassword();

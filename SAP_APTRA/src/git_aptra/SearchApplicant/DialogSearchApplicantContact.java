@@ -41,19 +41,21 @@ public class DialogSearchApplicantContact {
 		labelTelefonHome.setFont(fontSubHeadline);
 		labelTelefonMobil.setFont(fontSubHeadline);
 		labelEmail.setFont(fontSubHeadline);
+		buttonSearch.setFont(fontSubHeadline);
+		buttonAbort.setFont(fontSubHeadline);
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
-		panelSearchDialogApplicantContact.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelSearchDialogApplicantContact.add(labelInstruction,"cell 0 0,alignx left");
+		panelSearchDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]170[]"));
+		panelSearchDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelSearchDialogApplicantContact.add(labelTelefonHome,"cell 0 1,alignx left");
-		panelSearchDialogApplicantContact.add(fieldTelefonHome,"cell 0 2 3 1,growx");
+		panelSearchDialogApplicantContact.add(fieldTelefonHome,"cell 0 2 2 1,growx");
 		panelSearchDialogApplicantContact.add(labelTelefonMobil,"cell 0 3,alignx left");
-		panelSearchDialogApplicantContact.add(fieldTelefonMobil,"cell 0 4 3 1,growx");
+		panelSearchDialogApplicantContact.add(fieldTelefonMobil,"cell 0 4 2 1,growx");
 		panelSearchDialogApplicantContact.add(labelEmail,"cell 0 5,alignx left");
-		panelSearchDialogApplicantContact.add(fieldEmail,"cell 0 6 3 1,growx");
+		panelSearchDialogApplicantContact.add(fieldEmail,"cell 0 6 2 1,growx");
 		panelSearchDialogApplicantContact.add(buttonSearch, "cell 0 7,alignx left");
-		panelSearchDialogApplicantContact.add(buttonAbort, "cell 0 7,alignx right ");
+		panelSearchDialogApplicantContact.add(buttonAbort, "cell 1 7,alignx right ");
 		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",panelSearchDialogApplicantContact);		
 		if (first==true) {
 			first=false;

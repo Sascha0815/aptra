@@ -1,6 +1,5 @@
 package git_aptra.AddVacancy;
 
-import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -11,8 +10,9 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancyGeneral {
 
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	private static JPanel panelDialogVacancyMain = new JPanel();
 
@@ -45,20 +45,33 @@ public class DialogAddVacancyGeneral {
 	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 
 	public static void addVacancyGeneral() {
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
-		panelDialogVacancyMain.add(labelInstruction, "cell 1 0,alignx left");
+		labelInstruction.setFont(fontHeadline);
+		labelArea.setFont(fontSubHeadline);
+		labelPosition.setFont(fontSubHeadline);
+		labelRequirementLevel.setFont(fontSubHeadline);
+		labelTermsOfEmployment.setFont(fontSubHeadline);
+		labelVacancyStatus.setFont(fontSubHeadline);
+		labelEducationalAchievement.setFont(fontSubHeadline);
+		boxRequirementLevel.setFont(fontSubHeadline);
+		boxTermsOfEmployment.setFont(fontSubHeadline);
+		boxVacancyStatus.setFont(fontSubHeadline);
+		boxEducationalAchievement.setFont(fontSubHeadline);
+		fieldArea.setFont(fontText);
+		fieldPosition.setFont(fontText);
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelDialogVacancyMain.add(labelInstruction, "cell 1 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
-		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 3 1,growx");
+		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");
 		panelDialogVacancyMain.add(labelArea, "cell 0 3");
-		panelDialogVacancyMain.add(fieldArea, "cell 0 4 3 1,growx");
+		panelDialogVacancyMain.add(fieldArea, "cell 0 4 2 1,growx");
 		panelDialogVacancyMain.add(labelRequirementLevel, "cell 0 5");
-		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 3 1,growx");
+		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 2 1,growx");
 		panelDialogVacancyMain.add(labelTermsOfEmployment, "cell 0 7");
-		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 3 1,growx");
+		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 2 1,growx");
 		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9");
-		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 3 1,growx");
+		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 2 1,growx");
 		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
-		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 3 1,growx");
+		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
 		DialogAddVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
 
 	}

@@ -41,7 +41,7 @@ public class Login {
 		        return entitlement;
 		    }
 		} catch (Exception e) {
-			return 0;
+			System.out.println(e);
 		}
 		return 0;
 	}

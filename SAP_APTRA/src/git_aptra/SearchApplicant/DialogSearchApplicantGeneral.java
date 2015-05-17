@@ -56,22 +56,22 @@ public class DialogSearchApplicantGeneral {
 		fieldPostalCode.setFont(fontText);
 		fieldCity.setFont(fontText);
 		fieldApplicantID.setFont(fontText);
-		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelDialogSearchApplicantMain.add(labelInstruction,"cell 0 0,alignx left");
+		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
+		panelDialogSearchApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogSearchApplicantMain.add(labelApplicantID,"cell 0 1,alignx left");
-		panelDialogSearchApplicantMain.add(fieldApplicantID,"cell 0 2 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldApplicantID,"cell 0 2 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelName,"cell 0 3,alignx left");
-		panelDialogSearchApplicantMain.add(fieldName,"cell 0 4 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldName,"cell 0 4 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelFirstName,"cell 0 5,alignx left");
-		panelDialogSearchApplicantMain.add(fieldFirstName,"cell 0 6 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldFirstName,"cell 0 6 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelStreet,"cell 0 7,alignx left");
-		panelDialogSearchApplicantMain.add(fieldStreet, "cell 0 8 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldStreet, "cell 0 8 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelHouseNr,"cell 0 9,alignx left");
-		panelDialogSearchApplicantMain.add(fieldHouseNr,"cell 0 10 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldHouseNr,"cell 0 10 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelPostalCode,"cell 0 11,alignx left");
-		panelDialogSearchApplicantMain.add(fieldPostalCode,"cell 0 12 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldPostalCode,"cell 0 12 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelCity,"cell 0 13,alignx left");
-		panelDialogSearchApplicantMain.add(fieldCity, "cell 0 14 3 1,growx");
+		panelDialogSearchApplicantMain.add(fieldCity, "cell 0 14 2 1,growx");
 		DialogSearchApplicant.tabSearch.addTab("Allgemein",panelDialogSearchApplicantMain);
 	}
 

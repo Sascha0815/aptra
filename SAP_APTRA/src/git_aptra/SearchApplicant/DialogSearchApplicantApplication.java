@@ -33,12 +33,14 @@ public class DialogSearchApplicantApplication {
 		labelInstruction.setFont(fontHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
 		labelVacancy.setFont(fontSubHeadline);
-		panelDialogSearchApplicantApplication.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][][][]"));
-		panelDialogSearchApplicantApplication.add(labelInstruction,"cell 0 0,alignx left");
+		boxVacancy.setFont(fontSubHeadline);
+		boxEducationalAchievement.setFont(fontSubHeadline);
+		panelDialogSearchApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
+		panelDialogSearchApplicantApplication.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogSearchApplicantApplication.add(labelEducationalAchievement,"cell 0 1,alignx left");
-		panelDialogSearchApplicantApplication.add(boxEducationalAchievement,"cell 0 2 3 1,growx");
+		panelDialogSearchApplicantApplication.add(boxEducationalAchievement,"cell 0 2 2 1,growx");
 		panelDialogSearchApplicantApplication.add(labelVacancy,"cell 0 3,alignx left");
-		panelDialogSearchApplicantApplication.add(boxVacancy,"cell 0 4 3 1,growx");
+		panelDialogSearchApplicantApplication.add(boxVacancy,"cell 0 4 2 1,growx");
 		DialogSearchApplicant.tabSearch.addTab("Bewerbung",panelDialogSearchApplicantApplication);
 	}
 

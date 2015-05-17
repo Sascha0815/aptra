@@ -7,6 +7,7 @@ import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditSelection.DialogEditSelection;
+import git_aptra.EditSelection.SavaDataEditSelection;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
@@ -133,7 +134,8 @@ public class MenuBar {
 				}
 				itemEditSelection.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						DialogEditSelection.editSelection();
+						SavaDataEditSelection.save();
+						DialogEditSelection.editSelection();	
 					}
 				});
 		

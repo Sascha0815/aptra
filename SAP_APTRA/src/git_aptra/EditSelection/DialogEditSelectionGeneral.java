@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,47 +37,46 @@ import net.miginfocom.swing.MigLayout;
 			}
 		};
 		
-		public static JTable tableEditSelection = new JTable(
-				modelEditSelection);
+		public static JTable tableEditSelection = new JTable(modelEditSelection);
 		
+		private static JButton buttonSave = new JButton("Speichern");
+		private static JButton buttonAdd = new JButton("Hinzufügen");
+		private static JButton buttonEdit = new JButton("Bearbeiten");
+		private static JButton buttonDelete = new JButton("Löschen");
 		
-		private static JButton save = new JButton("Speichern");
-		private static JButton add = new JButton("Hinzufügen");
-		private static JButton edit = new JButton("Bearbeiten");
-		private static JButton delete = new JButton("Löschen");
+		private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+		private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 		
-		
-		public static void editSelectionGeneral(){
-			panelDialogEditSelectionGeneral.setLayout(new MigLayout("", "[grow]", "[][][][]"));
-			panelDialogEditSelectionGeneral.add(labelInstruction, "cell 0 0,alignx left");
-			panelDialogEditSelectionGeneral.add(labelSelection, "cell 0 1,alignx left");
+		public static void EditSelectionGeneral(){
+			labelInstruction.setFont(fontHeadline);
+			labelSelection.setFont(fontSubHeadline);
+			buttonSave.setFont(fontSubHeadline);
+			buttonAdd.setFont(fontSubHeadline);
+			buttonEdit.setFont(fontSubHeadline);
+			buttonDelete.setFont(fontSubHeadline);
 			JScrollPane scrollPaneSelection = new JScrollPane(tableEditSelection);
 			modelEditSelection.setColumnIdentifiers(COLUMN_IDENTIFIERS_SELECTION);
 			scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 			tableEditSelection.setRowHeight(20);
 			tableEditSelection.setAutoCreateRowSorter(true);
 			tableEditSelection = new JTable(modelEditSelection);
-			panelDialogEditSelectionGeneral.add(tableEditSelection, "cell 0 2 4 12,grow");
-			panelDialogEditSelectionGeneral.add(save, "wrap, growx" );
-			panelDialogEditSelectionGeneral.add(add, "wrap, growx");
-			panelDialogEditSelectionGeneral.add(edit, "wrap, growx");
-			panelDialogEditSelectionGeneral.add(delete, "wrap, growx");
-
-		
-			save.addActionListener(new ActionListener() {
+			panelDialogEditSelectionGeneral.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]"));
+			panelDialogEditSelectionGeneral.add(labelInstruction, "cell 0 0 2 1,alignx center");
+			panelDialogEditSelectionGeneral.add(labelSelection, "cell 0 1,alignx left");
+			panelDialogEditSelectionGeneral.add(tableEditSelection, "cell 0 2 2 20,growx");
+			panelDialogEditSelectionGeneral.add(buttonSave, "wrap, growx" );
+			panelDialogEditSelectionGeneral.add(buttonAdd, "wrap, growx");
+			panelDialogEditSelectionGeneral.add(buttonEdit, "wrap, growx");
+			panelDialogEditSelectionGeneral.add(buttonDelete, "wrap, growx");
+			buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				SavaDataEditSelection.save();
-				
-			}
-			
-			
-		});
+					
+				}
+			});
 				DialogEditSelection.tabEdit.addTab("Allgemein", panelDialogEditSelectionGeneral);
 			}
 			public static boolean getGeneral(){
 				return true;
-				
-			}
-			
+			}			
 }
 	
