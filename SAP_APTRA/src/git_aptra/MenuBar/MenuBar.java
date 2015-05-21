@@ -7,7 +7,7 @@ import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditSelection.DialogEditSelection;
-import git_aptra.EditSelection.SavaDataEditSelection;
+import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
@@ -15,6 +15,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -134,8 +135,11 @@ public class MenuBar {
 				}
 				itemEditSelection.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						SavaDataEditSelection.save();
-						DialogEditSelection.editSelection();	
+					InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
+					Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
+					DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);
+					DialogEditSelection.modelEditSelection.fireTableDataChanged();
+					DialogEditSelection.editSelection();
 					}
 				});
 		

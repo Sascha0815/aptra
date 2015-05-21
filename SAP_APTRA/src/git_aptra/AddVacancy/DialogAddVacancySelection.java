@@ -38,6 +38,7 @@ public class DialogAddVacancySelection {
 		{
 			add("Bewertung-ID");
 			add("Bezeichnung");
+			add("Gewichtung");
 		}
 	};
 	public static DefaultTableModel modelSelection = new DefaultTableModel(
@@ -45,8 +46,9 @@ public class DialogAddVacancySelection {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
-			return false;
+			return column == 2;
 		}
+		
 	};
 	
 	public static JTable tableSelection = new JTable(
@@ -59,22 +61,21 @@ public class DialogAddVacancySelection {
 	//private static JSpinner spinner = new JSpinner(new SpinnerNumberModel(0,1,31,1));
 	
 	public static void addVacancyHistory(){
-		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][][]"));
-		panelDialogVacancySelection.add(labelInstruction, "cell 1 0,alignx left");
+		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][][]"));
+		panelDialogVacancySelection.add(labelInstruction, "cell 0 0 2,alignx center");
 		panelDialogVacancySelection.add(labelSelection, "cell 0 1,alignx left");
-		JScrollPane scrollPaneSelection = new JScrollPane(tableSelection);
+		tableSelection = new JTable(modelSelection);
 		modelSelection.setColumnIdentifiers(COLUMN_IDENTIFIERS_SELECTION);
+		JScrollPane scrollPaneSelection = new JScrollPane(tableSelection);
 		scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		tableSelection.setRowHeight(20);
 		tableSelection.setAutoCreateRowSorter(true);
-		tableSelection = new JTable(modelSelection);
-		panelDialogVacancySelection.add(tableSelection, "cell 0 2 4 12,grow");
-
+		panelDialogVacancySelection.add(scrollPaneSelection, "cell 0 2 4 12,alignx left");
+		panelDialogVacancySelection.add(save, "cell 0 15 2 1, alignx left");
 	
 		save.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
 			SaveDataNewVacancy.save();
-			
 		}
 	});
 	

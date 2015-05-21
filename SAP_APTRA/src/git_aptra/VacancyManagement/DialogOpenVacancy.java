@@ -35,7 +35,6 @@ public class DialogOpenVacancy {
 	private static int id;
 	
 	public static void addVacancyManagement() {
-		dialogAddVacancyManagement.setLocationRelativeTo(null);
 		dialogAddVacancyManagement.setVisible(true);
 		dialogAddVacancyManagement.setSize(420, 130);
 		dialogAddVacancyManagement.setResizable(false);	
@@ -71,6 +70,7 @@ public class DialogOpenVacancy {
 				dialogAddVacancyManagement.dispose();
 			}
 		});
+		dialogAddVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
 		
 	}
 	

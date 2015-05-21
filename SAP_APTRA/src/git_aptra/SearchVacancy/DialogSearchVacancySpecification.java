@@ -1,83 +1,68 @@
 package git_aptra.SearchVacancy;
 
-
-import java.awt.Color;
-import java.awt.Dimension;
+import git_aptra.AddApplicant.DialogAddApplicant;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogSearchVacancySpecification {
 
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-
 	private static JPanel panelSearchVacancySpecification = new JPanel();
 
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelLevel = new JLabel();
 	private static JLabel labelDeadline = new JLabel();
 
 	private static JTextField fieldLevel = new JTextField();
+	
+	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
+	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
+	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
+	
+	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
+	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
+	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
 
-	private static JButton search = new JButton("Suchen");
-
-	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-			29, 30, 31 };
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDay = new JComboBox(boxListDay);
-	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-			11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	static JComboBox boxMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-			1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-			1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-			1973, 1972, 1971, 1970 };
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxYear = new JComboBox(boxListYear);
+	private static JButton buttonSearch = new JButton("Suchen");
+	private static JButton buttonAbort = new JButton ("Abbrechen");
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	public static void searchVacancySpecification() {
-		panelSearchVacancySpecification.setBackground(Color.LIGHT_GRAY);
-		panelSearchVacancySpecification.setLayout(new BoxLayout(
-				panelSearchVacancySpecification, BoxLayout.Y_AXIS));
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelSearchVacancySpecification.add(labelLevel);
-		labelLevel.setText("Zusatz/Vermerk:");
-		panelSearchVacancySpecification.add(fieldLevel);
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		fieldLevel.setFont(fontTextField);
-		labelDeadline.setText("Bewerbungsschluss:");
-		panelSearchVacancySpecification.add(labelDeadline);
-		boxDay.setToolTipText("Tag");
-		panelSearchVacancySpecification.add(boxDay);
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxMonth.setToolTipText("Monat");
-		panelSearchVacancySpecification.add(boxMonth);
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxYear.setToolTipText("Jahr");
-		panelSearchVacancySpecification.add(boxYear);
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelSearchVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelSearchVacancySpecification.add(search);
-		DialogSearchVacancy.tabSearchVacancy.addTab("Organisation",
-				panelSearchVacancySpecification);
-		search.addActionListener(new ActionListener() {
+		labelInstruction.setFont(fontHeadline);
+		spinnerDay.setFont(fontSubHeadline);
+		spinnerMonth.setFont(fontSubHeadline);
+		spinnerYear.setFont(fontSubHeadline);
+		buttonSearch.setFont(fontSubHeadline);
+		buttonAbort.setFont(fontSubHeadline);
+		labelLevel.setFont(fontSubHeadline);
+		labelDeadline.setFont(fontSubHeadline);
+		fieldLevel.setFont(fontText);
+		panelSearchVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][]100[]"));
+		panelSearchVacancySpecification.add(labelInstruction, "cell 1 0,alignx center");
+		panelSearchVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
+		panelSearchVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
+		panelSearchVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
+		panelSearchVacancySpecification.add(spinnerDay, "cell 0 4 2,growx "); 
+		panelSearchVacancySpecification.add(spinnerMonth, "cell 0 4 2 1,growx "); 
+		panelSearchVacancySpecification.add(spinnerYear, "cell 0 4 2 2,growx ");
+		panelSearchVacancySpecification.add(buttonSearch, "cell 0 5,alignx left");
+		panelSearchVacancySpecification.add(buttonAbort, "cell 1 5,alignx right ");
+
+		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				try {
 					SearchControlVacancy.searchVacancy();
@@ -87,8 +72,14 @@ public class DialogSearchVacancySpecification {
 				}
 			}
 		});
-	DialogSearchVacancy.tabSearchVacancy.addTab("Spezifikation",
-			panelSearchVacancySpecification);
+		
+		buttonAbort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddApplicant.dialogNewApplicant.dispose();
+			}
+		});
+		
+		DialogSearchVacancy.tabSearchVacancy.addTab("Spezifikation",panelSearchVacancySpecification);
 	}
 
 	private static String level;
@@ -100,9 +91,45 @@ public class DialogSearchVacancySpecification {
 	public static void getSpecification() {
 		try {
 			level = fieldLevel.getText();
-			day = (int) boxDay.getSelectedItem();
-			month = (int) boxMonth.getSelectedItem();
-			year = (int) boxYear.getSelectedItem();
+			day = (int) spinnerDay.getValue();
+			String valueSpinnerMonth = (String) spinnerMonth.getValue();
+			if(valueSpinnerMonth.equals("Januar")){
+				month = 1;
+			}
+			if(valueSpinnerMonth.equals("Februar")){
+				month = 2;
+			}
+			if(valueSpinnerMonth.equals("März")){
+				month = 3;
+			}
+			if(valueSpinnerMonth.equals("April")){
+				month = 4;
+			}
+			if(valueSpinnerMonth.equals("Mai")){
+				month = 5;
+			}
+			if(valueSpinnerMonth.equals("Juni")){
+				month = 6;
+			}
+			if(valueSpinnerMonth.equals("Juli")){
+				month = 7;
+			}
+			if(valueSpinnerMonth.equals("August")){
+				month = 8;
+			}
+			if(valueSpinnerMonth.equals("September")){
+				month = 9;
+			}
+			if(valueSpinnerMonth.equals("Oktober")){
+				month = 10;
+			}
+			if(valueSpinnerMonth.equals("November")){
+				month = 11;
+			}
+			if(valueSpinnerMonth.equals("Dezember")){
+				month = 12;
+			}
+			year = (int) spinnerYear.getValue();
 			calVacancy.set(Calendar.YEAR, year);
 			calVacancy.set(Calendar.MONTH, (month - 1));
 			calVacancy.set(Calendar.DAY_OF_MONTH, day);
@@ -112,14 +139,10 @@ public class DialogSearchVacancySpecification {
 	}
 	
 	public static void reset() {
-		
 		fieldLevel.setText("");
-		boxDay.setSelectedIndex(0);
-		boxMonth.setSelectedIndex(0);
-		boxYear.setSelectedIndex(0);
-		panelSearchVacancySpecification.removeAll();
-		ActionListener[] al = search.getActionListeners();
-		search.removeActionListener(al[0]);
+		spinnerDay.setValue(1);
+		spinnerMonth.setValue(1);
+		spinnerYear.setValue(2015);
 	}
 
 	public static String getLevel() {

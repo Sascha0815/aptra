@@ -213,9 +213,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			preparedStatement = dbConnection.prepareStatement(query);
-			preparedStatement.setInt(1, DialogEditVacancyManagementMatrix.getScoreImpression());
-			preparedStatement.setInt(2, DialogEditVacancyManagementMatrix.getScoreExperience());
-			preparedStatement.setInt(3, DialogEditVacancyManagementMatrix.getScoreSocialEngagement());
+			
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {

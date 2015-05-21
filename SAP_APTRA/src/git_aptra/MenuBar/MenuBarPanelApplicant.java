@@ -44,7 +44,6 @@ public class MenuBarPanelApplicant {
 	private static JPanel panelApplicant = new JPanel();
 	private static JPanel panelButtonApplicant = new JPanel();
 	
-	
 	private static JButton buttonAddApplicant = new JButton();
 	private static JButton buttonDeleteApplicant = new JButton();
 	private static JButton buttonEditApplicant = new JButton();
@@ -90,7 +89,7 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
-		buttonRefreshApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonRefreshApplicant.setPreferredSize(new Dimension(135,135));
 		try {
 			Image refreshApplicant = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_refresh.png"));
@@ -114,10 +113,10 @@ public class MenuBarPanelApplicant {
 		buttonAddApplicant.setOpaque(false);
 		buttonAddApplicant.setContentAreaFilled(false);
 		buttonAddApplicant.setBorder(null);
-		buttonAddApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonAddApplicant.setSize(10,10);
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_add.png"));
+					.getResource("resources/applicant_add.png"));   
 			buttonAddApplicant.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
@@ -149,10 +148,10 @@ public class MenuBarPanelApplicant {
 		buttonEditApplicant.setOpaque(false);
 		buttonEditApplicant.setContentAreaFilled(false);
 		buttonEditApplicant.setBorder(null);
-		buttonEditApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonEditApplicant.setSize(panelButtonApplicant.getWidth(), panelButtonApplicant.getWidth());
 		try {
 			Image pencil = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_edit.png"));
+					.getResource("resources/applicant_edit.png"));   
 			buttonEditApplicant.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
@@ -172,10 +171,10 @@ public class MenuBarPanelApplicant {
 		buttonDeleteApplicant.setBorder(null);
 		buttonDeleteApplicant.setOpaque(false);
 		buttonDeleteApplicant.setContentAreaFilled(false);
-		buttonDeleteApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonDeleteApplicant.setSize(panelButtonApplicant.getWidth(), panelButtonApplicant.getWidth());
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_delete.png"));
+					.getResource("resources/applicant_delete.png"));  
 			buttonDeleteApplicant.setIcon(new ImageIcon(trashcan));
 		} catch (IOException ex) {
 		}
@@ -196,10 +195,10 @@ public class MenuBarPanelApplicant {
 		buttonSearchApplicant.setBorder(null);
 		buttonSearchApplicant.setOpaque(false);
 		buttonSearchApplicant.setContentAreaFilled(false);
-		buttonSearchApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonSearchApplicant.setSize(panelButtonApplicant.getWidth(), panelButtonApplicant.getWidth());
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_search.png"));
+					.getResource("resources/applicant_search.png"));  
 			buttonSearchApplicant.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}
@@ -215,10 +214,10 @@ public class MenuBarPanelApplicant {
 		buttonInfoApplicant.setBorder(null);
 		buttonInfoApplicant.setOpaque(false);
 		buttonInfoApplicant.setContentAreaFilled(false);
-		buttonInfoApplicant.setPreferredSize(new Dimension(135, 135));
+		buttonInfoApplicant.setSize(panelButtonApplicant.getWidth(), panelButtonApplicant.getWidth());
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/applicant_info.png"));
+					.getResource("resources/applicant_info.png"));  
 			buttonInfoApplicant.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
@@ -245,7 +244,9 @@ public class MenuBarPanelApplicant {
 		scrollPanePool.setBorder(border);
 		panelButtonApplicant.setBorder(border);
 		panelApplicant.add(scrollPanePool, "cell 0 0, w :1800: , h :1000:");
-		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h :1000:");
+		scrollPanePool.setSize((int)(panelApplicant.getWidth()*0.8),panelApplicant.getHeight());
+		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h :1000:");   
+		panelButtonApplicant.setSize((int)(panelApplicant.getWidth()*0.2),panelApplicant.getHeight());
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);
 	}

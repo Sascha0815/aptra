@@ -28,5 +28,4 @@ public class InsertEditSelectionDataIntoTable {
 	}
 	return resultsSelection;
 	}
-
 }

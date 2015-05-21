@@ -12,23 +12,23 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantGeneral {
 	
+	private static JPanel panelDialogApplicantMain = new JPanel();
+	
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
+	private static JLabel labelSex = new JLabel("Anrede:");
+	private static JLabel labelFemale = new JLabel("Frau:");
+	private static JLabel labelMale = new JLabel("Herr:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelStreet = new JLabel("Straﬂe:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
-	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelCity = new JLabel("Wohnort:");
-	private static JLabel labelSex = new JLabel("Geschlecht:");
-	private static JLabel labelFemale = new JLabel("weiblich:");
-	private static JLabel labelMale = new JLabel("m‰nnlich:");
-	
+
 	private static JRadioButton radioButtonFemale = new JRadioButton();
 	private static JRadioButton radioButtonMale = new JRadioButton();
 	
 	private static ButtonGroup radioButtonGroup = new ButtonGroup();
-	
-	public static JPanel panelDialogApplicantMain = new JPanel();
 	
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
@@ -71,23 +71,23 @@ public class DialogAddApplicantGeneral {
 		fieldCity.setFont(fontText);
 		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
 	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
-	    panelDialogApplicantMain.add(labelName,"cell 0 1,alignx left");
-	    panelDialogApplicantMain.add(fieldName,"cell 0 2 2 1,growx");
-	    panelDialogApplicantMain.add(labelFirstName,"cell 0 3,alignx left");
-	    panelDialogApplicantMain.add(fieldFirstName,"cell 0 4 2 1,growx");
-	    panelDialogApplicantMain.add(labelStreet,"cell 0 5,alignx left");
-	    panelDialogApplicantMain.add(fieldStreet, "cell 0 6 2 1,growx");
-	    panelDialogApplicantMain.add(labelHouseNr,"cell 0 7,alignx left");
-	    panelDialogApplicantMain.add(fieldHouseNr,"cell 0 8 2 1,growx");
-	    panelDialogApplicantMain.add(labelPostalCode,"cell 0 9,alignx left");
-	    panelDialogApplicantMain.add(fieldPostalCode,"cell 0 10 2 1,growx");
-	    panelDialogApplicantMain.add(labelCity,"cell 0 11,alignx left");
-	    panelDialogApplicantMain.add(fieldCity, "cell 0 12 2 1,growx");
-	    panelDialogApplicantMain.add(labelSex, "cell 0 13,alignx left");
-	    panelDialogApplicantMain.add(labelFemale, "cell 0 14,alignx left");
-	    panelDialogApplicantMain.add(radioButtonFemale, "cell 0 14 1,alignx left");
-	    panelDialogApplicantMain.add(labelMale, "cell 0 14 2,alignx left");
-	    panelDialogApplicantMain.add(radioButtonMale, "cell 0 14 3,alignx left");
+	    panelDialogApplicantMain.add(labelSex, "cell 0 1,alignx left");
+	    panelDialogApplicantMain.add(labelFemale, "cell 0 2,alignx left");
+	    panelDialogApplicantMain.add(radioButtonFemale, "cell 0 2 1,alignx left");
+	    panelDialogApplicantMain.add(labelMale, "cell 0 2 2,alignx left");
+	    panelDialogApplicantMain.add(radioButtonMale, "cell 0 2 3,alignx left");
+	    panelDialogApplicantMain.add(labelName,"cell 0 3,alignx left");
+	    panelDialogApplicantMain.add(fieldName,"cell 0 4 2 1,growx");
+	    panelDialogApplicantMain.add(labelFirstName,"cell 0 5,alignx left");
+	    panelDialogApplicantMain.add(fieldFirstName,"cell 0 6 2 1,growx");
+	    panelDialogApplicantMain.add(labelStreet,"cell 0 7,alignx left");
+	    panelDialogApplicantMain.add(fieldStreet, "cell 0 8 2 1,growx");
+	    panelDialogApplicantMain.add(labelHouseNr,"cell 0 9,alignx left");
+	    panelDialogApplicantMain.add(fieldHouseNr,"cell 0 10 2 1,growx");
+	    panelDialogApplicantMain.add(labelPostalCode,"cell 0 11,alignx left");
+	    panelDialogApplicantMain.add(fieldPostalCode,"cell 0 12 2 1,growx");
+	    panelDialogApplicantMain.add(labelCity,"cell 0 13,alignx left");
+	    panelDialogApplicantMain.add(fieldCity, "cell 0 14 2 1,growx");
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 

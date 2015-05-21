@@ -30,7 +30,7 @@ public class DialogAddApplicantApplication {
 
 	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
 	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
-	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
+	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(2015,2015,2020,1);
 
 	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
 	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
@@ -69,12 +69,13 @@ public class DialogAddApplicantApplication {
 		spinnerYear.setFont(fontSubHeadline);
 		fieldDate.setFont(fontText);
 		labelEducationalAchievement.setFont(fontText);
+	    spinnerYear.setEditor(new JSpinner.NumberEditor(spinnerYear, "0"));
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
-	    panelDialogApplicantApplication.add(spinnerDay, "cell 0 2 2, growx");
-	    panelDialogApplicantApplication.add(spinnerMonth, "cell 0 2 2 1, growx");
-	    panelDialogApplicantApplication.add(spinnerYear, "cell 0 2 2 2, growx");
+	    panelDialogApplicantApplication.add(spinnerDay, "cell 0 2 1, growx");
+	    panelDialogApplicantApplication.add(spinnerMonth, "cell 0 2 1 1, growx");
+	    panelDialogApplicantApplication.add(spinnerYear, "cell 0 2 1 2, growx");
 	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");

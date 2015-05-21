@@ -114,7 +114,7 @@ public class MenuBarPanelVacancy {
 			butttonAddJob.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
-		buttonEditJob.setToolTipText("Bewerber bearbeiten");
+		buttonEditJob.setToolTipText("Arbeitsstelle bearbeiten");
 		panelButtonWorkplace.add(buttonEditJob, "cell 0 2");
 		buttonEditJob.setBorderPainted(false);
 		buttonEditJob.setBorder(null);
@@ -138,7 +138,7 @@ public class MenuBarPanelVacancy {
 		} catch (IOException ex) {
 		}
 
-		buttonDeleteJob.setToolTipText("Bewerber löschen");
+		buttonDeleteJob.setToolTipText("Arbeitsstelle löschen");
 		panelButtonWorkplace.add(buttonDeleteJob, "cell 0 3");
 		buttonDeleteJob.setBorderPainted(false);
 		buttonDeleteJob.setBorder(null);
@@ -161,7 +161,7 @@ public class MenuBarPanelVacancy {
 				modelJob.fireTableDataChanged();
 			}
 		});
-		buttonSearchJob.setToolTipText("Einstellungen");
+		buttonSearchJob.setToolTipText("Arbeitsstelle suchen");
 		panelButtonWorkplace.add(buttonSearchJob, "cell 0 4");
 		buttonSearchJob.setBorderPainted(false);
 		buttonSearchJob.setBorder(null);

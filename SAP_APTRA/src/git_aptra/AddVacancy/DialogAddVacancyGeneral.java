@@ -9,13 +9,11 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancyGeneral {
-
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	private static JPanel panelDialogVacancyMain = new JPanel();
-
 	private static JLabel labelArea = new JLabel("Arbeitsbereich");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
@@ -43,8 +41,11 @@ public class DialogAddVacancyGeneral {
 	static String[] boxListEducationalAchievement = { "Bitte auswählen","Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
+	
 
 	public static void addVacancyGeneral() {
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		labelInstruction.setFont(fontHeadline);
 		labelArea.setFont(fontSubHeadline);
 		labelPosition.setFont(fontSubHeadline);
@@ -58,8 +59,6 @@ public class DialogAddVacancyGeneral {
 		boxEducationalAchievement.setFont(fontSubHeadline);
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
-		panelDialogVacancyMain.add(labelInstruction, "cell 1 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
 		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");
 		panelDialogVacancyMain.add(labelArea, "cell 0 3");
@@ -73,7 +72,6 @@ public class DialogAddVacancyGeneral {
 		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
 		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
 		DialogAddVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
-
 	}
 
 	private static String position;

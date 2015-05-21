@@ -136,7 +136,7 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementVacancyStatusContent, "cell 0 14,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievement, "cell 0 15,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
-		butttonAddVacancyManagement.setToolTipText("Neue Arbeitstelle hinzufügen");
+		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
 		panelManagementButton.setLayout(new MigLayout("", "[]", "[]15[]15[]"));
 		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0");
 		butttonAddVacancyManagement.setBorderPainted(false);
@@ -204,7 +204,7 @@ public class MenuBarPanelVacancyManagement {
 		} catch (IOException ex) {
 		}
 		
-		buttonSearchVacancyManagement.setToolTipText("Bewerber suchen");
+		buttonSearchVacancyManagement.setToolTipText("Management suchen");
 		panelManagementButton.add(buttonSearchVacancyManagement, "cell 0 2");
 		buttonSearchVacancyManagement.setBorderPainted(false);
 		buttonSearchVacancyManagement.setBorder(null);

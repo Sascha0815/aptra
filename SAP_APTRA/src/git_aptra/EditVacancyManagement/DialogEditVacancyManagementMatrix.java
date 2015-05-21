@@ -1,89 +1,74 @@
 package git_aptra.EditVacancyManagement;
 
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogEditVacancyManagementMatrix {
+	
 
 	private static JPanel panelDialogEditVacancyManagementMatrix = new JPanel();
-
-	private static JSlider sliderImpression = new JSlider();
-	private static JSlider sliderExperience = new JSlider();
-	private static JSlider sliderSocialEngagement = new JSlider();
-
-	private static JLabel labelImpression = new JLabel("Persönlicher Eindruck");
-	private static JLabel labelExperience = new JLabel("Vorerfahrung");
-	private static JLabel labelSocialEngagement = new JLabel(
-			"Soziales Engangement");
-	
+	private static JScrollPane scrollpaneMatrix = new JScrollPane(panelDialogEditVacancyManagementMatrix);
 	private static JButton saveRating = new JButton("Speichern");
-
-	private static int scoreImpression;
-	private static int scoreExperience;
-	private static int scoreSocialEngagement;
-
-	public static void editVacancyManagementMatrix() {
-		panelDialogEditVacancyManagementMatrix.setBackground(Color.LIGHT_GRAY);
-		panelDialogEditVacancyManagementMatrix.setLayout(new BoxLayout(
-				panelDialogEditVacancyManagementMatrix, BoxLayout.Y_AXIS));
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
+	public static void editVacancyManagementMatrix() {		
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Bewertung",
-				panelDialogEditVacancyManagementMatrix);
-
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditVacancyManagementMatrix.add(labelImpression);
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		sliderImpression.setMinimum(0);
+				scrollpaneMatrix);
+		scrollpaneMatrix.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollpaneMatrix.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		/*try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT name, firstName from employee where employeeID = " +  IDEmployee );
+		    while (rs.next()) {
+		        name = rs.getString(1);
+		        firstName = rs.getString(2);
+		        fullName = firstName + " " +name;
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
+		}
+*/
+		
+		/*sliderImpression.setMinimum(0);
 		sliderImpression.setMaximum(5);
 		sliderImpression.setMajorTickSpacing(1);
 		sliderImpression.createStandardLabels(1);
 		sliderImpression.setPaintTicks(true);
 		sliderImpression.setPaintLabels(true);
-		sliderImpression.setValue(EditVacancyManagement.getDataSetScoreImpression());
-		panelDialogEditVacancyManagementMatrix.add(sliderImpression);
+		sliderImpression.setValue(EditVacancyManagement.getDataSetScoreImpression());*/
+		int max = 20;
+		String columns = "";
+		String cell = "";
+		for (int i = 0; max < 3; i++) {
+			columns = columns+ "[][]";
+		}
+		panelDialogEditVacancyManagementMatrix.setLayout(new MigLayout("", "[grow,left][grow,right]" + columns));
+				
+		
+		
+		for(int i = 0; i < 2*max; i++){
+			cell = "cell 0 " + i + "2, growx";
+			if (i%2==0) {
+				panelDialogEditVacancyManagementMatrix.add(new JLabel("test"+(i/2)), cell);
+			}
+			else {
+				panelDialogEditVacancyManagementMatrix.add(new JSlider(), cell);
+			}
+			
+			}
 
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 20)));
-		panelDialogEditVacancyManagementMatrix.add(labelExperience);
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		sliderExperience.setMinimum(0);
-		sliderExperience.setMaximum(5);
-		sliderExperience.setMajorTickSpacing(1);
-		sliderExperience.createStandardLabels(1);
-		sliderExperience.setPaintTicks(true);
-		sliderExperience.setPaintLabels(true);
-		sliderExperience.setValue(EditVacancyManagement.getDataSetScoreExperience());
-		panelDialogEditVacancyManagementMatrix.add(sliderExperience);
-
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 20)));
-		panelDialogEditVacancyManagementMatrix.add(labelSocialEngagement);
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		sliderSocialEngagement.setMinimum(0);
-		sliderSocialEngagement.setMaximum(5);
-		sliderSocialEngagement.setMajorTickSpacing(1);
-		sliderSocialEngagement.createStandardLabels(1);
-		sliderSocialEngagement.setPaintTicks(true);
-		sliderSocialEngagement.setPaintLabels(true);
-		sliderSocialEngagement.setValue(EditVacancyManagement.getDataSetScoreSocialEngagement());
-		panelDialogEditVacancyManagementMatrix.add(sliderSocialEngagement);
-		panelDialogEditVacancyManagementMatrix.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditVacancyManagementMatrix.add(saveRating);
+		
+		
+		
 		
 		saveRating.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -96,36 +81,7 @@ public class DialogEditVacancyManagementMatrix {
 		
 		
 
-	public static void reset() {
-		panelDialogEditVacancyManagementMatrix.removeAll();
-
-	}
-
-	public static void getMatrix() {
-		try {
-			scoreImpression = sliderImpression.getValue();
-		} catch (Exception e) {
-		}
-		try {
-			scoreExperience = sliderExperience.getValue();
-		} catch (Exception e) {
-		}
-		try {
-			scoreSocialEngagement = sliderSocialEngagement.getValue();
-		} catch (Exception e) {
-		}
-
-	}
-	
-	public static int getScoreImpression() {
-		return scoreImpression;
-	}
-	public static int getScoreExperience() {
-		return scoreExperience;
-	}
-	public static int getScoreSocialEngagement() {
-		return scoreSocialEngagement;
-	}
+		
 
 }
 

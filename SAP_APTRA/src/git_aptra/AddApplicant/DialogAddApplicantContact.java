@@ -35,7 +35,7 @@ public class DialogAddApplicantContact {
 	
 	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
 	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
-	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
+	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(2015,2015,2020,1);
 	
 	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
 	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
@@ -66,6 +66,7 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
+	    spinnerYear.setEditor(new JSpinner.NumberEditor(spinnerYear, "0"));
 		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]110[]"));
 		panelDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
@@ -75,9 +76,9 @@ public class DialogAddApplicantContact {
 		panelDialogApplicantContact.add(labelEmail, "cell 0 5,alignx left");
 		panelDialogApplicantContact.add(fieldEmail, "cell 0 6 2 1,growx");
 		panelDialogApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
-		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 2, growx");
-		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 2 1, growx");
-		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 2 2, growx");
+		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 1, growx");
+		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 1 1, growx");
+		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 1 2, growx");
 		panelDialogApplicantContact.add(buttonSave, "cell 0 9,alignx left");
 		panelDialogApplicantContact.add(buttonAbort, "cell 1 9,alignx right ");
 		buttonSave.addActionListener(new ActionListener() {

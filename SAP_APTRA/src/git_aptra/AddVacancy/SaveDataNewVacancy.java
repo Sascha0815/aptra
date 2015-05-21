@@ -10,12 +10,12 @@ public class SaveDataNewVacancy {
 	public static void save() {
 		if (DialogAddVacancyGeneral.getGeneral() == true && DialogAddVacancySpecification.getSpecification() == true) {
 			try {
-				InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
 				InsertVacancyDataIntoDatabase.insertVacancyData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			Vector resultsVacancy = InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
+			InsertVacancyDataIntoDatabase.insertRatingData();
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
 			CloseDialogAddVacancy.close();
