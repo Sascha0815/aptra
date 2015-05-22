@@ -28,8 +28,7 @@ import net.miginfocom.swing.MigLayout;
 				add("Bezeichnung");
 			}
 		};
-		public static DefaultTableModel modelEditSelection = new DefaultTableModel(
-				8, 1) {
+		public static DefaultTableModel modelEditSelection = new DefaultTableModel() {
 			private static final long serialVersionUID = 1L;
 
 			public boolean isCellEditable(int row, int column) {

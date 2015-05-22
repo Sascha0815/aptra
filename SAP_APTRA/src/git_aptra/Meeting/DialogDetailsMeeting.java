@@ -67,8 +67,7 @@ public class DialogDetailsMeeting {
 			add("Vorname");
 		}
 	};
-	public static DefaultTableModel modelDialogEmployeeMeeting = new DefaultTableModel(
-			1, 4) {
+	public static DefaultTableModel modelDialogEmployeeMeeting = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -98,7 +97,6 @@ public class DialogDetailsMeeting {
 		dialogMeeting.setSize(400, 600);
 		dialogMeeting.setLocationRelativeTo(null);
 		dialogMeeting.setDefaultCloseOperation(dialogMeeting.DO_NOTHING_ON_CLOSE);
-		panelMeeting.setBackground(Color.LIGHT_GRAY);
 		dialogMeeting.setResizable(false);
 		panelMeeting.setLayout(new BoxLayout(panelMeeting, BoxLayout.Y_AXIS));
 		dialogMeeting.setTitle("Meeting Details");

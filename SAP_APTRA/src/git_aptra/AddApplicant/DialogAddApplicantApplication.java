@@ -59,6 +59,12 @@ public class DialogAddApplicantApplication {
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
+		boxID.setSelectedIndex(0);
+		fieldDate.setText("");
+		spinnerDay.setValue(1);
+		spinnerMonth.setValue("Januar");
+		spinnerYear.setValue(2015);
+		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
@@ -149,16 +155,6 @@ public class DialogAddApplicantApplication {
 		calApply.set(Calendar.MONTH, (monthApply - 1));
 		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
 		educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
-	}
-
-	public static void reset() {
-		panelDialogApplicantApplication.removeAll();
-		boxID.setSelectedIndex(0);
-		fieldDate.setText("");
-		spinnerDay.setValue(1);
-		spinnerMonth.setValue(1);
-		spinnerYear.setValue(2015);
-		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
 	public static Calendar getCalApply() {

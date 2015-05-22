@@ -34,8 +34,7 @@ public class DialogEditVacancyManagementHistory {
 
 		}
 	};
-	public static DefaultTableModel modelVacancyManagementHistory = new DefaultTableModel(
-			1, 4) {
+	public static DefaultTableModel modelVacancyManagementHistory = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {

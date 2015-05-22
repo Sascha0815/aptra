@@ -53,6 +53,9 @@ public class DialogAddApplicantContact {
 	private static Calendar cal = Calendar.getInstance();
 
 	public static void addApplicantContact() {
+		fieldTelefonHome.setText("");
+		fieldTelefonMobil.setText("");
+		fieldEmail.setText("");
 		labelInstruction.setFont(fontHeadline);
 		spinnerDay.setFont(fontSubHeadline);
 		spinnerMonth.setFont(fontSubHeadline);
@@ -150,12 +153,6 @@ public class DialogAddApplicantContact {
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, (month - 1));
 		cal.set(Calendar.DAY_OF_MONTH, day);
-	}
-
-	public static void reset() {
-		fieldTelefonHome.setText("");
-		fieldTelefonMobil.setText("");
-		fieldEmail.setText("");
 	}
 
 	public static String getTelefonHome() {

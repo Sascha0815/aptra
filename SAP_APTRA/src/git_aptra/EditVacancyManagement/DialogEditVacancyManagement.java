@@ -1,8 +1,10 @@
 package git_aptra.EditVacancyManagement;
 
 import java.net.MalformedURLException;
+
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
+
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
@@ -32,7 +34,18 @@ public class DialogEditVacancyManagement implements Runnable{
 		dialogEditVacancyManagement.add(tabEditVacancyManagment);
 		DialogEditVacancyManagementGeneral.editVacancyManagementGeneral();
 		DialogEditVacancyManagementDetails.editVacancyManagementDetails();
-		DialogEditVacancyManagementMatrix.editVacancyManagementMatrix();
+		try {
+			DialogEditVacancyManagementMatrix.editVacancyManagementMatrix();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		DialogEditVacancyManagementResponse.editVacancyManagementResponse();
 		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);

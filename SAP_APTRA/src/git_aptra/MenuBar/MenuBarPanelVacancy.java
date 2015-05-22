@@ -58,7 +58,7 @@ public class MenuBarPanelVacancy {
 	private static JButton buttonEditJob = new JButton();
 	private static JButton buttonSearchJob = new JButton();
 	private static JButton buttonSettingsJob = new JButton();
-	public static DefaultTableModel modelJob = new DefaultTableModel(1, 4) {
+	public static DefaultTableModel modelJob = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -214,7 +214,7 @@ public class MenuBarPanelVacancy {
 		panelButtonWorkplace.setBorder(border);
 		panelWorkplace.add(scrollPaneJob, "cell 0 0, w :1800: , h :1000:");
 		panelWorkplace.add(panelButtonWorkplace, "cell 1 0, w 150:150:150, h :1000:");
-		Oberflaeche.tabBar.addTab("Arbeitststellen", panelWorkplace);
+		Oberflaeche.tabBar.addTab("Arbeitsstellen", panelWorkplace);
 		tableJob.setAutoCreateRowSorter(true);
 	}
 }

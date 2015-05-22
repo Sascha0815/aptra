@@ -30,9 +30,9 @@ public class DialogAddApplicantGeneral {
 	
 	private static ButtonGroup radioButtonGroup = new ButtonGroup();
 	
-	private static JTextField fieldName = new JTextField();
-	private static JTextField fieldFirstName = new JTextField();
-	private static JTextField fieldStreet = new JTextField();
+	private static JTextField fieldName = new JTextField("");
+	private static JTextField fieldFirstName = new JTextField("");
+	private static JTextField fieldStreet = new JTextField("");
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
@@ -50,6 +50,14 @@ public class DialogAddApplicantGeneral {
 	private static String sex;
 
 	public static void addApplicantGeneral() {
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldStreet.setText("");
+		fieldHouseNr.setText("");
+		fieldPostalCode.setText("");
+		fieldCity.setText("");
+		radioButtonFemale.setSelected(false);
+		radioButtonMale.setSelected(false);
 		radioButtonGroup.add(radioButtonFemale);
 		radioButtonGroup.add(radioButtonMale);
 		radioButtonGroup.clearSelection();
@@ -128,17 +136,6 @@ public class DialogAddApplicantGeneral {
 		}
 		
 
-	}
-
-	public static void reset() {
-		fieldName.setText("");
-		fieldFirstName.setText("");
-		fieldStreet.setText("");
-		fieldHouseNr.setText("");
-		fieldPostalCode.setText("");
-		fieldCity.setText("");
-		radioButtonFemale.setSelected(false);
-		radioButtonMale.setSelected(false);
 	}
 
 	public static String getName() {

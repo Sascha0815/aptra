@@ -135,7 +135,6 @@ public class MenuBar {
 				}
 				itemEditSelection.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
 					Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
 					DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);
 					DialogEditSelection.modelEditSelection.fireTableDataChanged();

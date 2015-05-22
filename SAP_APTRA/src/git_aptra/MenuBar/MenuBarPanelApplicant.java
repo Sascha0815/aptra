@@ -54,7 +54,7 @@ public class MenuBarPanelApplicant {
 	private static String[] vacancyID;
 	
 	private static JScrollPane scrollPanePool = new JScrollPane();
-	public static DefaultTableModel modelPool = new DefaultTableModel(1, 4) {
+	public static DefaultTableModel modelPool = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {

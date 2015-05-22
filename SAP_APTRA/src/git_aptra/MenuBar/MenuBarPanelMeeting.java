@@ -1,7 +1,9 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
+import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.Login.Login;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -14,6 +16,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -48,7 +51,6 @@ public class MenuBarPanelMeeting {
 	};
 
 	private static JPanel panelMeeting = new JPanel();
-	private static JPanel panelMeetingInfo = new JPanel();
 	private static JPanel panelMeetingButton = new JPanel();
 	private static JPanel panelMeetingSummary = new JPanel();
 
@@ -63,8 +65,7 @@ public class MenuBarPanelMeeting {
 	private static JButton buttonEditMeeting = new JButton();
 	private static JButton buttonSearchMeeting = new JButton();
 	private static JButton buttonSettingsMeeting = new JButton();
-	public static DefaultTableModel modelEmployeeMeeting = new DefaultTableModel(
-			1, 4) {
+	public static DefaultTableModel modelEmployeeMeeting = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -136,7 +137,7 @@ public class MenuBarPanelMeeting {
 		buttonAddMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				// Dialog Termin auswahl
+				DialogAddMeeting.newMeeting();
 			}
 		});
 		try {

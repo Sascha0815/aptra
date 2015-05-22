@@ -37,7 +37,7 @@ import net.miginfocom.swing.MigLayout;
 public class MenuBarPanelVacancyManagement {
 	
 	private static JScrollPane scrollPaneVacancyManagement = new JScrollPane();
-	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel(1, 4) {
+	public static DefaultTableModel modelVacancyManagement = new DefaultTableModel() {
 	private static final long serialVersionUID = 1L;
 
 	public boolean isCellEditable(int row, int column) {

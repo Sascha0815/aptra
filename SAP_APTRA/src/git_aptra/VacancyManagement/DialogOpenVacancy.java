@@ -77,4 +77,5 @@ public class DialogOpenVacancy {
 	public static int getID(){
 		return id;
 	}
+	
 }

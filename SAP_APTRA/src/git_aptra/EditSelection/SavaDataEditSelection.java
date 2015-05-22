@@ -1,7 +1,6 @@
 package git_aptra.EditSelection;
 
 
-import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
 import java.util.Vector;
@@ -12,7 +11,7 @@ public class SavaDataEditSelection {
 		if (DialogEditSelectionGeneral.getGeneral() == true) {
 			try {
 				InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
-				InsertEditSelectionDataIntoDatebase.insertEditSelectionData();
+				InsertEditSelectionDataIntoDatebase.insertSelectionData();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
