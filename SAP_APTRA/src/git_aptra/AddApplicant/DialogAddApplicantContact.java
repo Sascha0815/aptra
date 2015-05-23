@@ -29,7 +29,7 @@ public class DialogAddApplicantContact {
 	private static JTextField fieldEmail = new JTextField();
 	
 	private static JButton buttonSave = new JButton("Speichern");
-	private static JButton buttonAbort = new JButton ("Abbrechen");
+	private static JButton buttonBack = new JButton ("Zurück");
 	
 	private static JDateChooser dateChooserBirthday = new JDateChooser();
 	
@@ -47,7 +47,7 @@ public class DialogAddApplicantContact {
 		fieldEmail.setText("");
 		labelInstruction.setFont(fontHeadline);
 		buttonSave.setFont(fontSubHeadline);
-		buttonAbort.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
 		labelTelefonHome.setFont(fontSubHeadline);
 		labelTelefonMobil.setFont(fontSubHeadline);
 		labelEmail.setFont(fontSubHeadline);
@@ -55,7 +55,7 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
-		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]110[]"));
+		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
 		panelDialogApplicantContact.add(fieldTelefonHome, "cell 0 2 2 1,growx");
@@ -66,16 +66,16 @@ public class DialogAddApplicantContact {
 		panelDialogApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
 		panelDialogApplicantContact.add(dateChooserBirthday, "cell 0 8 2,growx");
 		panelDialogApplicantContact.add(buttonSave, "cell 1 9,alignx right");
-		panelDialogApplicantContact.add(buttonAbort, "cell 0 9,alignx left ");
+		panelDialogApplicantContact.add(buttonBack, "cell 0 9,alignx left ");
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewApplicant.save();
 			}
 		});
-		buttonAbort.addActionListener(new ActionListener() {
+		buttonBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddApplicant.dialogNewApplicant.dispose();
+				DialogAddApplicant.tabAdd.setSelectedIndex(1);
 			}
 		});
 		

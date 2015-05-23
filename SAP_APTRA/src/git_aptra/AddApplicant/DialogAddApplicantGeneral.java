@@ -81,7 +81,7 @@ public class DialogAddApplicantGeneral {
 		fieldHouseNr.setFont(fontText);
 		fieldPostalCode.setFont(fontText);
 		fieldCity.setFont(fontText);
-		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
+		panelDialogApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 	    panelDialogApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 	    panelDialogApplicantMain.add(labelSex, "cell 0 1,alignx left");
 	    panelDialogApplicantMain.add(labelFemale, "cell 0 2,alignx left");

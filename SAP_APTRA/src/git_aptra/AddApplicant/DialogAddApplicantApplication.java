@@ -36,9 +36,14 @@ public class DialogAddApplicantApplication {
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
+	private static JLabel labelDivision = new JLabel("Abteilung");
 	
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
+	
+	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	static JComboBox boxDivision = new JComboBox(boxListDivision);
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
@@ -70,7 +75,7 @@ public class DialogAddApplicantApplication {
 		buttonBack.setFont(fontSubHeadline);
 		fieldDate.setFont(fontText);
 		labelEducationalAchievement.setFont(fontText);
-		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
 	    panelDialogApplicantApplication.add(dateChooserApplyDate, "cell 0 2 2, growx");
@@ -78,9 +83,10 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
-	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
-		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
+	    panelDialogApplicantApplication.add(labelDivision, "cell 0 9, alignx left");
+	    panelDialogApplicantApplication.add(boxDivision, "cell 0 10, alignx left");
+	    panelDialogApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
+	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
 	    
 		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -93,8 +99,8 @@ public class DialogAddApplicantApplication {
 				DialogAddApplicant.tabAdd.setSelectedIndex((0));
 			}
 		});
-
-
+		
+		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 	}
 
 	public static void getApplication() {
