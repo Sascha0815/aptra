@@ -18,10 +18,8 @@ public class SaveDataNewApplicant {
 			}
 
 			@SuppressWarnings("rawtypes")
-			Vector resultsApplicant = InsertApplicantDataIntoTable
-					.insertApplicantDataIntoTable();
-			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,
-					MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
+			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
+			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
 			CloseDialogAddApplicant.close();
 

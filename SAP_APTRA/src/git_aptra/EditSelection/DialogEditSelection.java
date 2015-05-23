@@ -59,7 +59,7 @@ public class DialogEditSelection {
 
 	public static void editSelection() {
 		dialogEditSelection.setVisible(true);
-		dialogEditSelection.setSize(420,250);
+		dialogEditSelection.setSize(420,300);
 		dialogEditSelection.setLocationRelativeTo(null);
 		dialogEditSelection.setResizable(false);
 		dialogEditSelection.setTitle("Kriterien bearbeiten");
