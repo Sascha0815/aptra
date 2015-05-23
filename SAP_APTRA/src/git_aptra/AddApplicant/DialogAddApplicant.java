@@ -11,7 +11,7 @@ public class DialogAddApplicant {
 
 	public static void newApplicant() {		
 		dialogNewApplicant.setVisible(true);
-		dialogNewApplicant.setSize(425, 410);
+		dialogNewApplicant.setSize(425, 450);
 		dialogNewApplicant.setLocationRelativeTo(null);
 		dialogNewApplicant.setResizable(false);
 		dialogNewApplicant.setTitle("Neuer Bewerber");

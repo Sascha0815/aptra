@@ -1,12 +1,19 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.AddMeeting.DialogLoadApplicantData;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import org.apache.fontbox.cff.IndexData;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -29,6 +36,8 @@ public class DialogAddApplicantGeneral {
 	private static JRadioButton radioButtonMale = new JRadioButton();
 	
 	private static ButtonGroup radioButtonGroup = new ButtonGroup();
+	
+	private static JButton buttonContinue = new JButton("Weiter");
 	
 	private static JTextField fieldName = new JTextField("");
 	private static JTextField fieldFirstName = new JTextField("");
@@ -96,6 +105,12 @@ public class DialogAddApplicantGeneral {
 	    panelDialogApplicantMain.add(fieldPostalCode,"cell 0 12 2 1,growx");
 	    panelDialogApplicantMain.add(labelCity,"cell 0 13,alignx left");
 	    panelDialogApplicantMain.add(fieldCity, "cell 0 14 2 1,growx");
+	    panelDialogApplicantMain.add(buttonContinue,"cell 0 15,alignx right");
+	    buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddApplicant.tabAdd.setSelectedIndex((1));
+			}
+		});
 		DialogAddApplicant.tabAdd.addTab("Allgemein", panelDialogApplicantMain);
 	}
 

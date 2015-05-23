@@ -1,18 +1,25 @@
 package git_aptra.AddApplicant;
 
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
+
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantApplication {
@@ -29,6 +36,8 @@ public class DialogAddApplicantApplication {
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
+	
+	private static JButton buttonContinue = new JButton("Weiter");
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
@@ -66,6 +75,12 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
+	    panelDialogApplicantApplication.add(buttonContinue,"cell 0 9,alignx right");
+	    buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddApplicant.tabAdd.setSelectedIndex((2));
+			}
+		});
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 
 	}
