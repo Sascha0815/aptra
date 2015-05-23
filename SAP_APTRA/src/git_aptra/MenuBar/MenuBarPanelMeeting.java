@@ -2,7 +2,9 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddMeeting.DialogAddMeeting;
+import git_aptra.AddMeeting.DialogOpenMeeting;
 import git_aptra.Login.Login;
+import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,7 +16,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -137,7 +141,26 @@ public class MenuBarPanelMeeting {
 		buttonAddMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddMeeting.newMeeting();
+				ArrayList<String> id= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select applicantID, name, firstName from applicant");
+
+					while (rs.next()) {
+						 id.add(rs.getString(1)+" - "+rs.getString(2) + ", " +rs.getString(3));
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				result = new String[id.size()];
+				result = id.toArray(result);
+				
+				DialogOpenMeeting.openMeeting();
+				
 			}
 		});
 		try {

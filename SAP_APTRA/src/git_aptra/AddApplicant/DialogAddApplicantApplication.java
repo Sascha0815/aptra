@@ -38,6 +38,7 @@ public class DialogAddApplicantApplication {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	
 	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonBack = new JButton("Zurück");
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
@@ -65,6 +66,8 @@ public class DialogAddApplicantApplication {
 		labelVacancyID.setFont(fontSubHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
 		boxID.setFont(fontSubHeadline);
+		buttonContinue.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
 		fieldDate.setFont(fontText);
 		labelEducationalAchievement.setFont(fontText);
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
@@ -75,13 +78,22 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogApplicantApplication.add(buttonContinue,"cell 0 9,alignx right");
-	    buttonContinue.addActionListener(new ActionListener() {
+	    panelDialogApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
+	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
+		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
+	    
+		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogAddApplicant.tabAdd.setSelectedIndex((2));
 			}
 		});
-		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
+		
+		buttonBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddApplicant.tabAdd.setSelectedIndex((0));
+			}
+		});
+
 
 	}
 

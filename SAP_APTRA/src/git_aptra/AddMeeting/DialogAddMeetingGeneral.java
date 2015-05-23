@@ -1,64 +1,59 @@
 package git_aptra.AddMeeting;
 
-import git_aptra.AddApplicant.SaveDataNewApplicant;
-
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddMeetingGeneral {
 	private static JPanel panelDialogMeetingMain = new JPanel();
 	
-	private static JButton buttonLoadData = new JButton ("Bewerber auswählen");
-	
-	private static JLabel labelInstruction = new JLabel("Bewerberdaten auswählen");
+	private static JLabel labelInstruction = new JLabel("Informationen zum ausgewählten Bewerber");
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelVacancyID = new JLabel("Stellen-ID:");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
 	private static JLabel labelDivision = new JLabel("Abteilung:");
+	public static JLabel labelApplicantIDContent = new JLabel();
+	public static JLabel labelNameContent = new JLabel();
+	public static JLabel labelFirstNameContent = new JLabel();
+	public static JLabel labelVacancyIDContent = new JLabel();
+	public static JLabel labelPositionContent = new JLabel();
+	public static JLabel labelDivisionContent = new JLabel();
 
-	private static JTextField fieldApplicantID = new JTextField();
-	private static JTextField fieldName = new JTextField();
-	private static JTextField fieldFirstName = new JTextField();
-	private static JTextField fieldVacancyID = new JTextField();
-	private static JTextField fieldPosition = new JTextField();
-	private static JTextField fieldDivision = new JTextField();
-	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void addMeetingGeneral(){
+		labelInstruction.setFont(fontHeadline);
+		labelApplicantID.setFont(fontSubHeadline);
+		labelName.setFont(fontSubHeadline);
+		labelFirstName.setFont(fontSubHeadline);
+		labelVacancyID.setFont(fontSubHeadline);
+		labelPosition.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
+		labelApplicantIDContent.setFont(fontText);
+		labelNameContent.setFont(fontText);
+		labelFirstNameContent.setFont(fontText);
+		labelVacancyIDContent.setFont(fontText);
+		labelPositionContent.setFont(fontText);
+		labelDivisionContent.setFont(fontText);
 		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
-		DialogAddMeeting.tabAdd.addTab("Allgemein", panelDialogMeetingMain);
-		//panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
-		panelDialogMeetingMain.add(buttonLoadData, "cell 0 1 2,alignx center");
-		buttonLoadData.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogLoadApplicantData.loadApplicantData();
-			}
-		});
-		
+		panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogMeetingMain.add(labelApplicantID,"cell 0 2,alignx left");
-		panelDialogMeetingMain.add(fieldApplicantID,"cell 0 3 2 1,growx");
+		panelDialogMeetingMain.add(labelApplicantIDContent,"cell 0 3 2 1,growx");
 		panelDialogMeetingMain.add(labelName,"cell 0 4,alignx left");
-		panelDialogMeetingMain.add(fieldName,"cell 0 5 2 1,growx");
+		panelDialogMeetingMain.add(labelNameContent,"cell 0 5 2 1,growx");
 		panelDialogMeetingMain.add(labelFirstName,"cell 0 6,alignx left");
-		panelDialogMeetingMain.add(fieldFirstName,"cell 0 7 2 1,growx");
+		panelDialogMeetingMain.add(labelFirstNameContent,"cell 0 7 2 1,growx");
 		panelDialogMeetingMain.add(labelVacancyID,"cell 0 8,alignx left");
-		panelDialogMeetingMain.add(fieldVacancyID,"cell 0 9 2 1,growx");
+		panelDialogMeetingMain.add(labelVacancyIDContent,"cell 0 9 2 1,growx");
 		panelDialogMeetingMain.add(labelPosition,"cell 0 10,alignx left");
-		panelDialogMeetingMain.add(fieldPosition,"cell 0 11 2 1,growx");
+		panelDialogMeetingMain.add(labelPositionContent,"cell 0 11 2 1,growx");
 		panelDialogMeetingMain.add(labelDivision,"cell 0 12,alignx left");
-		panelDialogMeetingMain.add(fieldDivision,"cell 0 13 2 1,growx");
+		panelDialogMeetingMain.add(labelDivisionContent,"cell 0 13 2 1,growx");
+		DialogAddMeeting.tabAdd.addTab("Allgemein", panelDialogMeetingMain);
 	}
 }

@@ -47,8 +47,8 @@ public class DialogOpenVacancy {
 		panelAddVacancyManagement.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][]"));
 		panelAddVacancyManagement.add(labelInstruction, "cell 0 0,alignx center");
 		panelAddVacancyManagement.add(boxID, "cell 0 1 3 1,growx");
-		panelAddVacancyManagement.add(buttonSearch, "cell 0 3 ,alignx left");
-		panelAddVacancyManagement.add(buttonAbort, "cell 1 3  ,alignx right");
+		panelAddVacancyManagement.add(buttonSearch, "cell 0 3,alignx left");
+		panelAddVacancyManagement.add(buttonAbort, "cell 1 3,alignx right");
 		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);		
 		
 		buttonSearch.addActionListener(new ActionListener() {

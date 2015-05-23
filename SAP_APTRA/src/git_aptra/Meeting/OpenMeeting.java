@@ -1,5 +1,6 @@
 package git_aptra.Meeting;
 
+import git_aptra.AddMeeting.DialogAddMeetingGeneral;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +13,6 @@ public class OpenMeeting {
 	private static String location;
 	private static String time;
 
-	
 	public static void insertInfo(){
 		try {
 			Connection con = DriverManager.getConnection(
@@ -35,4 +35,5 @@ public class OpenMeeting {
 		MenuBarPanelMeeting.labelMeetingNextTimeContent.setText(time);
 		MenuBarPanelMeeting.labelMeetingLocationContent.setText(location);	
 	}
+		
 }
