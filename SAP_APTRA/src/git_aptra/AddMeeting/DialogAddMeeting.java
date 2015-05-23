@@ -11,7 +11,7 @@ public class DialogAddMeeting {
 
 	public static void newMeeting() {		
 		dialogNewMeeting.setVisible(true);
-		dialogNewMeeting.setSize(425, 410);
+		dialogNewMeeting.setSize(425, 440);
 		dialogNewMeeting.setLocationRelativeTo(null);
 		dialogNewMeeting.setResizable(false);
 		dialogNewMeeting.setTitle("Neuer Termin");

@@ -1,6 +1,12 @@
 package git_aptra.AddVacancy;
 
+import git_aptra.AddApplicant.DialogAddApplicant;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +27,8 @@ public class DialogAddVacancyGeneral {
 	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis");
 	private static JLabel labelVacancyStatus = new JLabel("Status");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
+	
+	private static JButton buttonContinue = new JButton("Weiter");
 
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
@@ -44,7 +52,7 @@ public class DialogAddVacancyGeneral {
 	
 
 	public static void addVacancyGeneral() {
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		labelInstruction.setFont(fontHeadline);
 		labelArea.setFont(fontSubHeadline);
@@ -71,6 +79,13 @@ public class DialogAddVacancyGeneral {
 		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 2 1,growx");
 		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
 		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
+		panelDialogVacancyMain.add(buttonContinue,"cell 1 13,alignx right");
+	    
+		buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddVacancy.tabVacancy.setSelectedIndex((1));
+			}
+		});
 		DialogAddVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
 	}
 

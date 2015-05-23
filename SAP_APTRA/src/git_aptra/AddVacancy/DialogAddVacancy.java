@@ -18,7 +18,7 @@ public class DialogAddVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void newVacancy() {
 		dialogNewVacancy.setVisible(true);
-		dialogNewVacancy.setSize(450, 375);
+		dialogNewVacancy.setSize(450, 425);
 		dialogNewVacancy.setResizable(false);
 		dialogNewVacancy.setTitle("Neue Stelle");
 		dialogNewVacancy.add(tabVacancy);

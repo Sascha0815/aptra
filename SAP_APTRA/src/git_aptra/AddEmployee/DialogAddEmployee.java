@@ -29,7 +29,8 @@ public class DialogAddEmployee {
 	private static JLabel labelPasswordRepeat = new JLabel("Passwort wiederholen:");
 	private static JLabel labelEntitlement = new JLabel("Sicherheitsstufe:");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
-	private static JLabel labelWarning= new JLabel("Die Passwörter stimmen nicht überein!");
+	private static JLabel labelWarning = new JLabel("Die Passwörter stimmen nicht überein!");
+	private static JLabel labelDivision = new JLabel("Abteilung:");
 
 	public static JPanel panelDialogEmployeeMain = new JPanel();
 	
@@ -40,6 +41,10 @@ public class DialogAddEmployee {
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldLoginName = new JTextField();
+	
+	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	static JComboBox boxDivision = new JComboBox(boxListDivision);
 	
 	private static Integer[] boxListEntitlement = { 1, 2};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -60,7 +65,7 @@ public class DialogAddEmployee {
 	public static void addEmployee() {
 		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setVisible(true);
-		dialogNewEmployee.setSize(435, 380);
+		dialogNewEmployee.setSize(435, 450);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");
 		SwingUtilities.updateComponentTreeUI(dialogNewEmployee);
@@ -92,10 +97,12 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(fieldPassword, "cell 0 8 32 1,growx");
 		panelDialogEmployeeMain.add(labelPasswordRepeat, "cell 0 9,alignx left");
 		panelDialogEmployeeMain.add(fieldPasswordRepeat, "cell 0 10 2 1,growx");
-		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 11,alignx left");
-		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 12 2 1,growx");
-		panelDialogEmployeeMain.add(buttonSave, "cell 0 13,alignx left");
-		panelDialogEmployeeMain.add(buttonAbort, "cell 1 13,alignx right");
+		panelDialogEmployeeMain.add(labelDivision, "cell 0 11 2 1, alignx left");
+		panelDialogEmployeeMain.add(boxDivision, "cell 0 12 2 1, growx");
+		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 13,alignx left");
+		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 14 2 1,growx");
+		panelDialogEmployeeMain.add(buttonSave, "cell 0 15,alignx left");
+		panelDialogEmployeeMain.add(buttonAbort, "cell 1 15,alignx right");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				char[] passwordChar1 = fieldPassword.getPassword();

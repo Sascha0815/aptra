@@ -56,12 +56,10 @@ public class DialogAddVacancySelection {
 	
 	
 	private static JButton save = new JButton("Speichern");
-	
-	
-	//private static JSpinner spinner = new JSpinner(new SpinnerNumberModel(0,1,31,1));
-	
+	private static JButton buttonBack = new JButton("Zurück");
+		
 	public static void addVacancyHistory(){
-		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][][]"));
+		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][]push[]"));
 		panelDialogVacancySelection.add(labelInstruction, "cell 0 0 2,alignx center");
 		panelDialogVacancySelection.add(labelSelection, "cell 0 1,alignx left");
 		tableSelection = new JTable(modelSelection);
@@ -71,7 +69,14 @@ public class DialogAddVacancySelection {
 		tableSelection.setRowHeight(20);
 		tableSelection.setAutoCreateRowSorter(true);
 		panelDialogVacancySelection.add(scrollPaneSelection, "cell 0 2 4 12,alignx left");
-		panelDialogVacancySelection.add(save, "cell 0 15 2 1, alignx left");
+		panelDialogVacancySelection.add(save, "cell 1 15 2 1, alignx right");
+		panelDialogVacancySelection.add(buttonBack, "cell 0 15 2 1, alignx left");
+		
+		buttonBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddVacancy.tabVacancy.setSelectedIndex(1);
+			}
+		});
 	
 		save.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {

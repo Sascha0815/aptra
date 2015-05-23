@@ -4,11 +4,15 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
+
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancySpecification {
@@ -22,13 +26,18 @@ public class DialogAddVacancySpecification {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
 	private static JLabel labelLevel = new JLabel("Zusatz/Vermerk:");
 	private static JLabel labelDeadline = new JLabel("Bewerbungsschluss:");
+	private static JLabel labelDivision = new JLabel("Abteilung:");
 
 	private static JTextField fieldLevel = new JTextField();
 	
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
+	
+	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	static JComboBox boxDivision = new JComboBox(boxListDivision);
 
-	private static JButton buttonSave = new JButton("Speichern");
-	private static JButton buttonAbort = new JButton("Abbrechen");
+	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonBack = new JButton("Zurück");
 
 	public static void addVacancySpecification() {
 		fieldLevel.setText("");
@@ -37,25 +46,30 @@ public class DialogAddVacancySpecification {
 		labelDeadline.setFont(fontSubHeadline);
 		dateChooserDeadline.setFont(fontSubHeadline);
 		fieldLevel.setFont(fontText);
-		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
-		panelDialogVacancySpecification.add(labelInstruction, "cell 1 0 2 1,alignx center");
+		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogVacancySpecification.add(labelInstruction, "cell 0 0 2,alignx center");
 		panelDialogVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
 		panelDialogVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
 		panelDialogVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
 		panelDialogVacancySpecification.add(dateChooserDeadline, "cell 0 4 2, growx");
-		panelDialogVacancySpecification.add(buttonSave, "cell 0 5,alignx left");
-		panelDialogVacancySpecification.add(buttonAbort, "cell 1 5,alignx right ");
+		panelDialogVacancySpecification.add(labelDivision, "cell 0 5,alignx left");
+		panelDialogVacancySpecification.add(boxDivision, "cell 0 6,alignx left");
+		panelDialogVacancySpecification.add(buttonBack,"cell 0 11,alignx left");
+		panelDialogVacancySpecification.add(buttonContinue,"cell 1 11,alignx right");
 		DialogAddVacancy.tabVacancy.addTab("Organisation",panelDialogVacancySpecification);
-		buttonSave.addActionListener(new ActionListener() {
+		    
+		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				SaveDataNewVacancy.save();
+				DialogAddVacancy.tabVacancy.setSelectedIndex((2));
 			}
 		});
-		buttonAbort.addActionListener(new ActionListener() {
+			
+		buttonBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddVacancy.dialogNewVacancy.dispose();	
+				DialogAddVacancy.tabVacancy.setSelectedIndex((0));
 			}
 		});
+		
 	}
 
 	private static String level;

@@ -1,8 +1,15 @@
 package git_aptra.AddMeeting;
 
+import git_aptra.AddVacancy.DialogAddVacancy;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddMeetingGeneral {
@@ -22,9 +29,11 @@ public class DialogAddMeetingGeneral {
 	public static JLabel labelPositionContent = new JLabel();
 	public static JLabel labelDivisionContent = new JLabel();
 
+	private static JButton buttonContinue = new JButton("Weiter");
+	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
-	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 18);
 	
 	public static void addMeetingGeneral(){
 		labelInstruction.setFont(fontHeadline);
@@ -40,7 +49,7 @@ public class DialogAddMeetingGeneral {
 		labelVacancyIDContent.setFont(fontText);
 		labelPositionContent.setFont(fontText);
 		labelDivisionContent.setFont(fontText);
-		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
+		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]push[]"));
 		panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogMeetingMain.add(labelApplicantID,"cell 0 2,alignx left");
 		panelDialogMeetingMain.add(labelApplicantIDContent,"cell 0 3 2 1,growx");
@@ -54,6 +63,14 @@ public class DialogAddMeetingGeneral {
 		panelDialogMeetingMain.add(labelPositionContent,"cell 0 11 2 1,growx");
 		panelDialogMeetingMain.add(labelDivision,"cell 0 12,alignx left");
 		panelDialogMeetingMain.add(labelDivisionContent,"cell 0 13 2 1,growx");
+		panelDialogMeetingMain.add(buttonContinue,"cell 1 14 ,alignx right");
+		
+		buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddMeeting.tabAdd.setSelectedIndex(1);
+			}
+		});
+		
 		DialogAddMeeting.tabAdd.addTab("Allgemein", panelDialogMeetingMain);
 	}
 }
