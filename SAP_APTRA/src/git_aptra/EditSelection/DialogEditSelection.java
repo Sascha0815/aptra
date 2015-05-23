@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import git_aptra.Oberflaeche;
+import git_aptra.Delete.DeleteSelection;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -73,7 +74,7 @@ public class DialogEditSelection {
 		dialogEditSelection.add(panelDialogEditSelectionGeneral);
 		labelInstruction.setFont(fontHeadline);
 		labelSelection.setFont(fontSubHeadline);
-		tableEditSelection.setFont(fontSubHeadline);
+		scrollPaneSelection.setFont(fontSubHeadline);
 		buttonSave.setFont(fontSubHeadline);
 		buttonAdd.setFont(fontSubHeadline);
 		buttonEdit.setFont(fontSubHeadline);
@@ -85,25 +86,29 @@ public class DialogEditSelection {
 		panelDialogEditSelectionGeneral.add(buttonEdit, "cell 0 1 2 2,growx");
 		panelDialogEditSelectionGeneral.add(buttonDelete, "cell 0 1 2 3,growx");
 		panelDialogEditSelectionGeneral.add(labelSelection,"cell 0 2,alignx left");
-		panelDialogEditSelectionGeneral.add(tableEditSelection,"cell 0 3 2 10,growx");
+		panelDialogEditSelectionGeneral.add(scrollPaneSelection,"cell 0 3 2 10,growx");
 
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				dialogEditSelection.setVisible(true);
-				dialogEditSelection.setSize(420, 420);
-				dialogEditSelection.setLocationRelativeTo(null);
-				dialogEditSelection.setResizable(false);
-				dialogEditSelection.setTitle("Kriterien bearbeiten");
-				dialogEditSelection.add(tabEdit);
-				DialogEditSelectionGeneral.EditSelectionGeneral();
-				SwingUtilities.updateComponentTreeUI(dialogEditSelection);
-				dialogEditSelection.setLocationRelativeTo(Oberflaeche.frame);
+				dialogEditSelection.dispose();
 			}
 		});
 		
 		buttonAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogNewSelection.newSelection();
+			}
+		});
+		
+		buttonEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				
+			}
+		});
+		
+		buttonDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DeleteSelection.deleteSelection();
 			}
 		});
 	}

@@ -134,6 +134,7 @@ public class MenuBar {
 				} catch (IOException ex) {
 				}
 				itemEditSelection.addActionListener(new ActionListener() {
+					@SuppressWarnings("rawtypes")
 					public void actionPerformed(ActionEvent e) {
 					Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
 					DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);

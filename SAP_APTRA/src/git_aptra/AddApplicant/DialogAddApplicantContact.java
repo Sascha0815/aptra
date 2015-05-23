@@ -4,17 +4,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerNumberModel;
-
+import com.toedter.calendar.JDateChooser;
 import net.miginfocom.swing.MigLayout;
-
 public class DialogAddApplicantContact {
 	
 	public static JPanel panelDialogApplicantContact = new JPanel();
@@ -33,16 +28,10 @@ public class DialogAddApplicantContact {
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
 	
-	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
-	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
-	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(2015,2015,2020,1);
-	
-	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
-	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
-	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
-	
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAbort = new JButton ("Abbrechen");
+	
+	private static JDateChooser dateChooserBirthday = new JDateChooser();
 	
 	private static String telefonHome;
 	private static String telefonMobil;
@@ -57,9 +46,6 @@ public class DialogAddApplicantContact {
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
 		labelInstruction.setFont(fontHeadline);
-		spinnerDay.setFont(fontSubHeadline);
-		spinnerMonth.setFont(fontSubHeadline);
-		spinnerYear.setFont(fontSubHeadline);
 		buttonSave.setFont(fontSubHeadline);
 		buttonAbort.setFont(fontSubHeadline);
 		labelTelefonHome.setFont(fontSubHeadline);
@@ -69,7 +55,6 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
-	    spinnerYear.setEditor(new JSpinner.NumberEditor(spinnerYear, "0"));
 		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]110[]"));
 		panelDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
@@ -79,11 +64,10 @@ public class DialogAddApplicantContact {
 		panelDialogApplicantContact.add(labelEmail, "cell 0 5,alignx left");
 		panelDialogApplicantContact.add(fieldEmail, "cell 0 6 2 1,growx");
 		panelDialogApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
-		panelDialogApplicantContact.add(spinnerDay, "cell 0 8 1, growx");
-		panelDialogApplicantContact.add(spinnerMonth, "cell 0 8 1 1, growx");
-		panelDialogApplicantContact.add(spinnerYear, "cell 0 8 1 2, growx");
+		panelDialogApplicantContact.add(dateChooserBirthday, "cell 0 8 2,growx");
 		panelDialogApplicantContact.add(buttonSave, "cell 0 9,alignx left");
 		panelDialogApplicantContact.add(buttonAbort, "cell 1 9,alignx right ");
+		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataNewApplicant.save();
@@ -94,8 +78,8 @@ public class DialogAddApplicantContact {
 				DialogAddApplicant.dialogNewApplicant.dispose();
 			}
 		});
-		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",
-				panelDialogApplicantContact);
+		
+		
 	}
 
 	public static void getContact() {
@@ -111,45 +95,15 @@ public class DialogAddApplicantContact {
 			telefonMobil = fieldTelefonMobil.getText();
 		} catch (Exception e) {
 		}
-		day = (int) spinnerDay.getValue();
-		String valueSpinnerMonth = (String) spinnerMonth.getValue();
-		if(valueSpinnerMonth.equals("Januar")){
-			month = 1;
+		try {
+			String date = ((JTextField)dateChooserBirthday.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			day = Integer.parseInt(parts[0]);
+			month = Integer.parseInt(parts[1]);
+			year = Integer.parseInt(parts[2]);
+			
+		} catch (Exception e) {
 		}
-		if(valueSpinnerMonth.equals("Februar")){
-			month = 2;
-		}
-		if(valueSpinnerMonth.equals("März")){
-			month = 3;
-		}
-		if(valueSpinnerMonth.equals("April")){
-			month = 4;
-		}
-		if(valueSpinnerMonth.equals("Mai")){
-			month = 5;
-		}
-		if(valueSpinnerMonth.equals("Juni")){
-			month = 6;
-		}
-		if(valueSpinnerMonth.equals("Juli")){
-			month = 7;
-		}
-		if(valueSpinnerMonth.equals("August")){
-			month = 8;
-		}
-		if(valueSpinnerMonth.equals("September")){
-			month = 9;
-		}
-		if(valueSpinnerMonth.equals("Oktober")){
-			month = 10;
-		}
-		if(valueSpinnerMonth.equals("November")){
-			month = 11;
-		}
-		if(valueSpinnerMonth.equals("Dezember")){
-			month = 12;
-		}
-		year = (int) spinnerYear.getValue();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, (month - 1));
 		cal.set(Calendar.DAY_OF_MONTH, day);

@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import git_aptra.Oberflaeche;
 
@@ -58,6 +59,7 @@ public class DialogNewSelection {
 		panelDialogNewSelection.add(buttonAbort, "cell 1 3,alignx right ");
 		
 		buttonSave.addActionListener(new ActionListener() {
+			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent evt) {
 				notation = fieldNotation.getText();
 				for(int i = 0; i<DialogEditSelection.tableEditSelection.getRowCount();i++){
@@ -76,7 +78,9 @@ public class DialogNewSelection {
 				} else {
 					
 				}
-			
+				Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
+				DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);
+				DialogEditSelection.modelEditSelection.fireTableDataChanged();
 			}
 		});
 		

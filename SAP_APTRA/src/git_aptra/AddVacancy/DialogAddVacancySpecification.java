@@ -7,9 +7,8 @@ import java.util.Calendar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-
+import com.toedter.calendar.JDateChooser;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancySpecification {
@@ -25,30 +24,25 @@ public class DialogAddVacancySpecification {
 	private static JLabel labelDeadline = new JLabel("Bewerbungsschluss:");
 
 	private static JTextField fieldLevel = new JTextField();
+	
+	private static JDateChooser dateChooserDeadline = new JDateChooser();
 
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAbort = new JButton("Abbrechen");
 
-	private static JSpinner spinnerDay = new JSpinner();
-	private static JSpinner spinnerMonth = new JSpinner();
-	private static JSpinner spinnerYear = new JSpinner();
-
 	public static void addVacancySpecification() {
+		fieldLevel.setText("");
 		labelInstruction.setFont(fontHeadline);
 		labelLevel.setFont(fontSubHeadline);
 		labelDeadline.setFont(fontSubHeadline);
-		spinnerDay.setFont(fontSubHeadline);
-		spinnerMonth.setFont(fontSubHeadline);
-		spinnerDay.setFont(fontSubHeadline);
+		dateChooserDeadline.setFont(fontSubHeadline);
 		fieldLevel.setFont(fontText);
 		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
 		panelDialogVacancySpecification.add(labelInstruction, "cell 1 0 2 1,alignx center");
 		panelDialogVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
 		panelDialogVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
 		panelDialogVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
-		panelDialogVacancySpecification.add(spinnerDay, "cell 0 4 2");
-		panelDialogVacancySpecification.add(spinnerMonth, "cell 0 4 2 1");
-		panelDialogVacancySpecification.add(spinnerYear, "cell 0 4 2 2");
+		panelDialogVacancySpecification.add(dateChooserDeadline, "cell 0 4 2, growx");
 		panelDialogVacancySpecification.add(buttonSave, "cell 0 5,alignx left");
 		panelDialogVacancySpecification.add(buttonAbort, "cell 1 5,alignx right ");
 		DialogAddVacancy.tabVacancy.addTab("Organisation",panelDialogVacancySpecification);
@@ -73,16 +67,19 @@ public class DialogAddVacancySpecification {
 	public static boolean getSpecification() {
 		try {
 			level = fieldLevel.getText();
-			day = (int) spinnerDay.getValue();
-			month = (int) spinnerMonth.getValue();
-			year = (int) spinnerYear.getValue();
+		} catch (Exception e) {
+		}
+		try {
+			String date = ((JTextField)dateChooserDeadline.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			day = Integer.parseInt(parts[0]);
+			month = Integer.parseInt(parts[1]);
+			year = Integer.parseInt(parts[2]);
 			calVacancy.set(Calendar.YEAR, year);
 			calVacancy.set(Calendar.MONTH, (month - 1));
 			calVacancy.set(Calendar.DAY_OF_MONTH, day);
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
 		}
-
 		if (level.equals("")) {
 			return false;
 		} else {
@@ -90,14 +87,6 @@ public class DialogAddVacancySpecification {
 		}
 	}
 	
-	public static void reset() {
-		panelDialogVacancySpecification.removeAll();
-		fieldLevel.setText("");
-		spinnerDay.setValue(0);
-		spinnerMonth.setValue(0);
-		spinnerYear.setValue(0);
-	}
-
 	public static String getLevel() {
 		return level;
 	}
