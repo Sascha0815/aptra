@@ -33,6 +33,7 @@ public class DialogOpenVacancy {
 	private static JComboBox boxID = new JComboBox(MenuBarPanelVacancyManagement.getResult());
 	
 	private static int id;
+	private static boolean first = true;
 	
 	public static void addVacancyManagement() {
 		dialogAddVacancyManagement.setVisible(true);
@@ -50,20 +51,23 @@ public class DialogOpenVacancy {
 		panelAddVacancyManagement.add(buttonSearch, "cell 0 3,alignx left");
 		panelAddVacancyManagement.add(buttonAbort, "cell 1 3,alignx right");
 		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);		
+		if (first==true) {
+			first = false;
+			buttonSearch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					String IDSplit = ((String) boxID.getSelectedItem());
+					String[] IDParts = IDSplit.split(" - ");
+					id = Integer.parseInt(IDParts[0]);
+					@SuppressWarnings("rawtypes")
+					Vector resultsVacancy = OpenVacancy.openVacancy(id);						
+					MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+					boxID.setSelectedIndex(0); 					
+					dialogAddVacancyManagement.dispose();
+					OpenVacancy.insertInfo(id);
+				}
+			});
+		}
 		
-		buttonSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				String IDSplit = ((String) boxID.getSelectedItem());
-				String[] IDParts = IDSplit.split(" - ");
-				id = Integer.parseInt(IDParts[0]);
-				@SuppressWarnings("rawtypes")
-				Vector resultsVacancy = OpenVacancy.openVacancy(id);						
-				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-				boxID.setSelectedIndex(0); 					
-				dialogAddVacancyManagement.dispose();
-				OpenVacancy.insertInfo(id);
-			}
-		});
 		
 		buttonAbort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
