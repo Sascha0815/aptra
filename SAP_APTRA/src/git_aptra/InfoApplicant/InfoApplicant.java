@@ -23,7 +23,7 @@ public class InfoApplicant {
 	private static String DataSetDate;
 	private static String DataSetEducationalAchievement;
 	private static String DataSetDateApplication;
-	private static String DataSetDateVacancyID;
+	private static String DataSetVacancyID;
 	private static String DataSetMarkApplicant;
 	private static String DataSetMarkApplication;
 	private static boolean DataSetCL;
@@ -142,7 +142,7 @@ public class InfoApplicant {
 		return DataSetDateApplication;
 	}
 
-	public static String getDataSetDateVacancyID() {
+	public static String getDataSetVacancyID() {
 		try {
 			Connection con = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
@@ -151,13 +151,13 @@ public class InfoApplicant {
 			ResultSet rs = stmt.executeQuery("Select * from applicant");
 
 			while (rs.next()) {
-				DataSetDateVacancyID = rs.getString(15);
+				DataSetVacancyID = rs.getString(15);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return DataSetDateVacancyID;
+		return DataSetVacancyID;
 	}
 	
 	public static String getDataSetMarkApplicant(){
