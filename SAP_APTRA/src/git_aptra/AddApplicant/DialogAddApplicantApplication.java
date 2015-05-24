@@ -1,8 +1,6 @@
 package git_aptra.AddApplicant;
 
-import git_aptra.AddDivision.InsertDivisionDataIntoDatabase;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;

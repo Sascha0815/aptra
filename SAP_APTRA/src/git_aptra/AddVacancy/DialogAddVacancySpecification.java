@@ -1,5 +1,7 @@
 package git_aptra.AddVacancy;
 
+import git_aptra.MenuBar.MenuBarPanelApplicant;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,9 +34,8 @@ public class DialogAddVacancySpecification {
 	
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
 	
-	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(boxListDivision);
+	static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
 
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");

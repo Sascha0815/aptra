@@ -85,8 +85,7 @@ public class MenuBar {
 		menuNew.add(itemEmployee);
 		itemEmployee.setText("Neuer Mitarbeiter");
 		try {
-			Image job = ImageIO.read(MenuBar.class
-					.getResource("resources/job_small.png"));
+			Image job = ImageIO.read(MenuBar.class.getResource("resources/job_small.png"));
 			itemEmployee.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}

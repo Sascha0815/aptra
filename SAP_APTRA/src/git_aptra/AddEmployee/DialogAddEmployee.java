@@ -1,6 +1,7 @@
 package git_aptra.AddEmployee;
 
 import git_aptra.Oberflaeche;
+import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -42,9 +43,8 @@ public class DialogAddEmployee {
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldLoginName = new JTextField();
 	
-	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(boxListDivision);
+	static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
 	
 	private static Integer[] boxListEntitlement = { 1, 2};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -63,6 +63,13 @@ public class DialogAddEmployee {
 	private static String password;
 
 	public static void addEmployee() {
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldLoginName.setText("");
+		fieldPassword.setText("");
+		fieldPasswordRepeat.setText("");
+		boxEntitlement.setSelectedIndex(0);
+		boxDivision.setSelectedIndex(0);
 		dialogNewEmployee.setLocationRelativeTo(null);
 		dialogNewEmployee.setVisible(true);
 		dialogNewEmployee.setSize(435, 450);
@@ -105,13 +112,35 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(buttonAbort, "cell 1 15,alignx right");
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				try {
+					name = fieldName.getText();
+				} catch (Exception e) {
+				}
+				try {
+					firstName = fieldFirstName.getText();
+				} catch (Exception e) {
+				}
+				try {
+					loginName = fieldLoginName.getText();
+				} catch (Exception e) {
+				}
+				try {
+					char[] passwordChar = fieldPassword.getPassword();
+					password = String.valueOf(passwordChar);
+				} catch (Exception e) {
+				}
+				try {
+					entitlement = (int) boxEntitlement.getSelectedItem();
+				} catch (Exception e) {
+				}
 				char[] passwordChar1 = fieldPassword.getPassword();
 				String passwordString1 = String.valueOf(passwordChar1);
 				char[] passwordChar2 = fieldPasswordRepeat.getPassword();
 				String passwordString2 = String.valueOf(passwordChar2);
 				if (passwordString1.equals(passwordString2)){
 				try {
-					SaveDataNewEmployee.save();
+					dialogNewEmployee.dispose();
+					InsertEmployeeDataIntoDatabase.insertEmployeeData(name,firstName,loginName,password,entitlement);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -128,61 +157,7 @@ public class DialogAddEmployee {
 		});
 		
 	}
-	
-	public static void reset() {
-		fieldName.setText("");
-		fieldFirstName.setText("");
-		fieldLoginName.setText("");
-		fieldPassword.setText("");
-		fieldPasswordRepeat.setText("");
-		boxEntitlement.setSelectedIndex(0);
-	}
-	
-	public static void getGeneral() {
-		
-		try {
-			name = fieldName.getText();
-		} catch (Exception e) {
-		}
-		try {
-			firstName = fieldFirstName.getText();
-		} catch (Exception e) {
-		}
-		try {
-			loginName = fieldLoginName.getText();
-		} catch (Exception e) {
-		}
-		try {
-			char[] passwordChar = fieldPassword.getPassword();
-			password = String.valueOf(passwordChar);
-		} catch (Exception e) {
-		}
-		try {
-			entitlement = (int) boxEntitlement.getSelectedItem();
-		} catch (Exception e) {
-		}
 
-	}
-
-	public static String getName() {
-		return name;
-	}	
-
-	public static String getFirstName() {
-		return firstName;
-	}
-
-	public static String getLoginName() {
-		return loginName;
-	}
-
-	public static String getPassword() {
-		return password;
-	}
-
-	public static int getEntitlement() {
-		return entitlement;
-	}
 }
 	
 
