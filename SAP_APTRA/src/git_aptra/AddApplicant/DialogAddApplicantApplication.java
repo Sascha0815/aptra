@@ -1,5 +1,6 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.AddDivision.InsertDivisionDataIntoDatabase;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.awt.Font;
@@ -41,9 +42,8 @@ public class DialogAddApplicantApplication {
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
 	
-	static String[] boxListDivision = { "Bitte auswählen", "ID " + "Abteilung"};
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(boxListDivision);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
@@ -84,7 +84,7 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
 	    panelDialogApplicantApplication.add(labelDivision, "cell 0 9, alignx left");
-	    panelDialogApplicantApplication.add(boxDivision, "cell 0 10, alignx left");
+	    panelDialogApplicantApplication.add(boxDivision, "cell 0 10 2 1, growx");
 	    panelDialogApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
 	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
 	    

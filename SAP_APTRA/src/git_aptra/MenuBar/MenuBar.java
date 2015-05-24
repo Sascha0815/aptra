@@ -4,6 +4,7 @@ import git_aptra.DialogAbout;
 import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddDivision.DialogAddDivision;
 import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditSelection.DialogEditSelection;
@@ -35,6 +36,7 @@ public class MenuBar {
 	private static JMenuItem itemSearchApplicant = new JMenuItem();
 	private static JMenuItem itemSearchJob = new JMenuItem();
 	private static JMenuItem itemEditSelection = new JMenuItem();
+	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
 	private static JMenuItem itemChangeDesign = new JMenuItem();
@@ -142,7 +144,22 @@ public class MenuBar {
 					DialogEditSelection.editSelection();
 					}
 				});
-		
+		// MenuItem Bewerberkriterien bearbeiten
+				menuNew.add(itemDivision);
+				itemDivision.setText("Abteilung hinzufügen");
+				try {
+					Image close = ImageIO.read(MenuBar.class
+							.getResource("resources/search_small.png"));
+					itemDivision.setIcon(new ImageIcon(close));
+				} catch (IOException ex) {
+				}
+				itemDivision.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DialogAddDivision.addDivision();
+					}
+				});
+				
+				
 		// MenuItem Programm beenden
 		menuNew.add(itemExit);
 		itemExit.setText("Beenden");

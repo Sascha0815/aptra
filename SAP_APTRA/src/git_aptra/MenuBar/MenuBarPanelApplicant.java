@@ -11,9 +11,6 @@ import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import net.miginfocom.swing.MigLayout;
-
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -27,7 +24,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,8 +33,6 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-
-import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelApplicant {
 	private static JPanel panelApplicant = new JPanel();
@@ -52,6 +46,8 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonRefreshApplicant = new JButton();
 	
 	private static String[] vacancyID;
+	private static String[] division;
+	private static String[] divisionData;
 	
 	private static JScrollPane scrollPanePool = new JScrollPane();
 	public static DefaultTableModel modelPool = new DefaultTableModel() {
@@ -139,6 +135,24 @@ public class MenuBarPanelApplicant {
 				}
 				vacancyID = new String[id.size()];
 				vacancyID = id.toArray(vacancyID);
+				
+				ArrayList<String> division= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+					while (rs.next()) {
+						division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				divisionData = new String[division.size()];
+				divisionData = division.toArray(divisionData);
 				DialogAddApplicant.newApplicant();
 			}
 		});
@@ -253,6 +267,10 @@ public class MenuBarPanelApplicant {
 	
 	public static String[] getVacancyID(){
 		return vacancyID;
+	}
+	
+	public static String[] getDivision(){
+		return divisionData;
 	}
 
 }
