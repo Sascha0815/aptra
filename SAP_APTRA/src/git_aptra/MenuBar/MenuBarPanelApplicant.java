@@ -240,7 +240,7 @@ public class MenuBarPanelApplicant {
 				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
 					DialogEditWarning.selectOnlyOne();
 				} else {
-					InfoApplicant.getSelectedRow();
+					InfoApplicant.getApplicantInfo();
 					DialogInfoApplicant.infoApplicant();
 				}
 			}
