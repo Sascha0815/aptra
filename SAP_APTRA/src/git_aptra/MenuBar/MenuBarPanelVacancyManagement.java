@@ -7,6 +7,7 @@ import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -14,6 +15,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -187,12 +190,13 @@ public class MenuBarPanelVacancyManagement {
 					DialogEditWarning.selectOnlyOne();
 				} else {
 					EditVacancyManagement.getSelectedRow();
-					Loading loading = new Loading();
-					Thread threadLoading = new Thread(loading);
-					threadLoading.start();
-					DialogEditVacancyManagement edit = new DialogEditVacancyManagement();
-					Thread threadEdit = new Thread(edit);
-					threadEdit.start();
+					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
+					try {
+						DialogEditVacancyManagement.editVacancyManagement();
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				    idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				}
 			}

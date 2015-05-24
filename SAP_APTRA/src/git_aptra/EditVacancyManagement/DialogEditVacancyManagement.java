@@ -9,22 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
-public class DialogEditVacancyManagement implements Runnable{
+public class DialogEditVacancyManagement {
 	public static JDialog dialogEditVacancyManagement = new JDialog(
 			Oberflaeche.frame);
 	public static JTabbedPane tabEditVacancyManagment = new JTabbedPane(
 			JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-	
-	@Override
-	public void run() {
-		try {
-			editVacancyManagement();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		Loading.dialogLoading.setVisible(false);
-		}
-	
 	public static void editVacancyManagement() throws MalformedURLException {
 		dialogEditVacancyManagement.setVisible(false);
 		dialogEditVacancyManagement.setSize(425,425);
@@ -50,6 +39,7 @@ public class DialogEditVacancyManagement implements Runnable{
 		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);
 		dialogEditVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
+		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogEditVacancyManagement.setVisible(true);
 		
 	}

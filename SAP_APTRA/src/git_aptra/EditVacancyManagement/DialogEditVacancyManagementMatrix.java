@@ -2,7 +2,6 @@ package git_aptra.EditVacancyManagement;
 
 
 import git_aptra.VacancyManagement.DialogOpenVacancy;
-import git_aptra.VacancyManagement.OpenVacancy;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,7 +26,10 @@ public class DialogEditVacancyManagementMatrix {
 	private static JScrollPane scrollpaneMatrix = new JScrollPane(panelDialogEditVacancyManagementMatrix);
 	private static JButton saveRating = new JButton("Speichern");
 	private static int amount = 0;
+	@SuppressWarnings("rawtypes")
+	private static Vector notations = new Vector();
 	
+	@SuppressWarnings("unchecked")
 	public static void editVacancyManagementMatrix() throws InstantiationException, IllegalAccessException, ClassNotFoundException {		
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Bewertung",
 				scrollpaneMatrix);
@@ -44,20 +47,27 @@ public class DialogEditVacancyManagementMatrix {
 		} catch (Exception e) {
 			System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
 		}
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("select notation from rating where vacancyID = " + DialogOpenVacancy.getID());
+		    while (rs.next()) {
+		        notations.add(rs.getString(1));
+		       }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der Kriterien" +e.getMessage());
+		}
 
 		
-		/*sliderImpression.setMinimum(0);
-		sliderImpression.setMaximum(5);
-		sliderImpression.setMajorTickSpacing(1);
-		sliderImpression.createStandardLabels(1);
-		sliderImpression.setPaintTicks(true);
-		sliderImpression.setPaintLabels(true);
-		sliderImpression.setValue(EditVacancyManagement.getDataSetScoreImpression());*/
+		
 		String columns = "";
 		String cell = "";
 		JSlider[] slider = new JSlider[amount];
 		JLabel[] labels = new JLabel[amount]; // Name der Kategorien für Labelbeschriftung muss noch aus DB abgerufen werden
-		for (int i = 0; amount < 3; i++) {
+		for (@SuppressWarnings("unused")
+		int i = 0; amount < 3; i++) {
 			columns = columns+ "[][]";
 		}
 		panelDialogEditVacancyManagementMatrix.setLayout(new MigLayout("", "[grow,left][grow,right]" + columns));
@@ -69,11 +79,19 @@ public class DialogEditVacancyManagementMatrix {
 		for(int i = 0; i < amount; i++){
 			cell = "cell 0 " + i*2 + "2, growx";
 			panelDialogEditVacancyManagementMatrix.add(labels[i], cell);
+			labels[i].setText((String) notations.elementAt(i));
 		}
 			
 		for (int i = 0; i < amount; i++) {
 			cell = "cell 0 " + ((i*2)+1) + "2, growx";
 			panelDialogEditVacancyManagementMatrix.add(slider[i], cell);
+			slider[i].setMinimum(0);
+			slider[i].setMaximum(5);
+			slider[i].setMajorTickSpacing(1);
+			slider[i].createStandardLabels(1);
+			slider[i].setPaintTicks(true);
+			slider[i].setPaintLabels(true);
+			slider[i].setValue(EditVacancyManagement.getDataSetScoreImpression());
 		}
 		
 		
