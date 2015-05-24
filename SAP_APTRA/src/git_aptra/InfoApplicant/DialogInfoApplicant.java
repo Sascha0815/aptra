@@ -5,17 +5,13 @@ import git_aptra.Oberflaeche;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
-
 import net.miginfocom.swing.MigLayout;
 
 public class DialogInfoApplicant {
 	private static JDialog dialogInfoApplicant = new JDialog(Oberflaeche.frame);
 	 
 	private static JPanel panelDialogInfoApplicant = new JPanel();
-	
-	private static JTabbedPane tabInfo = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	
 	private static JLabel labelInstruction = new JLabel("Bewerberdaten");
 	private static JLabel labelApplicantID = new JLabel("Bewerbernummer:");
@@ -57,13 +53,12 @@ public class DialogInfoApplicant {
 
 	public static void infoApplicant() {
 		dialogInfoApplicant.setVisible(true);
-		dialogInfoApplicant.setSize(425, 500);
+		dialogInfoApplicant.setSize(425, 400);
 		dialogInfoApplicant.setLocationRelativeTo(null);
 		dialogInfoApplicant.setResizable(false);
 		dialogInfoApplicant.setTitle("Bewerberinformationen");
 		SwingUtilities.updateComponentTreeUI(dialogInfoApplicant);
 		dialogInfoApplicant.setLocationRelativeTo(Oberflaeche.frame);
-		dialogInfoApplicant.add(tabInfo);
 		dialogInfoApplicant.add(panelDialogInfoApplicant);
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);

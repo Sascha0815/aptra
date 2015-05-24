@@ -43,7 +43,7 @@ public class InfoApplicant {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT sex, applyDate vacancyID FROM applicant WHERE applicantID =" + dataSetApplicantID);
+			ResultSet rs = stmt.executeQuery("SELECT sex, applyDate, vacancyID FROM applicant WHERE applicantID =" + dataSetApplicantID);
 
 			while (rs.next()) {
 				dataSetDateApplication = rs.getString(1);

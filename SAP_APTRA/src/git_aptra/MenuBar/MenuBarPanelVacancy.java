@@ -4,9 +4,14 @@ import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.Delete.DeleteVacancy;
+import git_aptra.EditApplicant.DialogEditWarning;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
 import git_aptra.EditVacancy.EditVacancy;
+import git_aptra.InfoApplicant.DialogInfoApplicant;
+import git_aptra.InfoApplicant.InfoApplicant;
+import git_aptra.InfoVacancy.DialogInfoVacancy;
+import git_aptra.InfoVacancy.InfoVacancy;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.BorderLayout;
@@ -194,7 +199,12 @@ public class MenuBarPanelVacancy {
 		}
 		buttonSettingsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
+					DialogEditWarning.selectOnlyOne();
+				} else {
+					InfoVacancy.getVacancyInfo();
+					DialogInfoVacancy.infoVacancy();
+				}
 			}
 		});
 
