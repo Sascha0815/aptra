@@ -1,195 +1,151 @@
 package git_aptra.EditApplicant;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import git_aptra.MenuBar.MenuBarPanelApplicant;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class DialogEditApplicantApplication {
-	public static JPanel panelDialogEditApplicantApplication = new JPanel();
-	private static String[] boxListEducationalAchievement = {
-			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxEducationalAchievement = new JComboBox(
-			boxListEducationalAchievement);
-	//Geburtsdatum
-	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-			29, 30, 31 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDay = new JComboBox(boxListDay);
-	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-			11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-			1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-			1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-			1973, 1972, 1971, 1970 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxYear = new JComboBox(boxListYear);
-	private static JLabel labelDate = new JLabel("Geburtsdatum:");
-	
-	//Bewerbungseingang
-	private static Integer[] boxListApplyDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-		12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-		29, 30, 31 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyDay = new JComboBox(boxListApplyDay);
-	private static Integer[] boxListApplyMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-		11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyMonth = new JComboBox(boxListApplyMonth);
-	@SuppressWarnings("unused")
-	private static Integer[] boxListApplyYear = { 2015, 2016, 2017, 2018, 2019,
-		2020, 2021, 2022, 2023, 2024};
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxApplyYear = new JComboBox(boxListYear);
-	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
-	private static JLabel labelVacancyID = new JLabel(
-			"Stellenidentifikationsnummer:");
-	private static JLabel labelVacancy = new JLabel("Stellenbeschreibung:");
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-	private static JTextField fieldVacancyID = new JTextField();
-	private static JTextField fieldVacancy = new JTextField();
-	private static JTextField fieldDate = new JTextField();
-	private static JLabel labelEducationalAchievement = new JLabel(
-			"Höchster Bildungsabschluss:");
+import com.toedter.calendar.JDateChooser;
 
-	private static int day;
-	private static int month;
-	private static int year;
-	private static Calendar cal = Calendar.getInstance();
+import net.miginfocom.swing.MigLayout;
+
+public class DialogEditApplicantApplication {
+	
+	private static JPanel panelDialogEditApplicantApplication = new JPanel();
+
+	private static String[] boxListEducationalAchievement = {"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
+
+	private static JDateChooser dateChooserApplyDate = new JDateChooser();
+	
+	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
+	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
+	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
+	private static JLabel labelInstruction = new JLabel("Änderung der Stammdaten");
+	private static JLabel labelDivision = new JLabel("Abteilung");
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
+	
+	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonBack = new JButton("Zurück");
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	
+	private static int dayApply;
+	private static int monthApply;
+	private static int yearApply;
+	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
 	private static String vacancy;
-	private static String vacancyID;
+	private static int vacancyID;
 
 	public static void editApplicantApplication() {
-		panelDialogEditApplicantApplication.setBackground(Color.LIGHT_GRAY);
-		panelDialogEditApplicantApplication.setLayout(new BoxLayout(
-				panelDialogEditApplicantApplication, BoxLayout.Y_AXIS));
+		boxID.setSelectedIndex(0);
+		boxEducationalAchievement.setSelectedIndex(0);
+		labelInstruction.setFont(fontHeadline);
+		labelApplyDate.setFont(fontSubHeadline);
+		labelVacancyID.setFont(fontSubHeadline);
+		labelEducationalAchievement.setFont(fontSubHeadline);
+		boxID.setFont(fontSubHeadline);
+		buttonContinue.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
+		dateChooserApplyDate.setDate(EditApplicant.getDataSetApplyDate());
+		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
+		//boxDivision.setSelectedItem(EditApplicant.getDataSetDivision());
+		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogEditApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
+	    panelDialogEditApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
+	    panelDialogEditApplicantApplication.add(dateChooserApplyDate, "cell 0 2 2, growx");
+	    panelDialogEditApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
+	    panelDialogEditApplicantApplication.add(boxID, "cell 0 4 2, growx");
+	    panelDialogEditApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
+	    panelDialogEditApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
+	    panelDialogEditApplicantApplication.add(labelDivision, "cell 0 9, alignx left");
+	    panelDialogEditApplicantApplication.add(boxDivision, "cell 0 10 2 1, growx");
+	    panelDialogEditApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
+	    panelDialogEditApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
+		DialogEditApplicant.tabEdit.addTab("Bewerbung", panelDialogEditApplicantApplication);
 		
-		panelDialogEditApplicantApplication.add(labelApplyDate);
-		labelApplyDate.setFont(fontTextField);
-		boxApplyDay.setToolTipText("Tag");
-		panelDialogEditApplicantApplication.add(boxApplyDay);
-		panelDialogEditApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxApplyMonth.setToolTipText("Monat");
-		panelDialogEditApplicantApplication.add(boxApplyMonth);
-		panelDialogEditApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxApplyYear.setToolTipText("Jahr");
-		panelDialogEditApplicantApplication.add(boxApplyYear);
-		panelDialogEditApplicantApplication.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelDialogEditApplicantApplication.add(labelVacancyID);
-		labelVacancyID.setFont(fontTextField);
-		panelDialogEditApplicantApplication.add(fieldVacancyID);
-		fieldVacancyID.setFont(fontTextField);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditApplicantApplication.add(labelVacancy);
-		labelVacancy.setFont(fontTextField);
-		panelDialogEditApplicantApplication.add(fieldVacancy);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		fieldVacancy.setText(EditApplicant.getDataSetVacancy());
-		fieldVacancy.setFont(fontTextField);
-		panelDialogEditApplicantApplication.add(labelDate);
-		labelDate.setFont(fontTextField);
-		boxDay.setToolTipText("Tag");
-		boxDay.setSelectedItem(EditApplicant.getDataSetDay());
-		panelDialogEditApplicantApplication.add(boxDay);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		boxMonth.setToolTipText("Monat");
-		boxMonth.setSelectedItem(EditApplicant.getDataSetMonth());
-		panelDialogEditApplicantApplication.add(boxMonth);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		boxYear.setToolTipText("Jahr");
-		boxYear.setSelectedItem(EditApplicant.getDataSetYear());
-		panelDialogEditApplicantApplication.add(boxYear);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
+		buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogEditApplicant.tabEdit.setSelectedIndex((2));
+			}
+		});
 		
-		panelDialogEditApplicantApplication.add(labelEducationalAchievement);
-		labelEducationalAchievement.setFont(fontTextField);
-		boxEducationalAchievement.setToolTipText("Höchster Bildungsabschluss:");
-		boxEducationalAchievement.setSelectedItem(EditApplicant
-				.getDataSetEducationalAchievement());
-		panelDialogEditApplicantApplication.add(boxEducationalAchievement);
-		panelDialogEditApplicantApplication.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		DialogEditApplicant.tabEdit.addTab("Bewerbung",
-				panelDialogEditApplicantApplication);
+		buttonBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogEditApplicant.tabEdit.setSelectedIndex((0));
+			}
+		});
 	}
 
 	public static void getApplication() {
 		try {
-			vacancy = fieldVacancy.getText();
+			String IDSplit = ((String) boxID.getSelectedItem());
+			String[] IDParts = IDSplit.split(" - ");
+			vacancyID = Integer.parseInt(IDParts[0]);
 		} catch (Exception e) {
+			vacancyID = 0;
 		}
 		try {
-			day = (int) boxDay.getSelectedItem();
-		} catch (Exception e) {
-		}	
-		try {
-			month = (int) boxMonth.getSelectedItem();
-		} catch (Exception e) {
-		}
-		try {
-			year = (int) boxYear.getSelectedItem();
-		} catch (Exception e) {
-		}
-		try {
-			cal.set(Calendar.YEAR, year);
-			cal.set(Calendar.MONTH, (month - 1));
-			cal.set(Calendar.DAY_OF_MONTH, day);
-		} catch (Exception e) {
-		}
-		try {
-			vacancyID = fieldVacancy.getText();
-		} catch (Exception e) {
-		}
-		try {
-			educationalAchievement = String.valueOf(boxEducationalAchievement
-					.getSelectedItem());
-		} catch (Exception e) {
-		}
-	}
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select position from vacancy where vacancyID = " + vacancyID);
 
-	public static void reset() {
-		panelDialogEditApplicantApplication.removeAll();
-		fieldVacancyID.setText("");
-		fieldVacancy.setText("");
-		fieldDate.setText("");
-		boxDay.setSelectedIndex(0);
-		boxMonth.setSelectedIndex(0);
-		boxYear.setSelectedIndex(0);
-		boxEducationalAchievement.setSelectedIndex(0);
+			while (rs.next()) {
+				vacancy = (rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			String date = ((JTextField)dateChooserApplyDate.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			dayApply= Integer.parseInt(parts[0]);
+			monthApply = Integer.parseInt(parts[1]);
+			yearApply = Integer.parseInt(parts[2]);
+			
+		} catch (Exception e) {
+		}
+		calApply.set(Calendar.YEAR, yearApply);
+		calApply.set(Calendar.MONTH, (monthApply - 1));
+		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
+		educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
 	}
-
-	public static Calendar getCal() {
-		return cal;
+	
+	public static Calendar getCalApply() {
+		return calApply;
 	}
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
 	}
+
 	public static String getVacancy() {
 		return vacancy;
 	}
-	
-	public static String getVacancyID() {
+
+	public static int getVacancyID() {
 		return vacancyID;
 	}
 }

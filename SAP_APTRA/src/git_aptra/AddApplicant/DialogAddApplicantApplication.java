@@ -45,8 +45,6 @@ public class DialogAddApplicantApplication {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
 	
-	private static JTextField fieldDate = new JTextField();
-	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
@@ -61,7 +59,6 @@ public class DialogAddApplicantApplication {
 
 	public static void addApplicantApplication() {
 		boxID.setSelectedIndex(0);
-		fieldDate.setText("");
 		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
@@ -70,7 +67,6 @@ public class DialogAddApplicantApplication {
 		boxID.setFont(fontSubHeadline);
 		buttonContinue.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);
-		fieldDate.setFont(fontText);
 		labelEducationalAchievement.setFont(fontText);
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");

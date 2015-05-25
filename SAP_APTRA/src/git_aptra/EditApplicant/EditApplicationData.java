@@ -1,5 +1,6 @@
 package git_aptra.EditApplicant;
 
+import git_aptra.AddApplicant.DialogAddApplicantContact;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.Connection;
@@ -48,7 +49,7 @@ public class EditApplicationData {
 			preparedStatement.setString(10,
 					DialogEditApplicantApplication.getVacancy());
 			preparedStatement.setDate(11, new java.sql.Date(
-					DialogEditApplicantApplication.getCal().getTimeInMillis()));
+					DialogAddApplicantContact.getCal().getTimeInMillis()));
 			preparedStatement.setString(12,
 					DialogEditApplicantApplication.getEducationalAchievement());
 			preparedStatement.setInt(13, id);

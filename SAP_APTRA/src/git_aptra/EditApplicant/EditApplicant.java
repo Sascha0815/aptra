@@ -1,5 +1,12 @@
 package git_aptra.EditApplicant;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class EditApplicant {
@@ -14,61 +21,38 @@ public class EditApplicant {
 	private static String DataSetTelefonMobil;
 	private static String DataSetEmail;
 	private static String DataSetVacancy;
-	private static String DataSetDate;
-	private static int DataSetDay;
-	private static int DataSetMonth;
-	private static int DataSetYear;
+	private static Date DataSetDate;
+	private static Date DataSetApplyDate;
 	private static String DataSetEducationalAchievement;
+	private static String DataSetSex;
+	private static String DataSetDivision;
 
 	public static void getSelectedRow() {
-		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
-				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
+		DataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
+		DataSetFirstName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),2);
+		DataSetStreet = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),3);
+		DataSetHouseNr = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),4);
+		DataSetPostalCode = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),5);
+		DataSetCity = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 6);
+		DataSetTelefonHome = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),7);
+		DataSetTelefonMobil = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),8);
+		DataSetEmail = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),9);
+		DataSetVacancy = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),10);
+		DataSetEducationalAchievement = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),12);
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT sex,date,applyDate FROM applicant WHERE applicantID =" + (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0));
 
-		DataSetFirstName = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						2);
-		DataSetStreet = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						3);
-		DataSetHouseNr = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						4);
-		DataSetPostalCode = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						5);
-		DataSetCity = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
-				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 6);
-
-		DataSetTelefonHome = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						7);
-		DataSetTelefonMobil = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						8);
-		DataSetEmail = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						9);
-		DataSetVacancy = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						10);
-		DataSetDate = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(
-				MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 11);
-		String[] split = DataSetDate.split("-");
-		DataSetYear = Integer.parseInt(split[0].toString());
-		DataSetMonth = Integer.parseInt(split[1].toString());
-		DataSetDay = Integer.parseInt(split[2].toString());
-		DataSetEducationalAchievement = (String) MenuBarPanelApplicant.tableApplicant
-				.getValueAt(
-						MenuBarPanelApplicant.tableApplicant.getSelectedRow(),
-						12);
+			while (rs.next()) {
+				DataSetSex = rs.getString(1);
+				DataSetDate = rs.getDate(2);
+				DataSetApplyDate = rs.getDate(3);
+				//DataSetDivision = rs.getString(4);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static String getDataSetVacancyID(){
@@ -118,20 +102,24 @@ public class EditApplicant {
 		return DataSetEducationalAchievement;
 	}
 
-	public static int getDataSetYear() {
-		return DataSetYear;
+	public static Date getDataSetDate(){
+		return DataSetDate;
 	}
-
-	public static int getDataSetMonth() {
-		return DataSetMonth;
+	
+	public static Date getDataSetApplyDate(){
+		return DataSetApplyDate;
 	}
-
-	public static int getDataSetDay() {
-		return DataSetDay;
-	}
-
+	
 	public static String getDataSetApplicantID() {
-		return null;
+		return DataSetApplicantID;
+	}
+	
+	public static String getDataSetSex() {
+		return DataSetSex;
+	}
+	
+	public static String getDataSetDivision() {
+		return DataSetDivision;
 	}
 
 }

@@ -1,5 +1,6 @@
 package git_aptra.MenuBar;
 
+import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
@@ -11,6 +12,7 @@ import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import net.miginfocom.swing.MigLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -24,6 +26,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -118,6 +121,7 @@ public class MenuBarPanelApplicant {
 		}
 		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				ArrayList<String> id= new ArrayList<String>();
 				try {
 					Connection con = DriverManager.getConnection(
@@ -174,6 +178,42 @@ public class MenuBarPanelApplicant {
 				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
 					DialogEditWarning.selectOnlyOne();
 				} else {
+					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
+					ArrayList<String> id= new ArrayList<String>();
+					try {
+						Connection con = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+						while (rs.next()) {
+							 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					vacancyID = new String[id.size()];
+					vacancyID = id.toArray(vacancyID);
+					
+					ArrayList<String> division= new ArrayList<String>();
+					try {
+						Connection con = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+						while (rs.next()) {
+							division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					divisionData = new String[division.size()];
+					divisionData = division.toArray(divisionData);
 					EditApplicant.getSelectedRow();
 					DialogEditApplicant.editApplicant();
 				}

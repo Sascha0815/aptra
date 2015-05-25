@@ -7,10 +7,10 @@ import java.util.Calendar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerNumberModel;
+
+
+import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -28,16 +28,10 @@ public class DialogEditApplicantContact {
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
 	
-	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
-	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
-	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
-	
-	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
-	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
-	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
+	private static JDateChooser dateChooserBirthday = new JDateChooser();
 	
 	private static JButton buttonSave = new JButton("Speichern");
-	private static JButton buttonAbort = new JButton ("Abbrechen");
+	private static JButton buttonBack = new JButton ("Zurück");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
@@ -52,12 +46,12 @@ public class DialogEditApplicantContact {
 	private static Calendar cal = Calendar.getInstance();
 
 	public static void editApplicantContact() {
+		fieldTelefonHome.setText("");
+		fieldTelefonMobil.setText("");
+		fieldEmail.setText("");
 		labelInstruction.setFont(fontHeadline);
-		spinnerDay.setFont(fontSubHeadline);
-		spinnerMonth.setFont(fontSubHeadline);
-		spinnerYear.setFont(fontSubHeadline);
 		buttonSave.setFont(fontSubHeadline);
-		buttonAbort.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
 		labelTelefonHome.setFont(fontSubHeadline);
 		labelTelefonMobil.setFont(fontSubHeadline);
 		labelEmail.setFont(fontSubHeadline);
@@ -68,10 +62,8 @@ public class DialogEditApplicantContact {
 		fieldTelefonHome.setText(EditApplicant.getDataSetTelefonHome());
 		fieldTelefonMobil.setText(EditApplicant.getDataSetTelefonMobil());
 		fieldEmail.setText(EditApplicant.getDataSetEmail());
-		spinnerDay.setValue(EditApplicant.getDataSetDay());
-		spinnerMonth.setValue(EditApplicant.getDataSetMonth());
-		spinnerYear.setValue(EditApplicant.getDataSetYear());
-		panelDialogEditApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][]"));
+		dateChooserBirthday.setDate(EditApplicant.getDataSetDate());
+		panelDialogEditApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogEditApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogEditApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");
 		panelDialogEditApplicantContact.add(fieldTelefonHome, "cell 0 2 2 1,growx");
@@ -80,22 +72,20 @@ public class DialogEditApplicantContact {
 		panelDialogEditApplicantContact.add(labelEmail, "cell 0 5,alignx left");
 		panelDialogEditApplicantContact.add(fieldEmail, "cell 0 6 2 1,growx");
 		panelDialogEditApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
-		panelDialogEditApplicantContact.add(spinnerDay, "cell 0 8 2, growx");
-		panelDialogEditApplicantContact.add(spinnerMonth, "cell 0 8 2 1, growx");
-		panelDialogEditApplicantContact.add(spinnerYear, "cell 0 8 2 2, growx");
-		panelDialogEditApplicantContact.add(buttonSave, "cell 0 9,alignx left");
-		panelDialogEditApplicantContact.add(buttonAbort, "cell 1 9,alignx right ");
+		panelDialogEditApplicantContact.add(dateChooserBirthday, "cell 0 8 2,growx");
+		panelDialogEditApplicantContact.add(buttonBack, "cell 0 9,alignx right ");
+		panelDialogEditApplicantContact.add(buttonSave, "cell 1 9,alignx left");
 		DialogEditApplicant.tabEdit.addTab("Kontaktdaten",panelDialogEditApplicantContact);
-
+		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditApplicant.save();
 			}
 		});
 		
-		buttonAbort.addActionListener(new ActionListener() {
+		buttonBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogEditApplicant.dialogEditApplicant.dispose();
+				DialogEditApplicant.tabEdit.setSelectedIndex(1);
 			}
 		});
 		
@@ -115,54 +105,18 @@ public class DialogEditApplicantContact {
 			email = fieldEmail.getText();
 		} catch (Exception e) {
 		}
-		day = (int) spinnerDay.getValue();
-		String valueSpinnerMonth = (String) spinnerMonth.getValue();
-		if(valueSpinnerMonth.equals("Januar")){
-			month = 1;
+		try {
+			String date = ((JTextField)dateChooserBirthday.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			day = Integer.parseInt(parts[0]);
+			month = Integer.parseInt(parts[1]);
+			year = Integer.parseInt(parts[2]);
+			
+		} catch (Exception e) {
 		}
-		if(valueSpinnerMonth.equals("Februar")){
-			month = 2;
-		}
-		if(valueSpinnerMonth.equals("März")){
-			month = 3;
-		}
-		if(valueSpinnerMonth.equals("April")){
-			month = 4;
-		}
-		if(valueSpinnerMonth.equals("Mai")){
-			month = 5;
-		}
-		if(valueSpinnerMonth.equals("Juni")){
-			month = 6;
-		}
-		if(valueSpinnerMonth.equals("Juli")){
-			month = 7;
-		}
-		if(valueSpinnerMonth.equals("August")){
-			month = 8;
-		}
-		if(valueSpinnerMonth.equals("September")){
-			month = 9;
-		}
-		if(valueSpinnerMonth.equals("Oktober")){
-			month = 10;
-		}
-		if(valueSpinnerMonth.equals("November")){
-			month = 11;
-		}
-		if(valueSpinnerMonth.equals("Dezember")){
-			month = 12;
-		}
-		year = (int) spinnerYear.getValue();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, (month - 1));
 		cal.set(Calendar.DAY_OF_MONTH, day);
-	}
-
-	public static void reset() {
-		fieldTelefonHome.setText("");
-		fieldTelefonMobil.setText("");
-		fieldEmail.setText("");
 	}
 
 	public static String getTelefonHome() {
