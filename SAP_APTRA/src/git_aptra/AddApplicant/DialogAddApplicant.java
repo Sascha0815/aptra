@@ -9,11 +9,10 @@ import javax.swing.SwingUtilities;
 
 public class DialogAddApplicant {
 	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void newApplicant() {
 		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
-		dialogNewApplicant.setVisible(true);
 		dialogNewApplicant.setSize(425, 450);
 		dialogNewApplicant.setLocationRelativeTo(null);
 		dialogNewApplicant.setResizable(false);
@@ -24,5 +23,6 @@ public class DialogAddApplicant {
 		DialogAddApplicantContact.addApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
 		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
+		dialogNewApplicant.setVisible(true);
 	}
 }
