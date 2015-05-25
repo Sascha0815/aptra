@@ -10,7 +10,7 @@ import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogInfoVacancy {
-	private static JDialog dialogInfoVacancy = new JDialog(Oberflaeche.frame);
+	private static JDialog dialogInfoVacancy = new JDialog(Oberflaeche.frame, true);
 	 
 	private static JPanel panelDialogInfoVacancy = new JPanel();
 	
@@ -39,7 +39,6 @@ public class DialogInfoVacancy {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void infoVacancy(){
-		dialogInfoVacancy.setVisible(true);
 		dialogInfoVacancy.setSize(425, 300);
 		dialogInfoVacancy.setLocationRelativeTo(null);
 		dialogInfoVacancy.setResizable(false);
@@ -95,5 +94,6 @@ public class DialogInfoVacancy {
 		panelDialogInfoVacancy.add(labelLevelContent, "cell 0 8 1,alignx left");
 		panelDialogInfoVacancy.add(labelDeadline, "cell 0 9,alignx left");
 		panelDialogInfoVacancy.add(labelDeadlineContent, "cell 0 9 1,alignx left");
+		dialogInfoVacancy.setVisible(true);
 	}
 }

@@ -12,12 +12,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 public class DialogAddVacancy {
-	public static JDialog dialogNewVacancy = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogNewVacancy = new JDialog(Oberflaeche.frame, true);
 	public static JTabbedPane tabVacancy = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void newVacancy() {
-		dialogNewVacancy.setVisible(true);
 		dialogNewVacancy.setSize(450, 425);
 		dialogNewVacancy.setResizable(false);
 		dialogNewVacancy.setTitle("Neue Stelle");
@@ -46,6 +45,7 @@ public class DialogAddVacancy {
 		}	
 		DialogAddVacancySelection.modelSelection.setDataVector(results, DialogAddVacancySelection.COLUMN_IDENTIFIERS_SELECTION);
 		DialogAddVacancySelection.modelSelection.fireTableDataChanged();
+		dialogNewVacancy.setVisible(true);
 	}
 }
 

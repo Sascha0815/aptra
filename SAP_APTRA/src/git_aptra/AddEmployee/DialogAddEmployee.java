@@ -21,7 +21,7 @@ import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddEmployee {
-	public static JDialog dialogNewEmployee = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogNewEmployee = new JDialog(Oberflaeche.frame, true);
 	
 	private static JLabel labelName = new JLabel("Name:");
 	private static JLabel labelFirstName = new JLabel("Vorname:");
@@ -71,7 +71,6 @@ public class DialogAddEmployee {
 		boxEntitlement.setSelectedIndex(0);
 		boxDivision.setSelectedIndex(0);
 		dialogNewEmployee.setLocationRelativeTo(null);
-		dialogNewEmployee.setVisible(true);
 		dialogNewEmployee.setSize(435, 450);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");
@@ -155,6 +154,7 @@ public class DialogAddEmployee {
 				dialogNewEmployee.dispose();
 			}
 		});
+		dialogNewEmployee.setVisible(true);
 		
 	}
 

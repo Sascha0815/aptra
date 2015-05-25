@@ -23,7 +23,7 @@ import net.miginfocom.swing.MigLayout;
 public class DialogEditSelection {
 	public static JTabbedPane tabEdit = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogEditSelection = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogEditSelection = new JDialog(Oberflaeche.frame, true);
 	
 	private static JPanel panelDialogEditSelectionGeneral = new JPanel();
 
@@ -58,7 +58,6 @@ public class DialogEditSelection {
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 
 	public static void editSelection() {
-		dialogEditSelection.setVisible(true);
 		dialogEditSelection.setSize(420,300);
 		dialogEditSelection.setLocationRelativeTo(null);
 		dialogEditSelection.setResizable(false);
@@ -111,6 +110,7 @@ public class DialogEditSelection {
 				DeleteSelection.deleteSelection();
 			}
 		});
+		dialogEditSelection.setVisible(true);
 	}
 }
 

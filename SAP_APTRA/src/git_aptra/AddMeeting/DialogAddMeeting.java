@@ -7,10 +7,9 @@ import javax.swing.SwingUtilities;
 
 public class DialogAddMeeting {
 	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogNewMeeting = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogNewMeeting = new JDialog(Oberflaeche.frame, true);
 
 	public static void newMeeting() {		
-		dialogNewMeeting.setVisible(true);
 		dialogNewMeeting.setSize(425, 440);
 		dialogNewMeeting.setLocationRelativeTo(null);
 		dialogNewMeeting.setResizable(false);
@@ -20,5 +19,6 @@ public class DialogAddMeeting {
 		DialogAddMeetingSpecification.addDetailsMeeting();
 		SwingUtilities.updateComponentTreeUI(dialogNewMeeting);
 		dialogNewMeeting.setLocationRelativeTo(Oberflaeche.frame);
+		dialogNewMeeting.setVisible(true);
 	}
 }

@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddDivision {
-	public static JDialog dialogAddDivision = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogAddDivision = new JDialog(Oberflaeche.frame, true);
 	
 	private static JPanel panelDialogAddDivision = new JPanel();
 	
@@ -38,7 +38,6 @@ public class DialogAddDivision {
 	public static void addDivision() {
 		fieldNotation.setText("");
 		dialogAddDivision.setLocationRelativeTo(null);
-		dialogAddDivision.setVisible(true);
 		dialogAddDivision.setSize(350, 150);
 		dialogAddDivision.setResizable(false);
 		dialogAddDivision.setTitle("Neue Abteilung");
@@ -73,6 +72,7 @@ public class DialogAddDivision {
 				dialogAddDivision.dispose();
 			}
 		});
+		dialogAddDivision.setVisible(true);
 		
 	}
 }

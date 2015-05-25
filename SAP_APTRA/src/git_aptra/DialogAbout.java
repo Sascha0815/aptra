@@ -9,7 +9,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogAbout {
 
-	private static JDialog dialogAbout = new JDialog(Oberflaeche.frame);
+	private static JDialog dialogAbout = new JDialog(Oberflaeche.frame, true);
 	
 	private static JPanel panelAbout = new JPanel();
 	
@@ -22,7 +22,6 @@ public class DialogAbout {
 	
 	//METHODE: Über-Dialog
 	public static void about() {
-		dialogAbout.setVisible(true);
 		dialogAbout.setSize(370, 120);
 		dialogAbout.setResizable(false);
 		dialogAbout.setTitle("Über");
@@ -37,6 +36,7 @@ public class DialogAbout {
 		panelAbout.add(labelVersion, "cell 0 2, alignx center");
 		panelAbout.add(labelRights, "cell 0 3, alignx center");
 		dialogAbout.setLocationRelativeTo(Oberflaeche.frame);
+		dialogAbout.setVisible(true);
 	}
 
 }

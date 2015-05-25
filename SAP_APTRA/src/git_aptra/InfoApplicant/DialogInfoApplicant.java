@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogInfoApplicant {
-	private static JDialog dialogInfoApplicant = new JDialog(Oberflaeche.frame);
+	private static JDialog dialogInfoApplicant = new JDialog(Oberflaeche.frame, true);
 	 
 	private static JPanel panelDialogInfoApplicant = new JPanel();
 	
@@ -52,7 +52,6 @@ public class DialogInfoApplicant {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	public static void infoApplicant() {
-		dialogInfoApplicant.setVisible(true);
 		dialogInfoApplicant.setSize(425, 400);
 		dialogInfoApplicant.setLocationRelativeTo(null);
 		dialogInfoApplicant.setResizable(false);
@@ -142,6 +141,7 @@ public class DialogInfoApplicant {
 		panelDialogInfoApplicant.add(labelVacancyContent, "cell 0 15 1,alignx left");
 		panelDialogInfoApplicant.add(labelEducationalAchievement, "cell 0 16,alignx left");
 		panelDialogInfoApplicant.add(labelEducationalAchievementContent, "cell 0 16 1,alignx left");
+		dialogInfoApplicant.setVisible(true);
 		
 	}
 

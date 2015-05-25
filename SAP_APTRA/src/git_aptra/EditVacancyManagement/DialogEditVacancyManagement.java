@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 
 public class DialogEditVacancyManagement {
 	public static JDialog dialogEditVacancyManagement = new JDialog(
-			Oberflaeche.frame);
+			Oberflaeche.frame, true);
 	public static JTabbedPane tabEditVacancyManagment = new JTabbedPane(
 			JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static void editVacancyManagement() throws MalformedURLException {

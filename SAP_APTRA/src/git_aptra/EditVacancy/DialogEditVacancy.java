@@ -7,12 +7,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 public class DialogEditVacancy {
-	public static JDialog dialogEditVacancy = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogEditVacancy = new JDialog(Oberflaeche.frame, true);
 	public static JTabbedPane tabVacancy = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
 
 	public static void editVacancy() {
-		dialogEditVacancy.setVisible(true);
 		dialogEditVacancy.setSize(450, 425);
 		dialogEditVacancy.setLocationRelativeTo(null);
 		dialogEditVacancy.setResizable(false);
@@ -23,5 +22,6 @@ public class DialogEditVacancy {
 		DialogEditVacancySelection.editVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancy);
 		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
+		dialogEditVacancy.setVisible(true);
 	}
 }

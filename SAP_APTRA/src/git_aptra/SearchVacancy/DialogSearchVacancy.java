@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 public class DialogSearchVacancy {
 	public static JTabbedPane tabSearchVacancy = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogSearchVacancy = new JDialog(Oberflaeche.frame);	
+	public static JDialog dialogSearchVacancy = new JDialog(Oberflaeche.frame, true);	
 	
 	public static void searchVacancy(){
 		dialogSearchVacancy.addWindowListener(new WindowListener() {
@@ -56,7 +56,6 @@ public class DialogSearchVacancy {
 
 	}
 	});		
-		dialogSearchVacancy.setVisible(true);
 		dialogSearchVacancy.setSize(450, 400);
 		dialogSearchVacancy.setLocationRelativeTo(null);
 		dialogSearchVacancy.setResizable(false);
@@ -66,6 +65,7 @@ public class DialogSearchVacancy {
 		DialogSearchVacancySpecification.searchVacancySpecification();	
 		SwingUtilities.updateComponentTreeUI(dialogSearchVacancy);		
 		dialogSearchVacancy.setLocationRelativeTo(Oberflaeche.frame);
+		dialogSearchVacancy.setVisible(true);
 
 	}
 }

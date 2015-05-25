@@ -6,6 +6,10 @@ import javax.swing.UIManager;
 
 
 public class Design {
+	public static void standardLook() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException{
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		SwingUtilities.updateComponentTreeUI(Oberflaeche.frame);
+	}
 	
 	public static void acrylLook() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException{
 		UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");

@@ -36,6 +36,7 @@ public class MenuBar {
 	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
+	private static JMenuItem itemStandardLook = new JMenuItem("Standard");
 	private static JMenuItem itemTextureLook = new JMenuItem("Texture");
 	private static JMenuItem itemSmartLook = new JMenuItem("Smart");
 	private static JMenuItem itemNoireLook = new JMenuItem("Noire");
@@ -137,6 +138,19 @@ public class MenuBar {
 		});
 
 		// Menu Design
+		menuDesign.add(itemStandardLook);
+		itemStandardLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.standardLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		menuBar.add(menuDesign);
 		menuDesign.add(itemAcrylLook);
 		itemAcrylLook.addActionListener(new ActionListener() {

@@ -30,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class DialogDetailsMeeting {
 
-	private static JDialog dialogMeeting = new JDialog(Oberflaeche.frame);
+	private static JDialog dialogMeeting = new JDialog(Oberflaeche.frame, true);
 
 	private static JPanel panelMeeting = new JPanel();
 	private static JLabel labelInstruction = new JLabel(
@@ -93,7 +93,6 @@ public class DialogDetailsMeeting {
 
 	@SuppressWarnings("static-access")
 	public static void detailsMeeting() {
-		dialogMeeting.setVisible(true);
 		dialogMeeting.setSize(400, 600);
 		dialogMeeting.setLocationRelativeTo(null);
 		dialogMeeting.setDefaultCloseOperation(dialogMeeting.DO_NOTHING_ON_CLOSE);
@@ -180,6 +179,7 @@ public class DialogDetailsMeeting {
 			}
 		});
 		dialogMeeting.add(panelMeeting);
+		dialogMeeting.setVisible(true);
 
 	}
 	

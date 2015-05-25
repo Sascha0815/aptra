@@ -23,7 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogOpenVacancy {
 	
-	private static JDialog dialogAddVacancyManagement  = new JDialog(Oberflaeche.frame);
+	private static JDialog dialogAddVacancyManagement  = new JDialog(Oberflaeche.frame, true);
 	
 	private static JPanel panelAddVacancyManagement = new JPanel();
 	
@@ -42,7 +42,6 @@ public class DialogOpenVacancy {
 	private static boolean first = true;
 	private static int amount;
 	public static void addVacancyManagement() {
-		dialogAddVacancyManagement.setVisible(true);
 		dialogAddVacancyManagement.setSize(420, 130);
 		dialogAddVacancyManagement.setResizable(false);	
 		dialogAddVacancyManagement.setTitle("Ausschreibung verwalten");
@@ -93,6 +92,7 @@ public class DialogOpenVacancy {
 			}
 		});
 		dialogAddVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
+		dialogAddVacancyManagement.setVisible(true);
 		
 	}
 	

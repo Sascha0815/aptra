@@ -9,10 +9,9 @@ public class DialogSearchApplicant {
 
 	public static JTabbedPane tabSearch = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);
-	public static JDialog dialogSearchApplicant = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogSearchApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void searchApplicant() {
-		dialogSearchApplicant.setVisible(true);
 		dialogSearchApplicant.setSize(425, 425);
 		dialogSearchApplicant.setLocationRelativeTo(null);
 		dialogSearchApplicant.setResizable(false);
@@ -23,6 +22,7 @@ public class DialogSearchApplicant {
 		DialogSearchApplicantContact.searchApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogSearchApplicant);
 		dialogSearchApplicant.setLocationRelativeTo(Oberflaeche.frame);
+		dialogSearchApplicant.setVisible(true);
 
 	}
 }
