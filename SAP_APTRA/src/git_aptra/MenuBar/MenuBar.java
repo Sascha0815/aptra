@@ -1,7 +1,7 @@
 package git_aptra.MenuBar;
 
+import git_aptra.Design;
 import git_aptra.DialogAbout;
-import git_aptra.ChangeDesign;
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddDivision.DialogAddDivision;
@@ -12,23 +12,20 @@ import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.Vector;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class MenuBar {
 	private static JMenuBar menuBar = new JMenuBar();
 	private static JMenu menuNew = new JMenu();
 	private static JMenu menuHelp = new JMenu();
-	private static JMenu menuSettings = new JMenu();
+	private static JMenu menuDesign = new JMenu("Design");
 
 	private static JMenuItem itemApplicant = new JMenuItem();
 	private static JMenuItem itemJob = new JMenuItem();
@@ -39,7 +36,19 @@ public class MenuBar {
 	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
-	private static JMenuItem itemChangeDesign = new JMenuItem();
+	private static JMenuItem itemTextureLook = new JMenuItem("Texture");
+	private static JMenuItem itemSmartLook = new JMenuItem("Smart");
+	private static JMenuItem itemNoireLook = new JMenuItem("Noire");
+	private static JMenuItem itemAcrylLook = new JMenuItem("Acryl");
+	private static JMenuItem itemAeroLook = new JMenuItem("Aero");
+	private static JMenuItem itemAluminiumLook = new JMenuItem("Aluminium");
+	private static JMenuItem itemBernsteinLook = new JMenuItem("Bernstein");
+	private static JMenuItem itemFastLook = new JMenuItem("Fast");
+	private static JMenuItem itemGraphiteLook = new JMenuItem("Graphite");
+	private static JMenuItem itemHifiLook = new JMenuItem("HiFi");
+	private static JMenuItem itemLunaLook = new JMenuItem("Luna");
+	private static JMenuItem itemMcWinLook = new JMenuItem("McWin");
+	private static JMenuItem itemMintLook = new JMenuItem("Mint");
 
 	// SWING: MenuBar mit Reitern, Einträgen und ActionListenern
 	public static void addMenuBar() {
@@ -54,12 +63,6 @@ public class MenuBar {
 		// MenuItem Neuer Bewerber
 		menuNew.add(itemApplicant);
 		itemApplicant.setText("Neuer Bewerber");
-		try {
-			Image plus = ImageIO.read(MenuBar.class
-					.getResource("resources/plus.png"));
-			itemApplicant.setIcon(new ImageIcon(plus));
-		} catch (IOException ex) {
-		}
 		itemApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddApplicant.newApplicant();
@@ -69,12 +72,6 @@ public class MenuBar {
 		// MenuItem Neue Arbeitsstelle
 		menuNew.add(itemJob);
 		itemJob.setText("Neues Stellenangebot");
-		try {
-			Image job = ImageIO.read(MenuBar.class
-					.getResource("resources/job_small.png"));
-			itemJob.setIcon(new ImageIcon(job));
-		} catch (IOException ex) {
-		}
 		itemJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddVacancy.newVacancy();
@@ -84,11 +81,6 @@ public class MenuBar {
 		// MenuItem Neuer Mitarbeiter
 		menuNew.add(itemEmployee);
 		itemEmployee.setText("Neuer Mitarbeiter");
-		try {
-			Image job = ImageIO.read(MenuBar.class.getResource("resources/job_small.png"));
-			itemEmployee.setIcon(new ImageIcon(job));
-		} catch (IOException ex) {
-		}
 		itemEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddEmployee.addEmployee();
@@ -98,12 +90,6 @@ public class MenuBar {
 		// MenuItem Bewerber suchen
 		menuNew.add(itemSearchApplicant);
 		itemSearchApplicant.setText("Bewerber suchen");
-		try {
-			Image close = ImageIO.read(MenuBar.class
-					.getResource("resources/search_small.png"));
-			itemSearchApplicant.setIcon(new ImageIcon(close));
-		} catch (IOException ex) {
-		}
 		itemSearchApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogSearchApplicant.searchApplicant();
@@ -113,12 +99,6 @@ public class MenuBar {
 		// MenuItem Arbeitsstelle suchen
 		menuNew.add(itemSearchJob);
 		itemSearchJob.setText("Arbeitsstelle suchen");
-		try {
-			Image close = ImageIO.read(MenuBar.class
-					.getResource("resources/search_small.png"));
-			itemSearchJob.setIcon(new ImageIcon(close));
-		} catch (IOException ex) {
-		}
 		itemSearchJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogSearchVacancy.searchVacancy();
@@ -126,84 +106,213 @@ public class MenuBar {
 		});
 		
 		// MenuItem Bewerberkriterien bearbeiten
-				menuNew.add(itemEditSelection);
-				itemEditSelection.setText("Bewertungskriterien bearbeiten");
-				try {
-					Image close = ImageIO.read(MenuBar.class
-							.getResource("resources/search_small.png"));
-					itemEditSelection.setIcon(new ImageIcon(close));
-				} catch (IOException ex) {
-				}
-				itemEditSelection.addActionListener(new ActionListener() {
-					@SuppressWarnings("rawtypes")
-					public void actionPerformed(ActionEvent e) {
-					Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
-					DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);
-					DialogEditSelection.modelEditSelection.fireTableDataChanged();
-					DialogEditSelection.editSelection();
-					}
-				});
+		menuNew.add(itemEditSelection);
+		itemEditSelection.setText("Bewertungskriterien bearbeiten");
+		itemEditSelection.addActionListener(new ActionListener() {
+			@SuppressWarnings("rawtypes")
+			public void actionPerformed(ActionEvent e) {
+				Vector resultsSeleciton = InsertEditSelectionDataIntoTable.insertEditSelectionDataIntoTable();
+				DialogEditSelection.modelEditSelection.setDataVector(resultsSeleciton, DialogEditSelection.COLUMN_IDENTIFIERS_SELECTION);
+				DialogEditSelection.modelEditSelection.fireTableDataChanged();
+				DialogEditSelection.editSelection();
+			}
+		});
+		
 		// MenuItem Bewerberkriterien bearbeiten
-				menuNew.add(itemDivision);
-				itemDivision.setText("Abteilung hinzufügen");
-				try {
-					Image close = ImageIO.read(MenuBar.class
-							.getResource("resources/search_small.png"));
-					itemDivision.setIcon(new ImageIcon(close));
-				} catch (IOException ex) {
-				}
-				itemDivision.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						DialogAddDivision.addDivision();
-					}
-				});
-				
-				
+		menuNew.add(itemDivision);
+		itemDivision.setText("Abteilung hinzufügen");
+		itemDivision.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogAddDivision.addDivision();
+			}
+		});
+					
 		// MenuItem Programm beenden
 		menuNew.add(itemExit);
 		itemExit.setText("Beenden");
-		try {
-			Image close = ImageIO.read(MenuBar.class
-					.getResource("resources/close.png"));
-			itemExit.setIcon(new ImageIcon(close));
-		} catch (IOException ex) {
-		}
 		itemExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Oberflaeche.frame.dispose();
 			}
 		});
 
-		// Menu Einstellungen
-		menuBar.add(menuSettings);
-		menuSettings.setText("Einstellungen");
-		menuSettings.add(itemChangeDesign);
-		
-		// MenuItem Design ändern
-		itemChangeDesign.setText("Desgin ändern");
-		try {
-			Image settings = ImageIO.read(MenuBar.class
-					.getResource("resources/settings.png"));
-			itemChangeDesign.setIcon(new ImageIcon(settings));
-		} catch (IOException ex) {
-		}
-		itemChangeDesign.addActionListener(new ActionListener() {
+		// Menu Design
+		menuBar.add(menuDesign);
+		menuDesign.add(itemAcrylLook);
+		itemAcrylLook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ChangeDesign.changeDesign();
+				try {
+					Design.acrylLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
-
+		menuDesign.add(itemAeroLook);
+		itemAeroLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.aeroLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemAluminiumLook);
+		itemAluminiumLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.aluminiumLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemBernsteinLook);
+		itemBernsteinLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.bernsteinLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemFastLook);
+		itemFastLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.fastLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemGraphiteLook);
+		itemGraphiteLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.graphiteLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemHifiLook);
+		itemHifiLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.hifiLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemLunaLook);
+		itemLunaLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.lunaLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemMcWinLook);
+		itemMcWinLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.McWinLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemMintLook);
+		itemMintLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.mintLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemNoireLook);
+		itemNoireLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.noireLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemSmartLook);
+		itemSmartLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.smartLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menuDesign.add(itemTextureLook);
+		itemTextureLook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Design.textureLook();
+				} catch (ClassNotFoundException | InstantiationException
+						| IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
 		// Menu Hilfe
 		menuBar.add(menuHelp);
 		menuHelp.setText("Hilfe");
 		menuHelp.add(itemAbout);
 		itemAbout.setText("Über");
-		try {
-			Image about = ImageIO.read(MenuBar.class
-					.getResource("resources/about.png"));
-			itemAbout.setIcon(new ImageIcon(about));
-		} catch (IOException ex) {
-		}
 		itemAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAbout.about();
