@@ -17,7 +17,6 @@ public class EditApplicationData {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 		} catch (SQLException e) {
-			System.out.println("Datenbank - editApplicant" + e.getMessage());
 		}
 
 		try {
@@ -25,7 +24,7 @@ public class EditApplicationData {
 					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, "
 							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
 							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
-							+ "vacancy = ?, date = ?, educationalAchievement = ? "
+							+ "vacancy = ?, date = ?, educationalAchievement = ? , division = ?"
 							+ "WHERE applicantID = ?");
 
 			preparedStatement
@@ -52,7 +51,9 @@ public class EditApplicationData {
 					DialogAddApplicantContact.getCal().getTimeInMillis()));
 			preparedStatement.setString(12,
 					DialogEditApplicantApplication.getEducationalAchievement());
-			preparedStatement.setInt(13, id);
+			preparedStatement.setString(13,
+					DialogEditApplicantApplication.getDivision());
+			preparedStatement.setInt(14, id);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		}

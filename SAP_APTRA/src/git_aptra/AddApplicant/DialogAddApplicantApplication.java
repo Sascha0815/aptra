@@ -21,12 +21,19 @@ import com.toedter.calendar.JDateChooser;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddApplicantApplication {
-	public static JPanel panelDialogApplicantApplication = new JPanel();
+	
+	private static JPanel panelDialogApplicantApplication = new JPanel();
 
 	private static String[] boxListEducationalAchievement = {"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
 
 	private static JDateChooser dateChooserApplyDate = new JDateChooser();
 	
@@ -39,12 +46,6 @@ public class DialogAddApplicantApplication {
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
-	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
@@ -54,20 +55,27 @@ public class DialogAddApplicantApplication {
 	private static int yearApply;
 	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
+	private static String division;
 	private static String vacancy;
 	private static int vacancyID;
 
 	public static void addApplicantApplication() {
 		boxID.setSelectedIndex(0);
 		boxEducationalAchievement.setSelectedIndex(0);
+		boxID.setSelectedIndex(0);
+		boxDivision.setSelectedIndex(0);
+		dateChooserApplyDate.setDate(null);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
-		boxID.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
 		buttonContinue.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);
-		labelEducationalAchievement.setFont(fontText);
+		boxID.setFont(fontText);
+		boxEducationalAchievement.setFont(fontText);
+		boxDivision.setFont(fontText);
+		dateChooserApplyDate.setFont(fontText);
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
@@ -80,6 +88,7 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxDivision, "cell 0 10 2 1, growx");
 	    panelDialogApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
 	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
+		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 	    
 		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -92,8 +101,6 @@ public class DialogAddApplicantApplication {
 				DialogAddApplicant.tabAdd.setSelectedIndex((0));
 			}
 		});
-		
-		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 	}
 
 	public static void getApplication() {
@@ -123,13 +130,21 @@ public class DialogAddApplicantApplication {
 			dayApply= Integer.parseInt(parts[0]);
 			monthApply = Integer.parseInt(parts[1]);
 			yearApply = Integer.parseInt(parts[2]);
-			
+			calApply.set(Calendar.YEAR, yearApply);
+			calApply.set(Calendar.MONTH, (monthApply - 1));
+			calApply.set(Calendar.DAY_OF_MONTH, dayApply);	
 		} catch (Exception e) {
 		}
-		calApply.set(Calendar.YEAR, yearApply);
-		calApply.set(Calendar.MONTH, (monthApply - 1));
-		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
-		educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
+		try {
+			educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
+		} catch (Exception e) {
+		}
+		try {
+			String divisionSplit = ((String) boxID.getSelectedItem());
+			String[] divisionParts = divisionSplit.split(" - ");
+			division = divisionParts[1];
+		} catch (Exception e) {
+		}
 	}
 
 	public static Calendar getCalApply() {
@@ -138,6 +153,10 @@ public class DialogAddApplicantApplication {
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
+	}
+	
+	public static String getDivision() {
+		return division;
 	}
 
 	public static String getVacancy() {

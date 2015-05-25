@@ -1,6 +1,7 @@
 package git_aptra.EditApplicant;
 
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -54,6 +56,7 @@ public class DialogEditApplicantApplication {
 	private static int yearApply;
 	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
+	private static String division;
 	private static String vacancy;
 	private static int vacancyID;
 
@@ -69,7 +72,7 @@ public class DialogEditApplicantApplication {
 		buttonBack.setFont(fontSubHeadline);
 		dateChooserApplyDate.setDate(EditApplicant.getDataSetApplyDate());
 		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
-		//boxDivision.setSelectedItem(EditApplicant.getDataSetDivision());
+		boxDivision.setSelectedItem(EditApplicant.getDataSetDivision());
 		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogEditApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogEditApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
@@ -124,13 +127,21 @@ public class DialogEditApplicantApplication {
 			dayApply= Integer.parseInt(parts[0]);
 			monthApply = Integer.parseInt(parts[1]);
 			yearApply = Integer.parseInt(parts[2]);
-			
+			calApply.set(Calendar.YEAR, yearApply);
+			calApply.set(Calendar.MONTH, (monthApply - 1));
+			calApply.set(Calendar.DAY_OF_MONTH, dayApply);	
 		} catch (Exception e) {
 		}
-		calApply.set(Calendar.YEAR, yearApply);
-		calApply.set(Calendar.MONTH, (monthApply - 1));
-		calApply.set(Calendar.DAY_OF_MONTH, dayApply);
-		educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
+		try {
+			educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
+		} catch (Exception e) {
+		}
+		try {
+			String divisionSplit = ((String) boxID.getSelectedItem());
+			String[] divisionParts = divisionSplit.split(" - ");
+			division = divisionParts[1];
+		} catch (Exception e) {
+		}
 	}
 	
 	public static Calendar getCalApply() {
@@ -139,6 +150,10 @@ public class DialogEditApplicantApplication {
 
 	public static String getEducationalAchievement() {
 		return educationalAchievement;
+	}
+	
+	public static String getDivision() {
+		return division;
 	}
 
 	public static String getVacancy() {

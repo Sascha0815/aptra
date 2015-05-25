@@ -16,13 +16,11 @@ public class SaveDataNewApplicant {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-
 			@SuppressWarnings("rawtypes")
 			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-			CloseDialogAddApplicant.close();
-
+			DialogAddApplicant.dialogNewApplicant.dispose();
 		}
 	}
 

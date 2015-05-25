@@ -12,7 +12,7 @@ import com.toedter.calendar.JDateChooser;
 import net.miginfocom.swing.MigLayout;
 public class DialogAddApplicantContact {
 	
-	public static JPanel panelDialogApplicantContact = new JPanel();
+	private static JPanel panelDialogApplicantContact = new JPanel();
 	
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
 	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil:");
@@ -20,18 +20,18 @@ public class DialogAddApplicantContact {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
 	private static JLabel labelBirthday = new JLabel("Geburtsdatum:");
 	
-	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
-	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
-	
 	private static JTextField fieldTelefonHome = new JTextField();
 	private static JTextField fieldTelefonMobil = new JTextField();
 	private static JTextField fieldEmail = new JTextField();
 	
+	private static JDateChooser dateChooserBirthday = new JDateChooser();
+	
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonBack = new JButton ("Zurück");
 	
-	private static JDateChooser dateChooserBirthday = new JDateChooser();
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	private static String telefonHome;
 	private static String telefonMobil;
@@ -45,6 +45,7 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
+		dateChooserBirthday.setDate(null);
 		labelInstruction.setFont(fontHeadline);
 		buttonSave.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);
@@ -101,12 +102,11 @@ public class DialogAddApplicantContact {
 			day = Integer.parseInt(parts[0]);
 			month = Integer.parseInt(parts[1]);
 			year = Integer.parseInt(parts[2]);
-			
+			cal.set(Calendar.YEAR, year);
+			cal.set(Calendar.MONTH, (month - 1));
+			cal.set(Calendar.DAY_OF_MONTH, day);	
 		} catch (Exception e) {
 		}
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, (month - 1));
-		cal.set(Calendar.DAY_OF_MONTH, day);
 	}
 
 	public static String getTelefonHome() {

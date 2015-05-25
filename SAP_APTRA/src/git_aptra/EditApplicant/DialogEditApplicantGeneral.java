@@ -83,7 +83,7 @@ public class DialogEditApplicantGeneral {
 		fieldCity.setText(EditApplicant.getDataSetCity());
 		if(EditApplicant.getDataSetSex().equals("weiblich")){
 			radioButtonFemale.setSelected(true);
-		} else{
+		} else {
 			radioButtonMale.setSelected(true);
 		}
 		panelDialogEditApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));

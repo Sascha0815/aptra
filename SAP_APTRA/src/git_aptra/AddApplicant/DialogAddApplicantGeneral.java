@@ -31,14 +31,14 @@ public class DialogAddApplicantGeneral {
 	
 	private static ButtonGroup radioButtonGroup = new ButtonGroup();
 	
-	private static JButton buttonContinue = new JButton("Weiter");
-	
 	private static JTextField fieldName = new JTextField("");
 	private static JTextField fieldFirstName = new JTextField("");
 	private static JTextField fieldStreet = new JTextField("");
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	
+	private static JButton buttonContinue = new JButton("Weiter");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
