@@ -1,106 +1,102 @@
 package git_aptra.EditVacancy;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogEditVacancyGeneral {
-
-	private static Font fontHeadline = new Font("Arial", Font.BOLD, 18);
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
-
+	
 	private static JPanel panelDialogVacancyMain = new JPanel();
-
-	private static JLabel labelArea = new JLabel();
-	private static JLabel labelInstruction2 = new JLabel();
-	private static JLabel labelPosition = new JLabel();
-	private static JLabel labelRequirementLevel = new JLabel();
-
+	
+	private static JLabel labelArea = new JLabel("Arbeitsbereich");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
+	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
+	private static JLabel labelRequirementLevel = new JLabel("Anfoderung");
+	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis");
+	private static JLabel labelVacancyStatus = new JLabel("Status");
+	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
+	
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
 
-	static String[] boxListRequirementLevel = { "Bitte auswählen",
-			"Praktikant", "Auszubildender", "Student", "Angestellter" };
+	static String[] boxListRequirementLevel = { "Bitte auswählen", "Praktikant", "Auszubildender", "Student", "Angestellter" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxRequirementLevel = new JComboBox(
-			boxListRequirementLevel);
-	private static JLabel labelTermsOfEmployment = new JLabel();
+	static JComboBox boxRequirementLevel = new JComboBox(boxListRequirementLevel);
+	
 	static String[] boxListTermsOfEmployment = { "Bitte auswählen", "Vollzeit",
 			"Teilzeit", "Aushilfe", "Schichtarbeit" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxTermsOfEmployment = new JComboBox(
-			boxListTermsOfEmployment);
-	private static JLabel labelVacancyStatus = new JLabel();
-	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben",
-			"Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche",
-			"Entscheidung", "Abgeschlossen" };
+	static JComboBox boxTermsOfEmployment = new JComboBox(boxListTermsOfEmployment);
+	
+	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben","Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche","Entscheidung", "Abgeschlossen" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxVacancyStatus = new JComboBox(boxListVacancyStatus);
-	private static JLabel labelEducationalAchievement = new JLabel(
-			"Höchster Bildungsabschluss:");
-	static String[] boxListEducationalAchievement = { "Bitte auswählen",
-			"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+	
+	static String[] boxListEducationalAchievement = { "Bitte auswählen","Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxEducationalAchievement = new JComboBox(
-			boxListEducationalAchievement);
-
+	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
+	
+	private static JButton buttonContinue = new JButton("Weiter");
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
+	
 	public static void editVacancyGeneral() {
-
-		panelDialogVacancyMain.setBackground(Color.LIGHT_GRAY);
-		panelDialogVacancyMain.setLayout(new BoxLayout(panelDialogVacancyMain,
-				BoxLayout.Y_AXIS));
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogVacancyMain.add(labelInstruction2);
-		labelInstruction2
-				.setText("Bitte tragen Sie alle erfoderlichen Daten ein!");
-		labelInstruction2.setFont(fontHeadline);
-
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		panelDialogVacancyMain.add(labelPosition);
-		labelPosition.setText("Stellenbezeichnung:");
-		panelDialogVacancyMain.add(fieldPosition);
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		fieldPosition.setFont(fontTextField);
-		fieldPosition.setText(EditVacancy.getDataSetPosition());
-		panelDialogVacancyMain.add(labelArea);
-		labelArea.setText("Arbeitsbereich:");
-		panelDialogVacancyMain.add(fieldArea);
-		panelDialogVacancyMain.add(Box.createRigidArea(new Dimension(0, 10)));
-		fieldArea.setFont(fontTextField);
+		fieldArea.setText("");
+		fieldPosition.setText("");
+		boxRequirementLevel.setSelectedIndex(0);
+		boxTermsOfEmployment.setSelectedIndex(0);
+		boxVacancyStatus.setSelectedIndex(0);
+		boxEducationalAchievement.setSelectedIndex(0);
+		labelInstruction.setFont(fontHeadline);
+		labelArea.setFont(fontSubHeadline);
+		labelPosition.setFont(fontSubHeadline);
+		labelRequirementLevel.setFont(fontSubHeadline);
+		labelTermsOfEmployment.setFont(fontSubHeadline);
+		labelVacancyStatus.setFont(fontSubHeadline);
+		labelEducationalAchievement.setFont(fontSubHeadline);
+		boxRequirementLevel.setFont(fontSubHeadline);
+		boxTermsOfEmployment.setFont(fontSubHeadline);
+		boxVacancyStatus.setFont(fontSubHeadline);
+		boxEducationalAchievement.setFont(fontSubHeadline);
+		fieldArea.setFont(fontText);
+		fieldPosition.setFont(fontText);
 		fieldArea.setText(EditVacancy.getDataSetArea());
-		labelRequirementLevel.setText("Anforderung:");
-		panelDialogVacancyMain.add(labelRequirementLevel);
-		boxRequirementLevel.setToolTipText("Anforderung");
-		boxRequirementLevel.setSelectedItem(EditVacancy
-				.getDataSetRequirementLevel());
-		panelDialogVacancyMain.add(boxRequirementLevel);
-		labelTermsOfEmployment.setText("Anstellungsverhältnis:");
-		panelDialogVacancyMain.add(labelTermsOfEmployment);
-		boxTermsOfEmployment.setToolTipText("Anstellungsverhältnis");
-		boxTermsOfEmployment.setSelectedItem(EditVacancy
-				.getDataSetTermsOfEmployment());
-		panelDialogVacancyMain.add(boxTermsOfEmployment);
-		labelVacancyStatus.setText("Status:");
-		panelDialogVacancyMain.add(labelVacancyStatus);
-		boxVacancyStatus.setToolTipText("Status");
+		fieldPosition.setText(EditVacancy.getDataSetPosition());
+		boxRequirementLevel.setSelectedItem(EditVacancy.getDataSetRequirementLevel());
+		boxTermsOfEmployment.setSelectedItem(EditVacancy.getDataSetTermsOfEmployment());
 		boxVacancyStatus.setSelectedItem(EditVacancy.getDataSetVacancyStatus());
-		panelDialogVacancyMain.add(boxVacancyStatus);
-		panelDialogVacancyMain.add(labelEducationalAchievement);
-		boxEducationalAchievement
-				.setToolTipText("Benötigter Bildungsabschluss:");
-		boxEducationalAchievement.setSelectedItem(EditVacancy
-				.getDataSetEducationalAchievement());
-		panelDialogVacancyMain.add(boxEducationalAchievement);
-		DialogEditVacancy.tabVacancy
-				.addTab("Allgemein", panelDialogVacancyMain);
-
+		boxEducationalAchievement.setSelectedItem(EditVacancy.getDataSetEducationalAchievement());
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]push[]"));
+		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
+		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
+		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");
+		panelDialogVacancyMain.add(labelArea, "cell 0 3");
+		panelDialogVacancyMain.add(fieldArea, "cell 0 4 2 1,growx");
+		panelDialogVacancyMain.add(labelRequirementLevel, "cell 0 5");
+		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 2 1,growx");
+		panelDialogVacancyMain.add(labelTermsOfEmployment, "cell 0 7");
+		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 2 1,growx");
+		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9");
+		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 2 1,growx");
+		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
+		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
+		panelDialogVacancyMain.add(buttonContinue,"cell 1 13,alignx right");
+	    
+		buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogEditVacancy.tabVacancy.setSelectedIndex((1));
+			}
+		});
+		DialogEditVacancy.tabVacancy.addTab("Allgemein", panelDialogVacancyMain);
 	}
 
 	private static String position;
@@ -139,18 +135,6 @@ public class DialogEditVacancyGeneral {
 		} catch (Exception e) {
 		}
 	}
-
-	public static void reset() {
-		panelDialogVacancyMain.removeAll();
-		fieldArea.setText("");
-		fieldPosition.setText("");
-		boxRequirementLevel.setSelectedIndex(0);
-		boxTermsOfEmployment.setSelectedIndex(0);
-		boxVacancyStatus.setSelectedIndex(0);
-		boxEducationalAchievement.setSelectedIndex(0);
-	}
-
-
 
 	public static String getRequirementLevel() {
 		return requirementLevel;

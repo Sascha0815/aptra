@@ -1,5 +1,11 @@
 package git_aptra.EditVacancy;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class EditVacancy {
@@ -11,32 +17,29 @@ public class EditVacancy {
 	private static String DataSetVacancyStatus;
 	private static String DataSetEducationalAchievement;
 	private static String DataSetLevel;
-	private static String DataSetDate;
-	private static int DataSetDay;
-	private static int DataSetMonth;
-	private static int DataSetYear;
+	private static Date DataSetDate;
 
 	public static void getSelectedRow() {
-		DataSetPosition = (String) MenuBarPanelVacancy.tableJob.getValueAt(
-				MenuBarPanelVacancy.tableJob.getSelectedRow(), 1);
-		DataSetArea = (String) MenuBarPanelVacancy.tableJob.getValueAt(
-				MenuBarPanelVacancy.tableJob.getSelectedRow(), 2);
-		DataSetRequirementLevel = (String) MenuBarPanelVacancy.tableJob
-				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 3);
-		DataSetTermsOfEmployment = (String) MenuBarPanelVacancy.tableJob
-				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 4);
-		DataSetVacancyStatus = (String) MenuBarPanelVacancy.tableJob
-				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 5);
-		DataSetEducationalAchievement = (String) MenuBarPanelVacancy.tableJob
-				.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 6);
-		DataSetLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(
-				MenuBarPanelVacancy.tableJob.getSelectedRow(), 7);
-		DataSetDate = (String) MenuBarPanelVacancy.tableJob.getValueAt(
-				MenuBarPanelVacancy.tableJob.getSelectedRow(), 8);
-		String[] split = DataSetDate.split("-");
-		DataSetYear = Integer.parseInt(split[0].toString());
-		DataSetMonth = Integer.parseInt(split[1].toString());
-		DataSetDay = Integer.parseInt(split[2].toString());
+		DataSetPosition = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 1);
+		DataSetArea = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 2);
+		DataSetRequirementLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 3);
+		DataSetTermsOfEmployment = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 4);
+		DataSetVacancyStatus = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 5);
+		DataSetEducationalAchievement = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 6);
+		DataSetLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 7);
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT date FROM vacancy WHERE vacancyID =" + (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 0));
+
+			while (rs.next()) {
+				DataSetDate = rs.getDate(1);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 	public static String getDataSetVacancyID(){
 		return DataSetVacancyID;
@@ -69,16 +72,10 @@ public class EditVacancy {
 	public static String getDataSetEducationalAchievement() {
 		return DataSetEducationalAchievement;
 	}
-
-	public static int getDataSetYear() {
-		return DataSetYear;
+	
+	public static Date getDataSetDate() {
+		return DataSetDate;
 	}
 
-	public static int getDataSetMonth() {
-		return DataSetMonth;
-	}
 
-	public static int getDataSetDay() {
-		return DataSetDay;
-	}
 }

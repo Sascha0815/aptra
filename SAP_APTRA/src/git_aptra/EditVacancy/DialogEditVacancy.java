@@ -13,14 +13,14 @@ public class DialogEditVacancy {
 
 	public static void editVacancy() {
 		dialogEditVacancy.setVisible(true);
-		dialogEditVacancy.setSize(450, 400);
+		dialogEditVacancy.setSize(450, 425);
 		dialogEditVacancy.setLocationRelativeTo(null);
 		dialogEditVacancy.setResizable(false);
 		dialogEditVacancy.setTitle("Stelle bearbeiten");
 		dialogEditVacancy.add(tabVacancy);
 		DialogEditVacancyGeneral.editVacancyGeneral();
 		DialogEditVacancySpecification.editVacancySpecification();
-		DialogEditVacancyMeetingSelection.editVacancyHistory();
+		DialogEditVacancySelection.editVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancy);
 		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
 	}

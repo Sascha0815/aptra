@@ -1,88 +1,76 @@
 package git_aptra.EditVacancy;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import git_aptra.MenuBar.MenuBarPanelVacancy;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.miginfocom.swing.MigLayout;
+
+import com.toedter.calendar.JDateChooser;
+
 public class DialogEditVacancySpecification {
 
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	private static JPanel panelDialogVacancySpecification = new JPanel();
-
-	private static JLabel labelLevel = new JLabel();
-	private static JLabel labelDeadline = new JLabel();
+	
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
+	private static JLabel labelLevel = new JLabel("Zusatz/Vermerk:");
+	private static JLabel labelDeadline = new JLabel("Bewerbungsschluss:");
+	private static JLabel labelDivision = new JLabel("Abteilung:");
 
 	private static JTextField fieldLevel = new JTextField();
-
-	private static JButton save = new JButton("Speichern");
-
-	private static Integer[] boxListDay = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-			29, 30, 31 };
+	
+	private static JDateChooser dateChooserDeadline = new JDateChooser();
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDay = new JComboBox(boxListDay);
-	private static Integer[] boxListMonth = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-			11, 12 };
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	static JComboBox boxMonth = new JComboBox(boxListMonth);
-	private static Integer[] boxListYear = { 2000, 1999, 1998, 1997, 1996,
-			1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
-			1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974,
-			1973, 1972, 1971, 1970 };
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxYear = new JComboBox(boxListYear);
+	static JComboBox boxDivision = new JComboBox(MenuBarPanelVacancy.getDivision());
+
+	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonBack = new JButton("Zurück");
 
 	public static void editVacancySpecification() {
-		panelDialogVacancySpecification.setBackground(Color.LIGHT_GRAY);
-		panelDialogVacancySpecification.setLayout(new BoxLayout(
-				panelDialogVacancySpecification, BoxLayout.Y_AXIS));
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelDialogVacancySpecification.add(labelLevel);
-		labelLevel.setText("Zusatz/Vermerk:");
-		panelDialogVacancySpecification.add(fieldLevel);
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		fieldLevel.setFont(fontTextField);
+		fieldLevel.setText("");
+		labelInstruction.setFont(fontHeadline);
+		labelLevel.setFont(fontSubHeadline);
+		labelDeadline.setFont(fontSubHeadline);
+		boxDivision.setFont(fontText);
+		dateChooserDeadline.setFont(fontText);
+		fieldLevel.setFont(fontText);
 		fieldLevel.setText(EditVacancy.getDataSetLevel());
-		labelDeadline.setText("Bewerbungsschluss:");
-		panelDialogVacancySpecification.add(labelDeadline);
-		boxDay.setToolTipText("Tag");
-		boxDay.setSelectedItem(EditVacancy.getDataSetDay());
-		panelDialogVacancySpecification.add(boxDay);
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxMonth.setToolTipText("Monat");
-		boxMonth.setSelectedItem(EditVacancy.getDataSetMonth());
-		panelDialogVacancySpecification.add(boxMonth);
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		boxYear.setToolTipText("Jahr");
-		boxYear.setSelectedItem(EditVacancy.getDataSetYear());
-		panelDialogVacancySpecification.add(boxYear);
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelDialogVacancySpecification.add(Box.createRigidArea(new Dimension(
-				0, 10)));
-		panelDialogVacancySpecification.add(save);
-		DialogEditVacancy.tabVacancy.addTab("Organisation",
-				panelDialogVacancySpecification);
-		save.addActionListener(new ActionListener() {
+		dateChooserDeadline.setDate(EditVacancy.getDataSetDate());
+		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogVacancySpecification.add(labelInstruction, "cell 0 0 2,alignx center");
+		panelDialogVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
+		panelDialogVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
+		panelDialogVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
+		panelDialogVacancySpecification.add(dateChooserDeadline, "cell 0 4 2, growx");
+		panelDialogVacancySpecification.add(labelDivision, "cell 0 5,alignx left");
+		panelDialogVacancySpecification.add(boxDivision, "cell 0 6 2 1,growx");
+		panelDialogVacancySpecification.add(buttonBack,"cell 0 11,alignx left");
+		panelDialogVacancySpecification.add(buttonContinue,"cell 1 11,alignx right");
+		DialogEditVacancy.tabVacancy.addTab("Organisation",panelDialogVacancySpecification);
+		    
+		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				SaveDataEditVacancy.save();
-				
+				DialogEditVacancy.tabVacancy.setSelectedIndex((2));
+			}
+		});
+			
+		buttonBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogEditVacancy.tabVacancy.setSelectedIndex((0));
 			}
 		});
 	}
@@ -93,38 +81,29 @@ public class DialogEditVacancySpecification {
 	private static int year;
 	private static Calendar calVacancy = Calendar.getInstance();
 
-	public static void getSpecification() {
+	public static boolean getSpecification() {
 		try {
 			level = fieldLevel.getText();
 		} catch (Exception e) {
 		}
 		try {
-			day = (int) boxDay.getSelectedItem();
-		} catch (Exception e) {
-		}
-		try {
-			month = (int) boxMonth.getSelectedItem();
-		} catch (Exception e) {
-		}
-		try {
-			year = (int) boxYear.getSelectedItem();
-		} catch (Exception e) {
-		}
-		try {
+			String date = ((JTextField)dateChooserDeadline.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			day = Integer.parseInt(parts[0]);
+			month = Integer.parseInt(parts[1]);
+			year = Integer.parseInt(parts[2]);
 			calVacancy.set(Calendar.YEAR, year);
 			calVacancy.set(Calendar.MONTH, (month - 1));
 			calVacancy.set(Calendar.DAY_OF_MONTH, day);
 		} catch (Exception e) {
 		}
+		if (level.equals("")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
-	public static void reset() {
-		panelDialogVacancySpecification.removeAll();
-		fieldLevel.setText("");
-		boxDay.setSelectedIndex(0);
-		boxMonth.setSelectedIndex(0);
-		boxYear.setSelectedIndex(0);
-	}
 
 	public static String getLevel() {
 		return level;

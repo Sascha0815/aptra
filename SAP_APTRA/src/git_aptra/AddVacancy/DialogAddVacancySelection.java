@@ -41,8 +41,7 @@ public class DialogAddVacancySelection {
 			add("Gewichtung");
 		}
 	};
-	public static DefaultTableModel modelSelection = new DefaultTableModel(
-			1, 4) {
+	public static DefaultTableModel modelSelection = new DefaultTableModel(0,0) {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -51,9 +50,7 @@ public class DialogAddVacancySelection {
 		
 	};
 	
-	public static JTable tableSelection = new JTable(
-			modelSelection);
-	
+	public static JTable tableSelection = new JTable(modelSelection);
 	
 	private static JButton save = new JButton("Speichern");
 	private static JButton buttonBack = new JButton("Zurück");

@@ -18,7 +18,6 @@ public class SaveDataNewVacancy {
 			InsertVacancyDataIntoDatabase.insertRatingData();
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
-			CloseDialogAddVacancy.close();
 		}
 	}
 }

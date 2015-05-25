@@ -1,5 +1,6 @@
 package git_aptra.MenuBar;
 
+import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
@@ -22,6 +23,12 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -71,6 +78,10 @@ public class MenuBarPanelVacancy {
 		}
 	};
 	public static JTable tableJob = new JTable(modelJob);
+	
+	private static String[] vacancyID;
+	private static String[] division;
+	private static String[] divisionData;
 
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {		
@@ -110,6 +121,42 @@ public class MenuBarPanelVacancy {
 		butttonAddJob.setPreferredSize(new Dimension(135, 135));
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
+				ArrayList<String> id= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+					while (rs.next()) {
+						 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				vacancyID = new String[id.size()];
+				vacancyID = id.toArray(vacancyID);
+				
+				ArrayList<String> division= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+					while (rs.next()) {
+						division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				divisionData = new String[division.size()];
+				divisionData = division.toArray(divisionData);
 				DialogAddVacancy.newVacancy();
 			}
 		});
@@ -131,6 +178,42 @@ public class MenuBarPanelVacancy {
 				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
 					DialogEditVacancyWarning.selectOnlyOne();
 				} else {
+					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
+					ArrayList<String> id= new ArrayList<String>();
+					try {
+						Connection con = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+						while (rs.next()) {
+							 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					vacancyID = new String[id.size()];
+					vacancyID = id.toArray(vacancyID);
+					
+					ArrayList<String> division= new ArrayList<String>();
+					try {
+						Connection con = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+						while (rs.next()) {
+							division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					divisionData = new String[division.size()];
+					divisionData = division.toArray(divisionData);
 					EditVacancy.getSelectedRow();
 					DialogEditVacancy.editVacancy();
 				}
@@ -226,5 +309,13 @@ public class MenuBarPanelVacancy {
 		panelWorkplace.add(panelButtonWorkplace, "cell 1 0, w 150:150:150, h :1000:");
 		Oberflaeche.tabBar.addTab("Arbeitsstellen", panelWorkplace);
 		tableJob.setAutoCreateRowSorter(true);
+	}
+	
+	public static String[] getVacancyID(){
+		return vacancyID;
+	}
+	
+	public static String[] getDivision(){
+		return divisionData;
 	}
 }
