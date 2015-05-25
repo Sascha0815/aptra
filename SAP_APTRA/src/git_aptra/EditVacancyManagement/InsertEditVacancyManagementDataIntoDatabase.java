@@ -198,33 +198,29 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 
 		}
 	}
-	public static void insertEditVacancyManagementDataMatrix() {
+	@SuppressWarnings("rawtypes")
+	public static void insertEditVacancyManagementDataMatrix(int amount, Vector notations, Vector scores) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
-		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		String query = ("UPDATE relationship SET scoreImpression = ? , scoreExperience = ?, "
-				+ "scoreSocialEngagement = ? WHERE applicantID = " +id);
+		String query;
+		for (int i = 0; i < amount; i++) {
+			query = ("UPDATE rating SET notation = " + scores.elementAt(i)+ " WHERE vacancyID = " + DialogOpenVacancy.getID()) + "AND notation = " +notations.elementAt(i);
+				try {
+						dbConnection = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						preparedStatement = dbConnection.prepareStatement(query);						
+						preparedStatement.executeUpdate();
 
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			preparedStatement = dbConnection.prepareStatement(query);
-			
-			preparedStatement.executeUpdate();
+				} catch (SQLException e) {
+						System.out
+								.println("insert problems - Datenbank - insert edit vacancy management data(matrix)"
+										+ e.getMessage());
+				}
+		}
 
-		} catch (SQLException e) {
-			System.out
-					.println("insert problems - Datenbank - insert edit vacancy management data(matrix)"
-							+ e.getMessage());
-
-	}
-		int idd = DialogOpenVacancy.getID();
-		@SuppressWarnings("rawtypes")
-		Vector resultsVacancy = OpenVacancy.openVacancy(idd);						
+		
+		Vector resultsVacancy = OpenVacancy.openVacancy(DialogOpenVacancy.getID(), amount);						
 		MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 	}
 

@@ -3,9 +3,15 @@ package git_aptra.VacancyManagement;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Vector;
+
 import git_aptra.Oberflaeche;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -34,7 +40,7 @@ public class DialogOpenVacancy {
 	
 	private static int id;
 	private static boolean first = true;
-	
+	private static int amount;
 	public static void addVacancyManagement() {
 		dialogAddVacancyManagement.setVisible(true);
 		dialogAddVacancyManagement.setSize(420, 130);
@@ -58,8 +64,20 @@ public class DialogOpenVacancy {
 					String IDSplit = ((String) boxID.getSelectedItem());
 					String[] IDParts = IDSplit.split(" - ");
 					id = Integer.parseInt(IDParts[0]);
+					try {
+						Connection con = DriverManager.getConnection(
+								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+								"u474396146_aptra", "aptraDB");
+						Statement stmt =  con.createStatement();
+					    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
+					    while (rs.next()) {
+					        amount = rs.getInt(1);
+					       }
+					} catch (Exception e) {
+						System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
+					}
 					@SuppressWarnings("rawtypes")
-					Vector resultsVacancy = OpenVacancy.openVacancy(id);						
+					Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
 					MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 					boxID.setSelectedIndex(0); 					
 					dialogAddVacancyManagement.dispose();

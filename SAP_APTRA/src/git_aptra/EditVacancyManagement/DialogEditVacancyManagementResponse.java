@@ -14,6 +14,11 @@ import java.awt.event.ActionListener;
 
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -33,7 +38,7 @@ public class DialogEditVacancyManagementResponse {
 	private static JComboBox boxResponse = new JComboBox(response);
 	private static JButton saveResponse = new JButton("Speichern");
 	private static String responseType;
-
+	private static int amount;
 	
 	public static void editVacancyManagementResponse(){
 		panelDialogEditVacancyManagementResponse.setBackground(Color.LIGHT_GRAY);
@@ -58,8 +63,20 @@ public class DialogEditVacancyManagementResponse {
 				int id = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				ResponseControl.control(responseType, id);
 				int idd = DialogOpenVacancy.getID();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt =  con.createStatement();
+				    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
+				    while (rs.next()) {
+				        amount = rs.getInt(1);
+				       }
+				} catch (Exception e) {
+					System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
+				}
 				@SuppressWarnings("rawtypes")
-				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(idd);						
+				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(idd, amount);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 			}
 		});

@@ -5,12 +5,18 @@ import git_aptra.Meeting.DialogDetailsMeeting;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Vector;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -65,7 +71,8 @@ public class DialogEditVacancyManagementGeneral {
 	private static String note;
 	private static String employee;
 	private static Calendar calNote = Calendar.getInstance();
-
+	private static int amount;
+	
 	public static void editVacancyManagementGeneral() {
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
@@ -128,8 +135,20 @@ public class DialogEditVacancyManagementGeneral {
 				}
 				
 				int id = DialogOpenVacancy.getID();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt =  con.createStatement();
+				    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
+				    while (rs.next()) {
+				        amount = rs.getInt(1);
+				       }
+				} catch (Exception e) {
+					System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
+				}
 				@SuppressWarnings("rawtypes")
-				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(id);						
+				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 			}
 		});

@@ -11,33 +11,44 @@ import java.util.Vector;
 
 public class OpenVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static Vector openVacancy(int id) {
+	public static Vector openVacancy(int id, int amount) {
 		Vector resultsOpenVacancy = new Vector();
+		Vector vacancy = new Vector();
 		try {
 			Connection con = DriverManager.getConnection(
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt
-					.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.latestNoteType, relationship.latestDate, relationship.latestNote, scoreImpression+scoreExperience+scoreSocialEngagement FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID ="
+					.executeQuery("SELECT applicant.applicantID, applicant.name, applicant.firstName, relationship.status, relationship.latestNoteType, relationship.latestDate, relationship.latestNote FROM applicant INNER JOIN relationship ON applicant.applicantID = relationship.applicantID where relationship.vacancyID ="
 							+ id);
-			while (rs.next()) {
-				Vector vacancy = new Vector();
+			while (rs.next()) {				
 				vacancy.add(rs.getString(1));
 				vacancy.add(rs.getString(2));
 				vacancy.add(rs.getString(3));
 				vacancy.add(rs.getString(4));
 				vacancy.add(rs.getString(5));
 				vacancy.add(rs.getString(6));
-				vacancy.add(rs.getString(7));
-				vacancy.add(rs.getString(8));
-
-				resultsOpenVacancy.add(vacancy);
+				vacancy.add(rs.getString(7));				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt
+					.executeQuery("SELECT Sum(score * weighting) where  =");
+			while (rs.next()) {				
+				vacancy.add(rs.getInt(1));						
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		resultsOpenVacancy.add(vacancy);
 		return resultsOpenVacancy;
 	}
 	private static String date;

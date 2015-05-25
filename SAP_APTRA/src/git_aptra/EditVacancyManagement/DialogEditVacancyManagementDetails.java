@@ -61,9 +61,7 @@ public class DialogEditVacancyManagementDetails {
 		buttonAbort.setFont(fontSubHeadline);
 		boxStatus.setFont(fontSubHeadline);
 		fieldMarkApplicant.setFont(fontText);
-		fieldMarkApplication.setFont(fontText);
-		fieldMarkApplicant.setText(EditVacancyManagement.getDataSetApplicantImpression());
-		fieldMarkApplication.setText(EditVacancyManagement.getDataSetApplicationImpression());
+		fieldMarkApplication.setFont(fontText);		
 		if(EditVacancyManagement.getDataSetCoveringLetter()==true){
 			checkCL.setSelected(true);
 		} else {

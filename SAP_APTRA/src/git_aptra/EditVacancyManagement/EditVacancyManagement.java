@@ -88,26 +88,6 @@ public class EditVacancyManagement {
 		return DataSetDay;
 	}
 	
-	public static String getDataSetApplicantImpression() {
-		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
-
-			while (rs.next()) {
-				DataSetApplicantImpression = rs.getString(5);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return DataSetApplicantImpression;
-	}
 	
 	public static boolean getDataSetCurriculumVitae() {
 		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
@@ -151,89 +131,7 @@ public class EditVacancyManagement {
 		return DataSetCoveringLetter;
 	}
 	
-	public static String getDataSetApplicationImpression() {
-		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
-
-			while (rs.next()) {
-				DataSetApplicationImpression = rs.getString(6);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return DataSetApplicationImpression;
-	}
 	
-	public static int getDataSetScoreImpression() {
-		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
-
-			while (rs.next()) {
-				DataSetScoreImpression = rs.getInt(12);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return DataSetScoreImpression;
-	}
-	
-	public static int getDataSetScoreExperience() {
-		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID);
-
-			while (rs.next()) {
-				DataSetScoreExperience = rs.getInt(13);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return DataSetScoreExperience;
-	}
-	
-	public static int getDataSetScoreSocialEngagement() {
-		DataSetApplicantID = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from relationship WHERE applicantID = " + DataSetApplicantID );
-
-			while (rs.next()) {
-				DataSetScoreSocialEngagement = rs.getInt(14);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return DataSetScoreSocialEngagement;
-	}
 	
 	
 }

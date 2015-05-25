@@ -28,6 +28,7 @@ public class DialogEditVacancyManagementMatrix {
 	private static int amount = 0;
 	@SuppressWarnings("rawtypes")
 	private static Vector notations = new Vector();
+	private static Vector scores = new Vector();
 	
 	@SuppressWarnings("unchecked")
 	public static void editVacancyManagementMatrix() throws InstantiationException, IllegalAccessException, ClassNotFoundException {		
@@ -91,7 +92,7 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].createStandardLabels(1);
 			slider[i].setPaintTicks(true);
 			slider[i].setPaintLabels(true);
-			slider[i].setValue(EditVacancyManagement.getDataSetScoreImpression());
+			//slider[i].setValue();
 		}
 		
 		
@@ -101,9 +102,12 @@ public class DialogEditVacancyManagementMatrix {
 		
 		
 		saveRating.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt) {				
+				for (int i = 0; i < amount; i++) {
+					scores.add(slider[i].getValue());
+				}
 				SaveDataEditVacancyManagement.save();
-				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix();
+				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations, scores);
 				
 			}
 		});
