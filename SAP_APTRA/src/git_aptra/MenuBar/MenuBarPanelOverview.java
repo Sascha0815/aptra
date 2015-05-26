@@ -2,10 +2,6 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;

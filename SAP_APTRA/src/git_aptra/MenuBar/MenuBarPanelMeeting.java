@@ -1,10 +1,8 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.AddMeeting.DialogOpenMeeting;
 import git_aptra.Login.Login;
-import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.Color;
 import java.awt.Dimension;

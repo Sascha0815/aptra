@@ -9,16 +9,12 @@ import git_aptra.EditApplicant.DialogEditWarning;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
 import git_aptra.EditVacancy.EditVacancy;
-import git_aptra.InfoApplicant.DialogInfoApplicant;
-import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.InfoVacancy.DialogInfoVacancy;
 import git_aptra.InfoVacancy.InfoVacancy;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

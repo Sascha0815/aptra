@@ -1,6 +1,5 @@
 package git_aptra.Meeting;
 
-import git_aptra.AddMeeting.DialogAddMeetingGeneral;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 import java.sql.Connection;
 import java.sql.DriverManager;

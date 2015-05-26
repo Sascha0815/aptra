@@ -1,6 +1,5 @@
 package git_aptra.SearchVacancy;
 
-import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

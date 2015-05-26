@@ -4,15 +4,10 @@ import git_aptra.Oberflaeche;
 
 import git_aptra.Meeting.InsertMeetingIntoDatabase;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Vector;
 
