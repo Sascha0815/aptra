@@ -41,7 +41,7 @@ public class DialogEditVacancyManagementMatrix {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
+		    ResultSet rs = stmt.executeQuery("select count(*) from vacancyevaluation where vacancyID = " + DialogOpenVacancy.getID());
 		    while (rs.next()) {
 		        amount = rs.getInt(1);
 		       }
@@ -53,7 +53,7 @@ public class DialogEditVacancyManagementMatrix {
 					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 					"u474396146_aptra", "aptraDB");
 			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("select notation from rating where vacancyID = " + DialogOpenVacancy.getID());
+		    ResultSet rs = stmt.executeQuery("select notation from vacancyevaluation where vacancyID = " + DialogOpenVacancy.getID());
 		    while (rs.next()) {
 		        notations.add(rs.getString(1));
 		       }
@@ -95,11 +95,7 @@ public class DialogEditVacancyManagementMatrix {
 			//slider[i].setValue();
 		}
 		
-		
-
-		
-		
-		
+			
 		
 		saveRating.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {				
