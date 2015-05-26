@@ -19,7 +19,7 @@ public class DialogAddVacancyGeneral {
 	private static JLabel labelArea = new JLabel("Arbeitsbereich");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
-	private static JLabel labelRequirementLevel = new JLabel("Anfoderung");
+	private static JLabel labelRequirementLevel = new JLabel("Anforderung");
 	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis");
 	private static JLabel labelVacancyStatus = new JLabel("Status");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");

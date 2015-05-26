@@ -43,7 +43,7 @@ public class InsertVacancyDataIntoDatabase {
 		}
 	}
 	
-	public static void insertRatingData(){
+	public static void insertVacancyevaluationData(){
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		int number = DialogAddVacancySelection.tableSelection.getSelectedRowCount();
@@ -65,8 +65,8 @@ public class InsertVacancyDataIntoDatabase {
 		
 		
 		for (int i = 0; i < number; i++) {
-			String query = "INSERT INTO rating"
-					+ "(vacancyID, evaluationID, weighting, notation) VALUES"
+			String query = "INSERT INTO vacancyevaluation"
+					+ "(evaluationID, vacancyID, weighting, notation) VALUES"
 					+ "(?,?,?,?)";
 			
 			Object objectSeid = DialogAddVacancySelection.tableSelection.getValueAt(rows[i], 0);
@@ -80,13 +80,14 @@ public class InsertVacancyDataIntoDatabase {
 			objectNotation = DialogAddVacancySelection.tableSelection.getValueAt(rows[i], 1);
 			String notation = String.valueOf(objectNotation);
 			
+			
 			try {
 				dbConnection = DriverManager.getConnection(
 						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
 						"u474396146_aptra", "aptraDB");
 				preparedStatement = dbConnection.prepareStatement(query);
-				preparedStatement.setInt(1, VID); 
-				preparedStatement.setInt(2, eid);
+				preparedStatement.setInt(1, eid); 
+				preparedStatement.setInt(2, VID);
 				preparedStatement.setInt(3, weighting);
 				preparedStatement.setString(4, notation);
 						

@@ -6,13 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 public class InsertApplicationDataIntoDatabase {
+	private static int id = 0;
 	public static void insertApplicantData() throws SQLException {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		String maxid = null;
-		int id = 0;
+		
 
 		String query = "INSERT INTO applicant"
 				+ "(name, firstName, street, houseNr, postalCode, city, sex, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID, division) VALUES"
@@ -79,4 +81,48 @@ public class InsertApplicationDataIntoDatabase {
 			}
 		}
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void saveDataRating(){	
+		Vector eid = new Vector();
+		Vector weighting = new Vector(); 
+		Vector notation = new Vector();
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT evaluationID, weighting, notation from vacancyevaluation");
+			while (rs.next()) {			  
+			   eid.add(rs.getInt(1));
+			   weighting.add(rs.getInt(2));
+			   notation.add(rs.getString(3));
+			}
+		} catch (SQLException e) {
+			System.out.println("Fehler auslesen der Kriterien" + e.getMessage());
+		}
+		
+		for (int i = 0; i < eid.size(); i++) {
+			Connection dbConnection = null;
+			PreparedStatement preparedStatement = null;
+			String query = "INSERT INTO rating"
+					+ "(vacancyID, evaluationID, applicantID, weighting, notation) VALUES"
+					+ "(?,?,?,?,?)";
+			try {
+				dbConnection = DriverManager.getConnection(
+						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+						"u474396146_aptra", "aptraDB");
+				preparedStatement = dbConnection.prepareStatement(query);
+				preparedStatement.setInt(1, DialogAddApplicantApplication.getVacancyID());
+				preparedStatement.setInt(2, (int) eid.elementAt(i));
+				preparedStatement.setInt(3, id);
+				preparedStatement.setInt(4, (int) weighting.elementAt(i));
+				preparedStatement.setString(5, (String) notation.elementAt(i));				
+				preparedStatement.executeUpdate();
+				
+			} catch (SQLException e) {
+			}
+		}
+		
+	}
+	
 }
