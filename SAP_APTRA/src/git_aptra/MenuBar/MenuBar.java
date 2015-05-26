@@ -14,6 +14,12 @@ import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JMenu;
@@ -50,6 +56,9 @@ public class MenuBar {
 	private static JMenuItem itemLunaLook = new JMenuItem("Luna");
 	private static JMenuItem itemMcWinLook = new JMenuItem("McWin");
 	private static JMenuItem itemMintLook = new JMenuItem("Mint");
+	
+	private static String[] division;
+	private static String[] divisionData;
 
 	// SWING: MenuBar mit Reitern, Einträgen und ActionListenern
 	public static void addMenuBar() {
@@ -84,10 +93,28 @@ public class MenuBar {
 		itemEmployee.setText("Neuer Mitarbeiter");
 		itemEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<String> division= new ArrayList<String>();
+				try {
+					Connection con = DriverManager.getConnection(
+							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+							"u474396146_aptra", "aptraDB");
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+					while (rs.next()) {
+						division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException f) {
+					f.printStackTrace();
+				}
+				divisionData = new String[division.size()];
+				divisionData = division.toArray(divisionData);
 				DialogAddEmployee.addEmployee();
-			}
-		});
-		
+				}
+			
+			});
+				
 		// MenuItem Bewerber suchen
 		menuNew.add(itemSearchApplicant);
 		itemSearchApplicant.setText("Bewerber suchen");
@@ -334,4 +361,8 @@ public class MenuBar {
 		});
 
 	}
+	public static String[] getDivision(){
+		
+		return divisionData;
+		}
 }

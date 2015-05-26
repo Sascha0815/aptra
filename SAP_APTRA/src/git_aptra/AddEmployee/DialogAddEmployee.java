@@ -1,13 +1,20 @@
 package git_aptra.AddEmployee;
 
 import git_aptra.Oberflaeche;
+import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.MenuBar.MenuBar;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -44,7 +51,7 @@ public class DialogAddEmployee {
 	private static JTextField fieldLoginName = new JTextField();
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
+	static JComboBox boxDivision = new JComboBox(MenuBar.getDivision());
 	
 	private static Integer[] boxListEntitlement = { 1, 2};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -157,6 +164,7 @@ public class DialogAddEmployee {
 		dialogNewEmployee.setVisible(true);
 		
 	}
+	
 
 }
 	
