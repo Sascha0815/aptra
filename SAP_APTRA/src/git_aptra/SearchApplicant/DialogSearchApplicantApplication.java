@@ -35,6 +35,7 @@ public class DialogSearchApplicantApplication {
 		labelVacancy.setFont(fontSubHeadline);
 		boxVacancy.setFont(fontSubHeadline);
 		boxEducationalAchievement.setFont(fontSubHeadline);
+		boxEducationalAchievement.setSelectedIndex(0);
 		panelDialogSearchApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
 		panelDialogSearchApplicantApplication.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogSearchApplicantApplication.add(labelEducationalAchievement,"cell 0 1,alignx left");
@@ -53,10 +54,6 @@ public class DialogSearchApplicantApplication {
 		if (vacancy.equals("Bitte auswählen")) {
 			vacancy = "";
 		}
-	}
-
-	public static void reset() {
-		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
 	public static String getEducationalAchievement() {

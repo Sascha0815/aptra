@@ -46,6 +46,9 @@ public class DialogSearchApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
+		fieldTelefonHome.setText("");
+		fieldTelefonMobil.setText("");
+		fieldEmail.setText("");
 		panelSearchDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]170[]"));
 		panelSearchDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelSearchDialogApplicantContact.add(labelTelefonHome,"cell 0 1,alignx left");
@@ -68,7 +71,7 @@ public class DialogSearchApplicantContact {
 				public void actionPerformed(ActionEvent evt) {
 					try {
 						SearchControlApplicant.search();
-						CloseDialogSearchApplicant.closeSearchApplicant();
+						DialogSearchApplicant.dialogSearchApplicant.dispose();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -86,12 +89,6 @@ public class DialogSearchApplicantContact {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-	}
-
-	public static void reset() {
-		fieldTelefonHome.setText("");
-		fieldTelefonMobil.setText("");
-		fieldEmail.setText("");
 	}
 
 	public static String getTelefonHome() {

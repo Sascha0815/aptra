@@ -56,6 +56,13 @@ public class DialogSearchApplicantGeneral {
 		fieldPostalCode.setFont(fontText);
 		fieldCity.setFont(fontText);
 		fieldApplicantID.setFont(fontText);
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldStreet.setText("");
+		fieldHouseNr.setText("");
+		fieldPostalCode.setText("");
+		fieldCity.setText("");
+		fieldApplicantID.setText("");
 		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
 		panelDialogSearchApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogSearchApplicantMain.add(labelApplicantID,"cell 0 1,alignx left");
@@ -98,16 +105,6 @@ public class DialogSearchApplicantGeneral {
 		firstName = fieldFirstName.getText();
 		street = fieldStreet.getText();
 		city = fieldCity.getText();
-	}
-
-	public static void reset() {
-		fieldName.setText("");
-		fieldFirstName.setText("");
-		fieldStreet.setText("");
-		fieldHouseNr.setText("");
-		fieldPostalCode.setText("");
-		fieldCity.setText("");
-		fieldApplicantID.setText("");
 	}
 
 	public static String getName() {

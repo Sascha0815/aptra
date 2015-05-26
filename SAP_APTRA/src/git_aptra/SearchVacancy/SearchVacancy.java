@@ -11,7 +11,6 @@ import java.util.Vector;
 
 public class SearchVacancy {
 
-	private static String vacancyID;
 	private static String position;
 	private static String area;
 	private static String requirementLevel;
@@ -26,18 +25,6 @@ public class SearchVacancy {
 		Vector resultsSearchVacancy = new Vector();
 		boolean first = true;
 		
-		if (!(DialogSearchVacancyGeneral.getVacancyID() == 0)) {
-			if (first == true) {
-				vacancyID = "where vacancyID = '"
-						+ DialogSearchVacancyGeneral.getVacancyID() + "'";
-				first = false;
-			} else {
-				vacancyID = " AND vacancyID = '"
-						+ DialogSearchVacancyGeneral.getVacancyID() + "'";
-			}
-		} else {
-			vacancyID = "";
-		}
 		if (!DialogSearchVacancyGeneral.getPosition().equals("")) {
 			if (first == true) {
 				position = "where position = '"
@@ -135,9 +122,7 @@ public class SearchVacancy {
 		} else {
 			level = "";
 		}
-		System.out.println("select * from vacancy "
-					+ vacancyID + position + area + requirementLevel + termsOfEmployment
-					+ vacancyStatus + educationalAchievementVacancy + level);
+
 
 		try {
 			dbConnection = DriverManager.getConnection(
@@ -146,7 +131,7 @@ public class SearchVacancy {
 
 			Statement stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from vacancy "
-					+ vacancyID + position + area + requirementLevel + termsOfEmployment
+					+ position + area + requirementLevel + termsOfEmployment
 					+ vacancyStatus + educationalAchievementVacancy + level);
 
 			while (rs.next()) {

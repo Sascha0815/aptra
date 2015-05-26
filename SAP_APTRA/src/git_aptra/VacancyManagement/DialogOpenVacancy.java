@@ -41,6 +41,7 @@ public class DialogOpenVacancy {
 	private static int id;
 	private static boolean first = true;
 	private static int amount;
+	
 	public static void addVacancyManagement() {
 		dialogAddVacancyManagement.setSize(420, 130);
 		dialogAddVacancyManagement.setResizable(false);	
@@ -50,11 +51,11 @@ public class DialogOpenVacancy {
 		boxID.setFont(fontSubHeadline);
 		buttonSearch.setFont(fontSubHeadline);
 		buttonAbort.setFont(fontSubHeadline);
-		panelAddVacancyManagement.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][]"));
-		panelAddVacancyManagement.add(labelInstruction, "cell 0 0,alignx center");
-		panelAddVacancyManagement.add(boxID, "cell 0 1 3 1,growx");
-		panelAddVacancyManagement.add(buttonSearch, "cell 0 3,alignx left");
-		panelAddVacancyManagement.add(buttonAbort, "cell 1 3,alignx right");
+		panelAddVacancyManagement.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
+		panelAddVacancyManagement.add(labelInstruction, "cell 0 0 2,alignx center");
+		panelAddVacancyManagement.add(boxID, "cell 0 1 2,growx");
+		panelAddVacancyManagement.add(buttonSearch, "cell 0 2,alignx left");
+		panelAddVacancyManagement.add(buttonAbort, "cell 1 2,alignx right");
 		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);		
 		if (first==true) {
 			first = false;

@@ -1,12 +1,13 @@
 package git_aptra.SearchVacancy;
 
+import java.awt.Font;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
-
 
 public class DialogSearchVacancyGeneral {
 
@@ -16,14 +17,14 @@ public class DialogSearchVacancyGeneral {
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
 	private static JLabel labelRequirementLevel = new JLabel("Anforderung:");
-	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelVacancyStatus = new JLabel("Status:");
 
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
-	private static JTextField fieldVacancyID = new JTextField();
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 
 	static String[] boxListRequirementLevel = { "Bitte auswählen", "Praktikant", "Auszubildender", "Student", "Angestellter" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -39,7 +40,13 @@ public class DialogSearchVacancyGeneral {
 	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 
 	public static void searchVacancyGeneral() {
-
+		fieldArea.setText("");
+		fieldPosition.setText("");
+		boxRequirementLevel.setSelectedIndex(0);
+		boxTermsOfEmployment.setSelectedIndex(0);
+		boxVacancyStatus.setSelectedIndex(0);
+		boxEducationalAchievement.setSelectedIndex(0);
+		labelInstruction.setFont(fontHeadline);
 		panelSearchDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "10[]10[]5[]5[]5[]5[]5[]5[]5[]5[]5[]5[]5"));
 		panelSearchDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelSearchDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
@@ -68,12 +75,6 @@ public class DialogSearchVacancyGeneral {
 	
 	public static void getGeneral() {
 		try {
-			try {
-				vacancyID = Integer.parseInt(fieldVacancyID.getText());
-
-			} catch (Exception e) {
-				vacancyID = 0;
-			}
 			position = fieldPosition.getText();
 			area = fieldArea.getText();
 			requirementLevel = String.valueOf(boxRequirementLevel
@@ -99,17 +100,6 @@ public class DialogSearchVacancyGeneral {
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
-	}
-	
-	public static void reset() {
-		panelSearchDialogVacancyMain.removeAll();
-		fieldArea.setText("");
-		fieldPosition.setText("");
-		boxRequirementLevel.setSelectedIndex(0);
-		boxTermsOfEmployment.setSelectedIndex(0);
-		boxVacancyStatus.setSelectedIndex(0);
-		boxEducationalAchievement.setSelectedIndex(0);
-		fieldVacancyID.setText("");
 	}
 	
 	public static int getVacancyID() {
