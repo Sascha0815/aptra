@@ -89,7 +89,7 @@ public class MenuBarPanelVacancyManagement {
 			add("Vorname");
 			add("Status");
 			add("Neuste Notiz");
-			add("Datum");
+			add("Datum der Notiz");
 			add("Anmerkung zu der Notiz");
 			add("Bewertung");
 		}
@@ -186,9 +186,10 @@ public class MenuBarPanelVacancyManagement {
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableVacancyManagement.getSelectedRowCount() > 1
-						|| tableVacancyManagement.getSelectedRowCount() == 0) {
+						|| tableVacancyManagement.getSelectedRowCount() == 0) {					
 					DialogEditWarning.selectOnlyOne();
 				} else {
+					idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 					EditVacancyManagement.getSelectedRow();
 					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					try {
@@ -197,7 +198,7 @@ public class MenuBarPanelVacancyManagement {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				    idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
+				    
 				}
 			}
 		});

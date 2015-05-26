@@ -132,21 +132,8 @@ public class DialogEditVacancyManagementGeneral {
 					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
 				} catch (SQLException e) {
 					e.printStackTrace();
-				}
-				
-				int id = DialogOpenVacancy.getID();
-				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
-					Statement stmt =  con.createStatement();
-				    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
-				    while (rs.next()) {
-				        amount = rs.getInt(1);
-				       }
-				} catch (Exception e) {
-					System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
-				}
+				}				
+				int id = DialogOpenVacancy.getID();				
 				@SuppressWarnings("rawtypes")
 				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);

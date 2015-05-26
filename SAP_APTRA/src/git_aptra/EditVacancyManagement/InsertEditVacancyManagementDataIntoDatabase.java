@@ -23,7 +23,6 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 	private static String name;
 	private static String firstName;
 	private static String fullName;
-	private static int aid;
 	public static void insertEditVacancyManagementData() throws SQLException {
 		try {
 			Connection con = DriverManager.getConnection(
@@ -47,7 +46,6 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 				.getValueAt(
 						MenuBarPanelVacancyManagement.tableVacancyManagement
 							.getSelectedRow(), 0);
-		aid = Integer.parseInt(id);
 		String query = "INSERT INTO notes"
 				+ "(applicantID, noteType, date, note, employee) VALUES"
 				+ "(?,?,?,?,?)";
@@ -204,7 +202,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		PreparedStatement preparedStatement = null;
 		String query;
 		for (int i = 0; i < amount; i++) {
-			query = ("UPDATE rating SET score = " + scores.elementAt(i)+ " WHERE vacancyID = " + DialogOpenVacancy.getID()) + "AND notation = " +notations.elementAt(i) + " applicantID = " + aid;
+			query = ("UPDATE rating SET score = " + scores.elementAt(i)+ " WHERE vacancyID = " + DialogOpenVacancy.getID() + " AND notation = '" +notations.elementAt(i) + "' AND applicantID = " + MenuBarPanelVacancyManagement.getIDApplicant());
 				try {
 						dbConnection = DriverManager.getConnection(
 								"jdbc:mysql://185.28.20.242:3306/u474396146_db",

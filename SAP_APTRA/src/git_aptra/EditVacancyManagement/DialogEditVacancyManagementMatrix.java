@@ -28,6 +28,7 @@ public class DialogEditVacancyManagementMatrix {
 	private static int amount = 0;
 	@SuppressWarnings("rawtypes")
 	private static Vector notations = new Vector();
+	@SuppressWarnings("rawtypes")
 	private static Vector scores = new Vector();
 	
 	@SuppressWarnings("unchecked")
@@ -60,17 +61,32 @@ public class DialogEditVacancyManagementMatrix {
 		} catch (Exception e) {
 			System.out.println("Fehler auslesen der Kriterien" +e.getMessage());
 		}
+		try {
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
+					"u474396146_aptra", "aptraDB");
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("select score from rating where applicantID = " + EditVacancyManagement.getDataSetApplicantID());
+		    while (rs.next()) {
+		        scores.add(rs.getInt(1));
+		       }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der Scores" +e.getMessage());
+		}
+
+
 
 		
 		
 		String columns = "";
 		String cell = "";
 		JSlider[] slider = new JSlider[amount];
-		JLabel[] labels = new JLabel[amount]; // Name der Kategorien für Labelbeschriftung muss noch aus DB abgerufen werden
+		JLabel[] labels = new JLabel[amount]; 
 		for (@SuppressWarnings("unused")
-		int i = 0; amount < 3; i++) {
+		int i = 0; i < amount; i++) {
 			columns = columns+ "[][]";
 		}
+		columns = columns + "[]";
 		panelDialogEditVacancyManagementMatrix.setLayout(new MigLayout("", "[grow,left][grow,right]" + columns));
 				
 		for (int i = 0; i < amount; i++) {
@@ -82,7 +98,6 @@ public class DialogEditVacancyManagementMatrix {
 			panelDialogEditVacancyManagementMatrix.add(labels[i], cell);
 			labels[i].setText((String) notations.elementAt(i));
 		}
-			
 		for (int i = 0; i < amount; i++) {
 			cell = "cell 0 " + ((i*2)+1) + "2, growx";
 			panelDialogEditVacancyManagementMatrix.add(slider[i], cell);
@@ -92,10 +107,10 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].createStandardLabels(1);
 			slider[i].setPaintTicks(true);
 			slider[i].setPaintLabels(true);
-			//slider[i].setValue();
+			slider[i].setValue((int) scores.elementAt(i));
 		}
 		
-			
+		panelDialogEditVacancyManagementMatrix.add(saveRating);	
 		
 		saveRating.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {				

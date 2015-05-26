@@ -16,8 +16,7 @@ public class DialogEditVacancyManagement {
 			JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static void editVacancyManagement() throws MalformedURLException {
 		dialogEditVacancyManagement.setVisible(false);
-		dialogEditVacancyManagement.setSize(425,425);
-		dialogEditVacancyManagement.setLocationRelativeTo(null);
+		dialogEditVacancyManagement.setSize(450,425);
 		dialogEditVacancyManagement.setResizable(false);
 		dialogEditVacancyManagement.setTitle("Arbeitsstellenmanagement");
 		dialogEditVacancyManagement.add(tabEditVacancyManagment);
