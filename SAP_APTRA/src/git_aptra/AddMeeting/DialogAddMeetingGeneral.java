@@ -27,6 +27,7 @@ public class DialogAddMeetingGeneral {
 	public static JLabel labelDivisionContent = new JLabel();
 
 	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonLoadApplicantData = new JButton("Bewerber auswählen");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
@@ -48,6 +49,13 @@ public class DialogAddMeetingGeneral {
 		labelDivisionContent.setFont(fontText);
 		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]push[]"));
 		panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
+		panelDialogMeetingMain.add(buttonLoadApplicantData, "cell 0 1, alignx center");
+		buttonLoadApplicantData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogLoadApplicantData.loadApplicantData();
+			}
+		});
+		
 		panelDialogMeetingMain.add(labelApplicantID,"cell 0 2,alignx left");
 		panelDialogMeetingMain.add(labelApplicantIDContent,"cell 0 3 2 1,growx");
 		panelDialogMeetingMain.add(labelName,"cell 0 4,alignx left");

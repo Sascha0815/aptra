@@ -1,7 +1,7 @@
 package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
-import git_aptra.AddMeeting.DialogOpenMeeting;
+import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.Login.Login;
 
 import java.awt.Color;
@@ -59,7 +59,6 @@ public class MenuBarPanelMeeting {
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 22);
 	private static Font fontContent = new Font("Calibri", Font.ITALIC, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
-	
 	
 
 	private static JButton buttonAddMeeting = new JButton();
@@ -139,26 +138,7 @@ public class MenuBarPanelMeeting {
 		buttonAddMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				ArrayList<String> id= new ArrayList<String>();
-				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select applicantID, name, firstName from applicant");
-
-					while (rs.next()) {
-						 id.add(rs.getString(1)+" - "+rs.getString(2) + ", " +rs.getString(3));
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				result = new String[id.size()];
-				result = id.toArray(result);
-				
-				DialogOpenMeeting.openMeeting();
-				
+				DialogAddMeeting.newMeeting();
 			}
 		});
 		try {
@@ -167,6 +147,7 @@ public class MenuBarPanelMeeting {
 			buttonAddMeeting.setIcon(new ImageIcon(job));
 		} catch (IOException ex) {
 		}
+	
 		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
 		panelMeetingButton.add(buttonEditMeeting, "cell 0 1");
 		buttonEditMeeting.setBorderPainted(false);
@@ -266,8 +247,6 @@ public class MenuBarPanelMeeting {
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 
 	}
-
-	public static String[] getResult() {
-		return result;
-	}
 }
+
+	
