@@ -19,6 +19,7 @@ public class SaveDataNewVacancy {
 			Vector resultsVacancy = InsertVacancyDataIntoTable.insertVacancyDataIntoTable();
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
+			DialogAddVacancy.dialogNewVacancy.dispose();
 		}
 	}
 }
