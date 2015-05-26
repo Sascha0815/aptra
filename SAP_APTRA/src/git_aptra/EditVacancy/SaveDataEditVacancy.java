@@ -22,7 +22,7 @@ public class SaveDataEditVacancy {
 			MenuBarPanelVacancy.modelJob.setDataVector(resultsVacancy,
 					MenuBarPanelVacancy.COLUMN_IDENTIFIERS_JOB);
 			MenuBarPanelVacancy.modelJob.fireTableDataChanged();
-
+			DialogEditVacancy.dialogEditVacancy.dispose();
 		}
 	}
 

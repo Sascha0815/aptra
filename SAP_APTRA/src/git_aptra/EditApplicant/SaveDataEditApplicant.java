@@ -21,6 +21,7 @@ public class SaveDataEditApplicant {
 			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
+			DialogEditApplicant.dialogEditApplicant.dispose();
 		}
 }
 

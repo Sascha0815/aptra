@@ -29,6 +29,7 @@ public class DialogEditVacancyManagementMatrix {
 	@SuppressWarnings("rawtypes")
 	private static Vector notations = new Vector();
 	private static Vector scores = new Vector();
+	private static JSlider[] slider = new JSlider[amount];
 	
 	@SuppressWarnings("unchecked")
 	public static void editVacancyManagementMatrix() throws InstantiationException, IllegalAccessException, ClassNotFoundException {		
@@ -65,7 +66,7 @@ public class DialogEditVacancyManagementMatrix {
 		
 		String columns = "";
 		String cell = "";
-		JSlider[] slider = new JSlider[amount];
+
 		JLabel[] labels = new JLabel[amount]; // Name der Kategorien für Labelbeschriftung muss noch aus DB abgerufen werden
 		for (@SuppressWarnings("unused")
 		int i = 0; amount < 3; i++) {
