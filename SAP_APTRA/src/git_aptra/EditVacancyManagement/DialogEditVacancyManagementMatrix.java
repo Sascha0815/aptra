@@ -80,7 +80,7 @@ public class DialogEditVacancyManagementMatrix {
 		
 		String columns = "";
 		String cell = "";
-		JSlider[] slider = new JSlider[amount];
+		final JSlider[] slider = new JSlider[amount];
 		JLabel[] labels = new JLabel[amount]; 
 		for (@SuppressWarnings("unused")
 		int i = 0; i < amount; i++) {

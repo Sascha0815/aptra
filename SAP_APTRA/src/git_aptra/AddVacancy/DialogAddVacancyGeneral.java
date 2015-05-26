@@ -38,9 +38,7 @@ public class DialogAddVacancyGeneral {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxTermsOfEmployment = new JComboBox(boxListTermsOfEmployment);
 	
-	static String[] boxListVacancyStatus = { "Bitte auswählen", "Freigegeben","Bewerbungsschluss", "Vorauswahl", "Bewerbungsgespräche","Entscheidung", "Abgeschlossen" };
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxVacancyStatus = new JComboBox(boxListVacancyStatus);
+	private static JTextField fieldStatus = new JTextField();
 	
 	static String[] boxListEducationalAchievement = { "Bitte auswählen","Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -59,7 +57,6 @@ public class DialogAddVacancyGeneral {
 		labelEducationalAchievement.setFont(fontSubHeadline);
 		boxRequirementLevel.setFont(fontSubHeadline);
 		boxTermsOfEmployment.setFont(fontSubHeadline);
-		boxVacancyStatus.setFont(fontSubHeadline);
 		boxEducationalAchievement.setFont(fontSubHeadline);
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
@@ -71,8 +68,10 @@ public class DialogAddVacancyGeneral {
 		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 2 1,growx");
 		panelDialogVacancyMain.add(labelTermsOfEmployment, "cell 0 7");
 		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 2 1,growx");
-		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9");
-		panelDialogVacancyMain.add(boxVacancyStatus, "cell 0 10 2 1,growx");
+		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9,alignx left");
+		panelDialogVacancyMain.add(fieldStatus, "cell 0 10 2 1,growx");
+		fieldStatus.setText("Freigegeben");
+		fieldStatus.setEditable(false);
 		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
 		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
 		panelDialogVacancyMain.add(buttonContinue,"cell 1 13,alignx right");
@@ -102,8 +101,7 @@ public class DialogAddVacancyGeneral {
 					.getSelectedItem());
 			educationalAchievementVacancy = String.valueOf(boxEducationalAchievement
 					.getSelectedItem());
-			vacancyStatus = String.valueOf(boxVacancyStatus
-					.getSelectedItem());
+			vacancyStatus = fieldStatus.getText();
 		} catch (Exception e) {
 			System.out.println("Nicht alle Daten eingegeben");
 		}
@@ -123,9 +121,7 @@ public class DialogAddVacancyGeneral {
 		if (educationalAchievementVacancy.equals("")) {
 			return false;
 		}
-		if (vacancyStatus.equals("")) {
-			return false;
-		}
+		
 		else {
 			return true;
 		}
@@ -137,7 +133,7 @@ public class DialogAddVacancyGeneral {
 		fieldPosition.setText("");
 		boxRequirementLevel.setSelectedIndex(0);
 		boxTermsOfEmployment.setSelectedIndex(0);
-		boxVacancyStatus.setSelectedIndex(0);
+		fieldStatus.setText("");
 		boxEducationalAchievement.setSelectedIndex(0);
 	}
 
