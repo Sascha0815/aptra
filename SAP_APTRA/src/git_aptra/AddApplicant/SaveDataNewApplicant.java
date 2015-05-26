@@ -13,6 +13,7 @@ public class SaveDataNewApplicant {
 			try {
 				InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				InsertApplicationDataIntoDatabase.insertApplicantData();
+				InsertApplicationDataIntoDatabase.saveDataRating();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
