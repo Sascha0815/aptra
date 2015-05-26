@@ -76,6 +76,7 @@ public class MenuBarPanelVacancy {
 	public static JTable tableJob = new JTable(modelJob);
 	
 	private static String[] vacancyID;
+	@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
 

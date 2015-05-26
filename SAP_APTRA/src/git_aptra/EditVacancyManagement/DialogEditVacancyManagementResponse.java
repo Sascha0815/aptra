@@ -4,59 +4,43 @@ import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.ResponsePDF.ResponseControl;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
-
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
 
 public class DialogEditVacancyManagementResponse {
+	
 	private static JPanel panelDialogEditVacancyManagementResponse = new JPanel();
-	private static JLabel labelInstruction = new JLabel(
-			"Bitte wählen sie die gewünschte Rückmeldung.");
-	private static String[] response = {  "Bestätigung Bewerbungseingang",
-		"Einladung Gespräch", "Vorauswahl", "Zusage",
-		"Absage", "Wartepool" };
+	
+	private static JLabel labelInstruction = new JLabel("Bitte wählen sie die gewünschte Rückmeldung.");
+	
+	private static String[] response = {  "Bestätigung Bewerbungseingang","Einladung Gespräch", "Vorauswahl", "Zusage","Absage", "Wartepool" };
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxResponse = new JComboBox(response);
-	private static JButton saveResponse = new JButton("Speichern");
+	
+	private static JButton buttonSaveResponse = new JButton("Speichern");
+	private static JButton buttonAbort = new JButton("Abbrechen");
+	
 	private static String responseType;
 	private static int amount;
 	
 	public static void editVacancyManagementResponse(){
-		panelDialogEditVacancyManagementResponse.setBackground(Color.LIGHT_GRAY);
-		panelDialogEditVacancyManagementResponse.setLayout(new BoxLayout(
-				panelDialogEditVacancyManagementResponse, BoxLayout.Y_AXIS));
-		panelDialogEditVacancyManagementResponse.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditVacancyManagementResponse.add(labelInstruction);
-		panelDialogEditVacancyManagementResponse.add(Box
-				.createRigidArea(new Dimension(0, 10)));
-		panelDialogEditVacancyManagementResponse.add(boxResponse);
-		panelDialogEditVacancyManagementResponse.add(Box
-				.createRigidArea(new Dimension(0, 40)));
-		panelDialogEditVacancyManagementResponse.add(saveResponse);
-		panelDialogEditVacancyManagementResponse.add(Box
-				.createRigidArea(new Dimension(0, 350)));
-		
-		saveResponse.addActionListener(new ActionListener() {
+		boxResponse.setSelectedIndex(0);
+		panelDialogEditVacancyManagementResponse.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
+		panelDialogEditVacancyManagementResponse.add(labelInstruction,"cell 0 0 2 1,alignx center");
+		panelDialogEditVacancyManagementResponse.add(boxResponse, "cell 0 1 2, growx");
+		panelDialogEditVacancyManagementResponse.add(buttonSaveResponse, "cell 0 2,alignx left");
+		panelDialogEditVacancyManagementResponse.add(buttonAbort,"cell 1 2,alignx right");
+		buttonSaveResponse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditVacancyManagement.save();
 				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataResponse();
@@ -82,18 +66,10 @@ public class DialogEditVacancyManagementResponse {
 		});
 		
 		
-		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Rückmeldung",
-				panelDialogEditVacancyManagementResponse);
+		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Rückmeldung",panelDialogEditVacancyManagementResponse);
 	}
 	public static void getResponse(){
 		responseType = (String) boxResponse.getSelectedItem();
-	}
-	
-	public static void reset() {
-		panelDialogEditVacancyManagementResponse.removeAll();
-		boxResponse.setSelectedIndex(0);
-		ActionListener[] al = saveResponse.getActionListeners();
-		saveResponse.removeActionListener(al[0]);
 	}
 	
 	public static String getResponseType() {

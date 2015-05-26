@@ -57,6 +57,7 @@ public class MenuBar {
 	private static JMenuItem itemMcWinLook = new JMenuItem("McWin");
 	private static JMenuItem itemMintLook = new JMenuItem("Mint");
 	
+	@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
 

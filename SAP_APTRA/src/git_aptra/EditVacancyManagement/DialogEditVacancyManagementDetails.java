@@ -49,6 +49,11 @@ public class DialogEditVacancyManagementDetails {
 	private static boolean CV;
 	
 	public static void editVacancyManagementDetails() {
+		fieldMarkApplicant.setText("");
+		fieldMarkApplication.setText("");
+		checkCL.setSelected(false);
+		checkCV.setSelected(false);
+		boxStatus.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelMarkApplicant.setFont(fontSubHeadline);
 		labelMarkApplication.setFont(fontSubHeadline);
@@ -72,7 +77,7 @@ public class DialogEditVacancyManagementDetails {
 		} else {
 			checkCV.setSelected(false);
 		}
-		panelDialogEditVacancyManagementDetails.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
+		panelDialogEditVacancyManagementDetails.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]push[]"));
 		panelDialogEditVacancyManagementDetails.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogEditVacancyManagementDetails.add(labelMarkApplicant, "cell 0 1,alignx left");
 		panelDialogEditVacancyManagementDetails.add(fieldMarkApplicant, "cell 0 2 2 1, growx");
@@ -103,15 +108,6 @@ public class DialogEditVacancyManagementDetails {
 				DialogEditVacancyManagement.dialogEditVacancyManagement.dispose();
 			}
 		});
-	}
-	
-	public static void reset() {
-		panelDialogEditVacancyManagementDetails.removeAll();
-		fieldMarkApplicant.setText("");
-		fieldMarkApplication.setText("");
-		checkCL.setSelected(false);
-		checkCV.setSelected(false);
-		boxStatus.setSelectedIndex(0);
 	}
 	
 	public static void getDetails() {

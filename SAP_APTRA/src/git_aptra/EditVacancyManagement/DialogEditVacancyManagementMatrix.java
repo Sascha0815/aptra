@@ -74,16 +74,11 @@ public class DialogEditVacancyManagementMatrix {
 			System.out.println("Fehler auslesen der Scores" +e.getMessage());
 		}
 
-
-
-		
-		
 		String columns = "";
 		String cell = "";
 		final JSlider[] slider = new JSlider[amount];
 		JLabel[] labels = new JLabel[amount]; 
-		for (@SuppressWarnings("unused")
-		int i = 0; i < amount; i++) {
+		for (int i = 0; i < amount; i++) {
 			columns = columns+ "[][]";
 		}
 		columns = columns + "[]";
@@ -110,7 +105,7 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].setValue((int) scores.elementAt(i));
 		}
 		
-		panelDialogEditVacancyManagementMatrix.add(saveRating);	
+		panelDialogEditVacancyManagementMatrix.add(saveRating, cell);	
 		
 		saveRating.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {				

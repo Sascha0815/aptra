@@ -38,7 +38,7 @@ public class DialogAddVacancyGeneral {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxTermsOfEmployment = new JComboBox(boxListTermsOfEmployment);
 	
-	private static JTextField fieldStatus = new JTextField();
+	private static JTextField fieldStatus = new JTextField("Freigegeben");
 	
 	static String[] boxListEducationalAchievement = { "Bitte auswählen","Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -46,8 +46,13 @@ public class DialogAddVacancyGeneral {
 	
 
 	public static void addVacancyGeneral() {
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
-		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
+		fieldArea.setText("");
+		fieldPosition.setText("");
+		boxRequirementLevel.setSelectedIndex(0);
+		boxTermsOfEmployment.setSelectedIndex(0);
+		fieldStatus.setText("");
+		boxEducationalAchievement.setSelectedIndex(0);
+
 		labelInstruction.setFont(fontHeadline);
 		labelArea.setFont(fontSubHeadline);
 		labelPosition.setFont(fontSubHeadline);
@@ -60,6 +65,9 @@ public class DialogAddVacancyGeneral {
 		boxEducationalAchievement.setFont(fontSubHeadline);
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
+		fieldStatus.setEditable(false);
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
 		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");
 		panelDialogVacancyMain.add(labelArea, "cell 0 3");
@@ -70,8 +78,6 @@ public class DialogAddVacancyGeneral {
 		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 2 1,growx");
 		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9,alignx left");
 		panelDialogVacancyMain.add(fieldStatus, "cell 0 10 2 1,growx");
-		fieldStatus.setText("Freigegeben");
-		fieldStatus.setEditable(false);
 		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
 		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
 		panelDialogVacancyMain.add(buttonContinue,"cell 1 13,alignx right");
@@ -127,16 +133,6 @@ public class DialogAddVacancyGeneral {
 		}
 	}
 	
-	public static void reset() {
-		panelDialogVacancyMain.removeAll();
-		fieldArea.setText("");
-		fieldPosition.setText("");
-		boxRequirementLevel.setSelectedIndex(0);
-		boxTermsOfEmployment.setSelectedIndex(0);
-		fieldStatus.setText("");
-		boxEducationalAchievement.setSelectedIndex(0);
-	}
-
 	public static String getRequirementLevel() {
 		return requirementLevel;
 	}

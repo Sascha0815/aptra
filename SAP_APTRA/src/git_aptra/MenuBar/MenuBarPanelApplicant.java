@@ -49,6 +49,7 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonRefreshApplicant = new JButton();
 	
 	private static String[] vacancyID;
+	@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
 	

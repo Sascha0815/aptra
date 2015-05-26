@@ -1,21 +1,12 @@
 package git_aptra.AddEmployee;
 
 import git_aptra.Oberflaeche;
-import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.MenuBar.MenuBar;
-import git_aptra.MenuBar.MenuBarPanelApplicant;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;

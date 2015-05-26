@@ -5,26 +5,19 @@ import git_aptra.Meeting.DialogDetailsMeeting;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerNumberModel;
+
+import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -39,18 +32,12 @@ public class DialogEditVacancyManagementGeneral {
 	private static JLabel labelStatus = new JLabel("Status:");
 	private static JLabel labelDate = new JLabel("Datum:");
 	private static JLabel labelNote = new JLabel("Vermerk:");
+	private static JLabel labelApplicantIDContent = new JLabel();
+	private static JLabel labelNameContent = new JLabel();
+	private static JLabel labelFirstNameContent = new JLabel();
 
-	private static SpinnerNumberModel numberModelDay = new SpinnerNumberModel(1,1,31,1);
-	private static SpinnerListModel listModelMonth = new SpinnerListModel(new String[] {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"});
-	private static SpinnerNumberModel numberModelYear = new SpinnerNumberModel(1,1,2100,1);
+	private static JDateChooser dateChooser = new JDateChooser();
 
-	private static JSpinner spinnerDay = new JSpinner(numberModelDay);
-	private static JSpinner spinnerMonth = new JSpinner(listModelMonth);
-	private static JSpinner spinnerYear = new JSpinner(numberModelYear);
-
-	private static JTextField fieldApplicantID = new JTextField();
-	private static JTextField fieldName = new JTextField();
-	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldNote = new JTextField();
 
 	private static String[] status = { "Bitte auswählen", "Bewerbungseingang","Rückmeldung", "Termin", "Vorauswahl", "Zusage","Absage", "Wartepool", "Sonstiges" };
@@ -84,37 +71,30 @@ public class DialogEditVacancyManagementGeneral {
 		buttonSave.setFont(fontSubHeadline);
 		buttonAbort.setFont(fontSubHeadline);
 		boxStatus.setFont(fontSubHeadline);
-		spinnerDay.setFont(fontSubHeadline);
-		spinnerMonth.setFont(fontSubHeadline);
-		spinnerYear.setFont(fontSubHeadline);
-		fieldApplicantID.setFont(fontText);
-		fieldName.setFont(fontText);
-		fieldFirstName.setFont(fontText);
+		dateChooser.setFont(fontText);
+		labelApplicantIDContent.setFont(fontText);
+		labelNameContent.setFont(fontText);
+		labelFirstNameContent.setFont(fontText);
 		fieldNote.setFont(fontText);
-		fieldApplicantID.setText(EditVacancyManagement.getDataSetApplicantID());
-		fieldName.setText(EditVacancyManagement.getDataSetName());
-		fieldFirstName.setText(EditVacancyManagement.getDataSetFirstName());
-		fieldApplicantID.setEditable(false);
-		fieldName.setEditable(false);
-		fieldFirstName.setEditable(false);
-		panelDialogEditVacancyManagementMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
+		labelApplicantIDContent.setText(EditVacancyManagement.getDataSetApplicantID());
+		labelNameContent.setText(EditVacancyManagement.getDataSetName());
+		labelFirstNameContent.setText(EditVacancyManagement.getDataSetFirstName());
+		panelDialogEditVacancyManagementMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 		panelDialogEditVacancyManagementMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogEditVacancyManagementMain.add(labelApplicantID, "cell 0 1,alignx left");
-		panelDialogEditVacancyManagementMain.add(fieldApplicantID, "cell 0 2 2 1, growx");
+		panelDialogEditVacancyManagementMain.add(labelApplicantIDContent, "cell 0 2 2 1, growx");
 		panelDialogEditVacancyManagementMain.add(labelName, "cell 0 3,alignx left");
-		panelDialogEditVacancyManagementMain.add(fieldName, "cell 0 4 2 1, growx");
+		panelDialogEditVacancyManagementMain.add(labelNameContent, "cell 0 4 2 1, growx");
 		panelDialogEditVacancyManagementMain.add(labelFirstName, "cell 0 5,alignx left");
-		panelDialogEditVacancyManagementMain.add(fieldFirstName, "cell 0 6 2 1, growx");
+		panelDialogEditVacancyManagementMain.add(labelFirstNameContent, "cell 0 6 2 1, growx");
 		panelDialogEditVacancyManagementMain.add(labelStatus, "cell 0 7,alignx left");
 		panelDialogEditVacancyManagementMain.add(boxStatus, "cell 0 8 2 1, growx");
 		panelDialogEditVacancyManagementMain.add(labelDate, "cell 0 9,alignx left");
-		panelDialogEditVacancyManagementMain.add(spinnerDay, "cell 0 10 2, growx");
-		panelDialogEditVacancyManagementMain.add(spinnerMonth, "cell 0 10 2 1, growx");
-		panelDialogEditVacancyManagementMain.add(spinnerYear, "cell 0 10 2 2, growx");
+		panelDialogEditVacancyManagementMain.add(dateChooser, "cell 0 10 2, growx");
 		panelDialogEditVacancyManagementMain.add(labelNote, "cell 0 11,alignx left");
 		panelDialogEditVacancyManagementMain.add(fieldNote, "cell 0 12 2, growx");
-		panelDialogEditVacancyManagementMain.add(buttonSave, "cell 0 13,alignx left");
-		panelDialogEditVacancyManagementMain.add(buttonAbort, "cell 1 13,alignx right ");
+		panelDialogEditVacancyManagementMain.add(buttonAbort, "cell 0 13,alignx left ");
+		panelDialogEditVacancyManagementMain.add(buttonSave, "cell 1 13,alignx right");
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",panelDialogEditVacancyManagementMain);
 		
 		buttonSave.addActionListener(new ActionListener() {
@@ -148,9 +128,6 @@ public class DialogEditVacancyManagementGeneral {
 	}
 
 	public static void reset() {
-		fieldApplicantID.setText("");
-		fieldName.setText("");
-		fieldFirstName.setText("");
 		fieldNote.setText("");
 		boxStatus.setSelectedIndex(0);
 	}
@@ -164,48 +141,17 @@ public class DialogEditVacancyManagementGeneral {
 			note = fieldNote.getText();
 		} catch (Exception e) {
 		}
-		dayNote = (int) spinnerDay.getValue();
-		String valueSpinnerMonth = (String) spinnerMonth.getValue();
-		if(valueSpinnerMonth.equals("Januar")){
-			monthNote = 1;
+		try {
+			String date = ((JTextField)dateChooser.getDateEditor().getUiComponent()).getText(); 
+			String[] parts = date.split("\\.");
+			dayNote = Integer.parseInt(parts[0]);
+			monthNote = Integer.parseInt(parts[1]);
+			yearNote = Integer.parseInt(parts[2]);
+			calNote.set(Calendar.YEAR, yearNote);
+			calNote.set(Calendar.MONTH, (monthNote - 1));
+			calNote.set(Calendar.DAY_OF_MONTH, dayNote);	
+		} catch (Exception e) {
 		}
-		if(valueSpinnerMonth.equals("Februar")){
-			monthNote = 2;
-		}
-		if(valueSpinnerMonth.equals("März")){
-			monthNote = 3;
-		}
-		if(valueSpinnerMonth.equals("April")){
-			monthNote = 4;
-		}
-		if(valueSpinnerMonth.equals("Mai")){
-			monthNote = 5;
-		}
-		if(valueSpinnerMonth.equals("Juni")){
-			monthNote = 6;
-		}
-		if(valueSpinnerMonth.equals("Juli")){
-			monthNote = 7;
-		}
-		if(valueSpinnerMonth.equals("August")){
-			monthNote = 8;
-		}
-		if(valueSpinnerMonth.equals("September")){
-			monthNote = 9;
-		}
-		if(valueSpinnerMonth.equals("Oktober")){
-			monthNote = 10;
-		}
-		if(valueSpinnerMonth.equals("November")){
-			monthNote = 11;
-		}
-		if(valueSpinnerMonth.equals("Dezember")){
-			monthNote = 12;
-		}
-		yearNote = (int) spinnerYear.getValue();
-		calNote.set(Calendar.YEAR, yearNote);
-		calNote.set(Calendar.MONTH, (monthNote - 1));
-		calNote.set(Calendar.DAY_OF_MONTH, dayNote);
 
 	}
 

@@ -5,7 +5,7 @@ public class SaveDataEditVacancyManagement {
 		DialogEditVacancyManagementGeneral.getGeneral();
 		DialogEditVacancyManagementDetails.getDetails();
 		DialogEditVacancyManagementResponse.getResponse();
-		CloseDialogEditVacancyManagement.close();
+		DialogEditVacancyManagement.dialogEditVacancyManagement.dispose();
 	}
 	
 }
