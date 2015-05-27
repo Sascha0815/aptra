@@ -82,8 +82,7 @@ public class DialogEditVacancyManagementMatrix {
 			columns = columns+ "[][]";
 		}
 		columns = columns + "[]";
-		panelDialogEditVacancyManagementMatrix.setLayout(new MigLayout("", "[grow,left][grow,right]" + columns));
-				
+		panelDialogEditVacancyManagementMatrix.setLayout(new MigLayout("", "[grow,left][grow,right]" + columns));	
 		for (int i = 0; i < amount; i++) {
 			slider[i] = new JSlider();
 			labels[i] = new JLabel();
@@ -113,15 +112,10 @@ public class DialogEditVacancyManagementMatrix {
 					scores.add(slider[i].getValue());
 				}
 				SaveDataEditVacancyManagement.save();
-				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations, scores);
-				
+				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations, scores);			
 			}
 		});
 	}
 		
-		
-
-		
-
 }
 

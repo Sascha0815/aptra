@@ -58,6 +58,7 @@ public class DialogEditSelection {
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 
 	public static void editSelection() {
+		panelDialogEditSelectionGeneral.removeAll();
 		dialogEditSelection.setSize(420,300);
 		dialogEditSelection.setLocationRelativeTo(null);
 		dialogEditSelection.setResizable(false);
@@ -86,7 +87,7 @@ public class DialogEditSelection {
 		panelDialogEditSelectionGeneral.add(buttonDelete, "cell 0 1 2 3,growx");
 		panelDialogEditSelectionGeneral.add(labelSelection,"cell 0 2,alignx left");
 		panelDialogEditSelectionGeneral.add(scrollPaneSelection,"cell 0 3 2 10,growx");
-
+		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				dialogEditSelection.dispose();

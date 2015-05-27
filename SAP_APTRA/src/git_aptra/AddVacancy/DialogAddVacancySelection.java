@@ -50,6 +50,7 @@ public class DialogAddVacancySelection {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 		
 	public static void addVacancyHistory(){
+		panelDialogVacancySelection.removeAll();
 		labelInstruction.setFont(fontHeadline);
 		buttonSave.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);
