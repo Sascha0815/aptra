@@ -82,14 +82,13 @@ public class MenuBarPanelApplicant {
 			add("Bildungsabschluss");
 		}
 	};
-
+	private static JScrollPane paneButton = new JScrollPane(panelButtonApplicant);
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
 		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
-		buttonRefreshApplicant.setPreferredSize(new Dimension(135,135));
 		try {
 			Image refreshApplicant = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_refresh.png"));
@@ -109,11 +108,9 @@ public class MenuBarPanelApplicant {
 		
 		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant, "cell 0 1");
-		buttonAddApplicant.setBorderPainted(false);
 		buttonAddApplicant.setOpaque(false);
 		buttonAddApplicant.setContentAreaFilled(false);
 		buttonAddApplicant.setBorder(null);
-		buttonAddApplicant.setSize(10,10);
 		try {
 			Image add = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_add.png"));   
@@ -163,7 +160,6 @@ public class MenuBarPanelApplicant {
 		});
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");
 		panelButtonApplicant.add(buttonEditApplicant, "cell 0 2");
-		buttonEditApplicant.setBorderPainted(false);
 		buttonEditApplicant.setOpaque(false);
 		buttonEditApplicant.setContentAreaFilled(false);
 		buttonEditApplicant.setBorder(null);
@@ -222,7 +218,6 @@ public class MenuBarPanelApplicant {
 		});
 		buttonDeleteApplicant.setToolTipText("Bewerber löschen");
 		panelButtonApplicant.add(buttonDeleteApplicant, "cell 0 3");
-		buttonDeleteApplicant.setBorderPainted(false);
 		buttonDeleteApplicant.setBorder(null);
 		buttonDeleteApplicant.setOpaque(false);
 		buttonDeleteApplicant.setContentAreaFilled(false);
@@ -246,7 +241,6 @@ public class MenuBarPanelApplicant {
 		});
 		buttonSearchApplicant.setToolTipText("Suchen");
 		panelButtonApplicant.add(buttonSearchApplicant, "cell 0 4");
-		buttonSearchApplicant.setBorderPainted(false);
 		buttonSearchApplicant.setBorder(null);
 		buttonSearchApplicant.setOpaque(false);
 		buttonSearchApplicant.setContentAreaFilled(false);
@@ -300,7 +294,7 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.setBorder(border);
 		panelApplicant.add(scrollPanePool, "cell 0 0, w :1800: , h :1000:");
 		scrollPanePool.setSize((int)(panelApplicant.getWidth()*0.8),panelApplicant.getHeight());
-		panelApplicant.add(panelButtonApplicant, "cell 1 0, w 150:150:150, h :1000:");   
+		panelApplicant.add(paneButton, "cell 1 0, w 170:170:170, h :1000:");   
 		panelButtonApplicant.setSize((int)(panelApplicant.getWidth()*0.2),panelApplicant.getHeight());
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);

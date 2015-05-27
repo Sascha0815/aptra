@@ -79,14 +79,13 @@ public class MenuBarPanelVacancy {
 	@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
-
+	private static JScrollPane paneButton = new JScrollPane(panelButtonWorkplace);
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {		
 		panelWorkplace.setLayout(new MigLayout("", "[]5[]"));	
 		panelButtonWorkplace.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
-		buttonRefreshJob.setPreferredSize(new Dimension(135, 135));
 		buttonRefreshJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -111,11 +110,9 @@ public class MenuBarPanelVacancy {
 		
 		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
 		panelButtonWorkplace.add(butttonAddJob, "cell 0 1");
-		butttonAddJob.setBorderPainted(false);
 		butttonAddJob.setBorder(null);
 		butttonAddJob.setOpaque(false);
 		butttonAddJob.setContentAreaFilled(false);
-		butttonAddJob.setPreferredSize(new Dimension(135, 135));
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
@@ -165,11 +162,9 @@ public class MenuBarPanelVacancy {
 		}
 		buttonEditJob.setToolTipText("Arbeitsstelle bearbeiten");
 		panelButtonWorkplace.add(buttonEditJob, "cell 0 2");
-		buttonEditJob.setBorderPainted(false);
 		buttonEditJob.setBorder(null);
 		buttonEditJob.setOpaque(false);
 		buttonEditJob.setContentAreaFilled(false);
-		buttonEditJob.setPreferredSize(new Dimension(135, 135));
 		buttonEditJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
@@ -225,11 +220,9 @@ public class MenuBarPanelVacancy {
 
 		buttonDeleteJob.setToolTipText("Arbeitsstelle löschen");
 		panelButtonWorkplace.add(buttonDeleteJob, "cell 0 3");
-		buttonDeleteJob.setBorderPainted(false);
 		buttonDeleteJob.setBorder(null);
 		buttonDeleteJob.setOpaque(false);
 		buttonDeleteJob.setContentAreaFilled(false);
-		buttonDeleteJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/vacancy_delete.png"));
@@ -248,11 +241,9 @@ public class MenuBarPanelVacancy {
 		});
 		buttonSearchJob.setToolTipText("Arbeitsstelle suchen");
 		panelButtonWorkplace.add(buttonSearchJob, "cell 0 4");
-		buttonSearchJob.setBorderPainted(false);
 		buttonSearchJob.setBorder(null);
 		buttonSearchJob.setOpaque(false);
 		buttonSearchJob.setContentAreaFilled(false);
-		buttonSearchJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/vacancy_search.png"));
@@ -266,11 +257,9 @@ public class MenuBarPanelVacancy {
 		});
 		buttonSettingsJob.setToolTipText("Ausschreibung anzeigen");
 		panelButtonWorkplace.add(buttonSettingsJob, "cell 0 5");
-		buttonSettingsJob.setBorderPainted(false);
 		buttonSettingsJob.setBorder(null);
 		buttonSettingsJob.setOpaque(false);
 		buttonSettingsJob.setContentAreaFilled(false);
-		buttonSettingsJob.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/vacancy_info.png"));
@@ -303,7 +292,7 @@ public class MenuBarPanelVacancy {
 		scrollPaneJob.setBorder(border);
 		panelButtonWorkplace.setBorder(border);
 		panelWorkplace.add(scrollPaneJob, "cell 0 0, w :1800: , h :1000:");
-		panelWorkplace.add(panelButtonWorkplace, "cell 1 0, w 150:150:150, h :1000:");
+		panelWorkplace.add(paneButton, "cell 1 0, w 170:170:170, h :1000:");
 		Oberflaeche.tabBar.addTab("Arbeitsstellen", panelWorkplace);
 		tableJob.setAutoCreateRowSorter(true);
 	}

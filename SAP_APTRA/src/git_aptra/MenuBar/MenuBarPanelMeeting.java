@@ -89,6 +89,7 @@ public class MenuBarPanelMeeting {
 	private static String[] result;
 	@SuppressWarnings("unused")
 	private static int entitlement;
+	private static JScrollPane paneButton = new JScrollPane(panelMeetingButton);
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelEmployeeMeeting() {
@@ -131,11 +132,9 @@ public class MenuBarPanelMeeting {
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
 		panelMeetingButton.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
-		buttonAddMeeting.setBorderPainted(false);
 		buttonAddMeeting.setBorder(null);
 		buttonAddMeeting.setOpaque(false);
 		buttonAddMeeting.setContentAreaFilled(false);
-		buttonAddMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DialogAddMeeting.newMeeting();
@@ -150,11 +149,9 @@ public class MenuBarPanelMeeting {
 	
 		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
 		panelMeetingButton.add(buttonEditMeeting, "cell 0 1");
-		buttonEditMeeting.setBorderPainted(false);
 		buttonEditMeeting.setBorder(null);
 		buttonEditMeeting.setOpaque(false);
 		buttonEditMeeting.setContentAreaFilled(false);
-		buttonEditMeeting.setPreferredSize(new Dimension(135, 135));
 		buttonEditMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
@@ -169,11 +166,9 @@ public class MenuBarPanelMeeting {
 
 		buttonDeleteMeeting.setToolTipText("Bewerber löschen");
 		panelMeetingButton.add(buttonDeleteMeeting, "cell 0 2");
-		buttonDeleteMeeting.setBorderPainted(false);
 		buttonDeleteMeeting.setBorder(null);
 		buttonDeleteMeeting.setOpaque(false);
 		buttonDeleteMeeting.setContentAreaFilled(false);
-		buttonDeleteMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image trashcan = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/meeting_delete.png"));
@@ -187,11 +182,9 @@ public class MenuBarPanelMeeting {
 		});
 		buttonSearchMeeting.setToolTipText("Einstellungen");
 		panelMeetingButton.add(buttonSearchMeeting, "cell 0 3");
-		buttonSearchMeeting.setBorderPainted(false);
 		buttonSearchMeeting.setBorder(null);
 		buttonSearchMeeting.setOpaque(false);
 		buttonSearchMeeting.setContentAreaFilled(false);
-		buttonSearchMeeting.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/meeting_search.png"));
@@ -205,12 +198,9 @@ public class MenuBarPanelMeeting {
 		});
 		buttonSettingsMeeting.setToolTipText("Info zum Termin");
 		panelMeetingButton.add(buttonSettingsMeeting, "cell 0 4");
-		buttonSettingsMeeting.setBorderPainted(false);
 		buttonSettingsMeeting.setBorder(null);
 		buttonSettingsMeeting.setOpaque(false);
 		buttonSettingsMeeting.setContentAreaFilled(false);
-		buttonSettingsMeeting
-				.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/meeting_info.png"));
@@ -242,7 +232,7 @@ public class MenuBarPanelMeeting {
 		scrollPaneEmployeeMeeting.setBorder(border);
 		panelMeeting.add(panelMeetingSummary, "cell 0 0, w 200:200:200 , h :1000:");
 		panelMeeting.add(scrollPaneEmployeeMeeting, "cell 1 0, w :1800: , h :1000:");
-		panelMeeting.add(panelMeetingButton, "cell 2 0, w 150:150:150, h :1000:" );
+		panelMeeting.add(paneButton, "cell 2 0, w 171:171:171, h :1000:" );
 		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 

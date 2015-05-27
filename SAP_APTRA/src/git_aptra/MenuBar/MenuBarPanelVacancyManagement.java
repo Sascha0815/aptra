@@ -97,6 +97,7 @@ public class MenuBarPanelVacancyManagement {
 	
 	private static String[] result;
 	private static int idApplicant;
+	private static JScrollPane scrollPaneButton = new JScrollPane(panelManagementButton);
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelVacancyManagement() {
@@ -141,12 +142,10 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
 		panelManagementButton.setLayout(new MigLayout("", "[]", "[]15[]15[]"));
-		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0");
-		butttonAddVacancyManagement.setBorderPainted(false);
+		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0, center");
 		butttonAddVacancyManagement.setBorder(null);
 		butttonAddVacancyManagement.setOpaque(false);
 		butttonAddVacancyManagement.setContentAreaFilled(false);
-		butttonAddVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				ArrayList<String> id= new ArrayList<String>();
@@ -178,11 +177,9 @@ public class MenuBarPanelVacancyManagement {
 		}
 		buttonEditVacancyManagement.setToolTipText("Bewerber bearbeiten");
 		panelManagementButton.add(buttonEditVacancyManagement, "cell 0 1");
-		buttonEditVacancyManagement.setBorderPainted(false);
 		buttonEditVacancyManagement.setBorder(null);
 		buttonEditVacancyManagement.setOpaque(false);
 		buttonEditVacancyManagement.setContentAreaFilled(false);
-		buttonEditVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		buttonEditVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableVacancyManagement.getSelectedRowCount() > 1
@@ -211,11 +208,9 @@ public class MenuBarPanelVacancyManagement {
 		
 		buttonSearchVacancyManagement.setToolTipText("Management suchen");
 		panelManagementButton.add(buttonSearchVacancyManagement, "cell 0 2");
-		buttonSearchVacancyManagement.setBorderPainted(false);
 		buttonSearchVacancyManagement.setBorder(null);
 		buttonSearchVacancyManagement.setOpaque(false);
 		buttonSearchVacancyManagement.setContentAreaFilled(false);
-		buttonSearchVacancyManagement.setPreferredSize(new Dimension(135, 135));
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/management_search.png"));
@@ -243,7 +238,7 @@ public class MenuBarPanelVacancyManagement {
 		scrollPaneVacancyManagement.setBorder(border);
 		panelVacancyManagement.add(panelManagementSummary, "cell 0 0, w 200:200:200 , h :1000:");
 		panelVacancyManagement.add(scrollPaneVacancyManagement, "cell 1 0, w :1800: , h :1000:");
-		panelVacancyManagement.add(panelManagementButton, "cell 2 0, w 150:150:150, h :1000:" );
+		panelVacancyManagement.add(scrollPaneButton, "cell 2 0, w 170:170:170, h :1000:" );
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 
