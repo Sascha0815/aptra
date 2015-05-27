@@ -20,7 +20,7 @@ public class DialogAddVacancy {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void newVacancy() {
-		dialogNewVacancy.setSize(450, 425);
+		dialogNewVacancy.setSize(425, 450);
 		dialogNewVacancy.setResizable(false);
 		dialogNewVacancy.setTitle("Neue Stelle");
 		dialogNewVacancy.add(tabVacancy);
@@ -32,9 +32,7 @@ public class DialogAddVacancy {
 		SwingUtilities.updateComponentTreeUI(dialogNewVacancy);
 		Vector results = new Vector();
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("Select evaluationID, notation from evaluation");
 

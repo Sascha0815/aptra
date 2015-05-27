@@ -11,11 +11,9 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 public class DialogAddVacancyGeneral {
-	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
-	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
-
+	
 	private static JPanel panelDialogVacancyMain = new JPanel();
+	
 	private static JLabel labelArea = new JLabel("Arbeitsbereich");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
@@ -44,6 +42,9 @@ public class DialogAddVacancyGeneral {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	public static void addVacancyGeneral() {
 		fieldArea.setText("");
@@ -52,7 +53,6 @@ public class DialogAddVacancyGeneral {
 		boxTermsOfEmployment.setSelectedIndex(0);
 		fieldStatus.setText("");
 		boxEducationalAchievement.setSelectedIndex(0);
-
 		labelInstruction.setFont(fontHeadline);
 		labelArea.setFont(fontSubHeadline);
 		labelPosition.setFont(fontSubHeadline);
@@ -100,18 +100,24 @@ public class DialogAddVacancyGeneral {
 	public static boolean getGeneral() {
 		try {
 			position = fieldPosition.getText();
+		} catch (Exception e) {
+		}
+		try {
 			area = fieldArea.getText();
-			requirementLevel = String.valueOf(boxRequirementLevel
-					.getSelectedItem());
-			termsOfEmployment = String.valueOf(boxTermsOfEmployment
-					.getSelectedItem());
-			educationalAchievementVacancy = String.valueOf(boxEducationalAchievement
-					.getSelectedItem());
+		} catch (Exception e) {
+		}	
+		try {
+			termsOfEmployment = String.valueOf(boxTermsOfEmployment.getSelectedItem());
+		} catch (Exception e) {
+		}	
+		try {
+			educationalAchievementVacancy = String.valueOf(boxEducationalAchievement.getSelectedItem());
+		} catch (Exception e) {
+		}	
+		try {
 			vacancyStatus = fieldStatus.getText();
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
-		}
-
+		}	
 		if (area.equals("")) {
 			return false;
 		}
@@ -126,9 +132,7 @@ public class DialogAddVacancyGeneral {
 		}
 		if (educationalAchievementVacancy.equals("")) {
 			return false;
-		}
-		
-		else {
+		} else {
 			return true;
 		}
 	}

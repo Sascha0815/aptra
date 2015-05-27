@@ -42,13 +42,13 @@ public class EditApplicant {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT sex,date,applyDate FROM applicant WHERE applicantID =" + (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0));
+			ResultSet rs = stmt.executeQuery("SELECT sex, date, applyDate, division FROM applicant WHERE applicantID =" + (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0));
 
 			while (rs.next()) {
 				DataSetSex = rs.getString(1);
 				DataSetDate = rs.getDate(2);
 				DataSetApplyDate = rs.getDate(3);
-				//DataSetDivision = rs.getString(4);
+				DataSetDivision = rs.getString(4);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

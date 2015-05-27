@@ -1,30 +1,20 @@
 package git_aptra.AddVacancy;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
-
-@SuppressWarnings("unused")
 public class DialogAddVacancySelection {
-	private static Font fontTextField = new Font("Arial", Font.BOLD, 14);
 	
 	private static JPanel panelDialogVacancySelection = new JPanel();
 	
@@ -52,22 +42,31 @@ public class DialogAddVacancySelection {
 	
 	public static JTable tableSelection = new JTable(modelSelection);
 	
-	private static JButton save = new JButton("Speichern");
+	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonBack = new JButton("Zurück");
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 		
 	public static void addVacancyHistory(){
-		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][]push[]"));
-		panelDialogVacancySelection.add(labelInstruction, "cell 0 0 2,alignx center");
-		panelDialogVacancySelection.add(labelSelection, "cell 0 1,alignx left");
+		labelInstruction.setFont(fontHeadline);
+		buttonSave.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
+		tableSelection.setFont(fontText);
 		tableSelection = new JTable(modelSelection);
 		modelSelection.setColumnIdentifiers(COLUMN_IDENTIFIERS_SELECTION);
 		JScrollPane scrollPaneSelection = new JScrollPane(tableSelection);
 		scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		tableSelection.setRowHeight(20);
 		tableSelection.setAutoCreateRowSorter(true);
+		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][]push[]"));
+		panelDialogVacancySelection.add(labelInstruction, "cell 0 0 2,alignx center");
+		panelDialogVacancySelection.add(labelSelection, "cell 0 1,alignx left");
 		panelDialogVacancySelection.add(scrollPaneSelection, "cell 0 2 4 12,alignx left");
-		panelDialogVacancySelection.add(save, "cell 1 15 2 1, alignx right");
+		panelDialogVacancySelection.add(buttonSave, "cell 1 15 2 1, alignx right");
 		panelDialogVacancySelection.add(buttonBack, "cell 0 15 2 1, alignx left");
+		DialogAddVacancy.tabVacancy.addTab("Bewertungsauswahl",panelDialogVacancySelection);
 		
 		buttonBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -75,14 +74,10 @@ public class DialogAddVacancySelection {
 			}
 		});
 	
-		save.addActionListener(new ActionListener() {
+		buttonSave.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
 			SaveDataNewVacancy.save();
 		}
-	});
-	
-	DialogAddVacancy.tabVacancy.addTab("Bewertungsauswahl",
-			panelDialogVacancySelection);
-	
+		});	
 	}
 }

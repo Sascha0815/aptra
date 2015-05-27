@@ -1,6 +1,9 @@
 package git_aptra.SearchApplicant;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -27,6 +30,8 @@ public class DialogSearchApplicantGeneral {
 	private static JTextField fieldHouseNr = new JTextField();
 	private static JTextField fieldPostalCode = new JTextField();
 	private static JTextField fieldCity = new JTextField();
+	
+	private static JButton buttonContinue = new JButton("Weiter");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
@@ -63,7 +68,7 @@ public class DialogSearchApplicantGeneral {
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
 		fieldApplicantID.setText("");
-		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
+		panelDialogSearchApplicantMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]push[]"));
 		panelDialogSearchApplicantMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogSearchApplicantMain.add(labelApplicantID,"cell 0 1,alignx left");
 		panelDialogSearchApplicantMain.add(fieldApplicantID,"cell 0 2 2 1,growx");
@@ -79,7 +84,14 @@ public class DialogSearchApplicantGeneral {
 		panelDialogSearchApplicantMain.add(fieldPostalCode,"cell 0 12 2 1,growx");
 		panelDialogSearchApplicantMain.add(labelCity,"cell 0 13,alignx left");
 		panelDialogSearchApplicantMain.add(fieldCity, "cell 0 14 2 1,growx");
+		panelDialogSearchApplicantMain.add(buttonContinue,"cell 1 15,alignx right");
 		DialogSearchApplicant.tabSearch.addTab("Allgemein",panelDialogSearchApplicantMain);
+		
+	    buttonContinue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogSearchApplicant.tabSearch.setSelectedIndex((1));
+			}
+		});
 	}
 
 	public static void getGeneral() {
@@ -91,7 +103,6 @@ public class DialogSearchApplicantGeneral {
 		}
 		try {
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
-
 		} catch (Exception e) {
 			houseNr = 0;
 		}
@@ -101,10 +112,22 @@ public class DialogSearchApplicantGeneral {
 		} catch (Exception e) {
 			postalCode = 0;
 		}
-		name = fieldName.getText();
-		firstName = fieldFirstName.getText();
-		street = fieldStreet.getText();
-		city = fieldCity.getText();
+		try {
+			name = fieldName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			firstName = fieldFirstName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			street = fieldStreet.getText();
+		} catch (Exception e) {
+		}
+		try {
+			city = fieldCity.getText();
+		} catch (Exception e) {
+		}	
 	}
 
 	public static String getName() {
@@ -134,7 +157,4 @@ public class DialogSearchApplicantGeneral {
 	public static int getApplicantID() {
 		return applicantID;
 	}
-	
-	
-
 }

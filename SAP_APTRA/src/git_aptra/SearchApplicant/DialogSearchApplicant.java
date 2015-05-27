@@ -12,7 +12,7 @@ public class DialogSearchApplicant {
 	public static JDialog dialogSearchApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void searchApplicant() {
-		dialogSearchApplicant.setSize(425, 425);
+		dialogSearchApplicant.setSize(425, 450);
 		dialogSearchApplicant.setLocationRelativeTo(null);
 		dialogSearchApplicant.setResizable(false);
 		dialogSearchApplicant.setTitle("Bewerber suchen");

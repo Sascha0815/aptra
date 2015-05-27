@@ -52,7 +52,7 @@ public class DialogAddVacancySpecification {
 		panelDialogVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
 		panelDialogVacancySpecification.add(dateChooserDeadline, "cell 0 4 2, growx");
 		panelDialogVacancySpecification.add(labelDivision, "cell 0 5,alignx left");
-		panelDialogVacancySpecification.add(boxDivision, "cell 0 6,alignx left");
+		panelDialogVacancySpecification.add(boxDivision, "cell 0 6 2,growx");
 		panelDialogVacancySpecification.add(buttonBack,"cell 0 11,alignx left");
 		panelDialogVacancySpecification.add(buttonContinue,"cell 1 11,alignx right");
 		DialogAddVacancy.tabVacancy.addTab("Organisation",panelDialogVacancySpecification);

@@ -73,8 +73,8 @@ public class DialogEditApplicantContact {
 		panelDialogEditApplicantContact.add(fieldEmail, "cell 0 6 2 1,growx");
 		panelDialogEditApplicantContact.add(labelBirthday, "cell 0 7,alignx left");
 		panelDialogEditApplicantContact.add(dateChooserBirthday, "cell 0 8 2,growx");
-		panelDialogEditApplicantContact.add(buttonBack, "cell 0 9,alignx right ");
-		panelDialogEditApplicantContact.add(buttonSave, "cell 1 9,alignx left");
+		panelDialogEditApplicantContact.add(buttonBack, "cell 0 9,alignx left ");
+		panelDialogEditApplicantContact.add(buttonSave, "cell 1 9,alignx right");
 		DialogEditApplicant.tabEdit.addTab("Kontaktdaten",panelDialogEditApplicantContact);
 		
 		buttonSave.addActionListener(new ActionListener() {

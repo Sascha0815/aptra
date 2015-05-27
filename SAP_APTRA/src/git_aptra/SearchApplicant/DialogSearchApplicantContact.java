@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +30,7 @@ public class DialogSearchApplicantContact {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	private static JButton buttonSearch = new JButton("Suchen");
-	private static JButton buttonAbort = new JButton("Abbrechen");
+	private static JButton buttonBack = new JButton ("Zurück");
 
 	private static String telefonHome;
 	private static String telefonMobil;
@@ -42,14 +43,14 @@ public class DialogSearchApplicantContact {
 		labelTelefonMobil.setFont(fontSubHeadline);
 		labelEmail.setFont(fontSubHeadline);
 		buttonSearch.setFont(fontSubHeadline);
-		buttonAbort.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
-		panelSearchDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]170[]"));
+		panelSearchDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]push[]"));
 		panelSearchDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelSearchDialogApplicantContact.add(labelTelefonHome,"cell 0 1,alignx left");
 		panelSearchDialogApplicantContact.add(fieldTelefonHome,"cell 0 2 2 1,growx");
@@ -57,14 +58,14 @@ public class DialogSearchApplicantContact {
 		panelSearchDialogApplicantContact.add(fieldTelefonMobil,"cell 0 4 2 1,growx");
 		panelSearchDialogApplicantContact.add(labelEmail,"cell 0 5,alignx left");
 		panelSearchDialogApplicantContact.add(fieldEmail,"cell 0 6 2 1,growx");
-		panelSearchDialogApplicantContact.add(buttonSearch, "cell 0 7,alignx left");
-		panelSearchDialogApplicantContact.add(buttonAbort, "cell 1 7,alignx right ");
+		panelSearchDialogApplicantContact.add(buttonBack, "cell 0 7,alignx left ");
+		panelSearchDialogApplicantContact.add(buttonSearch, "cell 1 7,alignx right");
 		DialogSearchApplicant.tabSearch.addTab("Kontaktdaten",panelSearchDialogApplicantContact);		
 		if (first==true) {
 			first=false;
-			buttonAbort.addActionListener(new ActionListener() {
+			buttonBack.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					DialogSearchApplicant.dialogSearchApplicant.dispose();
+					DialogSearchApplicant.tabSearch.setSelectedIndex(1);
 				}
 			});		
 			buttonSearch.addActionListener(new ActionListener() {
@@ -84,10 +85,15 @@ public class DialogSearchApplicantContact {
 	public static void getContact() {
 		try {
 			telefonHome = fieldTelefonHome.getText();
-			telefonMobil = fieldTelefonMobil.getText();
+		} catch (Exception e) {
+		}
+		try {
 			email = fieldEmail.getText();
 		} catch (Exception e) {
-			System.out.println("Nicht alle Daten eingegeben");
+		}
+		try {
+			telefonMobil = fieldTelefonMobil.getText();
+		} catch (Exception e) {
 		}
 	}
 
