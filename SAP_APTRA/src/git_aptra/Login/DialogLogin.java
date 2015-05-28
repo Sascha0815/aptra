@@ -4,8 +4,12 @@ import git_aptra.Oberflaeche;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -46,6 +50,14 @@ public class DialogLogin extends JFrame {
 	
 
 	public DialogLogin() {
+		try {
+			Image job = ImageIO.read(Oberflaeche.class
+					.getResource("FrameIcon.gif"));
+			frameLogin.setIconImage(job);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		frameLogin.setSize(285, 230);
 		frameLogin.setTitle("Login");
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

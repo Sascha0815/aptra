@@ -1,7 +1,10 @@
 package git_aptra;
 
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -32,8 +35,16 @@ public class Oberflaeche extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(true);
 		frame.add(tabBar);
-		java.awt.Image im = Toolkit.getDefaultToolkit().getImage("resources/FrameIconSmall.gif");
-		frame.setIconImage(im);
+		try {
+			Image job = ImageIO.read(Oberflaeche.class
+					.getResource("FrameIcon.gif"));
+			frame.setIconImage(job);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 
 		//Panels der MenuBar hinzufügen
 		MenuBar.addMenuBar();
