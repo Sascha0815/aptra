@@ -21,20 +21,23 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogEditVacancyManagementMatrix {
 	
-
+	
 	public static JPanel panelDialogEditVacancyManagementMatrix = new JPanel();
 	private static JScrollPane scrollpaneMatrix = new JScrollPane(panelDialogEditVacancyManagementMatrix);
+	public static JPanel panelMatrix = new JPanel();
 	private static JButton saveRating = new JButton("Speichern");
 	private static int amount = 0;
 	@SuppressWarnings("rawtypes")
 	private static Vector notations = new Vector();
 	@SuppressWarnings("rawtypes")
 	private static Vector scores = new Vector();
-	
+	private static JSlider[] slider;
 	@SuppressWarnings("unchecked")
 	public static void editVacancyManagementMatrix() throws InstantiationException, IllegalAccessException, ClassNotFoundException {		
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Bewertung",
-				scrollpaneMatrix);
+				panelMatrix);
+		panelMatrix.setLayout(new MigLayout("", "[]","[400][]"));
+		panelMatrix.add(scrollpaneMatrix, "cell 0 0");
 		scrollpaneMatrix.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollpaneMatrix.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		try {
@@ -76,7 +79,7 @@ public class DialogEditVacancyManagementMatrix {
 
 		String columns = "";
 		String cell = "";
-		final JSlider[] slider = new JSlider[amount];
+		slider = new JSlider[amount];
 		JLabel[] labels = new JLabel[amount]; 
 		for (int i = 0; i < amount; i++) {
 			columns = columns+ "[][]";
@@ -104,20 +107,25 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].setValue((int) scores.elementAt(i));
 		}
 		
-		panelDialogEditVacancyManagementMatrix.add(saveRating, cell);	
+		panelMatrix.add(saveRating, "cell 0 1");	
 		
 		saveRating.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {				
-				for (int i = 0; i < amount; i++) {
-					scores.add(slider[i].getValue());
-				}
+			public void actionPerformed(ActionEvent evt) {					
 				SaveDataEditVacancyManagement.save();
-				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations, scores);			
+				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations);	
+				panelDialogEditVacancyManagementMatrix.removeAll();
 			}
 		});
+		
+	}	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static Vector getScore(){
+		Vector newScores = new Vector();
+		for (int i = 0; i < amount; i++) {
+			newScores.add(slider[i].getValue());
+		}
+		return newScores;
 	}
-	
-	
 
 		
 }

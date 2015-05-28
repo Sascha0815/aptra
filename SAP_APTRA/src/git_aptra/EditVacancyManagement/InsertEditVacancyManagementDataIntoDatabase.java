@@ -197,7 +197,9 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		}
 	}
 	@SuppressWarnings("rawtypes")
-	public static void insertEditVacancyManagementDataMatrix(int amount, Vector notations, Vector scores) {
+	public static void insertEditVacancyManagementDataMatrix(int amount, Vector notations) {
+		Vector scores = new Vector();
+		scores = DialogEditVacancyManagementMatrix.getScore();
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		String query;
