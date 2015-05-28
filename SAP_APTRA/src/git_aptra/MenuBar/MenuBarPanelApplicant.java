@@ -14,7 +14,6 @@ import git_aptra.SearchApplicant.DialogSearchApplicant;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -172,8 +171,11 @@ public class MenuBarPanelApplicant {
 		}
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
-					DialogEditWarningApplicant.selectOnlyOne();
+				if (tableApplicant.getSelectedRowCount() == 0 ) {
+					DialogEditWarningApplicant.nothingSelected();
+				}	
+				if (tableApplicant.getSelectedRowCount() > 1 ){
+					DialogEditWarningApplicant.tooManySelected();
 				} else {
 					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
@@ -272,8 +274,11 @@ public class MenuBarPanelApplicant {
 		}
 		buttonInfoApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
-					DialogEditWarningApplicant.selectOnlyOne();
+				if (tableApplicant.getSelectedRowCount() == 0 ) {
+					DialogEditWarningApplicant.nothingSelected();
+				}	
+				if (tableApplicant.getSelectedRowCount() > 1 ){
+						DialogEditWarningApplicant.tooManySelected();
 				} else {
 					InfoApplicant.getApplicantInfo();
 					DialogInfoApplicant.infoApplicant();

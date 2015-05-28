@@ -9,7 +9,6 @@ import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -184,7 +183,7 @@ public class MenuBarPanelVacancyManagement {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableVacancyManagement.getSelectedRowCount() > 1
 						|| tableVacancyManagement.getSelectedRowCount() == 0) {					
-					DialogEditWarningApplicant.selectOnlyOne();
+					DialogEditWarningApplicant.nothingSelected();
 				} else {
 					idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 					EditVacancyManagement.getSelectedRow();

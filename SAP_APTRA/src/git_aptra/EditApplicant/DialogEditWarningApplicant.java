@@ -1,7 +1,6 @@
 package git_aptra.EditApplicant;
 
 import java.awt.Font;
-import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import git_aptra.Oberflaeche;
@@ -10,36 +9,55 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
+
 public class DialogEditWarningApplicant {
 
 	private static JDialog dialogEditWarning = new JDialog(Oberflaeche.frame);
 	private static JPanel panelEditWarning = new JPanel();
-	private static JLabel labelEditWarning = new JLabel("Sie haben keinen Bewerber ausgew‰hlt");
+	private static JLabel labelEditWarningNothingSelected = new JLabel("Sie haben keinen Bewerber ausgew‰hlt");
+	private static JLabel labelEditWarningTooManySelected = new JLabel("Sie haben mehr als einen Bewerber ausgew‰hlt");
 	private static JButton buttonEditWarning = new JButton("Schlieﬂen");
-	private static Font fontWarning = new Font("Arial", Font.BOLD, 16);
-	private static GridBagConstraints gbc = new GridBagConstraints();
-
-	public static void selectOnlyOne() {
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	
+	public static void nothingSelected() {
 		dialogEditWarning.setVisible(true);
-		dialogEditWarning.setSize(325, 90);
+		dialogEditWarning.setSize(325, 100);
 		dialogEditWarning.setLocationRelativeTo(null);
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
-		gbc.gridx = 0;
-	    gbc.gridy = 0;
-	    gbc.weighty = 1;
-	    gbc.fill = GridBagConstraints.HORIZONTAL;
-	    labelEditWarning.setFont(fontWarning);
-	    panelEditWarning.add(labelEditWarning,gbc);
-	    gbc.gridx = 0;
-	    gbc.gridy = 1;
-	    gbc.fill = GridBagConstraints.HORIZONTAL;
-	    panelEditWarning.add(buttonEditWarning,gbc);
+		labelEditWarningNothingSelected.setFont(fontSubHeadline);
+		buttonEditWarning.setFont(fontSubHeadline);
+		panelEditWarning.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
+		panelEditWarning.add(labelEditWarningNothingSelected, "cell 0 0 2 1,alignx center");
+		panelEditWarning.add(buttonEditWarning, "cell 0 1 2 1, alignx center");
+		
 		buttonEditWarning.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dialogEditWarning.dispose();
 			}
-		});
+		});	
+	}
+	
+	public static void tooManySelected(){
+		dialogEditWarning.setVisible(true);
+		dialogEditWarning.setSize(325, 100);
+		dialogEditWarning.setLocationRelativeTo(null);
+		dialogEditWarning.setResizable(false);
+		dialogEditWarning.setTitle("Fehler");
+		dialogEditWarning.add(panelEditWarning);
+		labelEditWarningTooManySelected.setFont(fontSubHeadline);
+		buttonEditWarning.setFont(fontSubHeadline);
+		panelEditWarning.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
+		panelEditWarning.add(labelEditWarningTooManySelected, "cell 0 0 2 1,alignx center");
+		panelEditWarning.add(buttonEditWarning, "cell 0 1 2 1, alignx center");
+		
+		buttonEditWarning.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dialogEditWarning.dispose();
+			}
+		});	
 	}
 }
+

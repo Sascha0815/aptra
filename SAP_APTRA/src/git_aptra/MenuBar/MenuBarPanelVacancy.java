@@ -5,16 +5,13 @@ import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.Delete.DeleteVacancy;
-import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
 import git_aptra.EditVacancy.EditVacancy;
 import git_aptra.InfoVacancy.DialogInfoVacancy;
 import git_aptra.InfoVacancy.InfoVacancy;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -167,8 +164,11 @@ public class MenuBarPanelVacancy {
 		buttonEditJob.setContentAreaFilled(false);
 		buttonEditJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
-					DialogEditVacancyWarning.selectOnlyOne();
+				if (tableJob.getSelectedRowCount() == 0 ) {
+					DialogEditVacancyWarning.nothingSelected();
+				} 
+				if (tableJob.getSelectedRowCount() > 1){
+					DialogEditVacancyWarning.tooManySelected();
 				} else {
 					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
@@ -268,8 +268,11 @@ public class MenuBarPanelVacancy {
 		}
 		buttonDetailsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
-					DialogEditVacancyWarning.selectOnlyOne();
+				if (tableJob.getSelectedRowCount() == 0 ) {
+					DialogEditVacancyWarning.nothingSelected();
+				} 
+				if (tableJob.getSelectedRowCount() > 1){
+					DialogEditVacancyWarning.tooManySelected();
 				} else {
 					InfoVacancy.getVacancyInfo();
 					DialogInfoVacancy.infoVacancy();
