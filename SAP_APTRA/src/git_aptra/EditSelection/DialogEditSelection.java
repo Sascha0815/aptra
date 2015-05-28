@@ -96,6 +96,7 @@ public class DialogEditSelection {
 		
 		buttonAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				dialogEditSelection.dispose();
 				DialogNewSelection.newSelection();
 			}
 		});

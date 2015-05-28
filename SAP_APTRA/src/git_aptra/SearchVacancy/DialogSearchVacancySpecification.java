@@ -1,12 +1,13 @@
 package git_aptra.SearchVacancy;
 
-import git_aptra.AddApplicant.DialogAddApplicant;
+
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +30,7 @@ public class DialogSearchVacancySpecification {
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
 
 	private static JButton buttonSearch = new JButton("Suchen");
-	private static JButton buttonAbort = new JButton ("Abbrechen");
+	private static JButton buttonBack = new JButton("Zurück");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
@@ -38,7 +39,7 @@ public class DialogSearchVacancySpecification {
 	public static void searchVacancySpecification() {
 		labelInstruction.setFont(fontHeadline);
 		buttonSearch.setFont(fontSubHeadline);
-		buttonAbort.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
 		labelLevel.setFont(fontSubHeadline);
 		labelDeadline.setFont(fontSubHeadline);
 		dateChooserDeadline.setFont(fontText);
@@ -49,9 +50,9 @@ public class DialogSearchVacancySpecification {
 		panelSearchVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
 		panelSearchVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
 		panelSearchVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
-		panelSearchVacancySpecification.add(dateChooserDeadline, "cell 0 4 2,growx "); 
-		panelSearchVacancySpecification.add(buttonSearch, "cell 0 5,alignx left");
-		panelSearchVacancySpecification.add(buttonAbort, "cell 1 5,alignx right ");
+		panelSearchVacancySpecification.add(dateChooserDeadline, "cell 0 4 2,growx ");
+		panelSearchVacancySpecification.add(buttonBack, "cell 0 5,alignx left ");
+		panelSearchVacancySpecification.add(buttonSearch, "cell 1 5,alignx right");
 
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -64,9 +65,9 @@ public class DialogSearchVacancySpecification {
 			}
 		});
 		
-		buttonAbort.addActionListener(new ActionListener() {
+		buttonBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddApplicant.dialogNewApplicant.dispose();
+				DialogSearchVacancy.tabSearchVacancy.setSelectedIndex((0));
 			}
 		});
 		

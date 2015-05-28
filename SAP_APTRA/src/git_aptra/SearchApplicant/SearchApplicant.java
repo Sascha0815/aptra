@@ -185,13 +185,11 @@ public class SearchApplicant {
 					"u474396146_aptra", "aptraDB");
 
 			Statement stmt = dbConnection.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID +name
+			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID + name
 					+ firstName + street + houseNr + postalCode + city
 					+ telefonHome + telefonMobil + email + vacancy
 					+ educationalAcievement);
 			
-			
-
 			while (rs.next()) {
 				Vector applicant = new Vector();
 				applicant.add(rs.getString(1));

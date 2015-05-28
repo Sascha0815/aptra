@@ -12,7 +12,7 @@ public class DialogSearchVacancy {
 	public static JTabbedPane tabSearchVacancy = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	
 	public static void searchVacancy(){	
-		dialogSearchVacancy.setSize(450, 400);
+		dialogSearchVacancy.setSize(425, 450);
 		dialogSearchVacancy.setLocationRelativeTo(null);
 		dialogSearchVacancy.setResizable(false);
 		dialogSearchVacancy.setTitle("Stellenausschreibung suchen");
