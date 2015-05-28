@@ -10,11 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import net.miginfocom.swing.MigLayout;
 
 public class DialogEditVacancyWarning {
 
@@ -27,24 +28,17 @@ public class DialogEditVacancyWarning {
 	public static void selectOnlyOne() {
 		dialogEditWarning.setVisible(true);
 		dialogEditWarning.setSize(400, 100);
-		dialogEditWarning.setLocationRelativeTo(null);
+		dialogEditWarning.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
-		panelEditWarning.setLayout(new BoxLayout(panelEditWarning,
-				BoxLayout.Y_AXIS));
-		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 5)));
-		panelEditWarning.add(labelEditWarning);
-		panelEditWarning.setBackground(Color.LIGHT_GRAY);
+		panelEditWarning.setLayout(new MigLayout("", "[]", "[][]"));
+		panelEditWarning.add(labelEditWarning, "cell 0 0");
 		labelEditWarning.setSize(400, 50);
-		labelEditWarning.setText("Bitte nur eine Arbeitstelle ausw‰hlen!");
-		labelEditWarning.setAlignmentX(Component.CENTER_ALIGNMENT);
+		labelEditWarning.setText("Bitte eine Arbeitstelle ausw‰hlen!");
 		labelEditWarning.setFont(fontWarning);
-		panelEditWarning.add(Box.createRigidArea(new Dimension(0, 20)));
-		panelEditWarning.add(buttonEditWarning);
-		buttonEditWarning.setBounds(0, 50, 400, 55);
+		panelEditWarning.add(buttonEditWarning, "cell 0 1 ");
 		buttonEditWarning.setText("Schlieﬂen");
-		buttonEditWarning.setAlignmentX(Component.CENTER_ALIGNMENT);
 		buttonEditWarning.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dialogEditWarning.dispose();

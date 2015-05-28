@@ -2,7 +2,7 @@ package git_aptra.MenuBar;
 
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
-import git_aptra.EditApplicant.DialogEditWarning;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
@@ -184,7 +184,7 @@ public class MenuBarPanelVacancyManagement {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableVacancyManagement.getSelectedRowCount() > 1
 						|| tableVacancyManagement.getSelectedRowCount() == 0) {					
-					DialogEditWarning.selectOnlyOne();
+					DialogEditWarningApplicant.selectOnlyOne();
 				} else {
 					idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 					EditVacancyManagement.getSelectedRow();

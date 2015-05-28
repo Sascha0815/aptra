@@ -12,6 +12,6 @@ public class MailContent{
         String text = "Hallo. Dies ist eine Erinnerung für ihren Termin bei Aptra."
         		+ "Weitere Details:";
        
-        Mail.send(MailAccounts.WEB, recipient, subject, text);      
+        Mail.send(MailAccounts.GMX, recipient, subject, text);      
     }
 }

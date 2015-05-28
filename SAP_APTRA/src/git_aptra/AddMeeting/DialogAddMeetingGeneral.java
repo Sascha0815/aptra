@@ -52,7 +52,9 @@ public class DialogAddMeetingGeneral {
 		panelDialogMeetingMain.add(buttonLoadApplicantData, "cell 0 1, alignx center");
 		buttonLoadApplicantData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				DialogAddMeeting.dialogNewMeeting.setModal(false);
 				DialogLoadApplicantData.loadApplicantData();
+				DialogAddMeeting.dialogNewMeeting.setModal(true);
 			}
 		});
 		

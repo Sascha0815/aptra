@@ -5,7 +5,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
 import git_aptra.Delete.DeleteVacancy;
-import git_aptra.EditApplicant.DialogEditWarning;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.EditVacancy.DialogEditVacancyWarning;
 import git_aptra.EditVacancy.EditVacancy;
@@ -65,7 +65,7 @@ public class MenuBarPanelVacancy {
 	private static JButton buttonDeleteJob = new JButton();
 	private static JButton buttonEditJob = new JButton();
 	private static JButton buttonSearchJob = new JButton();
-	private static JButton buttonSettingsJob = new JButton();
+	private static JButton buttonDetailsJob = new JButton();
 	public static DefaultTableModel modelJob = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
@@ -255,21 +255,21 @@ public class MenuBarPanelVacancy {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
-		buttonSettingsJob.setToolTipText("Ausschreibung anzeigen");
-		panelButtonWorkplace.add(buttonSettingsJob, "cell 0 5");
-		buttonSettingsJob.setBorder(null);
-		buttonSettingsJob.setOpaque(false);
-		buttonSettingsJob.setContentAreaFilled(false);
+		buttonDetailsJob.setToolTipText("Ausschreibung anzeigen");
+		panelButtonWorkplace.add(buttonDetailsJob, "cell 0 5");
+		buttonDetailsJob.setBorder(null);
+		buttonDetailsJob.setOpaque(false);
+		buttonDetailsJob.setContentAreaFilled(false);
 		try {
 			Image close = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/vacancy_info.png"));
-			buttonSettingsJob.setIcon(new ImageIcon(close));
+			buttonDetailsJob.setIcon(new ImageIcon(close));
 		} catch (IOException ex) {
 		}
-		buttonSettingsJob.addActionListener(new ActionListener() {
+		buttonDetailsJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableJob.getSelectedRowCount() > 1 || tableJob.getSelectedRowCount() == 0 ) {
-					DialogEditWarning.selectOnlyOne();
+					DialogEditVacancyWarning.selectOnlyOne();
 				} else {
 					InfoVacancy.getVacancyInfo();
 					DialogInfoVacancy.infoVacancy();

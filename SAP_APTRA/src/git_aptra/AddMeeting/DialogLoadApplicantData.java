@@ -19,7 +19,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogLoadApplicantData {
 		
-	public static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame);
+	public static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);
 	
 	private static JLabel labelInstruction = new JLabel("Bewerberdaten auswählen");
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
@@ -105,15 +105,17 @@ public class DialogLoadApplicantData {
 	tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
 	dialogLoadApplicantData.add(save,"cell 0 15,alignx right");
 	
-	dialogLoadApplicantData.setVisible(true);
+	
 	dialogLoadApplicantData.setSize(425, 500);
-	dialogLoadApplicantData.setLocation(null);
+	dialogLoadApplicantData.setLocationRelativeTo(Oberflaeche.frame);
+	DialogAddMeeting.dialogNewMeeting.setModal(true);
+	dialogLoadApplicantData.setVisible(true);
 	/*
 	panelDialogLoadApplicantData.setResizable(false);
 	panelDialogLoadApplicantData.setTitle("Bewerberinformationen");
 	SwingUtilities.updateComponentTreeUI(panelDialogLoadApplicantData);
 	*/
-	dialogLoadApplicantData.setLocationRelativeTo(Oberflaeche.frame);
+	
 
 	//panelDialogLoadApplicantData.add(save, "cell 0 13 ,alignx left");
 	}

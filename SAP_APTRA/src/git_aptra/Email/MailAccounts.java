@@ -4,6 +4,7 @@ public enum MailAccounts{
 	
 	// Hier bitte die ensprechenden Attribute jeweils anpassen
 	WEB("smtp.web.de", 25, "aptra@web.de", "bermudadreieck", "Aptra"),
+	GMX("mail.gmx.net", 25, "aptra@gmx.de", "bermudadreieck", "Aptra"),
 	// Hier können weitere E-Mail Accounts als ENUM angelegt werden
 	;
 	

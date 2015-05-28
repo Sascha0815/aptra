@@ -6,7 +6,7 @@ import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.Delete.DeleteApplicant;
 import git_aptra.EditApplicant.DialogEditApplicant;
-import git_aptra.EditApplicant.DialogEditWarning;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditApplicant.EditApplicant;
 import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
@@ -173,7 +173,7 @@ public class MenuBarPanelApplicant {
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
-					DialogEditWarning.selectOnlyOne();
+					DialogEditWarningApplicant.selectOnlyOne();
 				} else {
 					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
@@ -273,7 +273,7 @@ public class MenuBarPanelApplicant {
 		buttonInfoApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (tableApplicant.getSelectedRowCount() > 1 || tableApplicant.getSelectedRowCount() == 0 ) {
-					DialogEditWarning.selectOnlyOne();
+					DialogEditWarningApplicant.selectOnlyOne();
 				} else {
 					InfoApplicant.getApplicantInfo();
 					DialogInfoApplicant.infoApplicant();
