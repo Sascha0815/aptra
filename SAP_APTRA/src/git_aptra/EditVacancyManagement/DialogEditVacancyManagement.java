@@ -1,13 +1,17 @@
 package git_aptra.EditVacancyManagement;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.net.MalformedURLException;
 
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
+import javafx.scene.layout.Pane;
 
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
 
 public class DialogEditVacancyManagement {
 	public static JDialog dialogEditVacancyManagement = new JDialog(
@@ -15,6 +19,51 @@ public class DialogEditVacancyManagement {
 	public static JTabbedPane tabEditVacancyManagment = new JTabbedPane(
 			JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static void editVacancyManagement() throws MalformedURLException {
+		dialogEditVacancyManagement.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+		dialogEditVacancyManagement.addWindowListener(new WindowListener() {			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				dialogEditVacancyManagement.dispose();
+				DialogEditVacancyManagementMatrix.panelDialogEditVacancyManagementMatrix.removeAll();
+				
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		dialogEditVacancyManagement.setVisible(false);
 		dialogEditVacancyManagement.setSize(450,425);
 		dialogEditVacancyManagement.setResizable(false);

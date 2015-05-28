@@ -22,7 +22,7 @@ import net.miginfocom.swing.MigLayout;
 public class DialogEditVacancyManagementMatrix {
 	
 
-	private static JPanel panelDialogEditVacancyManagementMatrix = new JPanel();
+	public static JPanel panelDialogEditVacancyManagementMatrix = new JPanel();
 	private static JScrollPane scrollpaneMatrix = new JScrollPane(panelDialogEditVacancyManagementMatrix);
 	private static JButton saveRating = new JButton("Speichern");
 	private static int amount = 0;
@@ -116,6 +116,9 @@ public class DialogEditVacancyManagementMatrix {
 			}
 		});
 	}
+	
+	
+
 		
 }
 
