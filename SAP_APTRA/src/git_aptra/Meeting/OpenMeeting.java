@@ -1,6 +1,8 @@
 package git_aptra.Meeting;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,9 +16,7 @@ public class OpenMeeting {
 
 	public static void insertInfo(){
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("Select date, location, time FROM meeting");
 

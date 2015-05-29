@@ -1,5 +1,7 @@
 package git_aptra.ResponsePDF;
 
+import git_aptra.Login.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,9 +23,7 @@ public class ResponseControl {
   
   public static void control(String type, int id){
     try {
-      Connection con = DriverManager.getConnection(
-          "jdbc:mysql://185.28.20.242:3306/u474396146_db",
-          "u474396146_aptra", "aptraDB");
+      Connection con =  Login.getConnection();
       Statement stmt = con.createStatement();
       ResultSet rs = stmt.executeQuery("Select * from applicant where applicantID = " +id);
 

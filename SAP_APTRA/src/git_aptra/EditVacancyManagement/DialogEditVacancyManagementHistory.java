@@ -1,6 +1,7 @@
 package git_aptra.EditVacancyManagement;
 
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import java.awt.Color;
@@ -80,9 +81,7 @@ public class DialogEditVacancyManagementHistory {
 						MenuBarPanelVacancyManagement.tableVacancyManagement
 								.getSelectedRow(), 0);
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT notes.noteType, notes.date, notes.note, notes.employee FROM relationship INNER JOIN notes ON relationship.applicantID = notes.applicantID where notes.applicantID = " +id);
 

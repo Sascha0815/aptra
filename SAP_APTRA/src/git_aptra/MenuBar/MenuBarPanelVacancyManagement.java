@@ -5,6 +5,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
+import git_aptra.Login.Login;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
@@ -149,9 +150,7 @@ public class MenuBarPanelVacancyManagement {
 			public void actionPerformed(ActionEvent evt) {
 				ArrayList<String> id= new ArrayList<String>();
 				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
+					Connection con =  Login.getConnection();
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("Select vacancyID,position from vacancy");
 

@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.Vector;
 
 import git_aptra.Oberflaeche;
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import javax.swing.JButton;
@@ -65,9 +66,7 @@ public class DialogOpenVacancy {
 					String[] IDParts = IDSplit.split(" - ");
 					id = Integer.parseInt(IDParts[0]);
 					try {
-						Connection con = DriverManager.getConnection(
-								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-								"u474396146_aptra", "aptraDB");
+						Connection con = Login.getConnection();
 						Statement stmt =  con.createStatement();
 					    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
 					    while (rs.next()) {

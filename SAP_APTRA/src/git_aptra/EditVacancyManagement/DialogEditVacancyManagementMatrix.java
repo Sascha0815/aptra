@@ -1,6 +1,7 @@
 package git_aptra.EditVacancyManagement;
 
 
+import git_aptra.Login.Login;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.event.ActionEvent;
@@ -41,9 +42,7 @@ public class DialogEditVacancyManagementMatrix {
 		scrollpaneMatrix.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollpaneMatrix.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("select count(*) from vacancyevaluation where vacancyID = " + DialogOpenVacancy.getID());
 		    while (rs.next()) {
@@ -53,9 +52,7 @@ public class DialogEditVacancyManagementMatrix {
 			System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
 		}
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("select notation from vacancyevaluation where vacancyID = " + DialogOpenVacancy.getID());
 		    while (rs.next()) {
@@ -65,9 +62,7 @@ public class DialogEditVacancyManagementMatrix {
 			System.out.println("Fehler auslesen der Kriterien" +e.getMessage());
 		}
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("select score from rating where applicantID = " + EditVacancyManagement.getDataSetApplicantID());
 		    while (rs.next()) {

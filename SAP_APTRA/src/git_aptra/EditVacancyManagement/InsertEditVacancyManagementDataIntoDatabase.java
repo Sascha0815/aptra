@@ -25,9 +25,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 	private static String fullName;
 	public static void insertEditVacancyManagementData() throws SQLException {
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT name, firstName from employee where employeeID = " +  IDEmployee );
 		    while (rs.next()) {
@@ -51,9 +49,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 				+ "(?,?,?,?,?)";
 
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.valueOf(EditVacancyManagement
 					.getDataSetApplicantID()));
@@ -73,13 +69,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 							+ e.getMessage());
 		}
 
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-			System.out.println("Datenbank - editApplicant" + e.getMessage());
-		}
+		dbConnection = Login.getConnection();
 
 		try {
 			PreparedStatement ps = dbConnection
@@ -103,13 +93,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 				.getValueAt(
 						MenuBarPanelVacancyManagement.tableVacancyManagement
 								.getSelectedRow(), 0);
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-			System.out.println("Datenbank - editApplicant" + e.getMessage());
-		}
+		dbConnection = Login.getConnection();
 
 		try {
 			PreparedStatement ps = dbConnection
@@ -129,11 +113,9 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		}
 	}
 
-	public static void insertEditVacancyManagementDataResponse() {
+	public static void insertEditVacancyManagementDataResponse() throws SQLException {
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT name, firstName from employee where employeeID = " +  IDEmployee );
 		    while (rs.next()) {
@@ -156,9 +138,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 				+ "(?,?,?,?,?)";
 
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.valueOf(EditVacancyManagement
 					.getDataSetApplicantID()));
@@ -175,13 +155,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 							+ e.getMessage());
 		}
 
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-			System.out.println("Datenbank - editApplicant" + e.getMessage());
-		}
+		dbConnection = Login.getConnection();
 
 		try {
 			PreparedStatement ps = dbConnection
@@ -206,9 +180,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 		for (int i = 0; i < amount; i++) {
 			query = ("UPDATE rating SET score = " + scores.elementAt(i)+ " WHERE vacancyID = " + DialogOpenVacancy.getID() + " AND notation = '" +notations.elementAt(i) + "' AND applicantID = " + MenuBarPanelVacancyManagement.getIDApplicant());
 				try {
-						dbConnection = DriverManager.getConnection(
-								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-								"u474396146_aptra", "aptraDB");
+						dbConnection = Login.getConnection();
 						preparedStatement = dbConnection.prepareStatement(query);						
 						preparedStatement.executeUpdate();
 

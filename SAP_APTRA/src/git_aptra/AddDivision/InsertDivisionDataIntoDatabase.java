@@ -1,5 +1,7 @@
 package git_aptra.AddDivision;
 
+import git_aptra.Login.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,9 +15,7 @@ public class InsertDivisionDataIntoDatabase {
 		String query = "INSERT INTO division" + "(notation) VALUES" + "(?)";
 
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setString(1, notation);
 			preparedStatement.executeUpdate();

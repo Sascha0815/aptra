@@ -1,5 +1,6 @@
 package git_aptra.Delete;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.Connection;
@@ -8,18 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DeleteVacancy {
-	public static void deleteVacancy() {
+	public static void deleteVacancy() throws SQLException {
 		Connection dbConnection = null;
 		@SuppressWarnings("unused")
 		PreparedStatement preparedStatement = null;
 
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-			System.out.println("Datenbank - deleteVacancy" + e.getMessage());
-		}
+		dbConnection = Login.getConnection();
 
 		int[] rows = MenuBarPanelVacancy.tableJob.getSelectedRows();
 		for (int i = 0; i < (rows.length); i++) {

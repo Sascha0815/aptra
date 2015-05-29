@@ -1,5 +1,7 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.Login.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,9 +23,7 @@ public class InsertApplicationDataIntoDatabase {
 				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setString(1, DialogAddApplicantGeneral.getName());
 			preparedStatement.setString(2,DialogAddApplicantGeneral.getFirstName());
@@ -47,9 +47,7 @@ public class InsertApplicationDataIntoDatabase {
 		}
 		
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT MAX(applicantID) AS max FROM applicant");
 
@@ -66,9 +64,7 @@ public class InsertApplicationDataIntoDatabase {
 					+ "(applicantID, vacancyID, status, dateApplication, latestNoteType, latestDate) VALUES"
 					+ "(?,?,?,?,?,?)";			
 			try {
-				dbConnection = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
+				dbConnection = Login.getConnection();
 				preparedStatement = dbConnection.prepareStatement(query);
 				preparedStatement.setInt(1, id);
 				preparedStatement.setInt(2, DialogAddApplicantApplication.getVacancyID());
@@ -87,9 +83,7 @@ public class InsertApplicationDataIntoDatabase {
 		Vector weighting = new Vector(); 
 		Vector notation = new Vector();
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT evaluationID, weighting, notation from vacancyevaluation");
 			while (rs.next()) {			  
@@ -108,9 +102,7 @@ public class InsertApplicationDataIntoDatabase {
 					+ "(vacancyID, evaluationID, applicantID, weighting, notation) VALUES"
 					+ "(?,?,?,?,?)";
 			try {
-				dbConnection = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
+				dbConnection = Login.getConnection();
 				preparedStatement = dbConnection.prepareStatement(query);
 				preparedStatement.setInt(1, DialogAddApplicantApplication.getVacancyID());
 				preparedStatement.setInt(2, (int) eid.elementAt(i));

@@ -1,5 +1,6 @@
 package git_aptra.VacancyManagement;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 
 import java.sql.Connection;
@@ -15,9 +16,7 @@ public class OpenVacancy {
 		Vector resultsOpenVacancy = new Vector();	
 		
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt
 					.executeQuery("SELECT a.applicantID, a.name, a.firstName, r.status, r.latestNoteType, r.latestDate, r.latestNote, SUM(ra.score*ra.weighting) FROM applicant a INNER JOIN relationship r ON a.applicantID = r.applicantID INNER JOIN rating ra ON a.applicantID = ra.applicantID where r.vacancyID = " +id + " group by a.applicantID");
@@ -50,9 +49,7 @@ public class OpenVacancy {
 
 	public static void insertInfo(int id){
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("Select position, area, requirementLevel, termsOfEmployment, vacancyStatus, educationalAchievement, date from vacancy where vacancyID =" + id);
 

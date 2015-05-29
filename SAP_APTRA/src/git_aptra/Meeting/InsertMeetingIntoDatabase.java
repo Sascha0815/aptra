@@ -1,6 +1,7 @@
 package git_aptra.Meeting;
 
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
@@ -22,9 +23,7 @@ public class InsertMeetingIntoDatabase {
 	public static void insertMeeting(String type, String location, Calendar cal, String time, String responsibleEmployeeName, String responsibleEmployeeFirstName ){
 		
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT position, area from vacancy where vacancyID = " +  idVacancy );
 		    while (rs.next()) {
@@ -36,9 +35,7 @@ public class InsertMeetingIntoDatabase {
 		}
 		
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT  name, firstName from applicant where applicantId = " +  MenuBarPanelVacancyManagement.getIDApplicant() );
 		    while (rs.next()) {		    	
@@ -58,9 +55,7 @@ public class InsertMeetingIntoDatabase {
 				+ "(?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setString(1, position);
 			preparedStatement.setString(2, area);
@@ -84,9 +79,7 @@ public class InsertMeetingIntoDatabase {
 	
 	public static void insertParticipation(){	
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT MAX(meetingID) from meeting");
 		    while (rs.next()) {
@@ -108,9 +101,7 @@ public class InsertMeetingIntoDatabase {
 					+ "(?,?)";
 
 			try {
-				dbConnection = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
+				dbConnection = Login.getConnection();
 				preparedStatement = dbConnection.prepareStatement(query);
 				preparedStatement.setInt(1, id);
 				preparedStatement.setInt(2, meetingID);

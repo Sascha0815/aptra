@@ -1,15 +1,19 @@
 package git_aptra.EditVacancyManagement;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.ResponsePDF.ResponseControl;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -43,14 +47,17 @@ public class DialogEditVacancyManagementResponse {
 		buttonSaveResponse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditVacancyManagement.save();
-				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataResponse();
+				try {
+					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataResponse();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				int id = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 				ResponseControl.control(responseType, id);
 				int idd = DialogOpenVacancy.getID();
 				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
+					Connection con = Login.getConnection();
 					Statement stmt =  con.createStatement();
 				    ResultSet rs = stmt.executeQuery("select count(*) from rating where vacancyID = " + DialogOpenVacancy.getID());
 				    while (rs.next()) {

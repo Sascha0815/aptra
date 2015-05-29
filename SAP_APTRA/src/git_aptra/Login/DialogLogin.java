@@ -51,7 +51,7 @@ public class DialogLogin extends JFrame {
 
 	public DialogLogin() {
 		try {
-			Image job = ImageIO.read(Oberflaeche.class
+			Image job = ImageIO.read(DialogLogin.class
 					.getResource("FrameIcon.gif"));
 			frameLogin.setIconImage(job);
 		} catch (IOException e) {

@@ -1,6 +1,7 @@
 package git_aptra.EditApplicant;
 
 import git_aptra.AddApplicant.DialogAddApplicantContact;
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.Connection;
@@ -12,10 +13,7 @@ public class EditApplicationData {
 	public static void editApplicantData() throws SQLException {
 		Connection dbConnection = null;
 		int id = Integer.parseInt((String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0)) ;
-		try {
-			dbConnection = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-		}
+		dbConnection = Login.getConnection();
 
 		try {
 			PreparedStatement preparedStatement = dbConnection

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class EditApplicant {
@@ -40,7 +41,7 @@ public class EditApplicant {
 		DataSetVacancy = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),10);
 		DataSetEducationalAchievement = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),12);
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT sex, date, applyDate, division FROM applicant WHERE applicantID =" + (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0));
 

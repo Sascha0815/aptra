@@ -9,6 +9,7 @@ import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditSelection.DialogEditSelection;
 import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
+import git_aptra.Login.Login;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
@@ -96,9 +97,7 @@ public class MenuBar {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<String> division= new ArrayList<String>();
 				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
+					Connection con =  Login.getConnection();
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
 

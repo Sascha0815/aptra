@@ -1,5 +1,6 @@
 package git_aptra.EditVacancy;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.Connection;
@@ -13,10 +14,7 @@ public class EditVacancyData {
 		Connection dbConnection = null;
 		int id = Integer.parseInt((String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(),  0));
 
-		try {
-			dbConnection = DriverManager.getConnection("jdbc:mysql://185.28.20.242:3306/u474396146_db","u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-		}
+		dbConnection = Login.getConnection();
 		try {
 			PreparedStatement preparedStatement = dbConnection.prepareStatement("UPDATE vacancy SET position = ?, area = ?, "
 							+ "requirementLevel = ?, termsOfEmployment = ?,  "

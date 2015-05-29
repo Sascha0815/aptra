@@ -16,9 +16,7 @@ public class InsertMeetingDataIntoTable {
 		int entitlement = Login.getEntitlement();
 		if(entitlement==1){
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID");
 
@@ -44,9 +42,7 @@ public class InsertMeetingDataIntoTable {
 
 		if(entitlement==2){
 			try {
-				Connection con = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
+				Connection con = Login.getConnection();
 				Statement stmt = con.createStatement();
 				String query = ("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID where p.employeeID = " + Login.getID());
 

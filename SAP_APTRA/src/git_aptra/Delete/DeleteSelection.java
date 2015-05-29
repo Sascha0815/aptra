@@ -2,6 +2,7 @@ package git_aptra.Delete;
 
 import git_aptra.EditSelection.DialogEditSelection;
 import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
+import git_aptra.Login.Login;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,12 +16,7 @@ public class DeleteSelection {
 		Connection dbConnection = null;
 		@SuppressWarnings("unused")
 		PreparedStatement preparedStatement = null;
-		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
-		} catch (SQLException e) {
-		}
+		dbConnection = Login.getConnection();
 
 		int[] rows = DialogEditSelection.tableEditSelection.getSelectedRows();
 		for (int i = 0; i < (rows.length); i++) {

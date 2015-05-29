@@ -1,5 +1,7 @@
 package git_aptra.AddVacancy;
 
+import git_aptra.Login.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,9 +18,7 @@ public class InsertVacancyDataIntoDatabase {
 				+ "(position, area, requirementLevel, termsOfEmployment, vacancyStatus, educationalAchievement, level, date) VALUES"
 				+ "(?,?,?,?,?,?,?,?)";
 		try {
-			dbConnection = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 			preparedStatement.setString(1,
 					DialogAddVacancyGeneral.getPosition());
@@ -50,9 +50,7 @@ public class InsertVacancyDataIntoDatabase {
 		int VID = 0;
 		int  rows[] = DialogAddVacancySelection.tableSelection.getSelectedRows();
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT max(vacancyID) from vacancy" );
 		    while (rs.next()) {
@@ -82,9 +80,7 @@ public class InsertVacancyDataIntoDatabase {
 			
 			
 			try {
-				dbConnection = DriverManager.getConnection(
-						"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-						"u474396146_aptra", "aptraDB");
+				dbConnection = Login.getConnection();
 				preparedStatement = dbConnection.prepareStatement(query);
 				preparedStatement.setInt(1, eid); 
 				preparedStatement.setInt(2, VID);

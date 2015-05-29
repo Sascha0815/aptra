@@ -10,6 +10,7 @@ import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditApplicant.EditApplicant;
 import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
+import git_aptra.Login.Login;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import net.miginfocom.swing.MigLayout;
 
@@ -121,9 +122,7 @@ public class MenuBarPanelApplicant {
 				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				ArrayList<String> id= new ArrayList<String>();
 				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
+					Connection con =  Login.getConnection();
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
 
@@ -139,9 +138,7 @@ public class MenuBarPanelApplicant {
 				
 				ArrayList<String> division= new ArrayList<String>();
 				try {
-					Connection con = DriverManager.getConnection(
-							"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-							"u474396146_aptra", "aptraDB");
+					Connection con =  Login.getConnection();
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
 
@@ -180,9 +177,7 @@ public class MenuBarPanelApplicant {
 					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
 					try {
-						Connection con = DriverManager.getConnection(
-								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-								"u474396146_aptra", "aptraDB");
+						Connection con = Login.getConnection();
 						Statement stmt = con.createStatement();
 						ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
 
@@ -198,9 +193,7 @@ public class MenuBarPanelApplicant {
 					
 					ArrayList<String> division= new ArrayList<String>();
 					try {
-						Connection con = DriverManager.getConnection(
-								"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-								"u474396146_aptra", "aptraDB");
+						Connection con = Login.getConnection();
 						Statement stmt = con.createStatement();
 						ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
 
@@ -232,7 +225,12 @@ public class MenuBarPanelApplicant {
 		}
 		buttonDeleteApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DeleteApplicant.deleteApplicant();
+				try {
+					DeleteApplicant.deleteApplicant();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				@SuppressWarnings("rawtypes")
 				Vector resultsApplicant = InsertApplicantDataIntoTable
 						.insertApplicantDataIntoTable();

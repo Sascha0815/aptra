@@ -17,13 +17,12 @@ import java.util.Vector;
 public class Login {
 	private static int entitlement = 0;
 	private static int ID;
+	private static Connection con;
 	
 	@SuppressWarnings("rawtypes")
 	public static int login(String username, String password) {
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/aptra", "aptra", "bermudadreieck");
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT entitlement, employeeID from employee where BINARY loginName = '" +  username + "' AND BINARY password = '" +  password +"'" );
 		    while (rs.next()) {
@@ -52,6 +51,10 @@ public class Login {
 	
 	public static int getEntitlement(){
 		return entitlement;
+	}
+	
+	public static Connection getConnection(){
+		return con;
 	}
 
 }

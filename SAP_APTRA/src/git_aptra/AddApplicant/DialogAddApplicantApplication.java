@@ -1,6 +1,8 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -111,9 +114,7 @@ public class DialogAddApplicantApplication {
 			vacancyID = 0;
 		}
 		try {
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://185.28.20.242:3306/u474396146_db",
-					"u474396146_aptra", "aptraDB");
+			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("Select position from vacancy where vacancyID = " + vacancyID);
 
