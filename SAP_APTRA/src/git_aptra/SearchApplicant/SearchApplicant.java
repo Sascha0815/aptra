@@ -152,7 +152,7 @@ public class SearchApplicant {
 		} else {
 			email = "";
 		}
-		if (!DialogSearchApplicantApplication.getVacancy().equals("")) {
+		if (!DialogSearchApplicantApplication.getVacancy().equals("null")) {
 			if (first == true) {
 				vacancy = "where vacancy = '"
 						+ DialogSearchApplicantApplication.getVacancy() + "'";
