@@ -48,7 +48,7 @@ public class DialogEditVacancyManagement {
 			public void windowClosing(WindowEvent e) {
 				dialogEditVacancyManagement.dispose();
 				DialogEditVacancyManagementMatrix.panelDialogEditVacancyManagementMatrix.removeAll();
-				
+				DialogEditVacancyManagementMatrix.resetScore();
 			}
 			
 			@Override

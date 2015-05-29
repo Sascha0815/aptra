@@ -20,11 +20,6 @@ public class EditVacancyManagement {
 	private static int DataSetDay;
 	private static int DataSetMonth;
 	private static int DataSetYear;
-	private static int DataSetScoreImpression;
-	private static int DataSetScoreExperience;
-	private static int DataSetScoreSocialEngagement;
-	private static String DataSetApplicantImpression;
-	private static String DataSetApplicationImpression;
 	private static boolean DataSetCurriculumVitae;
 	private static boolean DataSetCoveringLetter;
 	

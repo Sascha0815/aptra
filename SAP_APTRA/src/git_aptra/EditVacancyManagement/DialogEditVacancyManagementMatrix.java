@@ -109,6 +109,8 @@ public class DialogEditVacancyManagementMatrix {
 				SaveDataEditVacancyManagement.save();
 				InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementDataMatrix(amount, notations);	
 				panelDialogEditVacancyManagementMatrix.removeAll();
+				resetScore();
+				
 			}
 		});
 		
@@ -120,6 +122,10 @@ public class DialogEditVacancyManagementMatrix {
 			newScores.add(slider[i].getValue());
 		}
 		return newScores;
+	}
+	
+	public static void resetScore(){
+		scores.removeAllElements();				
 	}
 
 		
