@@ -66,7 +66,7 @@ public class DialogAddVacancyGeneral {
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
 		fieldStatus.setEditable(false);
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][]push[]"));
 		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
 		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");
@@ -76,11 +76,9 @@ public class DialogAddVacancyGeneral {
 		panelDialogVacancyMain.add(boxRequirementLevel, "cell 0 6 2 1,growx");
 		panelDialogVacancyMain.add(labelTermsOfEmployment, "cell 0 7");
 		panelDialogVacancyMain.add(boxTermsOfEmployment, "cell 0 8 2 1,growx");
-		panelDialogVacancyMain.add(labelVacancyStatus, "cell 0 9,alignx left");
-		panelDialogVacancyMain.add(fieldStatus, "cell 0 10 2 1,growx");
-		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 11");
-		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 12 2 1,growx");
-		panelDialogVacancyMain.add(buttonContinue,"cell 1 13,alignx right");
+		panelDialogVacancyMain.add(labelEducationalAchievement, "cell 0 9");
+		panelDialogVacancyMain.add(boxEducationalAchievement, "cell 0 10 2 1,growx");
+		panelDialogVacancyMain.add(buttonContinue,"cell 1 11,alignx right");
 	    
 		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -95,7 +93,6 @@ public class DialogAddVacancyGeneral {
 	private static String requirementLevel;
 	private static String termsOfEmployment;
 	private static String educationalAchievementVacancy;
-	private static String vacancyStatus;
 	
 	public static boolean getGeneral() {
 		try {
@@ -107,15 +104,15 @@ public class DialogAddVacancyGeneral {
 		} catch (Exception e) {
 		}	
 		try {
+			requirementLevel = String.valueOf(boxRequirementLevel.getSelectedItem());
+		} catch (Exception e) {
+		}	
+		try {
 			termsOfEmployment = String.valueOf(boxTermsOfEmployment.getSelectedItem());
 		} catch (Exception e) {
 		}	
 		try {
 			educationalAchievementVacancy = String.valueOf(boxEducationalAchievement.getSelectedItem());
-		} catch (Exception e) {
-		}	
-		try {
-			vacancyStatus = fieldStatus.getText();
 		} catch (Exception e) {
 		}	
 		if (area.equals("")) {
@@ -124,9 +121,7 @@ public class DialogAddVacancyGeneral {
 		if (position.equals("")) {
 			return false;
 		} 
-		if (requirementLevel.equals("")) {
-			return false;
-		}
+		
 		if (termsOfEmployment.equals("")) {
 			return false;
 		}
@@ -147,10 +142,6 @@ public class DialogAddVacancyGeneral {
 
 	public static String getEducationalAchievementVacancy() {
 		return educationalAchievementVacancy;
-	}
-
-	public static String getVacancyStatus() {
-		return vacancyStatus;
 	}
 
 	public static String getArea() {

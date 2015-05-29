@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 
 import git_aptra.Loading;
 import git_aptra.Oberflaeche;
-import javafx.scene.layout.Pane;
 
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;

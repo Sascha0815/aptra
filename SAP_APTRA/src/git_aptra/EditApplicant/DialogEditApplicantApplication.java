@@ -74,7 +74,7 @@ public class DialogEditApplicantApplication {
 		dateChooserApplyDate.setDate(EditApplicant.getDataSetApplyDate());
 		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
 		boxDivision.setSelectedItem(EditApplicant.getDataSetDivision());
-		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogEditApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogEditApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
 	    panelDialogEditApplicantApplication.add(dateChooserApplyDate, "cell 0 2 2, growx");
@@ -82,10 +82,8 @@ public class DialogEditApplicantApplication {
 	    panelDialogEditApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogEditApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogEditApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogEditApplicantApplication.add(labelDivision, "cell 0 9, alignx left");
-	    panelDialogEditApplicantApplication.add(boxDivision, "cell 0 10 2 1, growx");
-	    panelDialogEditApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
-	    panelDialogEditApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
+	    panelDialogEditApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
+	    panelDialogEditApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
 		DialogEditApplicant.tabEdit.addTab("Bewerbung", panelDialogEditApplicantApplication);
 		
 		buttonContinue.addActionListener(new ActionListener() {
@@ -151,10 +149,6 @@ public class DialogEditApplicantApplication {
 		return educationalAchievement;
 	}
 	
-	public static String getDivision() {
-		return division;
-	}
-
 	public static String getVacancy() {
 		return vacancy;
 	}

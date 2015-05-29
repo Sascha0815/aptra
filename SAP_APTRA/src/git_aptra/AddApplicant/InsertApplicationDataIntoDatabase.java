@@ -19,7 +19,7 @@ public class InsertApplicationDataIntoDatabase {
 		
 
 		String query = "INSERT INTO applicant"
-				+ "(name, firstName, street, houseNr, postalCode, city, sex, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID, division) VALUES"
+				+ "(name, firstName, street, houseNr, postalCode, city, sex, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID) VALUES"
 				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
@@ -40,7 +40,6 @@ public class InsertApplicationDataIntoDatabase {
 			preparedStatement.setString(13,DialogAddApplicantApplication.getEducationalAchievement());
 			preparedStatement.setDate(14, new java.sql.Date(DialogAddApplicantApplication.getCalApply().getTimeInMillis()));
 			preparedStatement.setInt(15, DialogAddApplicantApplication.getVacancyID());
-			preparedStatement.setString(16, DialogAddApplicantApplication.getDivision());
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -20,7 +20,6 @@ public class DialogEditVacancy {
 		dialogEditVacancy.add(tabVacancy);
 		DialogEditVacancyGeneral.editVacancyGeneral();
 		DialogEditVacancySpecification.editVacancySpecification();
-		DialogEditVacancySelection.editVacancyHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancy);
 		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditVacancy.setVisible(true);

@@ -86,10 +86,8 @@ public class DialogAddApplicantApplication {
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
 	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
 	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogApplicantApplication.add(labelDivision, "cell 0 9, alignx left");
-	    panelDialogApplicantApplication.add(boxDivision, "cell 0 10 2 1, growx");
-	    panelDialogApplicantApplication.add(buttonBack,"cell 0 11,alignx left");
-	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 11,alignx right");
+	    panelDialogApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
+	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 	    
 		buttonContinue.addActionListener(new ActionListener() {
@@ -155,10 +153,6 @@ public class DialogAddApplicantApplication {
 		return educationalAchievement;
 	}
 	
-	public static String getDivision() {
-		return division;
-	}
-
 	public static String getVacancy() {
 		return vacancy;
 	}

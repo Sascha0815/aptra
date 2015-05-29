@@ -83,7 +83,7 @@ public class MenuBar {
 		
 		// MenuItem Neue Arbeitsstelle
 		menuNew.add(itemJob);
-		itemJob.setText("Neues Stellenangebot");
+		itemJob.setText("Neues Arbeitsstelle");
 		itemJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddVacancy.newVacancy();
