@@ -15,7 +15,7 @@ public class DialogAbout {
 	
 	private static JLabel labelAptra = new JLabel("Aptra GmbH & Co.KG");
 	private static JLabel labelRights = new JLabel("ALL RIGHTS RESERVED");
-	private static JLabel labelVersion = new JLabel("Version: Alpha 1.3.2");	
+	private static JLabel labelVersion = new JLabel("Version: Alpha 1.6");	
 	private static JLabel labelTeam = new JLabel("Entwicklerteam: Fabian Gierer, Sascha Pfau, Johannes Vollmer");
 	
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);

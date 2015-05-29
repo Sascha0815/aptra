@@ -28,8 +28,8 @@ public class DialogDetailsMeeting {
 	private static JDialog dialogMeeting = new JDialog(Oberflaeche.frame, true);
 
 	private static JPanel panelMeeting = new JPanel();
-	private static JLabel labelInstruction = new JLabel(
-			"Bitte geben Sie die benötigten Daten ein.");
+	
+	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein.");
 	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
 	private static JLabel labelLocation = new JLabel("Ort:");
 	private static JLabel labelDate = new JLabel("Datum:");
@@ -69,8 +69,7 @@ public class DialogDetailsMeeting {
 			return false;
 		}
 	};
-	public static JTable tableDialogEmployeeMeeting = new JTable(
-			modelDialogEmployeeMeeting);
+	public static JTable tableDialogEmployeeMeeting = new JTable(modelDialogEmployeeMeeting);
 	private static JButton save = new JButton("Speichern");
 	private static JTextField fieldLocation = new JTextField();
 	private static JTextField fieldType = new JTextField();

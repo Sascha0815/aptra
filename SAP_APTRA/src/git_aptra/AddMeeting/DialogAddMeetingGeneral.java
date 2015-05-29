@@ -30,8 +30,8 @@ public class DialogAddMeetingGeneral {
 	private static JButton buttonLoadApplicantData = new JButton("Bewerber auswählen");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontText = new Font("Calibri", Font.PLAIN, 18);
+	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
+	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void addMeetingGeneral(){
 		labelInstruction.setFont(fontHeadline);
@@ -47,17 +47,9 @@ public class DialogAddMeetingGeneral {
 		labelVacancyIDContent.setFont(fontText);
 		labelPositionContent.setFont(fontText);
 		labelDivisionContent.setFont(fontText);
-		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]push[]"));
+		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 		panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
-		panelDialogMeetingMain.add(buttonLoadApplicantData, "cell 0 1, alignx center");
-		buttonLoadApplicantData.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogAddMeeting.dialogNewMeeting.setModal(false);
-				DialogLoadApplicantData.loadApplicantData();
-				DialogAddMeeting.dialogNewMeeting.setModal(true);
-			}
-		});
-		
+		panelDialogMeetingMain.add(buttonLoadApplicantData, "cell 0 1 2 1, alignx center");
 		panelDialogMeetingMain.add(labelApplicantID,"cell 0 2,alignx left");
 		panelDialogMeetingMain.add(labelApplicantIDContent,"cell 0 3 2 1,growx");
 		panelDialogMeetingMain.add(labelName,"cell 0 4,alignx left");
@@ -70,7 +62,15 @@ public class DialogAddMeetingGeneral {
 		panelDialogMeetingMain.add(labelPositionContent,"cell 0 11 2 1,growx");
 		panelDialogMeetingMain.add(labelDivision,"cell 0 12,alignx left");
 		panelDialogMeetingMain.add(labelDivisionContent,"cell 0 13 2 1,growx");
-		panelDialogMeetingMain.add(buttonContinue,"cell 1 14 ,alignx right");
+		panelDialogMeetingMain.add(buttonContinue,"cell 1 14,alignx right");
+		
+		buttonLoadApplicantData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddMeeting.dialogNewMeeting.setModal(false);
+				DialogLoadApplicantData.loadApplicantData();
+				DialogAddMeeting.dialogNewMeeting.setModal(true);
+			}
+		});
 		
 		buttonContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
