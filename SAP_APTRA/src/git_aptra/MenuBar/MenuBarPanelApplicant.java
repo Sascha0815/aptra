@@ -20,7 +20,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -86,7 +85,7 @@ public class MenuBarPanelApplicant {
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
-		panelButtonApplicant.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
+		panelButtonApplicant.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
 		try {
@@ -289,8 +288,7 @@ public class MenuBarPanelApplicant {
 		tableApplicant.setAutoCreateRowSorter(true);
 		tableApplicant = new JTable(modelPool);
 		scrollPanePool = new JScrollPane(tableApplicant);		
-		scrollPanePool.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPanePool.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPanePool.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tableApplicant.setRowHeight(20);
 		Border border = new LineBorder(Color.gray, 1);
 		scrollPanePool.setBorder(border);

@@ -1,7 +1,7 @@
 package git_aptra;
 
 import java.awt.Image;
-import java.awt.Toolkit;
+
 import java.io.IOException;
 
 import javax.imageio.ImageIO;

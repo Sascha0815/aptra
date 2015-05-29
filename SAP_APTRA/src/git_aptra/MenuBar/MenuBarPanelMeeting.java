@@ -5,18 +5,14 @@ import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.Login.Login;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -86,6 +82,7 @@ public class MenuBarPanelMeeting {
 	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
 	public static JLabel labelMeetingLocationContent = new JLabel(" ");	
 	
+	@SuppressWarnings("unused")
 	private static String[] result;
 	@SuppressWarnings("unused")
 	private static int entitlement;
@@ -128,7 +125,7 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
 		
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
-		panelMeetingButton.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]"));
+		panelMeetingButton.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
 		buttonAddMeeting.setBorder(null);
 		buttonAddMeeting.setOpaque(false);
@@ -216,13 +213,9 @@ public class MenuBarPanelMeeting {
 		tableEmployeeMeeting.getTableHeader().setReorderingAllowed(false);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 		tableEmployeeMeeting = new JTable(modelEmployeeMeeting);
-		scrollPaneEmployeeMeeting = new JScrollPane(
-				tableEmployeeMeeting);
+		scrollPaneEmployeeMeeting = new JScrollPane(tableEmployeeMeeting);
 		panelMeeting.add(scrollPaneEmployeeMeeting);		
-		scrollPaneEmployeeMeeting
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneEmployeeMeeting
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPaneEmployeeMeeting.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tableEmployeeMeeting.setRowHeight(20);
 		Border border = new LineBorder(Color.gray, 1);
 		panelMeetingSummary.setBorder(border);

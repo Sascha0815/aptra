@@ -3,7 +3,6 @@ package git_aptra.AddDivision;
 import git_aptra.Login.Login;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 

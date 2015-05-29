@@ -5,7 +5,6 @@ import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 

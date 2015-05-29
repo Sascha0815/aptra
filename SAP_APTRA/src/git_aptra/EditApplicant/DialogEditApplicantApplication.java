@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,6 +37,7 @@ public class DialogEditApplicantApplication {
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelInstruction = new JLabel("Änderung der Stammdaten");
+	@SuppressWarnings("unused")
 	private static JLabel labelDivision = new JLabel("Abteilung");
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -57,6 +57,7 @@ public class DialogEditApplicantApplication {
 	private static int yearApply;
 	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
+	@SuppressWarnings("unused")
 	private static String division;
 	private static String vacancy;
 	private static int vacancyID;

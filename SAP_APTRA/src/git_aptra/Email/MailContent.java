@@ -1,7 +1,6 @@
 package git_aptra.Email;
 
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.internet.AddressException;
  
 public class MailContent{

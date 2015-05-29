@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -141,7 +140,7 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementEducationalAchievement, "cell 0 15,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
-		panelManagementButton.setLayout(new MigLayout("", "[]", "[]15[]15[]"));
+		panelManagementButton.setLayout(new MigLayout("", "16[]", "[]15[]15[]"));
 		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0, center");
 		butttonAddVacancyManagement.setBorder(null);
 		butttonAddVacancyManagement.setOpaque(false);
@@ -227,8 +226,7 @@ public class MenuBarPanelVacancyManagement {
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 		tableVacancyManagement = new JTable(modelVacancyManagement);
 		scrollPaneVacancyManagement = new JScrollPane(tableVacancyManagement);
-		scrollPaneVacancyManagement.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneVacancyManagement.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPaneVacancyManagement.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tableVacancyManagement.setRowHeight(20);	
 		Border border = new LineBorder(Color.gray, 1);
 		panelManagementSummary.setBorder(border);

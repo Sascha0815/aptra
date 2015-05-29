@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -82,7 +81,7 @@ public class MenuBarPanelVacancy {
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {		
 		panelWorkplace.setLayout(new MigLayout("", "[]5[]"));	
-		panelButtonWorkplace.setLayout(new MigLayout("", "[]", "[]15[]15[]15[]15[]15[]"));
+		panelButtonWorkplace.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
 		buttonRefreshJob.addActionListener(new ActionListener() {
@@ -285,10 +284,7 @@ public class MenuBarPanelVacancy {
 		tableJob.setAutoCreateRowSorter(true);
 		tableJob = new JTable(modelJob);
 		scrollPaneJob = new JScrollPane(tableJob);		
-		scrollPaneJob
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPaneJob
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPaneJob.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tableJob.setRowHeight(20);
 		Border border = new LineBorder(Color.gray, 1);
 		scrollPaneJob.setBorder(border);

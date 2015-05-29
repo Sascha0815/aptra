@@ -3,6 +3,7 @@ package git_aptra.SearchApplicant;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -21,7 +22,7 @@ public class DialogSearchApplicantApplication {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox( boxListEducationalAchievement);
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings("rawtypes")
 	private static JComboBox boxVacancy = new JComboBox();
 	
 	private static JButton buttonContinue = new JButton("Weiter");

@@ -8,11 +8,9 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
@@ -64,8 +62,6 @@ public class DialogLoadApplicantData {
 			modelDialogLoadApplicantData);
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
-	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void loadApplicantData(){
 		dialogLoadApplicantData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));

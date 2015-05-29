@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,6 +57,7 @@ public class DialogAddApplicantApplication {
 	private static int yearApply;
 	private static Calendar calApply = Calendar.getInstance();
 	private static String educationalAchievement;
+	@SuppressWarnings("unused")
 	private static String division;
 	private static String vacancy;
 	private static int vacancyID;
