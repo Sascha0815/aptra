@@ -19,7 +19,7 @@ public class InsertApplicationDataIntoDatabase {
 
 		String query = "INSERT INTO applicant"
 				+ "(name, firstName, street, houseNr, postalCode, city, sex, telefonHome, telefonMobil, email, vacancy, date, educationalAchievement, applyDate, vacancyID) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = Login.getConnection();
