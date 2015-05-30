@@ -144,7 +144,7 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementVacancyDivision, "cell 0 17,alignx left");
 		panelManagementSummary.add(labelManagementVacancyDivisionContent, "cell 0 18,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
-		panelManagementButton.setLayout(new MigLayout("", "16[]", "[]15[]15[]"));
+		panelManagementButton.setLayout(new MigLayout("", "16[]", "20[]20[]20[]"));
 		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0, center");
 		butttonAddVacancyManagement.setBorder(null);
 		butttonAddVacancyManagement.setOpaque(false);

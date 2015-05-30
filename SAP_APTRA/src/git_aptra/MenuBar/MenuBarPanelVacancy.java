@@ -82,7 +82,7 @@ public class MenuBarPanelVacancy {
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelWorkplace() {		
 		panelWorkplace.setLayout(new MigLayout("", "[]5[]"));	
-		panelButtonWorkplace.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
+		panelButtonWorkplace.setLayout(new MigLayout("", "16[]", "20[]20[]20[]20[]20[]20[]"));
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
 		buttonRefreshJob.setBorder(null);

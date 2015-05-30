@@ -125,7 +125,7 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
 		
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
-		panelMeetingButton.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]"));
+		panelMeetingButton.setLayout(new MigLayout("", "16[]", "20[]20[]20[]20[]20[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
 		buttonAddMeeting.setBorder(null);
 		buttonAddMeeting.setOpaque(false);
@@ -223,7 +223,7 @@ public class MenuBarPanelMeeting {
 		scrollPaneEmployeeMeeting.setBorder(border);
 		panelMeeting.add(panelMeetingSummary, "cell 0 0, w 200:200:200 , h :1000:");
 		panelMeeting.add(scrollPaneEmployeeMeeting, "cell 1 0, w :1800: , h :1000:");
-		panelMeeting.add(paneButton, "cell 2 0, w 171:171:171, h :1000:" );
+		panelMeeting.add(paneButton, "cell 2 0, w 170:170:170, h :1000:" );
 		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 

@@ -85,7 +85,7 @@ public class MenuBarPanelApplicant {
 	// SWING: Bewerber Panel
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
-		panelButtonApplicant.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
+		panelButtonApplicant.setLayout(new MigLayout("", "16[]", "20[]20[]20[]20[]20[]20[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
 		buttonRefreshApplicant.setOpaque(false);
