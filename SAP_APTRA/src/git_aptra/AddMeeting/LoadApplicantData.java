@@ -16,14 +16,12 @@ public class LoadApplicantData {
 	private static String vacancyID;
 	private static String vacancy;
 	private static String division;
-	@SuppressWarnings("rawtypes")
-	private static Vector resultsLoadApplicantData = new Vector();
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadApplicanData() throws SQLException {
 		Connection dbConnection = null;
 		boolean first = true;
-
+		Vector resultsLoadApplicantData = new Vector();
 		if (!(DialogLoadApplicantData.getApplicantID().equals(""))) {
 			if (first == true) {
 				applicantID = "where applicantID = '"
@@ -129,8 +127,4 @@ public class LoadApplicantData {
 		return resultsLoadApplicantData;	
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public static Vector getResultsLoadApplicantData(){
-		return resultsLoadApplicantData;
-	}
 }

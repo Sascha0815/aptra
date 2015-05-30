@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Vector;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -74,6 +75,8 @@ public class DialogLoadApplicantData {
 	private static String vacancyID;
 	private static String vacancy;
 	private static String division;
+	@SuppressWarnings("rawtypes")
+	private static Vector resultsLoadApplicantData = new Vector();
 	
 	public static void loadApplicantData(){
 		panelDialogLoadApplicantData.removeAll();
@@ -113,15 +116,17 @@ public class DialogLoadApplicantData {
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				try {
-					LoadApplicantData.loadApplicanData();
+					resultsLoadApplicantData = LoadApplicantData.loadApplicanData();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				modelDialogLoadApplicantData.setDataVector(LoadApplicantData.getResultsLoadApplicantData(),COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+				modelDialogLoadApplicantData.setDataVector(resultsLoadApplicantData,COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
 				modelDialogLoadApplicantData.fireTableDataChanged();
+				System.out.println("Test");
 			}
 		});
+
 	}
 	
 	public static void getApplicantData(){
