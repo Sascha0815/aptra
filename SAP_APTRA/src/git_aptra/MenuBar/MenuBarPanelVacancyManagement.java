@@ -69,6 +69,7 @@ public class MenuBarPanelVacancyManagement {
 	private static JLabel labelManagementTermsOfEmployment = new JLabel("Anstellungsverhältnis:");
 	private static JLabel labelManagementVacancyStatus = new JLabel("Status:");
 	private static JLabel labelManagementEducationalAchievement = new JLabel("Bildungsabschluss:");
+	private static JLabel labelManagementVacancyDivision = new JLabel("Abteilung:");
 	public static JLabel labelManagementCountContent = new JLabel(" ");
 	public static JLabel labelManagementEndOfApplyContent = new JLabel(" ");
 	public static JLabel labelManagementPositionContent = new JLabel(" ");
@@ -77,6 +78,7 @@ public class MenuBarPanelVacancyManagement {
 	public static JLabel labelManagementTermsOfEmploymentContent = new JLabel(" ");
 	public static JLabel labelManagementVacancyStatusContent = new JLabel(" ");
 	public static JLabel labelManagementEducationalAchievementContent = new JLabel(" ");
+	public static JLabel labelManagementVacancyDivisionContent = new JLabel(" ");
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT = new Vector() {
@@ -139,6 +141,8 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementVacancyStatusContent, "cell 0 14,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievement, "cell 0 15,alignx left");
 		panelManagementSummary.add(labelManagementEducationalAchievementContent, "cell 0 16,alignx left");
+		panelManagementSummary.add(labelManagementVacancyDivision, "cell 0 17,alignx left");
+		panelManagementSummary.add(labelManagementVacancyDivisionContent, "cell 0 18,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
 		panelManagementButton.setLayout(new MigLayout("", "16[]", "[]15[]15[]"));
 		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0, center");

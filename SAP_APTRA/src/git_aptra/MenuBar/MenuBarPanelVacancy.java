@@ -52,6 +52,7 @@ public class MenuBarPanelVacancy {
 			add("Bildungsabschluss");
 			add("Art des Bewerbers");
 			add("Bewerbungsschluss");
+			add("Abteilung");
 		}
 	};
 	private static JScrollPane scrollPaneJob = new JScrollPane();

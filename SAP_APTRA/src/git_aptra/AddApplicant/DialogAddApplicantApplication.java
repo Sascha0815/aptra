@@ -78,16 +78,16 @@ public class DialogAddApplicantApplication {
 		boxEducationalAchievement.setFont(fontText);
 		boxDivision.setFont(fontText);
 		dateChooserApplyDate.setFont(fontText);
-		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
+		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]push[]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
 	    panelDialogApplicantApplication.add(dateChooserApplyDate, "cell 0 2 2, growx");
 	    panelDialogApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
 	    panelDialogApplicantApplication.add(boxID, "cell 0 4 2, growx");
-	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
-	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
-	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
+	    panelDialogApplicantApplication.add(labelEducationalAchievement, "cell 0 5,alignx left");
+	    panelDialogApplicantApplication.add(boxEducationalAchievement, "cell 0 6 2, growx");
+	    panelDialogApplicantApplication.add(buttonBack,"cell 0 7,alignx left");
+	    panelDialogApplicantApplication.add(buttonContinue,"cell 1 7,alignx right");
 		DialogAddApplicant.tabAdd.addTab("Bewerbung",panelDialogApplicantApplication);
 	    
 		buttonContinue.addActionListener(new ActionListener() {
