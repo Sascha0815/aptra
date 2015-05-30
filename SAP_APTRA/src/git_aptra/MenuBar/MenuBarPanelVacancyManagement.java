@@ -214,7 +214,7 @@ public class MenuBarPanelVacancyManagement {
 		buttonSearchVacancyManagement.setContentAreaFilled(false);
 		try {
 			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/management_search.png"));
+					.getResource("resources/management_info.png"));
 			buttonSearchVacancyManagement.setIcon(new ImageIcon(settings));
 		} catch (IOException ex) {
 		}

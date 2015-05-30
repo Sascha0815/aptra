@@ -85,6 +85,9 @@ public class MenuBarPanelVacancy {
 		panelButtonWorkplace.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
+		buttonRefreshJob.setBorder(null);
+		buttonRefreshJob.setOpaque(false);
+		buttonRefreshJob.setContentAreaFilled(false);
 		buttonRefreshJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -92,7 +95,7 @@ public class MenuBarPanelVacancy {
 		});
 		try {
 			Image add = ImageIO.read(MenuBarPanelVacancy.class
-					.getResource("resources/job_refresh.png"));
+					.getResource("resources/vacancy_refresh.png"));
 			buttonRefreshJob.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}

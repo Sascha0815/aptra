@@ -88,6 +88,9 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.setLayout(new MigLayout("", "16[]", "[]15[]15[]15[]15[]15[]"));
 		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
+		buttonRefreshApplicant.setOpaque(false);
+		buttonRefreshApplicant.setContentAreaFilled(false);
+		buttonRefreshApplicant.setBorder(null);
 		try {
 			Image refreshApplicant = ImageIO.read(MenuBarPanelApplicant.class
 					.getResource("resources/applicant_refresh.png"));
