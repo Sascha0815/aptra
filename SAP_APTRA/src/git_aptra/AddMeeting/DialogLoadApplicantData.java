@@ -1,13 +1,15 @@
 package git_aptra.AddMeeting;
 
 import git_aptra.Oberflaeche;
-
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -17,7 +19,9 @@ import net.miginfocom.swing.MigLayout;
 
 public class DialogLoadApplicantData {
 		
-	public static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);
+	private static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);
+	
+	private static JPanel panelDialogLoadApplicantData = new JPanel();
 	
 	private static JLabel labelInstruction = new JLabel("Bewerberdaten auswählen");
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
@@ -35,9 +39,9 @@ public class DialogLoadApplicantData {
 	private static JTextField fieldDivision = new JTextField();
 	
 	private static JButton buttonSearch = new JButton ("Suchen");
-	private static JButton save = new JButton("Übernehmen");
+	private static JButton buttonSave = new JButton("Übernehmen");
+	private static JButton buttonAbort = new JButton("Abbrechen");
 	
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING = new Vector() {
 		private static final long serialVersionUID = 1L;
@@ -51,6 +55,7 @@ public class DialogLoadApplicantData {
 			add("Abteilung");
 		}
 	};
+	
 	public static DefaultTableModel modelDialogLoadApplicantData = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
@@ -58,62 +63,116 @@ public class DialogLoadApplicantData {
 			return false;
 		}
 	};
-	public static JTable tableDialogLoadApplicantData = new JTable(
-			modelDialogLoadApplicantData);
+	
+	public static JTable tableDialogLoadApplicantData = new JTable(modelDialogLoadApplicantData);
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	
+	private static String applicantID;
+	private static String name;
+	private static String firstName;
+	private static String vacancyID;
+	private static String vacancy;
+	private static String division;
+	
 	public static void loadApplicantData(){
-		dialogLoadApplicantData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
-		
-		dialogLoadApplicantData.add(labelInstruction,"cell 0 0 2 1,alignx center");
+		panelDialogLoadApplicantData.removeAll();
 		labelInstruction.setFont(fontHeadline);
-		dialogLoadApplicantData.add(labelApplicantID,"cell 0 2,alignx left");
-		dialogLoadApplicantData.add(fieldApplicantID,"cell 0 3 2 1,growx");
-		dialogLoadApplicantData.add(labelName,"cell 0 4,alignx left");
-		dialogLoadApplicantData.add(fieldName,"cell 0 5 2 1,growx");
-		dialogLoadApplicantData.add(labelFirstName,"cell 0 6,alignx left");
-		dialogLoadApplicantData.add(fieldFirstName,"cell 0 7 2 1,growx");
-		dialogLoadApplicantData.add(labelVacancyID,"cell 0 8,alignx left");
-		dialogLoadApplicantData.add(fieldVacancyID,"cell 0 9 2 1,growx");
-		dialogLoadApplicantData.add(labelPosition,"cell 0 10,alignx left");
-		dialogLoadApplicantData.add(fieldPosition,"cell 0 11 2 1,growx");
-		dialogLoadApplicantData.add(buttonSearch, "cell 0 12, alignx right");
-		dialogLoadApplicantData.add(labelDivision,"cell 0 13,alignx left");
-		dialogLoadApplicantData.add(fieldDivision,"cell 0 14 2 1,growx");
+		dialogLoadApplicantData.setSize(425, 500);
+		dialogLoadApplicantData.setLocationRelativeTo(Oberflaeche.frame);
+		modelDialogLoadApplicantData.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+		tableDialogLoadApplicantData.getTableHeader().setReorderingAllowed(false);
+		tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
+		tableDialogLoadApplicantData = new JTable(modelDialogLoadApplicantData);
+		JScrollPane scrollPaneLoadApplicantData = new JScrollPane(tableDialogLoadApplicantData);
+		scrollPaneLoadApplicantData.setBounds(0, 400, 400, 100);
+		scrollPaneLoadApplicantData.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		tableDialogLoadApplicantData.setRowHeight(20);
+		tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
+		dialogLoadApplicantData.add(panelDialogLoadApplicantData);
+		panelDialogLoadApplicantData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]5[]5[]5[]5"));
+		panelDialogLoadApplicantData.add(labelInstruction,"cell 0 0 2 1,alignx center");
+		panelDialogLoadApplicantData.add(labelApplicantID,"cell 0 2,alignx left");
+		panelDialogLoadApplicantData.add(fieldApplicantID,"cell 0 3 2 1,growx");
+		panelDialogLoadApplicantData.add(labelName,"cell 0 4,alignx left");
+		panelDialogLoadApplicantData.add(fieldName,"cell 0 5 2 1,growx");
+		panelDialogLoadApplicantData.add(labelFirstName,"cell 0 6,alignx left");
+		panelDialogLoadApplicantData.add(fieldFirstName,"cell 0 7 2 1,growx");
+		panelDialogLoadApplicantData.add(labelVacancyID,"cell 0 8,alignx left");
+		panelDialogLoadApplicantData.add(fieldVacancyID,"cell 0 9 2 1,growx");
+		panelDialogLoadApplicantData.add(labelPosition,"cell 0 10,alignx left");
+		panelDialogLoadApplicantData.add(fieldPosition,"cell 0 11 2 1,growx");
+		panelDialogLoadApplicantData.add(labelDivision,"cell 0 12,alignx left");
+		panelDialogLoadApplicantData.add(fieldDivision,"cell 0 13 2 1,growx");
+		panelDialogLoadApplicantData.add(buttonSearch, "cell 1 14, alignx right");
+		panelDialogLoadApplicantData.add(scrollPaneLoadApplicantData, "cell 0 15 2 1,growx");
+		panelDialogLoadApplicantData.add(buttonAbort,"cell 0 16,alignx left");
+		panelDialogLoadApplicantData.add(buttonSave,"cell 1 16,alignx right");
+		dialogLoadApplicantData.setVisible(true);
 		
-		
-		JScrollPane scrollPaneLoadApplicantData = new JScrollPane(
-				tableDialogLoadApplicantData);
-		dialogLoadApplicantData.add(scrollPaneLoadApplicantData, "cell 0 14 2 1,growx");
-		
-		
-		modelDialogLoadApplicantData
-		.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
-	tableDialogLoadApplicantData.getTableHeader().setReorderingAllowed(false);
-	tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
-	tableDialogLoadApplicantData = new JTable(modelDialogLoadApplicantData);
-	scrollPaneLoadApplicantData.setBounds(0, 400, 400, 100);
-	scrollPaneLoadApplicantData
-		.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		buttonSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				try {
+					LoadApplicantData.loadApplicanData();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				modelDialogLoadApplicantData.setDataVector(LoadApplicantData.getResultsLoadApplicantData(),COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+				modelDialogLoadApplicantData.fireTableDataChanged();
+			}
+		});
+	}
+	
+	public static void getApplicantData(){
+		try {
+			applicantID = fieldApplicantID.getText();
+		} catch (Exception e) {
+		}
+		try {
+			name = fieldName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			firstName = fieldFirstName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			vacancyID = fieldVacancyID.getText();
+		} catch (Exception e) {
+		}
+		try {
+			vacancy = fieldPosition.getText();
+		} catch (Exception e) {
+		}
+		try {
+			division = fieldDivision.getText();
+		} catch (Exception e) {
+		}
+	}
+	
+	public static String getApplicantID() {
+		return applicantID;
+	}
+	
+	public static String getName() {
+		return name;
+	}
 
-	tableDialogLoadApplicantData.setRowHeight(20);
-	tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
-	dialogLoadApplicantData.add(save,"cell 0 15,alignx right");
+	public static String getFirstName() {
+		return firstName;
+	}
 	
-	
-	dialogLoadApplicantData.setSize(425, 500);
-	dialogLoadApplicantData.setLocationRelativeTo(Oberflaeche.frame);
-	DialogAddMeeting.dialogNewMeeting.setModal(true);
-	dialogLoadApplicantData.setVisible(true);
-	/*
-	panelDialogLoadApplicantData.setResizable(false);
-	panelDialogLoadApplicantData.setTitle("Bewerberinformationen");
-	SwingUtilities.updateComponentTreeUI(panelDialogLoadApplicantData);
-	*/
-	
+	public static String getVacancyID() {
+		return vacancyID;
+	}
 
-	//panelDialogLoadApplicantData.add(save, "cell 0 13 ,alignx left");
+	public static String getPosition() {
+		return vacancy;
+	}
+	
+	public static String getDivision() {
+		return division;
 	}
 }
 

@@ -1,6 +1,5 @@
 package git_aptra.AddMeeting;
 
-
 import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
 
 import java.awt.Font;
@@ -81,6 +80,7 @@ public class DialogAddMeetingSpecification {
 	private static String responsibleEmployee;
 
 	public static void addDetailsMeeting() {
+		panelDialogMeetingSpecification.removeAll();
 		labelInstruction.setFont(fontHeadline);
 		labelSortOfMeeting.setFont(fontSubHeadline);
 		labelDateCreation.setFont(fontSubHeadline);
@@ -104,7 +104,7 @@ public class DialogAddMeetingSpecification {
 		Vector resultsEmployee = InsertEmployeeDataIntoTable.insertEmployeeDataIntoTable();
 		modelDialogEmployeeMeeting.setDataVector(resultsEmployee,COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
 		modelDialogEmployeeMeeting.fireTableDataChanged();
-		panelDialogMeetingSpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]"));
+		panelDialogMeetingSpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 		panelDialogMeetingSpecification.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogMeetingSpecification.add(labelSortOfMeeting, "cell 0 1,alignx left");
 		panelDialogMeetingSpecification.add(fieldType, "cell 0 2 2 1,growx");

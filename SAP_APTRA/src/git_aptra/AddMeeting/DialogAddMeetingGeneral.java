@@ -66,9 +66,7 @@ public class DialogAddMeetingGeneral {
 		
 		buttonLoadApplicantData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddMeeting.dialogNewMeeting.setModal(false);
 				DialogLoadApplicantData.loadApplicantData();
-				DialogAddMeeting.dialogNewMeeting.setModal(true);
 			}
 		});
 		
