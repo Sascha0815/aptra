@@ -36,8 +36,8 @@ public class DialogEditVacancyManagementMatrix {
 	public static void editVacancyManagementMatrix() throws InstantiationException, IllegalAccessException, ClassNotFoundException {		
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Bewertung",
 				panelMatrix);
-		panelMatrix.setLayout(new MigLayout("", "[]","[400][]"));
-		panelMatrix.add(scrollpaneMatrix, "cell 0 0");
+		panelMatrix.setLayout(new MigLayout("", "[]","[]5%[]"));
+		panelMatrix.add(scrollpaneMatrix, "cell 0 0, w 95%!, h 85%!");
 		scrollpaneMatrix.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollpaneMatrix.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		try {
@@ -90,8 +90,8 @@ public class DialogEditVacancyManagementMatrix {
 			labels[i].setText((String) notations.elementAt(i));
 		}
 		for (int i = 0; i < amount; i++) {
-			cell = "cell 0 " + ((i*2)+1) + "2, growx";
-			panelDialogEditVacancyManagementMatrix.add(slider[i], cell);
+			cell = "cell 0 " + ((i*2)+1) + "2";
+			panelDialogEditVacancyManagementMatrix.add(slider[i], cell + ", w 92%!");
 			slider[i].setMinimum(0);
 			slider[i].setMaximum(5);
 			slider[i].setMajorTickSpacing(1);
@@ -99,6 +99,9 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].setPaintTicks(true);
 			slider[i].setPaintLabels(true);
 			slider[i].setValue((int) scores.elementAt(i));
+			if (Login.getEntitlement()>1) {
+				slider[i].setEnabled(false);
+			}
 		}
 		
 		panelMatrix.add(saveRating, "cell 0 1");	

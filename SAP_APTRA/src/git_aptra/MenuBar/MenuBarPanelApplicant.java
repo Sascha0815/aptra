@@ -302,6 +302,14 @@ public class MenuBarPanelApplicant {
 		panelButtonApplicant.setSize((int)(panelApplicant.getWidth()*0.2),panelApplicant.getHeight());
 		Oberflaeche.tabBar.addTab("Bewerber", panelApplicant);
 		tableApplicant.setAutoCreateRowSorter(true);
+		
+		if (Login.getEntitlement()>1) {
+			buttonDeleteApplicant.setEnabled(false);
+			buttonEditApplicant.setEnabled(false);			
+		}
+		if (Login.getEntitlement()==3) {
+			buttonAddApplicant.setEnabled(false);
+		}
 	}
 	
 	public static String[] getVacancyID(){

@@ -89,21 +89,13 @@ public class DialogLogin extends JFrame {
 				password = String.valueOf(fieldPassword.getPassword());
 				username = fieldUsername.getText();
 				entitlement = Login.login(username, password);
-				switch (entitlement) {
-				case 0:
-					labelWarning.setVisible(true);
-					break;
-
-				case 1:
-					new Oberflaeche();
-					frameLogin.dispose();
-					break;
-				
-				case 2:
-					new Oberflaeche();
-					frameLogin.dispose();
-					break;
+				if (entitlement==0) {
+					labelWarning.setVisible(true);					
 				}
+				else {
+					new Oberflaeche();
+					frameLogin.dispose();
+				}				
 			}
 		});
 		

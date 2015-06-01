@@ -44,7 +44,7 @@ public class DialogAddEmployee {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxDivision = new JComboBox(MenuBar.getDivision());
 	
-	private static Integer[] boxListEntitlement = { 1, 2};
+	private static Integer[] boxListEntitlement = { 1, 2, 3};
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static JComboBox boxEntitlement = new JComboBox(boxListEntitlement);
 	

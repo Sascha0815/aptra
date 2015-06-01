@@ -297,6 +297,14 @@ public class MenuBarPanelVacancy {
 		panelWorkplace.add(paneButton, "cell 1 0, w 170:170:170, h :1000:");
 		Oberflaeche.tabBar.addTab("Arbeitsstellen", panelWorkplace);
 		tableJob.setAutoCreateRowSorter(true);
+		
+		if (Login.getEntitlement()>1) {
+			buttonDeleteJob.setEnabled(false);
+			buttonEditJob.setEnabled(false);
+		}
+		if (Login.getEntitlement()==3) {
+			butttonAddJob.setEnabled(false);
+		}
 	}
 	
 	public static String[] getVacancyID(){
