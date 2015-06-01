@@ -130,7 +130,7 @@ public class DialogAddMeetingSpecification {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				System.out.println(responsibleEmployee);
+				
 			}
 		});
 		

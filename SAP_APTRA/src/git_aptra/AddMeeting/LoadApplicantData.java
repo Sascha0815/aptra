@@ -15,7 +15,6 @@ public class LoadApplicantData {
 	private static String firstName;
 	private static String vacancyID;
 	private static String vacancy;
-	private static String division;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadApplicanData() throws SQLException {
@@ -87,37 +86,21 @@ public class LoadApplicantData {
 			vacancy = "";
 		}
 		
-		if (!DialogLoadApplicantData.getDivision().equals("")) {
-			if (first == true) {
-				division = "where division = '"
-						+ DialogLoadApplicantData.getDivision() + "'";
-				first = false;
-			} else {
-				division = " AND division = '"
-						+ DialogLoadApplicantData.getDivision() + "'";
-			}
-		} else {
-			division = "";
-		}
 		
 		try {
 			dbConnection = Login.getConnection();
 
 			Statement stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID + name
-					+ firstName + vacancyID + vacancy + division);
-			
-			System.out.println("select * from applicant " + applicantID + name
-					+ firstName + vacancyID + vacancy + division);
-			
+					+ firstName + vacancyID + vacancy);
+		
 			while (rs.next()) {
 				Vector applicant = new Vector();
 				applicant.add(rs.getString(1));
 				applicant.add(rs.getString(2));
 				applicant.add(rs.getString(3));
-				applicant.add(rs.getString(4));
-				applicant.add(rs.getString(5));
-				applicant.add(rs.getString(6));
+				applicant.add(rs.getString(16));
+				applicant.add(rs.getString(12));
 				resultsLoadApplicantData.add(applicant);
 			}
 

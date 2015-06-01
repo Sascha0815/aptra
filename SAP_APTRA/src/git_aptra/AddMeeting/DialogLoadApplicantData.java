@@ -1,6 +1,7 @@
 package git_aptra.AddMeeting;
 
 import git_aptra.Oberflaeche;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,18 +31,16 @@ public class DialogLoadApplicantData {
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelVacancyID = new JLabel("Stellen-ID:");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
-	private static JLabel labelDivision = new JLabel("Abteilung:");
 
 	private static JTextField fieldApplicantID = new JTextField();
 	private static JTextField fieldName = new JTextField();
 	private static JTextField fieldFirstName = new JTextField();
 	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
-	private static JTextField fieldDivision = new JTextField();
 	
-	private static JButton buttonSearch = new JButton ("Suchen");
 	private static JButton buttonSave = new JButton("Übernehmen");
 	private static JButton buttonAbort = new JButton("Abbrechen");
+	private static JButton buttonSearch = new JButton("Suchen");
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING = new Vector() {
@@ -53,7 +52,6 @@ public class DialogLoadApplicantData {
 			add("Vorname");
 			add("Stellen-ID");
 			add("Bezeichnung");
-			add("Abteilung");
 		}
 	};
 	
@@ -74,12 +72,16 @@ public class DialogLoadApplicantData {
 	private static String firstName;
 	private static String vacancyID;
 	private static String vacancy;
-	private static String division;
 	@SuppressWarnings("rawtypes")
 	private static Vector resultsLoadApplicantData = new Vector();
 	
 	public static void loadApplicantData(){
 		panelDialogLoadApplicantData.removeAll();
+		fieldApplicantID.setText("");
+		fieldName.setText("");
+		fieldFirstName.setText("");
+		fieldVacancyID.setText("");
+		fieldPosition.setText("");
 		labelInstruction.setFont(fontHeadline);
 		dialogLoadApplicantData.setSize(425, 500);
 		dialogLoadApplicantData.setLocationRelativeTo(Oberflaeche.frame);
@@ -105,16 +107,14 @@ public class DialogLoadApplicantData {
 		panelDialogLoadApplicantData.add(fieldVacancyID,"cell 0 9 2 1,growx");
 		panelDialogLoadApplicantData.add(labelPosition,"cell 0 10,alignx left");
 		panelDialogLoadApplicantData.add(fieldPosition,"cell 0 11 2 1,growx");
-		panelDialogLoadApplicantData.add(labelDivision,"cell 0 12,alignx left");
-		panelDialogLoadApplicantData.add(fieldDivision,"cell 0 13 2 1,growx");
 		panelDialogLoadApplicantData.add(buttonSearch, "cell 1 14, alignx right");
 		panelDialogLoadApplicantData.add(scrollPaneLoadApplicantData, "cell 0 15 2 1,growx");
 		panelDialogLoadApplicantData.add(buttonAbort,"cell 0 16,alignx left");
 		panelDialogLoadApplicantData.add(buttonSave,"cell 1 16,alignx right");
-		dialogLoadApplicantData.setVisible(true);
-		
+	
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				getApplicantData();
 				try {
 					resultsLoadApplicantData = LoadApplicantData.loadApplicanData();
 				} catch (SQLException e) {
@@ -123,10 +123,22 @@ public class DialogLoadApplicantData {
 				}
 				modelDialogLoadApplicantData.setDataVector(resultsLoadApplicantData,COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
 				modelDialogLoadApplicantData.fireTableDataChanged();
-				System.out.println("Test");
 			}
 		});
-
+		
+		buttonSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				DialogAddMeetingGeneral.labelApplicantIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0));
+				DialogAddMeetingGeneral.labelNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 1));
+				DialogAddMeetingGeneral.labelFirstNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 2));
+				DialogAddMeetingGeneral.labelVacancyIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 3));
+				DialogAddMeetingGeneral.labelPositionContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 4));
+				dialogLoadApplicantData.dispose();
+			}
+		});
+		
+		
+		dialogLoadApplicantData.setVisible(true);
 	}
 	
 	public static void getApplicantData(){
@@ -148,10 +160,6 @@ public class DialogLoadApplicantData {
 		}
 		try {
 			vacancy = fieldPosition.getText();
-		} catch (Exception e) {
-		}
-		try {
-			division = fieldDivision.getText();
 		} catch (Exception e) {
 		}
 	}
@@ -176,8 +184,5 @@ public class DialogLoadApplicantData {
 		return vacancy;
 	}
 	
-	public static String getDivision() {
-		return division;
-	}
 }
 
