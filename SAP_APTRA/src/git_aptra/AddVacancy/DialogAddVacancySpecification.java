@@ -1,10 +1,12 @@
 package git_aptra.AddVacancy;
 
 import git_aptra.MenuBar.MenuBarPanelVacancy;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -37,6 +39,7 @@ public class DialogAddVacancySpecification {
 
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
+	private static int divisionID;
 
 	public static void addVacancySpecification() {
 		fieldLevel.setText("");
@@ -91,6 +94,9 @@ public class DialogAddVacancySpecification {
 			calVacancy.set(Calendar.YEAR, year);
 			calVacancy.set(Calendar.MONTH, (month - 1));
 			calVacancy.set(Calendar.DAY_OF_MONTH, day);
+			String division = (String) boxDivision.getSelectedItem();
+			String[] part = division.split(" - ");
+			divisionID = Integer.parseInt(part[0]);
 		} catch (Exception e) {
 		}
 		if (level.equals("")) {
@@ -106,6 +112,10 @@ public class DialogAddVacancySpecification {
 
 	public static Calendar getCalVacancy() {
 		return calVacancy;
+	}
+	
+	public static int getDivisionID() {
+		return divisionID;
 	}
 
 }

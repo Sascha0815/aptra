@@ -14,8 +14,8 @@ public class InsertVacancyDataIntoDatabase {
 		PreparedStatement preparedStatement = null;
 
 		String insertTableSQL = "INSERT INTO vacancy"
-				+ "(position, area, requirementLevel, termsOfEmployment, educationalAchievement, level, date) VALUES"
-				+ "(?,?,?,?,?,?,?)";
+				+ "(position, area, requirementLevel, termsOfEmployment, educationalAchievement, level, date, divisionID) VALUES"
+				+ "(?,?,?,?,?,?,?,?)";
 		try {
 			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
@@ -26,6 +26,7 @@ public class InsertVacancyDataIntoDatabase {
 			preparedStatement.setString(5, DialogAddVacancyGeneral.getEducationalAchievementVacancy());
 			preparedStatement.setString(6, DialogAddVacancySpecification.getLevel());
 			preparedStatement.setDate(7, new java.sql.Date(DialogAddVacancySpecification.getCalVacancy().getTimeInMillis()));
+			preparedStatement.setInt(8, DialogAddVacancySpecification.getDivisionID());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Datenbank - insert VacancyData"

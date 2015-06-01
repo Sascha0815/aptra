@@ -16,8 +16,33 @@ public class InsertApplicantDataIntoTable {
 		try {
 			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from applicant");
+			if (Login.getEntitlement()<3) {
+				ResultSet rs = stmt.executeQuery("Select * from applicant");	
+				
+				while (rs.next()) {
+					Vector applicant = new Vector();
+					applicant.add(rs.getString(1));
+					applicant.add(rs.getString(2));
+					applicant.add(rs.getString(3));
+					applicant.add(rs.getString(4));
+					applicant.add(rs.getString(5));
+					applicant.add(rs.getString(6));
+					applicant.add(rs.getString(7));
+					applicant.add(rs.getString(9));
+					applicant.add(rs.getString(10));
+					applicant.add(rs.getString(11));
+					applicant.add(rs.getString(12));
+					applicant.add(rs.getString(13));
+					applicant.add(rs.getString(14));
+					resultsApplicant.add(applicant);
+					}
+					
+				}
+			
 
+		else {
+			ResultSet rs = stmt.executeQuery("Select * from applicant");	
+			
 			while (rs.next()) {
 				Vector applicant = new Vector();
 				applicant.add(rs.getString(1));
@@ -34,11 +59,13 @@ public class InsertApplicantDataIntoTable {
 				applicant.add(rs.getString(13));
 				applicant.add(rs.getString(14));
 				resultsApplicant.add(applicant);
-			}
+				}
+		}
+		
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return resultsApplicant;
 	}
 }
