@@ -71,7 +71,7 @@ public class DialogAddApplicantContact {
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				SaveDataNewApplicant.save();
+				SaveDataAddApplicant.save();
 			}
 		});
 		buttonBack.addActionListener(new ActionListener() {

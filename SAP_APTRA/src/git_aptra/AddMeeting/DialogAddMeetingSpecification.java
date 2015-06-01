@@ -16,6 +16,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import lu.tudor.santec.jtimechooser.JTimeChooser;
+
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
@@ -36,7 +38,7 @@ public class DialogAddMeetingSpecification {
 	
 	private static JTextField fieldLocation = new JTextField();
 	private static JTextField fieldType = new JTextField();
-	private static JTextField fieldTime = new JTextField();
+	private static JTimeChooser timeChooser = new JTimeChooser();
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING = new Vector() {
@@ -76,8 +78,12 @@ public class DialogAddMeetingSpecification {
 	private static int month;
 	private static int year;
 	private static Calendar cal = Calendar.getInstance();
+	private static int hour;
+	private static int minute;
+	private static int second;
 	private static String time;
-	private static String responsibleEmployee;
+	private static String responsibleEmployeeName;
+	private static String responsibleEmployeeFirstName;
 
 	public static void addDetailsMeeting() {
 		panelDialogMeetingSpecification.removeAll();
@@ -90,7 +96,7 @@ public class DialogAddMeetingSpecification {
 		labelEmployee.setFont(fontSubHeadline);
 		fieldLocation.setFont(fontText);
 		fieldType.setFont(fontText);
-		fieldTime.setFont(fontText);
+		timeChooser.setFont(fontText);
 		modelDialogEmployeeMeeting.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
 		tableDialogEmployeeMeeting.getTableHeader().setReorderingAllowed(false);
 		tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
@@ -115,7 +121,7 @@ public class DialogAddMeetingSpecification {
 		panelDialogMeetingSpecification.add(labelDate, "cell 0 7,alignx left");
 		panelDialogMeetingSpecification.add(dateChooserDate, "cell 0 8 2, growx");
 		panelDialogMeetingSpecification.add(labelTime, "cell 0 9,alignx left");
-		panelDialogMeetingSpecification.add(fieldTime, "cell 0 10 2 1,growx");
+		panelDialogMeetingSpecification.add(timeChooser, "cell 0 10 2 1,growx");
 		panelDialogMeetingSpecification.add(labelEmployee, "cell 0 11,alignx left");
 		panelDialogMeetingSpecification.add(scrollPaneEmployeeMeeting, "cell 0 12 2 1,growx");
 		panelDialogMeetingSpecification.add(buttonBack, "cell 0 13,alignx left");
@@ -130,7 +136,7 @@ public class DialogAddMeetingSpecification {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+				SaveDataAddMeeting.save();
 			}
 		});
 		
@@ -156,6 +162,13 @@ public class DialogAddMeetingSpecification {
 		} catch (Exception e) {
 		}
 		try {
+			hour = timeChooser.getHours();
+			minute = timeChooser.getMinutes();
+			second = timeChooser.getSeconds();
+			time = hour + ":" + minute + ":" + second;
+		} catch (Exception e) {
+		}
+		try {
 			String date = ((JTextField)dateChooserDateCreation.getDateEditor().getUiComponent()).getText(); 
 			String[] parts = date.split("\\.");
 			day = Integer.parseInt(parts[0]);
@@ -168,7 +181,8 @@ public class DialogAddMeetingSpecification {
 		}
 		
 		try {
-			responsibleEmployee = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 1));
+			responsibleEmployeeName = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 1));
+			responsibleEmployeeFirstName = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 0));
 		} catch (Exception e) {
 		}
 	}
@@ -189,8 +203,16 @@ public class DialogAddMeetingSpecification {
 		return cal;
 	}
 	
-	public static String getResponsibleEmployee(){
-		return responsibleEmployee;
+	public static String getTime(){
+		return time;
+	}
+	
+	public static String getResponsibleEmployeeName(){
+		return responsibleEmployeeName;
+	}
+	
+	public static String getResponsibleEmployeeFirstName(){
+		return responsibleEmployeeFirstName;
 	}
 	
 	

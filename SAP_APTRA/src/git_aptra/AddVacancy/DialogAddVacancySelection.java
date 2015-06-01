@@ -77,7 +77,7 @@ public class DialogAddVacancySelection {
 	
 		buttonSave.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
-			SaveDataNewVacancy.save();
+			SaveDataAddVacancy.save();
 		}
 		});	
 	}

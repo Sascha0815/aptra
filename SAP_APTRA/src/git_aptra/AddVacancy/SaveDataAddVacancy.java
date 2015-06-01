@@ -5,7 +5,7 @@ import git_aptra.MenuBar.MenuBarPanelVacancy;
 import java.sql.SQLException;
 import java.util.Vector;
 
-public class SaveDataNewVacancy {
+public class SaveDataAddVacancy {
 	@SuppressWarnings("rawtypes")
 	public static void save() {
 		if (DialogAddVacancyGeneral.getGeneral() == true && DialogAddVacancySpecification.getSpecification() == true) {

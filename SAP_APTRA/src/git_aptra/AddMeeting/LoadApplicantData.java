@@ -15,6 +15,7 @@ public class LoadApplicantData {
 	private static String firstName;
 	private static String vacancyID;
 	private static String vacancy;
+	private static String area;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadApplicanData() throws SQLException {
@@ -92,7 +93,7 @@ public class LoadApplicantData {
 
 			Statement stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID + name
-					+ firstName + vacancyID + vacancy);
+					+ firstName + vacancyID + vacancy );
 		
 			while (rs.next()) {
 				Vector applicant = new Vector();

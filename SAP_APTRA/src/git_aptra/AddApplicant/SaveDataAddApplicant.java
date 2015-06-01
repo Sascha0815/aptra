@@ -5,7 +5,7 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 import java.sql.SQLException;
 import java.util.Vector;
 
-public class SaveDataNewApplicant {
+public class SaveDataAddApplicant {
 	public static void save() {
 			DialogAddApplicantGeneral.getGeneral();
 			DialogAddApplicantApplication.getApplication();
