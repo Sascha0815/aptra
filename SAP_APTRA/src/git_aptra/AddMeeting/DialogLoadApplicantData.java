@@ -77,6 +77,9 @@ public class DialogLoadApplicantData {
 	
 	public static void loadApplicantData(){
 		panelDialogLoadApplicantData.removeAll();
+		for(int i = 0; i<modelDialogLoadApplicantData.getRowCount();i++){
+			modelDialogLoadApplicantData.removeRow(i);
+		}
 		fieldApplicantID.setText("");
 		fieldName.setText("");
 		fieldFirstName.setText("");
@@ -133,6 +136,12 @@ public class DialogLoadApplicantData {
 				DialogAddMeetingGeneral.labelFirstNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 2));
 				DialogAddMeetingGeneral.labelVacancyIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 3));
 				DialogAddMeetingGeneral.labelPositionContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 4));
+				dialogLoadApplicantData.dispose();
+			}
+		});
+		
+		buttonAbort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				dialogLoadApplicantData.dispose();
 			}
 		});
