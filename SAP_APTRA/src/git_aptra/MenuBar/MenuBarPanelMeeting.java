@@ -34,7 +34,6 @@ public class MenuBarPanelMeeting {
 		private static final long serialVersionUID = 1L;
 		{
 			add("Stellenbezeichnung");
-			add("Arbeitsbereich");
 			add("Meeting-ID");
 			add("Bewerber-ID");
 			add("Name");

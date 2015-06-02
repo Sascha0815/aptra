@@ -15,7 +15,6 @@ public class LoadApplicantData {
 	private static String firstName;
 	private static String vacancyID;
 	private static String vacancy;
-	private static String area;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadApplicanData() throws SQLException {
@@ -109,6 +108,32 @@ public class LoadApplicantData {
 			System.out.println("Datenbank - loadApplicantData" + e.getMessage());
 		}
 		return resultsLoadApplicantData;	
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static Vector insertLoadApplicantDataIntoTable(){
+		Vector resultsLoadApplicantDataAll = new Vector();
+		try {
+			Connection dbConnection = null;
+			dbConnection = Login.getConnection();
+			
+			Statement stmt = dbConnection.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from applicant");
+		
+			while (rs.next()) {
+				Vector applicant = new Vector();
+				applicant.add(rs.getString(1));
+				applicant.add(rs.getString(2));
+				applicant.add(rs.getString(3));
+				applicant.add(rs.getString(16));
+				applicant.add(rs.getString(12));
+				resultsLoadApplicantDataAll.add(applicant);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Datenbank - loadApplicantData" + e.getMessage());
+		}
+		return resultsLoadApplicantDataAll;
 	}
 	
 }

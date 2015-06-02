@@ -182,7 +182,7 @@ public class DialogAddMeetingSpecification {
 		
 		try {
 			responsibleEmployeeName = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 1));
-			responsibleEmployeeFirstName = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 0));
+			responsibleEmployeeFirstName = (String) (tableDialogEmployeeMeeting.getValueAt(tableDialogEmployeeMeeting.getSelectedRow(), 2));
 		} catch (Exception e) {
 		}
 	}

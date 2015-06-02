@@ -74,6 +74,8 @@ public class DialogLoadApplicantData {
 	private static String vacancy;
 	@SuppressWarnings("rawtypes")
 	private static Vector resultsLoadApplicantData = new Vector();
+	@SuppressWarnings("rawtypes")
+	private static Vector resultsLoadApplicantDataAll = new Vector();
 	
 	public static void loadApplicantData(){
 		panelDialogLoadApplicantData.removeAll();
@@ -97,6 +99,9 @@ public class DialogLoadApplicantData {
 		scrollPaneLoadApplicantData.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tableDialogLoadApplicantData.setRowHeight(20);
 		tableDialogLoadApplicantData.setAutoCreateRowSorter(true);
+		resultsLoadApplicantDataAll = LoadApplicantData.insertLoadApplicantDataIntoTable();
+		DialogLoadApplicantData.modelDialogLoadApplicantData.setDataVector(resultsLoadApplicantDataAll,DialogLoadApplicantData.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+		DialogLoadApplicantData.modelDialogLoadApplicantData.fireTableDataChanged();
 		dialogLoadApplicantData.add(panelDialogLoadApplicantData);
 		panelDialogLoadApplicantData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]5[]5[]5[]5"));
 		panelDialogLoadApplicantData.add(labelInstruction,"cell 0 0 2 1,alignx center");

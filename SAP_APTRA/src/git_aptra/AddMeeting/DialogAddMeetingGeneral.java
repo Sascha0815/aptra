@@ -18,13 +18,11 @@ public class DialogAddMeetingGeneral {
 	private static JLabel labelFirstName = new JLabel("Vorname:");
 	private static JLabel labelVacancyID = new JLabel("Stellen-ID:");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
-	private static JLabel labelArea = new JLabel("Arbeitsbereich:");
 	public static JLabel labelApplicantIDContent = new JLabel();
 	public static JLabel labelNameContent = new JLabel();
 	public static JLabel labelFirstNameContent = new JLabel();
 	public static JLabel labelVacancyIDContent = new JLabel();
 	public static JLabel labelPositionContent = new JLabel();
-	public static JLabel labelAreaContent = new JLabel();
 
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonLoadApplicantData = new JButton("Bewerber auswählen");
@@ -32,7 +30,7 @@ public class DialogAddMeetingGeneral {
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
-	
+		
 	public static void addMeetingGeneral(){
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
@@ -40,13 +38,11 @@ public class DialogAddMeetingGeneral {
 		labelFirstName.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
 		labelPosition.setFont(fontSubHeadline);
-		labelArea.setFont(fontSubHeadline);
 		labelApplicantIDContent.setFont(fontText);
 		labelNameContent.setFont(fontText);
 		labelFirstNameContent.setFont(fontText);
 		labelVacancyIDContent.setFont(fontText);
 		labelPositionContent.setFont(fontText);
-		labelAreaContent.setFont(fontText);
 		panelDialogMeetingMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]push[]"));
 		panelDialogMeetingMain.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogMeetingMain.add(buttonLoadApplicantData, "cell 0 1 2 1, alignx center");
@@ -60,8 +56,6 @@ public class DialogAddMeetingGeneral {
 		panelDialogMeetingMain.add(labelVacancyIDContent,"cell 0 9 2 1,growx");
 		panelDialogMeetingMain.add(labelPosition,"cell 0 10,alignx left");
 		panelDialogMeetingMain.add(labelPositionContent,"cell 0 11 2 1,growx");
-		panelDialogMeetingMain.add(labelArea,"cell 0 12,alignx left");
-		panelDialogMeetingMain.add(labelAreaContent,"cell 0 13 2 1,growx");
 		panelDialogMeetingMain.add(buttonContinue,"cell 1 14,alignx right");
 		
 		buttonLoadApplicantData.addActionListener(new ActionListener() {
