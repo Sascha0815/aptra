@@ -41,7 +41,7 @@ public class InsertApplicantDataIntoTable {
 			
 
 		else {
-			ResultSet rs = stmt.executeQuery("Select * from applicant");	
+			ResultSet rs = stmt.executeQuery("Select * from applicant a inner join relationship r on r.applicantID = a.applicantID inner join vacancy v on v.vacancyID = r.vacancyID where v.divisionID = " + Login.getDivisionID());	
 			
 			while (rs.next()) {
 				Vector applicant = new Vector();

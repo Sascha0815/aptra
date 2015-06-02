@@ -91,7 +91,7 @@ public class DialogEditVacancyManagementMatrix {
 		}
 		for (int i = 0; i < amount; i++) {
 			cell = "cell 0 " + ((i*2)+1) + "2";
-			panelDialogEditVacancyManagementMatrix.add(slider[i], cell + ", w 92%!");
+			panelDialogEditVacancyManagementMatrix.add(slider[i], cell + ", w 90%!");
 			slider[i].setMinimum(0);
 			slider[i].setMaximum(5);
 			slider[i].setMajorTickSpacing(1);
@@ -99,7 +99,7 @@ public class DialogEditVacancyManagementMatrix {
 			slider[i].setPaintTicks(true);
 			slider[i].setPaintLabels(true);
 			slider[i].setValue((int) scores.elementAt(i));
-			if (Login.getEntitlement()>1) {
+			if (Login.getEntitlement()==2) {
 				slider[i].setEnabled(false);
 			}
 		}

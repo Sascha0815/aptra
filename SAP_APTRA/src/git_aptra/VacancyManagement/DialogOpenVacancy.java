@@ -27,7 +27,7 @@ public class DialogOpenVacancy {
 	
 	private static JPanel panelAddVacancyManagement = new JPanel();
 	
-	private static JLabel labelInstruction = new JLabel("Bitte die gewünschte Stellen-ID eingeben");
+	private static JLabel labelInstruction = new JLabel("Bitte die gewünschte Stelle auswählen");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);

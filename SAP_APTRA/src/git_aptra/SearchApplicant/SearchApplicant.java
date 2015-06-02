@@ -22,6 +22,8 @@ public class SearchApplicant {
 	private static String email;
 	private static String vacancy;
 	private static String educationalAcievement;
+	private static String division1;
+	private static String division2;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector searchApplicant() throws SQLException {
@@ -178,16 +180,35 @@ public class SearchApplicant {
 		} else {
 			educationalAcievement = "";
 		}
+		
+		if (Login.getEntitlement()==3) {
+			if (first==true) {
+				division2 = " where v.divisionID = " + Login.getDivisionID();
+			}
+			else {
+				division2 = "AND v.divisionID = " + Login.getDivisionID();
+			}
+		
+		}
+		else {
+			division2 = "";
+		}
+		
+		if (Login.getEntitlement()==3) {
+			division1 = " inner join relationship r on r.applicantID = applicant.applicantID inner join vacancy v on v.vacancyID = r.vacancyID ";
+		}
+		else {
+			division1 = "";
+		}
 
 		
 		try {
 			dbConnection = Login.getConnection();
-
 			Statement stmt = dbConnection.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from applicant " + applicantID + name
+			ResultSet rs = stmt.executeQuery("select * from applicant " + division1 + applicantID + name
 					+ firstName + street + houseNr + postalCode + city
 					+ telefonHome + telefonMobil + email + vacancy
-					+ educationalAcievement);
+					+ educationalAcievement + division2);
 			
 			while (rs.next()) {
 				Vector applicant = new Vector();

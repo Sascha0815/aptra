@@ -15,8 +15,9 @@ import java.util.Vector;
 
 
 public class Login {
-	private static int entitlement = 0;
+	private static int entitlement;
 	private static int ID;
+	private static int divisionID;
 	private static Connection con;
 	
 	@SuppressWarnings("rawtypes")
@@ -24,10 +25,11 @@ public class Login {
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/aptra", "aptra", "bermudadreieck");
 			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("SELECT entitlement, employeeID from employee where BINARY loginName = '" +  username + "' AND BINARY password = '" +  password +"'" );
+		    ResultSet rs = stmt.executeQuery("SELECT entitlement, employeeID, divisionID from employee where BINARY loginName = '" +  username + "' AND BINARY password = '" +  password +"'" );
 		    while (rs.next()) {
 		        entitlement = rs.getInt(1);
 		        ID = rs.getInt(2);
+		        divisionID = rs.getInt(3);
 				Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 				MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 				MenuBarPanelApplicant.modelPool.fireTableDataChanged();
@@ -56,5 +58,10 @@ public class Login {
 	public static Connection getConnection(){
 		return con;
 	}
+	
+	public static int getDivisionID(){
+		return divisionID;
+	}
+	
 
 }

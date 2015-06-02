@@ -116,6 +116,7 @@ public class MenuBarPanelVacancyManagement {
 		labelManagementTermsOfEmployment.setFont(fontSubHeadline);
 		labelManagementVacancyStatus.setFont(fontSubHeadline);
 		labelManagementEducationalAchievement.setFont(fontSubHeadline);
+		labelManagementVacancyDivision.setFont(fontSubHeadline);
 		labelManagementCountContent.setFont(fontContent);
 		labelManagementEndOfApplyContent.setFont(fontContent);
 		labelManagementPositionContent.setFont(fontContent);
@@ -151,11 +152,18 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.setContentAreaFilled(false);
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				String query;
+				if (Login.getEntitlement()==3) {
+					query = "Select vacancyID,position from vacancy where divisionID = " + Login.getDivisionID();
+				}
+				else {
+					query = "Select vacancyID,position from vacancy";
+				}
 				ArrayList<String> id= new ArrayList<String>();
 				try {
 					Connection con =  Login.getConnection();
 					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select vacancyID,position from vacancy");
+					ResultSet rs = stmt.executeQuery(query);
 
 					while (rs.next()) {
 						 id.add(rs.getString(1)+" - "+rs.getString(2));

@@ -7,13 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class InsertEmployeeDataIntoDatabase {
-	public static void insertEmployeeData(String name, String firstName, String loginName, String password, int entitlement) throws SQLException {
+	public static void insertEmployeeData(String name, String firstName, String loginName, String password, int entitlement, int divisionID) throws SQLException {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
 		String query = "INSERT INTO employee"
-				+ "(name, firstName, loginName, password, entitlement) VALUES"
-				+ "(?,?,?,?,?)";
+				+ "(name, firstName, loginName, password, entitlement, divisionID) VALUES"
+				+ "(?,?,?,?,?,?)";
 
 		try {
 			dbConnection = Login.getConnection();
@@ -23,6 +23,7 @@ public class InsertEmployeeDataIntoDatabase {
 			preparedStatement.setString(3, loginName);
 			preparedStatement.setString(4, password);
 			preparedStatement.setInt(5, entitlement);
+			preparedStatement.setInt(6, divisionID);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 		}

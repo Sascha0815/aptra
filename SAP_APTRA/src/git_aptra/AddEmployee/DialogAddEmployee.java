@@ -2,11 +2,13 @@ package git_aptra.AddEmployee;
 
 import git_aptra.Oberflaeche;
 import git_aptra.MenuBar.MenuBar;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -59,6 +61,7 @@ public class DialogAddEmployee {
 	private static String loginName;
 	private static int entitlement;
 	private static String password;
+	private static int divisionID;
 
 	public static void addEmployee() {
 		fieldName.setText("");
@@ -135,9 +138,14 @@ public class DialogAddEmployee {
 				char[] passwordChar2 = fieldPasswordRepeat.getPassword();
 				String passwordString2 = String.valueOf(passwordChar2);
 				if (passwordString1.equals(passwordString2)){
+					
+				String division = (String) boxDivision.getSelectedItem();
+				String[] part = division.split(" - ");
+				divisionID = Integer.parseInt(part[0]);	
+				
 				try {
 					dialogNewEmployee.dispose();
-					InsertEmployeeDataIntoDatabase.insertEmployeeData(name,firstName,loginName,password,entitlement);
+					InsertEmployeeDataIntoDatabase.insertEmployeeData(name,firstName,loginName,password,entitlement, divisionID);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
