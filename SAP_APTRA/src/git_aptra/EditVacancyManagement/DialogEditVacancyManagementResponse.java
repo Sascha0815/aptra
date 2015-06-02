@@ -6,8 +6,11 @@ import git_aptra.ResponsePDF.ResponseControl;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
 
+import java.awt.ItemSelectable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +38,7 @@ public class DialogEditVacancyManagementResponse {
 	
 	private static String responseType;
 	private static int amount;
+	private static boolean first = true;
 	
 	public static void editVacancyManagementResponse(){
 		boxResponse.setSelectedIndex(0);
@@ -70,6 +74,18 @@ public class DialogEditVacancyManagementResponse {
 				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 			}
 		});
+		if (first==true) {
+			first = false;
+			 ItemListener itemListener = new ItemListener() {
+					@Override
+					public void itemStateChanged(ItemEvent e) {
+						 if (boxResponse.getSelectedItem().equals("Einladung Gespräch")) {
+							System.out.println("test");
+						}
+					}
+			 };
+				 boxResponse.addItemListener(itemListener);
+		}
 		
 		
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Rückmeldung",panelDialogEditVacancyManagementResponse);

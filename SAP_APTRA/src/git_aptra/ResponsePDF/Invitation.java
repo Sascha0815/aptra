@@ -25,7 +25,7 @@ public class Invitation {
     private static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
 	private static Paragraph introduction = new Paragraph("vielen Dank für Ihre ansprechende Bewerbung und das damit verbundene Interesse an einer Tätigkeit in unserem Unternehmen.");
-	private static Paragraph mainPart = new Paragraph("Ihre Bewerbung hat unser Interesse geweckt und wir würden uns gerne ein individuelles Bild von Ihnen machen. Aus diesem Grund laden wir Sie zu einem persönlichen Vorstellungsgespräch am  (Datum)  (Uhrzeit)  (Straße)  (Ort) ein.");
+	private static Paragraph mainPart = new Paragraph("Ihre Bewerbung hat unser Interesse geweckt und wir würden uns gerne ein individuelles Bild von Ihnen machen. Aus diesem Grund laden wir Sie zu einem persönlichen Vorstellungsgespräch ein. Dieses findet am  (Datum)  (Uhrzeit)  (Straße)  (Ort) ein.");
 	private static Paragraph noteOfThanks = new Paragraph("Sollten Sie an diesem Tag verhindert sein, bitten wir Sie sich mit uns in Verbindung zu setzen um einen alternativen Termin zu vereinbaren.");
 	private static Paragraph ending = new Paragraph("Mit freundlichen Grüßen");
 	private static Paragraph signature = new Paragraph("Aptra GmbH & Co. KG");

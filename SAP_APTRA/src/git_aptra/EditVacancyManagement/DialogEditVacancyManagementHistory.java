@@ -43,7 +43,7 @@ public class DialogEditVacancyManagementHistory {
 	};
 	public static JTable tableVacancyManagementHistory = new JTable(
 			modelVacancyManagementHistory);
-
+	private static boolean first = true;
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void editVacancyManagementHistory() {
 		panelDialogVacancyManagementHistory.setBackground(Color.LIGHT_GRAY);
@@ -60,8 +60,12 @@ public class DialogEditVacancyManagementHistory {
 				modelVacancyManagementHistory);
 		JScrollPane scrollPaneVacancyManagementHistory = new JScrollPane(
 				tableVacancyManagementHistory);
-		panelDialogVacancyManagementHistory
-				.add(scrollPaneVacancyManagementHistory);
+		if (first==true) {
+			first=false;
+			panelDialogVacancyManagementHistory
+			.add(scrollPaneVacancyManagementHistory);
+		}
+		
 		scrollPaneVacancyManagementHistory.setPreferredSize(new Dimension(
 				DialogEditVacancyManagement.dialogEditVacancyManagement
 						.getSize().width - 20,

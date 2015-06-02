@@ -85,33 +85,7 @@ public class InsertEditVacancyManagementDataIntoDatabase {
 
 	}
 
-	public static void insertEditVacancyManagementDataDetails()
-			throws SQLException {
-		Connection dbConnection = null;
-		String id = (String) MenuBarPanelVacancyManagement.tableVacancyManagement
-				.getValueAt(
-						MenuBarPanelVacancyManagement.tableVacancyManagement
-								.getSelectedRow(), 0);
-		dbConnection = Login.getConnection();
-
-		try {
-			PreparedStatement ps = dbConnection
-					.prepareStatement("UPDATE relationship SET impressionApplicant = ?, impressionApplication = ?, curriculumVitae = ?, coveringLetter = ? WHERE applicantID ="
-							+ id);
-			ps.setString(1,
-					DialogEditVacancyManagementDetails.getMarkApplicant());
-			ps.setString(2,
-					DialogEditVacancyManagementDetails.getMarkApplication());
-			ps.setBoolean(3, DialogEditVacancyManagementDetails.getCL());
-			ps.setBoolean(4, DialogEditVacancyManagementDetails.getCV());
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println(DialogEditVacancyManagementDetails
-					.getMarkApplicant());
-			System.out.println("Datenbank - editApplicant" + e.getMessage());
-		}
-	}
-
+	
 	public static void insertEditVacancyManagementDataResponse() throws SQLException {
 		try {
 			Connection con = Login.getConnection();
