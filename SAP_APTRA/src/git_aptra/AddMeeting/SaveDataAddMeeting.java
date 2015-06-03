@@ -2,8 +2,6 @@ package git_aptra.AddMeeting;
 
 import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
-import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,10 +67,10 @@ public class SaveDataAddMeeting {
 		}
 		
 		
-		/*try {
+		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT position, area, applicantID, name, firstName, typeMeeting, location, date, time, responsibleEmployeeName, responsibleEmployeeFirstName");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM meeting");
 
 			while (rs.next()) {
 				Vector meeting = new Vector();
@@ -86,14 +84,14 @@ public class SaveDataAddMeeting {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(9));
 				meeting.add(rs.getString(10));
-				meeting.add(rs.getString(11)+" "+rs.getString(12));
+				meeting.add(rs.getString(12)+" "+rs.getString(11));
 				resultsMeeting.add(meeting);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-		MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();*/
+		MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 		DialogAddMeeting.dialogNewMeeting.dispose();
 		}
 				
