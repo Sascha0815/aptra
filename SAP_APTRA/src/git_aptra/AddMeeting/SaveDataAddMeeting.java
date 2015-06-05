@@ -22,8 +22,8 @@ public class SaveDataAddMeeting {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		String query = "INSERT INTO meeting"
-				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time, responsibleEmployeeName, responsibleEmployeeFirstName ) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?)";
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt =  con.createStatement();
@@ -58,8 +58,6 @@ public class SaveDataAddMeeting {
 			preparedStatement.setString(7, DialogAddMeetingSpecification.getLocation());
 			preparedStatement.setDate(8, new java.sql.Date(DialogAddMeetingSpecification.getCal().getTimeInMillis()));
 			preparedStatement.setString(9, DialogAddMeetingSpecification.getTime());
-			preparedStatement.setString(10, DialogAddMeetingSpecification.getResponsibleEmployeeName());
-			preparedStatement.setString(11, DialogAddMeetingSpecification.getResponsibleEmployeeFirstName());
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -84,7 +82,6 @@ public class SaveDataAddMeeting {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(9));
 				meeting.add(rs.getString(10));
-				meeting.add(rs.getString(12)+" "+rs.getString(11));
 				resultsMeeting.add(meeting);
 			}
 		} catch (SQLException e) {
