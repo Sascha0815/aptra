@@ -23,7 +23,8 @@ public class Steuerung {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		new Oberflaeche();
+		//new Oberflaeche();
+		new DialogLogin();
 	}	
 }
 
