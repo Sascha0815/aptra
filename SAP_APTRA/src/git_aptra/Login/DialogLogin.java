@@ -107,4 +107,5 @@ public class DialogLogin extends JFrame {
 		
 		frameLogin.setVisible(true);
 	}	
+	
 }

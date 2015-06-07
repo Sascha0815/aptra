@@ -13,6 +13,7 @@ import git_aptra.Login.Login;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -22,16 +23,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
 public class MenuBar {
 	private static JMenuBar menuBar = new JMenuBar();
 	private static JMenu menuNew = new JMenu();
 	private static JMenu menuHelp = new JMenu();
 	private static JMenu menuDesign = new JMenu("Design");
+	
+	private static JLabel labelEmployee = new JLabel(" " + Login.getID() + "   " + Login.getDivisionID() + "   ");
 
 	private static JMenuItem itemApplicant = new JMenuItem();
 	private static JMenuItem itemJob = new JMenuItem();
@@ -56,6 +56,8 @@ public class MenuBar {
 	private static JMenuItem itemLunaLook = new JMenuItem("Luna");
 	private static JMenuItem itemMcWinLook = new JMenuItem("McWin");
 	private static JMenuItem itemMintLook = new JMenuItem("Mint");
+	
+	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	
 	@SuppressWarnings("unused")
 	private static String[] division;
@@ -358,6 +360,12 @@ public class MenuBar {
 				DialogAbout.about();
 			}
 		});
+		
+		menuBar.add(Box.createGlue());
+		menuBar.add(labelEmployee);
+		labelEmployee.setFont(fontHeadline);
+		
+		
 
 	}
 	public static String[] getDivision(){

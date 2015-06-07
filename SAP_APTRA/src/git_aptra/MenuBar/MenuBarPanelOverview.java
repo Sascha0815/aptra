@@ -10,7 +10,6 @@ import java.io.IOException;
 import git_aptra.Oberflaeche;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -72,8 +71,7 @@ public class MenuBarPanelOverview {
 		panelApplicant.setBorder(panelBorder);
 		panelVacancy.setBorder(panelBorder);
 		panelMeeting.setBorder(panelBorder);
-		panelManagement.setBorder(panelBorder);
-		
+		panelManagement.setBorder(panelBorder);		
 		
 		buttonNullApplicant.setToolTipText("Bewerber");
 		panelApplicant.add(buttonNullApplicant, "cell 0 0, alignx center, w 95%!, h 170px");
