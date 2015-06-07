@@ -19,7 +19,7 @@ public class InsertMeetingIntoDatabase {
 	static String firstName;
 	static String area;
 	static int meetingID;
-	public static void insertMeeting(String type, String location, Calendar cal, String time, String responsibleEmployeeName, String responsibleEmployeeFirstName ){
+	public static void insertMeeting(String type, String location, Calendar cal, String time){
 		
 		try {
 			Connection con =  Login.getConnection();

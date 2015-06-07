@@ -82,8 +82,6 @@ public class DialogDetailsMeeting {
 	private static int year;
 	private static String time;
 	private static Calendar calNote = Calendar.getInstance();
-	private static String responsibleEmployeeName;
-	private static String responsibleEmployeeFirstName;
 
 	@SuppressWarnings("static-access")
 	public static void detailsMeeting() {
@@ -157,7 +155,7 @@ public class DialogDetailsMeeting {
 			calNote.set(Calendar.MONTH, month);
 			calNote.set(Calendar.DAY_OF_MONTH, day);
 			time = (String) fieldTime.getText();					
-			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time, responsibleEmployeeName,responsibleEmployeeFirstName);
+			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
 			InsertMeetingIntoDatabase.insertParticipation();				
 
 			

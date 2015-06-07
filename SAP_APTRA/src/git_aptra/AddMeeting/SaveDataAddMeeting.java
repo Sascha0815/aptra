@@ -1,7 +1,11 @@
 package git_aptra.AddMeeting;
 
 import git_aptra.Login.Login;
+import git_aptra.Meeting.DialogDetailsMeeting;
+import git_aptra.Meeting.InsertMeetingDataIntoTable;
+import git_aptra.Meeting.InsertMeetingIntoDatabase;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,11 +15,10 @@ import java.util.Vector;
 
 
 public class SaveDataAddMeeting {
-	@SuppressWarnings({ "rawtypes"})
-	private static Vector resultsMeeting = new Vector();
 	static String area;
 	static String vacancyID;
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	static int meetingID;
+	
 	public static void save(){
 		DialogLoadApplicantData.getApplicantData();
 		DialogAddMeetingSpecification.getSpecification();
@@ -63,34 +66,52 @@ public class SaveDataAddMeeting {
 		} catch (SQLException e) {
 			System.out.println("insert problems - Datenbank - insert meeting data"+ e.getMessage());
 		}
-		
-		
-		try {
-			Connection con =  Login.getConnection();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM meeting");
-
-			while (rs.next()) {
-				Vector meeting = new Vector();
-				meeting.add(rs.getString(1));
-				meeting.add(rs.getString(2));
-				meeting.add(rs.getString(3));
-				meeting.add(rs.getString(4));
-				meeting.add(rs.getString(5));
-				meeting.add(rs.getString(6));
-				meeting.add(rs.getString(7));
-				meeting.add(rs.getString(8));
-				meeting.add(rs.getString(9));
-				meeting.add(rs.getString(10));
-				resultsMeeting.add(meeting);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+		insertParticipationAddMeeting();
+		InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+		MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(InsertMeetingDataIntoTable.resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 		DialogAddMeeting.dialogNewMeeting.dispose();
 		}
+		
+	private static void insertParticipationAddMeeting(){	
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt =  con.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT MAX(meetingID) from meeting");
+		    while (rs.next()) {
+		        meetingID = rs.getInt(1);
+		    }
+		} catch (Exception e) {
+			System.out.println("Fehler auslesen der MeetingID" +e.getMessage());
+		}
+		
+		int []rows = DialogAddMeetingSpecification.tableDialogEmployeeMeeting.getSelectedRows();
+		
+		for (int i = 0; i < rows.length; i++) {
+			int id = Integer.parseInt((String) DialogAddMeetingSpecification.tableDialogEmployeeMeeting.getValueAt(i, 0));
+			Connection dbConnection = null;
+			PreparedStatement preparedStatement = null;
+			
+			String query = "INSERT INTO participation"
+					+ "(employeeID, meetingID) VALUES"
+					+ "(?,?)";
+
+			try {
+				dbConnection = Login.getConnection();
+				preparedStatement = dbConnection.prepareStatement(query);
+				preparedStatement.setInt(1, id);
+				preparedStatement.setInt(2, meetingID);
 				
+		
+				preparedStatement.executeUpdate();
+				preparedStatement.close();
+				
+			} catch (SQLException e) {
+				System.out
+						.println("insert problems - Datenbank - insert participation data"
+								+ e.getMessage());
+			}
+		}
+	}
 }
 

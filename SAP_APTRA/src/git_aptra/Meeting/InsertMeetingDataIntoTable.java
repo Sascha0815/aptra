@@ -9,9 +9,10 @@ import java.sql.Statement;
 import java.util.Vector;
 
 public class InsertMeetingDataIntoTable {
+	@SuppressWarnings({ "rawtypes", })
+	public static Vector resultsMeeting = new Vector();
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertMeetingDataIntoTable() {
-		Vector resultsMeeting = new Vector();
 		int entitlement = Login.getEntitlement();
 		if(entitlement==1){
 		try {
