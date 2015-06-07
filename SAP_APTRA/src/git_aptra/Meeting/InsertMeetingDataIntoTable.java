@@ -14,7 +14,7 @@ public class InsertMeetingDataIntoTable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertMeetingDataIntoTable() {
 		int entitlement = Login.getEntitlement();
-		if(entitlement==1){
+		if(entitlement<3){
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
@@ -40,11 +40,11 @@ public class InsertMeetingDataIntoTable {
 		}
 		}
 
-		if(entitlement==2){
+		if(entitlement==3){
 			try {
 				Connection con = Login.getConnection();
 				Statement stmt = con.createStatement();
-				String query = ("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID where p.employeeID = " + Login.getID());
+				String query = ("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID where e.divisionID = " + Login.getDivisionID());
 
 				ResultSet rs = stmt.executeQuery(query);
 				
