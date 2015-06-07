@@ -71,7 +71,7 @@ public class Acceptance {
         
         PDDocument doc=null;
             try {
-                doc = PDDocument.load("C:/Users/Sascha/git/aptra/Zusage " + fullName + "(" + id + ").pdf");
+                doc = PDDocument.load("Zusage " + fullName + "(" + id + ").pdf");
                 doc.print();
             } catch (Exception ex) {
                 ex.printStackTrace();

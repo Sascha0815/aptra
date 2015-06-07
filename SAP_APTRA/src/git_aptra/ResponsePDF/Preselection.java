@@ -71,7 +71,7 @@ public class Preselection {
 				
 				PDDocument doc=null;
 				    try {
-				        doc = PDDocument.load("C:/Users/Sascha/git/aptra/Vorauswahl " + fullName + "(" + id + ").pdf");
+				        doc = PDDocument.load("Vorauswahl " + fullName + "(" + id + ").pdf");
 				        doc.print();
 				    } catch (Exception ex) {
 				        ex.printStackTrace();

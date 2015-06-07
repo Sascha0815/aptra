@@ -2,7 +2,6 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddMeeting.DialogAddMeeting;
-import git_aptra.Login.Login;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,9 +9,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;

@@ -78,7 +78,7 @@ public class Invitation {
 				
 				PDDocument doc=null;
 				    try {
-				        doc = PDDocument.load("C:/Users/Jo/git/aptra/Einladung Gespräch " + fullName + "(" + id + ", " +dateFormat.format(cal.getTime())+").pdf");		
+				        doc = PDDocument.load("Einladung Gespräch " + fullName + "(" + id + ", " +dateFormat.format(cal.getTime())+").pdf");		
 				        doc.print();
 				    } catch (Exception ex) {
 				        ex.printStackTrace();

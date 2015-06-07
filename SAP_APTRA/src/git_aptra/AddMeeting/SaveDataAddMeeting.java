@@ -1,9 +1,7 @@
 package git_aptra.AddMeeting;
 
 import git_aptra.Login.Login;
-import git_aptra.Meeting.DialogDetailsMeeting;
 import git_aptra.Meeting.InsertMeetingDataIntoTable;
-import git_aptra.Meeting.InsertMeetingIntoDatabase;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 import java.sql.Connection;
@@ -11,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Vector;
 
 
 public class SaveDataAddMeeting {

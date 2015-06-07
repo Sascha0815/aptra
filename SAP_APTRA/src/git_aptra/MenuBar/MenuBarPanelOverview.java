@@ -5,17 +5,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
-import git_aptra.AddApplicant.DialogAddApplicant;
-import git_aptra.AddVacancy.DialogAddVacancy;
-import git_aptra.Login.Login;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -28,7 +18,6 @@ import net.miginfocom.swing.MigLayout;
 
 public class MenuBarPanelOverview {
 	private static JPanel panelOverview = new JPanel();
-	private static JPanel panelContentOverview = new JPanel();
 	
 	private static JButton buttonNullApplicant = new JButton();
 	private static JButton buttonNullVacancy = new JButton();

@@ -71,7 +71,7 @@ public class Confirmation {
 				
 				PDDocument doc=null;
 				    try {
-				        doc = PDDocument.load("C:/Users/Sascha/git/aptra/Bestätigung Bewerbungseingang " + fullName + "(" + id + ").pdf");
+				        doc = PDDocument.load("Bestätigung Bewerbungseingang " + fullName + "(" + id + ").pdf");
 				        doc.print();
 				    } catch (Exception ex) {
 				        ex.printStackTrace();

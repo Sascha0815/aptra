@@ -71,7 +71,7 @@ public class Rejection {
         
         PDDocument doc=null;
             try {
-                doc = PDDocument.load("C:/Users/Sascha/git/aptra/Ablehnung " + fullName + "(" + id + ").pdf");
+                doc = PDDocument.load("Ablehnung " + fullName + "(" + id + ").pdf");
                 doc.print();
             } catch (Exception ex) {
                 ex.printStackTrace();
