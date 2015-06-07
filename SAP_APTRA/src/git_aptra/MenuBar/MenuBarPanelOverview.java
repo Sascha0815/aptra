@@ -57,6 +57,7 @@ public class MenuBarPanelOverview {
 	public static void addPanelOverview() {
 		panelOverview.setLayout(new MigLayout("", "[]1%![]1%![]1%![]", "[]"));
 		Border border = new LineBorder(Color.gray, 2);
+		Border panelBorder = new LineBorder(Color.LIGHT_GRAY);
 		Border line =  new MatteBorder(0,0,2,0, Color.gray);
 		
 		panelApplicant.setLayout(new MigLayout("", "[90%!]","15px![]5%![]5%![]5%![]"));
@@ -68,10 +69,10 @@ public class MenuBarPanelOverview {
 		panelOverview.add(panelVacancy, "cell 1 0,  w 24%!, h 98%!");
 		panelOverview.add(panelManagement, "cell 2 0,  w 24%!, h 98%!");
 		panelOverview.add(panelMeeting, "cell 3 0, w 24%!, h 98%!");
-		panelApplicant.setBorder(border);
-		panelVacancy.setBorder(border);
-		panelMeeting.setBorder(border);
-		panelManagement.setBorder(border);
+		panelApplicant.setBorder(panelBorder);
+		panelVacancy.setBorder(panelBorder);
+		panelMeeting.setBorder(panelBorder);
+		panelManagement.setBorder(panelBorder);
 		
 		
 		buttonNullApplicant.setToolTipText("Bewerber");
