@@ -50,7 +50,7 @@ public class MenuBarPanelOverview {
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
 		panelOverview.setLayout(new MigLayout("", "[]1%![]1%![]1%![]", "[]"));
-		Border border = new LineBorder(Color.gray, 1);
+		Border border = new LineBorder(Color.gray, 2);
 		panelApplicant.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		panelVacancy.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		panelManagement.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
