@@ -64,7 +64,6 @@ public class DialogAddApplicantApplication {
 
 	public static void addApplicantApplication() {
 		boxEducationalAchievement.setSelectedIndex(0);
-		//boxID.setSelectedIndex(0);
 		boxDivision.setSelectedIndex(0);
 		dateChooserApplyDate.setDate(null);
 		labelInstruction.setFont(fontHeadline);

@@ -12,9 +12,8 @@ public class DialogAddApplicant {
 	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void newApplicant() {
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogNewApplicant.setSize(425, 450);
-		dialogNewApplicant.setLocationRelativeTo(null);
+		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewApplicant.setResizable(false);
 		dialogNewApplicant.setTitle("Neuer Bewerber");
 		dialogNewApplicant.add(tabAdd);
@@ -23,6 +22,7 @@ public class DialogAddApplicant {
 		DialogAddApplicantContact.addApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
 		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
+		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogNewApplicant.setVisible(true);
 	}
 }

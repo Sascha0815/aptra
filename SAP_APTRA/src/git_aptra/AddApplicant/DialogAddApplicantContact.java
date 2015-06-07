@@ -1,14 +1,20 @@
 package git_aptra.AddApplicant;
 
+import git_aptra.Loading;
+import git_aptra.Oberflaeche;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
+
 import net.miginfocom.swing.MigLayout;
 public class DialogAddApplicantContact {
 	
@@ -71,6 +77,7 @@ public class DialogAddApplicantContact {
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				SaveDataAddApplicant.save();
 			}
 		});

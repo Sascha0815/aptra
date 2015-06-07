@@ -90,17 +90,6 @@ public class MenuBarPanelMeeting {
 	
 	// SWING: Arbeitsstellen Panel
 	public static void addPanelEmployeeMeeting() {
-		try {
-			Connection con =  Login.getConnection();
-			Statement stmt =  con.createStatement();
-		    ResultSet rs = stmt.executeQuery("SELECT entitlement from employee where employeeID = " + Login.getID());
-		    while (rs.next()) {		    	
-		    	entitlement = rs.getInt(1);
-		    }
-		} catch (Exception e) {
-			System.out.println("Fehler auslesen der Berechtigung" +e.getMessage());
-		}
-
 		panelMeeting.setLayout(new MigLayout("", "[]5[]5[]"));
 		panelMeetingSummary.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][]"));
 

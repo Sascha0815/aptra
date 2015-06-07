@@ -1,5 +1,6 @@
 package git_aptra.MenuBar;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -49,14 +52,33 @@ public class MenuBarPanelOverview {
 	private static JButton buttonEditMeeting = new JButton("Termin bearbeiten");
 	private static JButton buttonSearchMeeting = new JButton("Termin suchen");
 	private static JButton buttonInfoMeeting = new JButton("Termin anzeigen");
+	
+	private static JPanel panelApplicant = new JPanel();
+	private static JPanel panelVacancy = new JPanel();
+	private static JPanel panelManagement = new JPanel();
+	private static JPanel panelMeeting = new JPanel();
 
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
-		panelOverview.setLayout(new MigLayout("", "[grow,left][grow,right]", "[]60[]30[]30[]30[]30[]30[]"));
-		panelOverview.add(panelContentOverview,	"cell 0 0 2");
+		panelOverview.setLayout(new MigLayout("", "8%![15%!]8%![15%!]8%![15%!]8%![15%!]8%!", "[]"));
+		Border border = new LineBorder(Color.gray, 2);
+		panelApplicant.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
+		panelVacancy.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
+		panelManagement.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
+		panelMeeting.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
+		
+		panelOverview.add(panelApplicant, "cell 0 0, growx, h 98%!");
+		panelOverview.add(panelVacancy, "cell 1 0,  growx, h 98%!");
+		panelOverview.add(panelManagement, "cell 2 0,  growx, h 98%!");
+		panelOverview.add(panelMeeting, "cell 3 0, growx, h 98%!");
+		panelApplicant.setBorder(border);
+		panelVacancy.setBorder(border);
+		panelMeeting.setBorder(border);
+		panelManagement.setBorder(border);
+		
 		
 		buttonNullApplicant.setToolTipText("Bewerber");
-		panelOverview.add(buttonNullApplicant, "cell 1 1 2,alignx left");
+		panelApplicant.add(buttonNullApplicant, "cell 0 0, alignx center");
 		buttonNullApplicant.setOpaque(false);
 		buttonNullApplicant.setContentAreaFilled(false);
 		buttonNullApplicant.setBorder(null);
@@ -71,13 +93,15 @@ public class MenuBarPanelOverview {
 				Oberflaeche.tabBar.setSelectedIndex(1);
 			}
 		});
-		panelOverview.add(buttonAddApplicant, "cell 1 2 2,alignx left");
-		panelOverview.add(buttonEditApplicant, "cell 1 3 2,alignx left");
-		panelOverview.add(buttonSearchApplicant, "cell 1 4 2,alignx left");
-		panelOverview.add(buttonInfoApplicant, "cell 1 5 2,alignx left");
+		panelApplicant.add(buttonAddApplicant, "cell 0 1, alignx center");
+		panelApplicant.add(buttonEditApplicant, "cell 0 2, alignx center");
+		panelApplicant.add(buttonSearchApplicant, "cell 0 3, alignx center");
+		panelApplicant.add(buttonInfoApplicant, "cell 0 4, alignx center");
+		
+		
 		
 		buttonNullVacancy.setToolTipText("Arbeitsstellen");
-		panelOverview.add(buttonNullVacancy, "cell 2 1 2, alignx left");
+		panelVacancy.add(buttonNullVacancy, "cell 0 0, alignx center");
 		buttonNullVacancy.setOpaque(false);
 		buttonNullVacancy.setContentAreaFilled(false);
 		buttonNullVacancy.setBorder(null);
@@ -92,18 +116,16 @@ public class MenuBarPanelOverview {
 				Oberflaeche.tabBar.setSelectedIndex(2);
 			}
 		});
-		panelOverview.add(buttonAddVacancy, "cell 2 2 2,alignx left");
 		
-		buttonAddVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-			}
-		});
-		panelOverview.add(buttonEditVacancy, "cell 2 3 2,alignx left");
-		panelOverview.add(buttonSearchVacancy, "cell 2 4 2,alignx left");
-		panelOverview.add(buttonInfoVacancy, "cell 2 5 2,alignx left");
+		panelVacancy.add(buttonAddVacancy, "cell 0 1, alignx center");
+		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center");
+		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center");
+		panelVacancy.add(buttonInfoVacancy, "cell 0 4, alignx center");
+		
+		
 		
 		buttonNullManagement.setToolTipText("Stellenmanagement");
-		panelOverview.add(buttonNullManagement, "cell 3 1 2, alignx left");
+		panelManagement.add(buttonNullManagement, "cell 0 0, alignx center");
 		buttonNullManagement.setOpaque(false);
 		buttonNullManagement.setContentAreaFilled(false);
 		buttonNullManagement.setBorder(null);
@@ -118,11 +140,14 @@ public class MenuBarPanelOverview {
 				Oberflaeche.tabBar.setSelectedIndex(3);
 			}
 		});
-		panelOverview.add(buttonSearchManagement, "cell 3 2 2,alignx left");
-		panelOverview.add(buttonEditManagement, "cell 3 3 2,alignx left");
+		panelManagement.add(buttonEditManagement, "cell 0 1, alignx center");
+		panelManagement.add(buttonSearchManagement, "cell 0 2, alignx center");
 		
+		
+		
+			
 		buttonNullMeeting.setToolTipText("Termine");
-		panelOverview.add(buttonNullMeeting, "cell 4 1 2, alignx left");
+		panelMeeting.add(buttonNullMeeting, "cell 0 0, alignx center");
 		buttonNullMeeting.setOpaque(false);
 		buttonNullMeeting.setContentAreaFilled(false);
 		buttonNullMeeting.setBorder(null);
@@ -137,10 +162,10 @@ public class MenuBarPanelOverview {
 				Oberflaeche.tabBar.setSelectedIndex(4);
 			}
 		});
-		panelOverview.add(buttonAddMeeting, "cell 4 2 2,alignx left");
-		panelOverview.add(buttonEditMeeting, "cell 4 3 2,alignx left");
-		panelOverview.add(buttonSearchMeeting, "cell 4 4 2,alignx left");
-		panelOverview.add(buttonInfoMeeting, "cell 4 5 2,alignx left");
+		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center");
+		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center");
+		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center");
+		panelMeeting.add(buttonInfoMeeting, "cell 0 4 ,alignx center");
 		
 		
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
