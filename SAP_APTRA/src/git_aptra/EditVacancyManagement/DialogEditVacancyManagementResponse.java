@@ -5,8 +5,6 @@ import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.ResponsePDF.ResponseControl;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
-
-import java.awt.ItemSelectable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -15,11 +13,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import lu.tudor.santec.jtimechooser.JTimeChooser;
+
+import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -36,17 +38,43 @@ public class DialogEditVacancyManagementResponse {
 	private static JButton buttonSaveResponse = new JButton("Speichern");
 	private static JButton buttonAbort = new JButton("Abbrechen");
 	
+	private static JLabel labelLocation = new JLabel("Raumnummer:");
+	private static JLabel labelDate = new JLabel("Datum Termin:");
+	private static JLabel labelTime = new JLabel("Uhrzeit:");
+	
+	private static JDateChooser dateChooserDate = new JDateChooser();
+	
+	private static JTextField fieldLocation = new JTextField();
+	private static JTimeChooser timeChooser = new JTimeChooser();
+	
 	private static String responseType;
 	private static int amount;
 	private static boolean first = true;
+	private static String location;
+	private static String date;
+	private static int hour;
+	private static int minute;
+	private static String time;
 	
 	public static void editVacancyManagementResponse(){
 		boxResponse.setSelectedIndex(0);
-		panelDialogEditVacancyManagementResponse.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
+		labelLocation.setVisible(false);
+		labelDate.setVisible(false);
+		labelTime.setVisible(false);
+		dateChooserDate.setVisible(false);
+		timeChooser.setVisible(false);
+		fieldLocation.setVisible(false);
+		panelDialogEditVacancyManagementResponse.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][]push[]"));
 		panelDialogEditVacancyManagementResponse.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogEditVacancyManagementResponse.add(boxResponse, "cell 0 1 2, growx");
-		panelDialogEditVacancyManagementResponse.add(buttonSaveResponse, "cell 0 2,alignx left");
-		panelDialogEditVacancyManagementResponse.add(buttonAbort,"cell 1 2,alignx right");
+		panelDialogEditVacancyManagementResponse.add(labelLocation, "cell 0 2,alignx left");
+		panelDialogEditVacancyManagementResponse.add(fieldLocation, "cell 0 3 2 1,growx");
+		panelDialogEditVacancyManagementResponse.add(labelDate, "cell 0 4,alignx left");
+		panelDialogEditVacancyManagementResponse.add(dateChooserDate, "cell 0 5 2, growx");
+		panelDialogEditVacancyManagementResponse.add(labelTime, "cell 0 6,alignx left");
+		panelDialogEditVacancyManagementResponse.add(timeChooser, "cell 0 7 2 1,growx");
+		panelDialogEditVacancyManagementResponse.add(buttonSaveResponse, "cell 0 8,alignx left");
+		panelDialogEditVacancyManagementResponse.add(buttonAbort,"cell 1 8,alignx right");
 		buttonSaveResponse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditVacancyManagement.save();
@@ -80,7 +108,12 @@ public class DialogEditVacancyManagementResponse {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						 if (boxResponse.getSelectedItem().equals("Einladung Gespräch")) {
-							System.out.println("test");
+								labelLocation.setVisible(true);
+								labelDate.setVisible(true);
+								labelTime.setVisible(true);
+								dateChooserDate.setVisible(true);
+								timeChooser.setVisible(true);
+								fieldLocation.setVisible(true);
 						}
 					}
 			 };
@@ -92,9 +125,35 @@ public class DialogEditVacancyManagementResponse {
 	}
 	public static void getResponse(){
 		responseType = (String) boxResponse.getSelectedItem();
+		try {
+			location = fieldLocation.getText();
+		} catch (Exception e) {
+		}
+		try {
+			hour = timeChooser.getHours();
+			minute = timeChooser.getMinutes();
+			time = hour + ":" + minute;
+		} catch (Exception e) {
+		}
+		try {
+			date = ((JTextField)dateChooserDate.getDateEditor().getUiComponent()).getText(); 
+		} catch (Exception e) {
+		}
 	}
 	
 	public static String getResponseType() {
 		return responseType;
+	}
+	
+	public static String getLocation(){
+		return location;
+	}
+	
+	public static String getCal(){
+		return date;
+	}
+	
+	public static String getTime(){
+		return time;
 	}
 }

@@ -1,13 +1,18 @@
 package git_aptra.ResponsePDF;
 
+import com.ibm.icu.util.Calendar;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Chunk;
+
+import git_aptra.EditVacancyManagement.DialogEditVacancyManagementResponse;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -25,7 +30,7 @@ public class Invitation {
     private static Paragraph date = new Paragraph(chunkDate);
 	private static Paragraph headline = new Paragraph("Rückmeldung bezüglich Ihrer Bewerbung bei Aptra", FontHeadline);
 	private static Paragraph introduction = new Paragraph("vielen Dank für Ihre ansprechende Bewerbung und das damit verbundene Interesse an einer Tätigkeit in unserem Unternehmen.");
-	private static Paragraph mainPart = new Paragraph("Ihre Bewerbung hat unser Interesse geweckt und wir würden uns gerne ein individuelles Bild von Ihnen machen. Aus diesem Grund laden wir Sie zu einem persönlichen Vorstellungsgespräch ein. Dieses findet am  (Datum)  (Uhrzeit)  (Straße)  (Ort) ein.");
+	private static Paragraph mainPart = new Paragraph("Ihre Bewerbung hat unser Interesse geweckt und wir würden uns gerne ein individuelles Bild von Ihnen machen. Aus diesem Grund laden wir Sie zu einem persönlichen Vorstellungsgespräch ein. Dieses findet am "+ DialogEditVacancyManagementResponse.getCal() + " um " + DialogEditVacancyManagementResponse.getTime() + " Uhr im Raum " +  DialogEditVacancyManagementResponse.getLocation() + " statt.");
 	private static Paragraph noteOfThanks = new Paragraph("Sollten Sie an diesem Tag verhindert sein, bitten wir Sie sich mit uns in Verbindung zu setzen um einen alternativen Termin zu vereinbaren.");
 	private static Paragraph ending = new Paragraph("Mit freundlichen Grüßen");
 	private static Paragraph signature = new Paragraph("Aptra GmbH & Co. KG");
@@ -33,8 +38,10 @@ public class Invitation {
 	
 	
 	public static void invitation(String fullName, String streetNr, String PCCity, String sex, String name, int id){
-			try {
-				PdfWriter.getInstance(rejection, new FileOutputStream("Einladung Gespräch " + fullName + "(" + id + ").pdf"));			
+		DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH.mm.ss");
+		  Calendar cal = Calendar.getInstance();
+		try {
+				PdfWriter.getInstance(rejection, new FileOutputStream("Einladung Gespräch " + fullName + "(" + id + ", " + dateFormat.format(cal.getTime()) +").pdf"));		
 				rejection.open();
 				Chunk chunkFullName = new Chunk(fullName);	            
 				Paragraph ParagraphFullName = new Paragraph(chunkFullName);
@@ -71,7 +78,7 @@ public class Invitation {
 				
 				PDDocument doc=null;
 				    try {
-				        doc = PDDocument.load("C:/Users/Sascha/git/aptra/Einladung Gespräch " + fullName + "(" + id + ").pdf");
+				        doc = PDDocument.load("C:/Users/Jo/git/aptra/Einladung Gespräch " + fullName + "(" + id + ", " +dateFormat.format(cal.getTime())+").pdf");		
 				        doc.print();
 				    } catch (Exception ex) {
 				        ex.printStackTrace();
