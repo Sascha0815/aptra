@@ -60,17 +60,17 @@ public class MenuBarPanelOverview {
 
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
-		panelOverview.setLayout(new MigLayout("", "8%![15%!]8%![15%!]8%![15%!]8%![15%!]8%!", "[]"));
-		Border border = new LineBorder(Color.gray, 2);
+		panelOverview.setLayout(new MigLayout("", "[]1%![]1%![]1%![]", "[]"));
+		Border border = new LineBorder(Color.gray, 1);
 		panelApplicant.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		panelVacancy.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		panelManagement.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		panelMeeting.setLayout(new MigLayout("", "[90%!]","[]5%![]5%![]5%![]"));
 		
-		panelOverview.add(panelApplicant, "cell 0 0, growx, h 98%!");
-		panelOverview.add(panelVacancy, "cell 1 0,  growx, h 98%!");
-		panelOverview.add(panelManagement, "cell 2 0,  growx, h 98%!");
-		panelOverview.add(panelMeeting, "cell 3 0, growx, h 98%!");
+		panelOverview.add(panelApplicant, "cell 0 0, w 24%!, h 98%!");
+		panelOverview.add(panelVacancy, "cell 1 0,  w 24%!, h 98%!");
+		panelOverview.add(panelManagement, "cell 2 0,  w 24%!, h 98%!");
+		panelOverview.add(panelMeeting, "cell 3 0, w 24%!, h 98%!");
 		panelApplicant.setBorder(border);
 		panelVacancy.setBorder(border);
 		panelMeeting.setBorder(border);
