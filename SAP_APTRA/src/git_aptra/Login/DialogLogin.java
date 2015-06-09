@@ -93,6 +93,7 @@ public class DialogLogin extends JFrame {
 					labelWarning.setVisible(true);					
 				}
 				else {
+					Login.getLoginData();
 					new Oberflaeche();
 					frameLogin.dispose();
 				}				

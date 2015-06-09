@@ -29,9 +29,8 @@ public class MenuBar {
 	private static JMenuBar menuBar = new JMenuBar();
 	private static JMenu menuNew = new JMenu();
 	private static JMenu menuHelp = new JMenu();
-	private static JMenu menuDesign = new JMenu("Design");
 	
-	private static JLabel labelEmployee = new JLabel(" " + Login.getID() + "   " + Login.getDivisionID() + "   ");
+	private static JLabel labelEmployee = new JLabel("Sie sind eingeloggt als:  " + Login.getFirstName() + " " + Login.getName() + " (Mitarbeiter-ID: " + Login.getID() + ")");
 
 	private static JMenuItem itemApplicant = new JMenuItem();
 	private static JMenuItem itemJob = new JMenuItem();
@@ -42,20 +41,6 @@ public class MenuBar {
 	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
-	private static JMenuItem itemStandardLook = new JMenuItem("Standard");
-	private static JMenuItem itemTextureLook = new JMenuItem("Texture");
-	private static JMenuItem itemSmartLook = new JMenuItem("Smart");
-	private static JMenuItem itemNoireLook = new JMenuItem("Noire");
-	private static JMenuItem itemAcrylLook = new JMenuItem("Acryl");
-	private static JMenuItem itemAeroLook = new JMenuItem("Aero");
-	private static JMenuItem itemAluminiumLook = new JMenuItem("Aluminium");
-	private static JMenuItem itemBernsteinLook = new JMenuItem("Bernstein");
-	private static JMenuItem itemFastLook = new JMenuItem("Fast");
-	private static JMenuItem itemGraphiteLook = new JMenuItem("Graphite");
-	private static JMenuItem itemHifiLook = new JMenuItem("HiFi");
-	private static JMenuItem itemLunaLook = new JMenuItem("Luna");
-	private static JMenuItem itemMcWinLook = new JMenuItem("McWin");
-	private static JMenuItem itemMintLook = new JMenuItem("Mint");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	
@@ -162,191 +147,6 @@ public class MenuBar {
 		itemExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Oberflaeche.frame.dispose();
-			}
-		});
-
-		// Menu Design
-		menuDesign.add(itemStandardLook);
-		itemStandardLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.standardLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuBar.add(menuDesign);
-		menuDesign.add(itemAcrylLook);
-		itemAcrylLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.acrylLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemAeroLook);
-		itemAeroLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.aeroLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemAluminiumLook);
-		itemAluminiumLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.aluminiumLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemBernsteinLook);
-		itemBernsteinLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.bernsteinLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemFastLook);
-		itemFastLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.fastLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemGraphiteLook);
-		itemGraphiteLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.graphiteLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemHifiLook);
-		itemHifiLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.hifiLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemLunaLook);
-		itemLunaLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.lunaLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemMcWinLook);
-		itemMcWinLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.McWinLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemMintLook);
-		itemMintLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.mintLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemNoireLook);
-		itemNoireLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.noireLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemSmartLook);
-		itemSmartLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.smartLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		menuDesign.add(itemTextureLook);
-		itemTextureLook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Design.textureLook();
-				} catch (ClassNotFoundException | InstantiationException
-						| IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 			}
 		});
 		

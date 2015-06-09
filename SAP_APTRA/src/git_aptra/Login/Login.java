@@ -10,6 +10,7 @@ import git_aptra.MenuBar.MenuBarPanelVacancy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
@@ -19,6 +20,8 @@ public class Login {
 	private static int ID;
 	private static int divisionID;
 	private static Connection con;
+	private static String name;
+	private static String firstName;
 	
 	@SuppressWarnings("rawtypes")
 	public static int login(String username, String password) {
@@ -46,6 +49,21 @@ public class Login {
 		}
 		return 0;
 	}
+	
+	public static void getLoginData(){
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT name, firstName  FROM employee WHERE employeeID = " + ID);
+
+			while (rs.next()) {
+				name = rs.getString(1);
+				firstName = rs.getString(2);
+			}
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+	}
 
 	public static int getID(){
 		return ID;
@@ -61,6 +79,14 @@ public class Login {
 	
 	public static int getDivisionID(){
 		return divisionID;
+	}
+	
+	public static String getName(){
+		return name;
+	}
+	
+	public static String getFirstName(){
+		return firstName;
 	}
 	
 
