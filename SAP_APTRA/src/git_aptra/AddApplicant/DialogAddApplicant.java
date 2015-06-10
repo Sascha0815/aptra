@@ -1,6 +1,5 @@
 package git_aptra.AddApplicant;
 
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 
 import javax.swing.JDialog;
@@ -22,7 +21,6 @@ public class DialogAddApplicant {
 		DialogAddApplicantContact.addApplicantContact();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicant);
 		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogNewApplicant.setVisible(true);
 	}
 }

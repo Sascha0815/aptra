@@ -1,6 +1,6 @@
 package git_aptra.EditApplicant;
 
-import git_aptra.Loading;
+
 import git_aptra.Oberflaeche;
 
 import javax.swing.JDialog;
@@ -12,7 +12,6 @@ public class DialogEditApplicant {
 	public static JDialog dialogEditApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void editApplicant() {
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogEditApplicant.setSize(425,450);
 		dialogEditApplicant.setLocationRelativeTo(null);
 		dialogEditApplicant.setResizable(false);

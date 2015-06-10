@@ -4,7 +4,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.net.MalformedURLException;
 
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 
 import javax.swing.JDialog;
@@ -85,7 +84,6 @@ public class DialogEditVacancyManagement {
 		DialogEditVacancyManagementHistory.editVacancyManagementHistory();
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancyManagement);
 		dialogEditVacancyManagement.setLocationRelativeTo(Oberflaeche.frame);
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		dialogEditVacancyManagement.setVisible(true);
 		
 	}

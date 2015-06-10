@@ -1,6 +1,6 @@
 package git_aptra.MenuBar;
 
-import git_aptra.Loading;
+
 import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
@@ -117,7 +117,6 @@ public class MenuBarPanelVacancy {
 		butttonAddJob.setContentAreaFilled(false);
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				ArrayList<String> id= new ArrayList<String>();
 				try {
 					Connection con =  Login.getConnection();
@@ -171,7 +170,6 @@ public class MenuBarPanelVacancy {
 				if (tableJob.getSelectedRowCount() > 1){
 					DialogEditVacancyWarning.tooManySelected();
 				} else {
-					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
 					try {
 						Connection con =  Login.getConnection();

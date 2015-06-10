@@ -66,7 +66,7 @@ public class DialogAddVacancyGeneral {
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
 		fieldStatus.setEditable(false);
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][]push[]"));
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
 		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");

@@ -61,12 +61,12 @@ public class DialogAddVacancySelection {
 		scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		tableSelection.setRowHeight(20);
 		tableSelection.setAutoCreateRowSorter(true);
-		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][][][][][][][][][][]push[]"));
+		panelDialogVacancySelection.setLayout(new MigLayout("", "[grow, left][grow, right]", "[][][][][]push[]"));
 		panelDialogVacancySelection.add(labelInstruction, "cell 0 0 2,alignx center");
 		panelDialogVacancySelection.add(labelSelection, "cell 0 1,alignx left");
-		panelDialogVacancySelection.add(scrollPaneSelection, "cell 0 2 4 12,alignx left");
-		panelDialogVacancySelection.add(buttonSave, "cell 1 15 2 1, alignx right");
-		panelDialogVacancySelection.add(buttonBack, "cell 0 15 2 1, alignx left");
+		panelDialogVacancySelection.add(scrollPaneSelection, "cell 0 2 4,alignx left");
+		panelDialogVacancySelection.add(buttonBack, "cell 0 5 2 1, alignx left");
+		panelDialogVacancySelection.add(buttonSave, "cell 1 5 2 1, alignx right");
 		DialogAddVacancy.tabVacancy.addTab("Bewertungsauswahl",panelDialogVacancySelection);
 		
 		buttonBack.addActionListener(new ActionListener() {

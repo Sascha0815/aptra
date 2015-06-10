@@ -37,7 +37,7 @@ public class DialogEditVacancySpecification {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static JComboBox boxDivision = new JComboBox(MenuBarPanelVacancy.getDivision());
 
-	private static JButton buttonContinue = new JButton("Weiter");
+	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonBack = new JButton("Zurück");
 
 	public static void editVacancySpecification() {
@@ -45,6 +45,7 @@ public class DialogEditVacancySpecification {
 		labelInstruction.setFont(fontHeadline);
 		labelLevel.setFont(fontSubHeadline);
 		labelDeadline.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
 		boxDivision.setFont(fontText);
 		dateChooserDeadline.setFont(fontText);
 		fieldLevel.setFont(fontText);
@@ -59,12 +60,12 @@ public class DialogEditVacancySpecification {
 		panelDialogVacancySpecification.add(labelDivision, "cell 0 5,alignx left");
 		panelDialogVacancySpecification.add(boxDivision, "cell 0 6 2 1,growx");
 		panelDialogVacancySpecification.add(buttonBack,"cell 0 11,alignx left");
-		panelDialogVacancySpecification.add(buttonContinue,"cell 1 11,alignx right");
+		panelDialogVacancySpecification.add(buttonSave,"cell 1 11,alignx right");
 		DialogEditVacancy.tabVacancy.addTab("Organisation",panelDialogVacancySpecification);
 		    
-		buttonContinue.addActionListener(new ActionListener() {
+		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogEditVacancy.tabVacancy.setSelectedIndex((2));
+				SaveDataEditVacancy.save();
 			}
 		});
 			

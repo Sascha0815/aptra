@@ -1,6 +1,5 @@
 package git_aptra.MenuBar;
 
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
@@ -121,7 +120,6 @@ public class MenuBarPanelApplicant {
 		}
 		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				ArrayList<String> id= new ArrayList<String>();
 				try {
 					Connection con =  Login.getConnection();
@@ -176,7 +174,6 @@ public class MenuBarPanelApplicant {
 				if (tableApplicant.getSelectedRowCount() > 1 ){
 					DialogEditWarningApplicant.tooManySelected();
 				} else {
-					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					ArrayList<String> id= new ArrayList<String>();
 					try {
 						Connection con = Login.getConnection();

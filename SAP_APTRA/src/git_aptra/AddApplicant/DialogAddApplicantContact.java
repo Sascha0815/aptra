@@ -1,6 +1,6 @@
 package git_aptra.AddApplicant;
 
-import git_aptra.Loading;
+
 import git_aptra.Oberflaeche;
 
 import java.awt.Font;
@@ -77,7 +77,6 @@ public class DialogAddApplicantContact {
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 				SaveDataAddApplicant.save();
 			}
 		});

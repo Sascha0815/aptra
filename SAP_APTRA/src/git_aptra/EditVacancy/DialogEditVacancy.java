@@ -1,6 +1,5 @@
 package git_aptra.EditVacancy;
 
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 
 import javax.swing.JDialog;
@@ -23,6 +22,5 @@ public class DialogEditVacancy {
 		SwingUtilities.updateComponentTreeUI(dialogEditVacancy);
 		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditVacancy.setVisible(true);
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 	}
 }

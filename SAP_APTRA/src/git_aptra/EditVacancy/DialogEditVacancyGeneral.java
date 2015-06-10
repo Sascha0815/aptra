@@ -63,10 +63,6 @@ public class DialogEditVacancyGeneral {
 		labelTermsOfEmployment.setFont(fontSubHeadline);
 		labelVacancyStatus.setFont(fontSubHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
-		boxRequirementLevel.setFont(fontSubHeadline);
-		boxTermsOfEmployment.setFont(fontSubHeadline);
-		boxVacancyStatus.setFont(fontSubHeadline);
-		boxEducationalAchievement.setFont(fontSubHeadline);
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
 		fieldArea.setText(EditVacancy.getDataSetArea());
@@ -75,7 +71,7 @@ public class DialogEditVacancyGeneral {
 		boxTermsOfEmployment.setSelectedItem(EditVacancy.getDataSetTermsOfEmployment());
 		boxVacancyStatus.setSelectedItem(EditVacancy.getDataSetVacancyStatus());
 		boxEducationalAchievement.setSelectedItem(EditVacancy.getDataSetEducationalAchievement());
-		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]push[]"));
+		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");
 		panelDialogVacancyMain.add(fieldPosition, "cell 0 2 2 1,growx");

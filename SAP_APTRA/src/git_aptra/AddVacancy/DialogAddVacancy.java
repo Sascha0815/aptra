@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-
-import git_aptra.Loading;
 import git_aptra.Oberflaeche;
 import git_aptra.Login.Login;
 
@@ -28,7 +26,6 @@ public class DialogAddVacancy {
 		DialogAddVacancySpecification.addVacancySpecification();
 		DialogAddVacancySelection.addVacancyHistory();
 		dialogNewVacancy.setLocationRelativeTo(Oberflaeche.frame);
-		Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 		SwingUtilities.updateComponentTreeUI(dialogNewVacancy);
 		Vector results = new Vector();
 		try {

@@ -47,6 +47,7 @@ public class DialogAddVacancySpecification {
 		labelLevel.setFont(fontSubHeadline);
 		labelDeadline.setFont(fontSubHeadline);
 		dateChooserDeadline.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
 		fieldLevel.setFont(fontText);
 		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogVacancySpecification.add(labelInstruction, "cell 0 0 2,alignx center");

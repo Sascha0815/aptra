@@ -1,6 +1,6 @@
 package git_aptra.MenuBar;
 
-import git_aptra.Loading;
+
 import git_aptra.Oberflaeche;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
@@ -197,7 +197,6 @@ public class MenuBarPanelVacancyManagement {
 				} else {
 					idApplicant = Integer.parseInt((String) MenuBarPanelVacancyManagement.tableVacancyManagement.getValueAt(MenuBarPanelVacancyManagement.tableVacancyManagement.getSelectedRow(), 0));
 					EditVacancyManagement.getSelectedRow();
-					Loading.startWaitCursor(Oberflaeche.frame.getRootPane());
 					try {
 						DialogEditVacancyManagement.editVacancyManagement();
 					} catch (MalformedURLException e) {

@@ -1,7 +1,6 @@
 package git_aptra.AddApplicant;
 
-import git_aptra.Loading;
-import git_aptra.Oberflaeche;
+
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.SQLException;
@@ -23,7 +22,6 @@ public class SaveDataAddApplicant {
 			Vector resultsApplicant = InsertApplicantDataIntoTable.insertApplicantDataIntoTable();
 			MenuBarPanelApplicant.modelPool.setDataVector(resultsApplicant,MenuBarPanelApplicant.COLUMN_IDENTIFIERS_APPLICANT);
 			MenuBarPanelApplicant.modelPool.fireTableDataChanged();
-			Loading.stopWaitCursor(Oberflaeche.frame.getRootPane());
 			DialogAddApplicant.dialogNewApplicant.dispose();
 		}
 	}
