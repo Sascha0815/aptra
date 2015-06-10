@@ -28,7 +28,7 @@ public class Oberflaeche extends JFrame {
 
 	public Oberflaeche() {
 		// Frame anlegen
-		frame.setSize(1200, 800);
+		frame.setSize(1200, 600);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
 		frame.setTitle("aptra - Bewerberverwaltung");

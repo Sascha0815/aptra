@@ -145,7 +145,7 @@ public class MenuBarPanelVacancyManagement {
 		panelManagementSummary.add(labelManagementVacancyDivision, "cell 0 17,alignx left");
 		panelManagementSummary.add(labelManagementVacancyDivisionContent, "cell 0 18,alignx left");
 		butttonAddVacancyManagement.setToolTipText("Ausschreibung wählen");
-		panelManagementButton.setLayout(new MigLayout("", "16[]", "20[]20[]20[]"));
+		panelManagementButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]"));
 		panelManagementButton.add(butttonAddVacancyManagement, "cell 0 0, center");
 		butttonAddVacancyManagement.setBorder(null);
 		butttonAddVacancyManagement.setOpaque(false);
@@ -247,6 +247,7 @@ public class MenuBarPanelVacancyManagement {
 		panelVacancyManagement.add(panelManagementSummary, "cell 0 0, w 200:200:200 , h :1000:");
 		panelVacancyManagement.add(scrollPaneVacancyManagement, "cell 1 0, w :1800: , h :1000:");
 		panelVacancyManagement.add(scrollPaneButton, "cell 2 0, w 170:170:170, h :1000:" );
+		panelManagementButton.setSize((int)(panelVacancyManagement.getWidth()*0.2),panelVacancyManagement.getHeight());
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 

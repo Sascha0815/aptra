@@ -110,7 +110,7 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
 		
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
-		panelMeetingButton.setLayout(new MigLayout("", "16[]", "20[]20[]20[]20[]20[]"));
+		panelMeetingButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
 		buttonAddMeeting.setBorder(null);
 		buttonAddMeeting.setOpaque(false);

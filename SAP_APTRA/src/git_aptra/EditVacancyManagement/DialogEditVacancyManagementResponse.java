@@ -73,8 +73,8 @@ public class DialogEditVacancyManagementResponse {
 		panelDialogEditVacancyManagementResponse.add(dateChooserDate, "cell 0 5 2, growx");
 		panelDialogEditVacancyManagementResponse.add(labelTime, "cell 0 6,alignx left");
 		panelDialogEditVacancyManagementResponse.add(timeChooser, "cell 0 7 2 1,growx");
-		panelDialogEditVacancyManagementResponse.add(buttonSaveResponse, "cell 0 8,alignx left");
-		panelDialogEditVacancyManagementResponse.add(buttonAbort,"cell 1 8,alignx right");
+		panelDialogEditVacancyManagementResponse.add(buttonSaveResponse, "cell 1 8,alignx right");
+		panelDialogEditVacancyManagementResponse.add(buttonAbort,"cell 0 8,alignx left");
 		buttonSaveResponse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SaveDataEditVacancyManagement.save();

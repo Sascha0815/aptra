@@ -56,7 +56,7 @@ public class MenuBarPanelOverview {
 	public static void addPanelOverview() {
 		panelOverview.setLayout(new MigLayout("", "[]1%![]1%![]1%![]", "[]"));
 		Border border = new LineBorder(Color.gray, 2);
-		Border panelBorder = new LineBorder(Color.LIGHT_GRAY);
+		Border panelBorder = new LineBorder(Color.LIGHT_GRAY,2);
 		Border line =  new MatteBorder(0,0,2,0, Color.gray);
 		
 		panelApplicant.setLayout(new MigLayout("", "[90%!]","15px![]5%![]5%![]5%![]"));
