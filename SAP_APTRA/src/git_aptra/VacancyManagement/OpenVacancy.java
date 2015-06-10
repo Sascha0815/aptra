@@ -44,13 +44,13 @@ public class OpenVacancy {
 	private static String termsOfEmployment;
 	private static String vacancyStatus;
 	private static String educationalAchievement;
-
+	private static String division;
 
 	public static void insertInfo(int id){
 		try {
 			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select position, area, requirementLevel, termsOfEmployment, vacancyStatus, educationalAchievement, date from vacancy where vacancyID =" + id);
+			ResultSet rs = stmt.executeQuery("Select v.position, v.area, v.requirementLevel, v.termsOfEmployment, v.vacancyStatus, v.educationalAchievement, v.date, d.notation from vacancy v inner join division d on v.divisionID = d.divisionID  where vacancyID =" + id);
 
 			while (rs.next()) {
 				
@@ -61,6 +61,7 @@ public class OpenVacancy {
 				vacancyStatus = rs.getString(5);
 				educationalAchievement = rs.getString(6);
 				date = rs.getString(7);
+				division = rs.getString(8);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,6 +75,6 @@ public class OpenVacancy {
 		MenuBarPanelVacancyManagement.labelManagementVacancyStatusContent.setText(vacancyStatus);
 		MenuBarPanelVacancyManagement.labelManagementEducationalAchievementContent.setText(educationalAchievement);
 		MenuBarPanelVacancyManagement.labelManagementTermsOfEmploymentContent.setText(termsOfEmployment);
-		
+		MenuBarPanelVacancyManagement.labelManagementVacancyDivisionContent.setText(division);
 	}
 }
