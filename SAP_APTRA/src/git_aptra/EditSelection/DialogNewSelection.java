@@ -55,7 +55,7 @@ public class DialogNewSelection {
 	    labelWarning.setVisible(false);
 		labelWarning.setForeground(Color.red);
 		dialogNewSelection.setVisible(true);
-		dialogNewSelection.setSize(325,180);
+		dialogNewSelection.setSize(325,220);
 		dialogNewSelection.setLocationRelativeTo(null);
 		dialogNewSelection.setResizable(false);
 		dialogNewSelection.setTitle("Neues Bewertungskriterium");
