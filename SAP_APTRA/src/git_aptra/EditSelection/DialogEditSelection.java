@@ -30,6 +30,16 @@ public class DialogEditSelection {
 	private static JLabel labelSelection = new JLabel("Auswahl Bewertungskriterien:");
 	private static JLabel labelInstruction = new JLabel("Bitte wählen Sie Ihre Bewertungskriterien!");
 
+	
+	private static JScrollPane scrollPaneSelection = new JScrollPane();
+	public static DefaultTableModel modelEditSelection = new DefaultTableModel() {
+		private static final long serialVersionUID = 1L;
+	public boolean isCellEditable(int row, int column) {
+		return false;
+		}
+	};
+
+	public static JTable tableEditSelection = new JTable();
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_SELECTION = new Vector() {
 		private static final long serialVersionUID = 1L;
@@ -37,18 +47,6 @@ public class DialogEditSelection {
 			add("Bezeichnung");
 		}
 	};
-	
-	public static DefaultTableModel modelEditSelection = new DefaultTableModel(
-			8, 1) {
-		private static final long serialVersionUID = 1L;
-
-	public boolean isCellEditable(int row, int column) {
-		return false;
-		}
-	};
-
-	public static JTable tableEditSelection = new JTable(modelEditSelection);
-
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAdd = new JButton("Hinzufügen");
 	private static JButton buttonEdit = new JButton("Bearbeiten");
@@ -60,17 +58,16 @@ public class DialogEditSelection {
 	public static void editSelection() {
 		panelDialogEditSelectionGeneral.removeAll();
 		dialogEditSelection.setSize(420,300);
-		dialogEditSelection.setLocationRelativeTo(null);
+		dialogEditSelection.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditSelection.setResizable(false);
 		dialogEditSelection.setTitle("Kriterien bearbeiten");
-		SwingUtilities.updateComponentTreeUI(dialogEditSelection);
-		dialogEditSelection.setLocationRelativeTo(Oberflaeche.frame);
-		JScrollPane scrollPaneSelection = new JScrollPane(tableEditSelection);
 		modelEditSelection.setColumnIdentifiers(COLUMN_IDENTIFIERS_SELECTION);
-		scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		tableEditSelection.setRowHeight(20);
+		tableEditSelection.getTableHeader().setReorderingAllowed(false);
 		tableEditSelection.setAutoCreateRowSorter(true);
 		tableEditSelection = new JTable(modelEditSelection);
+		scrollPaneSelection = new JScrollPane(tableEditSelection);
+		scrollPaneSelection.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		tableEditSelection.setRowHeight(20);
 		dialogEditSelection.add(panelDialogEditSelectionGeneral);
 		labelInstruction.setFont(fontHeadline);
 		labelSelection.setFont(fontSubHeadline);

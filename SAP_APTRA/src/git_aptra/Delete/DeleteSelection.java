@@ -17,12 +17,10 @@ public class DeleteSelection {
 		dbConnection = Login.getConnection();
 
 		int[] rows = DialogEditSelection.tableEditSelection.getSelectedRows();
-		
 		for (int i = 0; i < (rows.length); i++) {
 			try {
 				String notation = (String) DialogEditSelection.tableEditSelection.getValueAt(rows[i], 0);
-				System.out.println(notation);
-				String query = "DELETE FROM evaluation WHERE notation = " + notation;
+				String query = "DELETE FROM evaluation WHERE notation = '" + notation + " '";
 				PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
 				preparedStmt.execute();
 			} catch (Exception e) {

@@ -1,7 +1,6 @@
 package git_aptra.Delete;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 import java.sql.Connection;
