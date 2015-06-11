@@ -2,6 +2,9 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddMeeting.DialogAddMeeting;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
+import git_aptra.InfoMeeting.DialogInfoMeeting;
+import git_aptra.InfoMeeting.InfoMeeting;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -73,7 +76,7 @@ public class MenuBarPanelMeeting {
 	private static JLabel labelMeetingNextDate = new JLabel("Nächster Termin am:");
 	private static JLabel labelMeetingNextTime = new JLabel("Nächster Termin um:");
 	private static JLabel labelMeetingLocation = new JLabel("Nächster Terminort:");
-	public static JLabel labelMeetingCountContent = new JLabel();
+	public static JLabel labelMeetingCountContent = new JLabel(" ");
 	public static JLabel labelMeetingNextDateContent = new JLabel(" ");
 	public static JLabel labelMeetingNextTimeContent = new JLabel(" ");
 	public static JLabel labelMeetingLocationContent = new JLabel(" ");	
@@ -189,8 +192,16 @@ public class MenuBarPanelMeeting {
 		}
 		buttonSettingsMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
-			}
+				if (tableEmployeeMeeting.getSelectedRowCount() == 0 ) {
+					DialogEditWarningApplicant.nothingSelected();
+				}	
+				if (tableEmployeeMeeting.getSelectedRowCount() > 1 ){
+						DialogEditWarningApplicant.tooManySelected();
+				} else {				
+				InfoMeeting.getMeetingInfo();
+				DialogInfoMeeting.infoMeeting();
+				}
+			}	
 		});
 
 		// SWING:Table Arbeitsstellen

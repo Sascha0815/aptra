@@ -39,7 +39,7 @@ public class DialogInfoVacancy {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void infoVacancy(){
-		dialogInfoVacancy.setSize(425, 300);
+		dialogInfoVacancy.setSize(425, 250);
 		dialogInfoVacancy.setLocationRelativeTo(null);
 		dialogInfoVacancy.setResizable(false);
 		dialogInfoVacancy.setTitle("Stelleninformationen");
