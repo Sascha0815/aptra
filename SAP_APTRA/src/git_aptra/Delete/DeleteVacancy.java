@@ -26,7 +26,7 @@ public class DeleteVacancy {
 						.prepareStatement(query);
 				preparedStmt.execute();
 			} catch (Exception e) {
-				System.out.println("exception search methode");
+				System.out.println("exception search vacancy");
 			}
 		}
 	}
