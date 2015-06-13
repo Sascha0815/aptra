@@ -1,6 +1,5 @@
 package git_aptra.MenuBar;
 
-import git_aptra.Design;
 import git_aptra.DialogAbout;
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;

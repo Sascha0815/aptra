@@ -3,8 +3,11 @@ package git_aptra.MenuBar;
 import git_aptra.Oberflaeche;
 import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
+import git_aptra.EditMeeting.DialogEditMeeting;
+import git_aptra.EditMeeting.EditMeeting;
 import git_aptra.InfoMeeting.DialogInfoMeeting;
 import git_aptra.InfoMeeting.InfoMeeting;
+import git_aptra.SearchMeeting.DialogSearchMeeting;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -137,7 +140,15 @@ public class MenuBarPanelMeeting {
 		buttonEditMeeting.setContentAreaFilled(false);
 		buttonEditMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+				if (tableEmployeeMeeting.getSelectedRowCount() == 0 ) {
+					DialogEditWarningApplicant.nothingSelected();
+				}	
+				if (tableEmployeeMeeting.getSelectedRowCount() > 1 ){
+						DialogEditWarningApplicant.tooManySelected();
+				} else {
+				EditMeeting.getSelectedRow();	
+				DialogEditMeeting.editMeeting();		
+				}
 			}
 		});
 		try {
@@ -176,7 +187,7 @@ public class MenuBarPanelMeeting {
 		}
 		buttonSearchMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				DialogSearchMeeting.searchMeeting();
 			}
 		});
 		buttonSettingsMeeting.setToolTipText("Info zum Termin");

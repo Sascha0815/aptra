@@ -58,6 +58,7 @@ public class EditApplicant {
 	public static String getDataSetVacancyID(){
 		return DataSetApplicantID;
 	}
+	
 	public static String getDataSetName() {
 		return DataSetName;
 	}
