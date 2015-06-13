@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 
 public class SaveDataEditMeeting {
@@ -63,8 +64,9 @@ public class SaveDataEditMeeting {
 			System.out.println("insert problems - Datenbank - insert meeting data"+ e.getMessage());
 		}
 		insertParticipationAddMeeting();
-		InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
-		MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(InsertMeetingDataIntoTable.resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+		@SuppressWarnings("rawtypes")
+		Vector results  = InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+		MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 		DialogEditMeeting.dialogEditMeeting.dispose();
 		}

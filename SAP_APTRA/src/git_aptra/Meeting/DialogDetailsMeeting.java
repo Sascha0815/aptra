@@ -99,7 +99,7 @@ public class DialogDetailsMeeting {
 		fieldLocation.setFont(fontText);
 		fieldType.setFont(fontText);
 		timeChooser.setFont(fontText);
-		dialogMeeting.setSize(400, 400);
+		dialogMeeting.setSize(400, 500);
 		dialogMeeting.setLocationRelativeTo(null);
 		dialogMeeting.setResizable(false);
 		dialogMeeting.setTitle("Meeting Details");
@@ -172,9 +172,9 @@ public class DialogDetailsMeeting {
 				}		
 			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
 			InsertMeetingIntoDatabase.insertParticipation();
-			InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
-			MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(InsertMeetingDataIntoTable.resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-			MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
+			//InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+			//MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(InsertMeetingDataIntoTable.resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+			//MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 			dialogMeeting.dispose();
 			}
 		});

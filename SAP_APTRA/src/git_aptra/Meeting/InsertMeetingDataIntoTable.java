@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class InsertMeetingDataIntoTable {	
-	public static Vector resultsMeeting = new Vector();
+public class InsertMeetingDataIntoTable {		
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertMeetingDataIntoTable() {		
+		
+		Vector resultsMeeting = new Vector();
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();		
