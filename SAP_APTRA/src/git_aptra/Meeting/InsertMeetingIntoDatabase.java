@@ -50,8 +50,8 @@ public class InsertMeetingIntoDatabase {
 		PreparedStatement preparedStatement = null;
 		
 		String query = "INSERT INTO meeting"
-				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time) VALUES"
-				+ "(?,?,?,?,?,?,?,?,?)";
+				+ "(position, area, applicantID, name, firstName, typeMeeting, location, date, time, vacancyID) VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = Login.getConnection();
@@ -65,6 +65,7 @@ public class InsertMeetingIntoDatabase {
 			preparedStatement.setString(7, location);
 			preparedStatement.setDate(8, new java.sql.Date(cal.getTimeInMillis()));
 			preparedStatement.setString(9, time);
+			preparedStatement.setInt(10, idVacancy);
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {

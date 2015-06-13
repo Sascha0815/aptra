@@ -1,6 +1,8 @@
 package git_aptra.SearchMeeting;
 
 import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
+import git_aptra.Meeting.InsertMeetingDataIntoTable;
+import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -136,7 +138,10 @@ public class DialogSearchMeetingSpecification {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+				@SuppressWarnings("rawtypes")
+				Vector resultsMeeting = SearchMeeting.search();
+				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+				MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 			}
 		});
 		

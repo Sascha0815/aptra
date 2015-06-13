@@ -16,8 +16,8 @@ public class DialogSearchMeetingGeneral {
 	
 	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die zu suchenden Daten ein!");
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
-	private static JLabel labelName = new JLabel("Name:");
-	private static JLabel labelFirstName = new JLabel("Vorname:");
+	private static JLabel labelName = new JLabel("Bewerber-Name:");
+	private static JLabel labelFirstName = new JLabel("Bewerber-Vorname:");
 	private static JLabel labelVacancyID = new JLabel("Stellen-ID:");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
 	
@@ -32,6 +32,12 @@ public class DialogSearchMeetingGeneral {
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
+	
+	private static int applicantID;
+	private static int vacancyID;
+	private static String firstName = "";
+	private static String name = "";
+	private static String position = "";
 		
 	public static void searchMeetingGeneral(){
 		labelInstruction.setFont(fontHeadline);
@@ -66,5 +72,38 @@ public class DialogSearchMeetingGeneral {
 		});
 		
 		DialogSearchMeeting.tabSearch.addTab("Allgemein", panelDialogMeetingMain);
+	}
+	
+	public static void getGeneral(){
+		try {
+			applicantID = Integer.parseInt(fieldApplicantID.getText());
+		} catch (Exception e) {
+			applicantID = 0;
+		}
+		try {
+			vacancyID = Integer.parseInt(fieldVacancyID.getText());
+		} catch (Exception e) {
+			vacancyID = 0;
+		}
+		
+		firstName = fieldFirstName.getText();
+		name = fieldName.getText();
+		position = fieldPosition.getText();		
+	}
+	
+	public static int getApplicantID(){
+		return applicantID;
+	}
+	public static int getVacancyID(){
+		return vacancyID;
+	}
+	public static String getFirstName(){
+		return firstName;
+	}
+	public static String getName(){
+		return name;
+	}
+	public static String getPosition(){
+		return position;
 	}
 }

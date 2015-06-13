@@ -10,7 +10,7 @@ public class DialogSearchMeeting {
 	public static JDialog dialogSearchMeeting = new JDialog(Oberflaeche.frame, true);
 
 	public static void searchMeeting() {		
-		dialogSearchMeeting.setSize(425, 440);
+		dialogSearchMeeting.setSize(425, 500);
 		dialogSearchMeeting.setLocationRelativeTo(null);
 		dialogSearchMeeting.setResizable(false);
 		dialogSearchMeeting.setTitle("Neuer Termin");

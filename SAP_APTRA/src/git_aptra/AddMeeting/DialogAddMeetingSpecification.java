@@ -84,7 +84,8 @@ public class DialogAddMeetingSpecification {
 	private static String time;
 	private static String responsibleEmployeeName;
 	private static String responsibleEmployeeFirstName;
-
+	private static boolean first = true;
+	
 	public static void addDetailsMeeting() {
 		panelDialogMeetingSpecification.removeAll();
 		labelInstruction.setFont(fontHeadline);
@@ -133,12 +134,15 @@ public class DialogAddMeetingSpecification {
 				DialogAddMeeting.tabAdd.setSelectedIndex(0);
 			}
 		});
+		if (first ==true) {
+			first = false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					SaveDataAddMeeting.save();
+				}
+			});
+		}
 		
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				SaveDataAddMeeting.save();
-			}
-		});
 		
 	}
 	public static void getSpecification(){

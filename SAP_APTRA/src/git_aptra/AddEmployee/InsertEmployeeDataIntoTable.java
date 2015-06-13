@@ -11,11 +11,18 @@ import java.util.Vector;
 public class InsertEmployeeDataIntoTable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertEmployeeDataIntoTable() {
+	String query;
+	if (Login.getEntitlement()<3) {
+		query = "Select * from employee";
+	}
+	else {
+		query = "Select * from employee where divisionID = " + Login.getDivisionID();
+	}
 	Vector resultsEmployee = new Vector();
 	try {
 		Connection con =  Login.getConnection();
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("Select * from employee");
+		ResultSet rs = stmt.executeQuery(query);
 
 		while (rs.next()) {
 			Vector employee = new Vector();
