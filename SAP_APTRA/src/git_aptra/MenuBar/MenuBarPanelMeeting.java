@@ -2,11 +2,13 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddMeeting.DialogAddMeeting;
+import git_aptra.Delete.DeleteMeeting;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditMeeting.DialogEditMeeting;
 import git_aptra.EditMeeting.EditMeeting;
 import git_aptra.InfoMeeting.DialogInfoMeeting;
 import git_aptra.InfoMeeting.InfoMeeting;
+import git_aptra.Meeting.InsertMeetingDataIntoTable;
 import git_aptra.SearchMeeting.DialogSearchMeeting;
 
 import java.awt.Color;
@@ -15,6 +17,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -46,6 +49,7 @@ public class MenuBarPanelMeeting {
 			add("Datum");
 			add("Uhrzeit");
 			add("Zuständiger Mitarbeiter");
+			add("Mitarbeiter-ID");
 			
 		}
 	};
@@ -171,7 +175,12 @@ public class MenuBarPanelMeeting {
 		}
 		buttonDeleteMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				try {
+					DeleteMeeting.deleteMeeting();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		buttonSearchMeeting.setToolTipText("Einstellungen");

@@ -8,18 +8,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class InsertMeetingDataIntoTable {
-	@SuppressWarnings({ "rawtypes", })
+public class InsertMeetingDataIntoTable {	
 	public static Vector resultsMeeting = new Vector();
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static Vector insertMeetingDataIntoTable() {
-		int entitlement = Login.getEntitlement();
-		if(entitlement<3){
+	public static Vector insertMeetingDataIntoTable() {		
 		try {
 			Connection con =  Login.getConnection();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID");
-
+			Statement stmt = con.createStatement();		
+			if(Login.getEntitlement()<3){
+				ResultSet rs = stmt.executeQuery("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name, e.employeeID from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID");
 			while (rs.next()) {
 				Vector meeting = new Vector();
 				meeting.add(rs.getString(1));
@@ -33,21 +30,13 @@ public class InsertMeetingDataIntoTable {
 				meeting.add(rs.getString(9));
 				meeting.add(rs.getString(10));
 				meeting.add(rs.getString(11)+" "+rs.getString(12));
+				meeting.add(rs.getInt(13));
 				resultsMeeting.add(meeting);
+			}	
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		}
-
-		if(entitlement==3){
-			try {
-				Connection con = Login.getConnection();
-				Statement stmt = con.createStatement();
-				String query = ("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID where e.divisionID = " + Login.getDivisionID());
-
-				ResultSet rs = stmt.executeQuery(query);
-				
+		else{
+			String query = ("SELECT m.position, m.area, m.meetingID, m.applicantID, m.name, m.firstName, m.typeMeeting, m.location, m.date,  m.time, e.firstName, e.name from meeting m inner join participation p on p.meetingID = m.MeetingID inner join employee e on e.employeeID = p.employeeID where e.divisionID = " + Login.getDivisionID());
+			ResultSet rs = stmt.executeQuery(query);				
 				while (rs.next()) {
 					Vector meeting = new Vector();
 					meeting.add(rs.getString(1));
@@ -63,10 +52,12 @@ public class InsertMeetingDataIntoTable {
 					meeting.add(rs.getString(11)+" "+rs.getString(12));
 					resultsMeeting.add(meeting);
 				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			} 		
+		}	
+			
+		catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return resultsMeeting;
-	}	
+	}
 }

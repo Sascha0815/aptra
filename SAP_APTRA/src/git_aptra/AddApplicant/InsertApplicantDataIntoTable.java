@@ -17,8 +17,7 @@ public class InsertApplicantDataIntoTable {
 			Connection con = Login.getConnection();
 			Statement stmt = con.createStatement();
 			if (Login.getEntitlement()<3) {
-				ResultSet rs = stmt.executeQuery("Select * from applicant");	
-				
+				ResultSet rs = stmt.executeQuery("Select * from applicant");					
 				while (rs.next()) {
 					Vector applicant = new Vector();
 					applicant.add(rs.getString(1));
