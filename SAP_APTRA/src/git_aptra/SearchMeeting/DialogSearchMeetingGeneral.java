@@ -40,6 +40,11 @@ public class DialogSearchMeetingGeneral {
 	private static String position = "";
 		
 	public static void searchMeetingGeneral(){
+		fieldApplicantID.setText("");
+		fieldFirstName.setText("");
+		fieldName.setText("");
+		fieldPosition.setText("");
+		fieldVacancyID.setText("");
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
 		labelName.setFont(fontSubHeadline);
