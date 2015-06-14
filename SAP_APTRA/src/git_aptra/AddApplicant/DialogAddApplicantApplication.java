@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -32,10 +33,10 @@ public class DialogAddApplicantApplication {
 	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
+	private static JComboBox boxDivision;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
+	private static JComboBox boxID;
 
 	private static JDateChooser dateChooserApplyDate = new JDateChooser();
 	
@@ -61,8 +62,47 @@ public class DialogAddApplicantApplication {
 	private static String division;
 	private static String vacancy;
 	private static int vacancyID;
+	private static String[] VID;
+	@SuppressWarnings("unused")
+	private static String[] div;
+	private static String[] divisionData;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addApplicantApplication() {
+		ArrayList<String> id= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+			while (rs.next()) {
+				 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		VID = new String[id.size()];
+		VID = id.toArray(VID);
+		
+		ArrayList<String> division= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+			while (rs.next()) {
+				division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		divisionData = new String[division.size()];
+		divisionData = division.toArray(divisionData);
+		
+		boxDivision = new JComboBox(divisionData);
+		boxID = new JComboBox(VID);
 		boxEducationalAchievement.setSelectedIndex(0);
 		boxDivision.setSelectedIndex(0);
 		dateChooserApplyDate.setDate(null);

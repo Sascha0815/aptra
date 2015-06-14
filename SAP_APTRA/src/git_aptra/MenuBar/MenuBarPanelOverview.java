@@ -109,42 +109,6 @@ public class MenuBarPanelOverview {
 		panelApplicant.add(buttonAddApplicant, "cell 0 1, alignx center, w 95%!, h 5%!");
 		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				//Oberflaeche.tabBar.setSelectedIndex(1);
-				ArrayList<String> id= new ArrayList<String>();
-				try {
-					Connection con =  Login.getConnection();
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
-
-					while (rs.next()) {
-						 id.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				vacancyID = new String[id.size()];
-				vacancyID = id.toArray(vacancyID);
-				
-				System.out.println(vacancyID);
-				
-				ArrayList<String> division= new ArrayList<String>();
-				try {
-					Connection con =  Login.getConnection();
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
-
-					while (rs.next()) {
-						division.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				divisionData = new String[division.size()];
-				divisionData = division.toArray(divisionData);
-				
-				System.out.println(divisionData);
 				DialogAddApplicant.newApplicant();
 			}
 		});
