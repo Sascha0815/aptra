@@ -8,13 +8,16 @@ import git_aptra.AddEmployee.DialogAddEmployee;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditSelection.DialogEditSelection;
 import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
+import git_aptra.Instruction.DialogInstruction;
 import git_aptra.Login.Login;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +25,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class MenuBar {
@@ -41,6 +45,8 @@ public class MenuBar {
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
 	
+	private static JButton buttonInstruction = new JButton();
+	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	
 	@SuppressWarnings("unused")
@@ -50,6 +56,7 @@ public class MenuBar {
 	// SWING: MenuBar mit Reitern, Einträgen und ActionListenern
 	public static void addMenuBar() {
 		
+
 		// MenuBar
 		Oberflaeche.frame.setJMenuBar(menuBar);
 
@@ -163,6 +170,18 @@ public class MenuBar {
 		menuBar.add(Box.createGlue());
 		menuBar.add(labelEmployee);
 		labelEmployee.setFont(fontHeadline);
+		menuBar.add(buttonInstruction);
+		try {
+			Image questionMark = ImageIO.read(MenuBarPanelApplicant.class
+					.getResource("resources/question_mark.png"));
+			buttonInstruction.setIcon(new ImageIcon(questionMark));
+		} catch (IOException ex) {
+		}
+		buttonInstruction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogInstruction.newInstruction();
+			}
+		});
 		
 		
 
