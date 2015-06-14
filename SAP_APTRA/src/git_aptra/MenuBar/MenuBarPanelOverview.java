@@ -6,8 +6,21 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import git_aptra.Oberflaeche;
+import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.EditSelection.DialogNewSelection;
+import git_aptra.Login.Login;
+import git_aptra.Overview.EditApplicant.DialogEditApplicantData;
+import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
+import git_aptra.SearchApplicant.DialogSearchApplicant;
+import git_aptra.SearchMeeting.DialogSearchMeeting;
+import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -51,6 +64,10 @@ public class MenuBarPanelOverview {
 	private static JPanel panelMeeting = new JPanel();
 	private static Font fontButton = new Font("Calibri", Font.PLAIN, 16);
 	
+	private static String[] vacancyID;
+	@SuppressWarnings("unused")
+	private static String[] division;
+	private static String[] divisionData;
 	
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
@@ -90,9 +107,70 @@ public class MenuBarPanelOverview {
 			}
 		});
 		panelApplicant.add(buttonAddApplicant, "cell 0 1, alignx center, w 95%!, h 5%!");
+		buttonAddApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				//Oberflaeche.tabBar.setSelectedIndex(1);
+				ArrayList<String> id= new ArrayList<String>();
+				try {
+					Connection con =  Login.getConnection();
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+					while (rs.next()) {
+						 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				vacancyID = new String[id.size()];
+				vacancyID = id.toArray(vacancyID);
+				
+				System.out.println(vacancyID);
+				
+				ArrayList<String> division= new ArrayList<String>();
+				try {
+					Connection con =  Login.getConnection();
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+					while (rs.next()) {
+						division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				divisionData = new String[division.size()];
+				divisionData = division.toArray(divisionData);
+				
+				System.out.println(divisionData);
+				DialogAddApplicant.newApplicant();
+			}
+		});
 		panelApplicant.add(buttonEditApplicant, "cell 0 2, alignx center, w 95%!, h 5%!");
+		
+		buttonEditApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogEditApplicantData.editApplicantData();
+			}
+		});
 		panelApplicant.add(buttonSearchApplicant, "cell 0 3, alignx center, w 95%!, h 5%!");
+		
+		buttonSearchApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(1);
+				DialogSearchApplicant.searchApplicant();
+			}
+		});
+		
 		panelApplicant.add(buttonInfoApplicant, "cell 0 4, alignx center, w 95%!, h 5%!");
+		
+		buttonInfoApplicant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogShowApplicantInfo.newShowApplicantInfo();
+			}
+		});
 		
 		buttonAddApplicant.setBorder(border);
 		buttonAddApplicant.setFont(fontButton);
@@ -123,6 +201,13 @@ public class MenuBarPanelOverview {
 		panelVacancy.add(buttonAddVacancy, "cell 0 1, alignx center, w 95%!, h 5%!");
 		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
 		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");
+		
+		buttonSearchVacancy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(2);
+				DialogSearchVacancy.searchVacancy();
+			}
+		});
 		panelVacancy.add(buttonInfoVacancy, "cell 0 4, alignx center, w 95%!, h 5%!");	
 		
 		buttonAddVacancy.setBorder(border);
@@ -177,6 +262,13 @@ public class MenuBarPanelOverview {
 		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center, w 95%!, h 5%!");
 		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");
 		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");
+		
+		buttonSearchMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(4);
+				DialogSearchMeeting.searchMeeting();
+			}
+		});
 		panelMeeting.add(buttonInfoMeeting, "cell 0 4 ,alignx center, w 95%!, h 5%!");
 		
 		buttonAddMeeting.setBorder(border);
@@ -191,5 +283,10 @@ public class MenuBarPanelOverview {
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
 
 	}
-
+	public static String[] getVacancyID(){
+		return vacancyID;
+	}
+	public static String[] getDivision(){
+		return divisionData;
+	}
 }

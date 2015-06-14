@@ -47,7 +47,7 @@ public class MenuBarPanelApplicant {
 	private static JButton buttonRefreshApplicant = new JButton();
 	
 	private static String[] vacancyID;
-	@SuppressWarnings("unused")
+	//@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
 	
@@ -136,6 +136,8 @@ public class MenuBarPanelApplicant {
 				vacancyID = new String[id.size()];
 				vacancyID = id.toArray(vacancyID);
 				
+				System.out.println(vacancyID);
+				
 				ArrayList<String> division= new ArrayList<String>();
 				try {
 					Connection con =  Login.getConnection();
@@ -151,6 +153,8 @@ public class MenuBarPanelApplicant {
 				}
 				divisionData = new String[division.size()];
 				divisionData = division.toArray(divisionData);
+				
+				System.out.println(divisionData);
 				DialogAddApplicant.newApplicant();
 			}
 		});
