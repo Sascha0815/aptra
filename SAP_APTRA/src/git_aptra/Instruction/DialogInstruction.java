@@ -11,7 +11,7 @@ public class DialogInstruction {
 	public static JDialog dialogNewInstrcution = new JDialog(Oberflaeche.frame, true);
 	
 	public static void newInstruction(){
-		dialogNewInstrcution.setSize(425, 450);
+		dialogNewInstrcution.setSize(600, 900);
 		dialogNewInstrcution.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewInstrcution.setResizable(false);
 		dialogNewInstrcution.setTitle("Hilfe");
