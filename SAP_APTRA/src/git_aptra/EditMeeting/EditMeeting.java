@@ -20,10 +20,7 @@ public class EditMeeting {
 	private static Time DataSetTime;
 	
 	public static void getSelectedRow(){
-		DialogEditMeetingGeneral.labelApplicantIDContent.setText((String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 3));
-		DialogEditMeetingGeneral.labelNameContent.setText((String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 4));
-		DialogEditMeetingGeneral.labelFirstNameContent.setText((String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 5));
-		
+
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
@@ -41,9 +38,6 @@ public class EditMeeting {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		DialogEditMeetingGeneral.labelVacancyIDContent.setText(DataSetVacancyID);
-		DialogEditMeetingGeneral.labelPositionContent.setText(DataSetPosition);
 	}
 	
 	public static String getDataSetVacancyID() {

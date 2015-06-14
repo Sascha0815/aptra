@@ -15,7 +15,6 @@ public class DialogEditMeeting {
 		dialogEditMeeting.setResizable(false);
 		dialogEditMeeting.setTitle("Termin bearbeiten");
 		dialogEditMeeting.add(tabEdit);
-		DialogEditMeetingGeneral.editMeetingGeneral();
 		DialogEditMeetingSpecification.editDetailsMeeting();
 		SwingUtilities.updateComponentTreeUI(dialogEditMeeting);
 		dialogEditMeeting.setLocationRelativeTo(Oberflaeche.frame);
