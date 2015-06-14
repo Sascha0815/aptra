@@ -62,7 +62,7 @@ public class MenuBarPanelMeeting {
 	private static Font fontContent = new Font("Calibri", Font.ITALIC, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 16);
 	
-
+	private static JButton buttonRefreshMeeting = new JButton();
 	private static JButton buttonAddMeeting = new JButton();
 	private static JButton buttonDeleteMeeting = new JButton();
 	private static JButton buttonEditMeeting = new JButton();
@@ -119,9 +119,29 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingLocation, "cell 0 7,alignx left");
 		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
 		
+		buttonRefreshMeeting.setToolTipText("Termine aktualisieren");
+		panelMeetingButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]"));
+		panelMeetingButton.add(buttonRefreshMeeting, "cell 0 0");
+		buttonRefreshMeeting.setBorder(null);
+		buttonRefreshMeeting.setOpaque(false);
+		buttonRefreshMeeting.setContentAreaFilled(false);
+		buttonRefreshMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				Vector results =InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+				MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
+			}
+		});
+		try {
+			Image job = ImageIO.read(MenuBarPanelMeeting.class
+					.getResource("resources/meeting_refresh.png"));
+			buttonRefreshMeeting.setIcon(new ImageIcon(job));
+		} catch (IOException ex) {
+		}
+		
 		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
 		panelMeetingButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]"));
-		panelMeetingButton.add(buttonAddMeeting, "cell 0 0");
+		panelMeetingButton.add(buttonAddMeeting, "cell 0 1");
 		buttonAddMeeting.setBorder(null);
 		buttonAddMeeting.setOpaque(false);
 		buttonAddMeeting.setContentAreaFilled(false);
@@ -138,7 +158,7 @@ public class MenuBarPanelMeeting {
 		}
 	
 		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
-		panelMeetingButton.add(buttonEditMeeting, "cell 0 1");
+		panelMeetingButton.add(buttonEditMeeting, "cell 0 2");
 		buttonEditMeeting.setBorder(null);
 		buttonEditMeeting.setOpaque(false);
 		buttonEditMeeting.setContentAreaFilled(false);
@@ -163,7 +183,7 @@ public class MenuBarPanelMeeting {
 		}
 
 		buttonDeleteMeeting.setToolTipText("Bewerber löschen");
-		panelMeetingButton.add(buttonDeleteMeeting, "cell 0 2");
+		panelMeetingButton.add(buttonDeleteMeeting, "cell 0 3");
 		buttonDeleteMeeting.setBorder(null);
 		buttonDeleteMeeting.setOpaque(false);
 		buttonDeleteMeeting.setContentAreaFilled(false);
@@ -184,7 +204,7 @@ public class MenuBarPanelMeeting {
 			}
 		});
 		buttonSearchMeeting.setToolTipText("Einstellungen");
-		panelMeetingButton.add(buttonSearchMeeting, "cell 0 3");
+		panelMeetingButton.add(buttonSearchMeeting, "cell 0 4");
 		buttonSearchMeeting.setBorder(null);
 		buttonSearchMeeting.setOpaque(false);
 		buttonSearchMeeting.setContentAreaFilled(false);
@@ -200,7 +220,7 @@ public class MenuBarPanelMeeting {
 			}
 		});
 		buttonSettingsMeeting.setToolTipText("Info zum Termin");
-		panelMeetingButton.add(buttonSettingsMeeting, "cell 0 4");
+		panelMeetingButton.add(buttonSettingsMeeting, "cell 0 5");
 		buttonSettingsMeeting.setBorder(null);
 		buttonSettingsMeeting.setOpaque(false);
 		buttonSettingsMeeting.setContentAreaFilled(false);

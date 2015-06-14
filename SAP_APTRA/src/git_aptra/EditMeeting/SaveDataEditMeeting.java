@@ -24,7 +24,7 @@ public class SaveDataEditMeeting {
 			preparedStatement = dbConnection.prepareStatement(query);
 			preparedStatement.setString(1, DialogEditMeetingSpecification.getType());
 			preparedStatement.setString(2, DialogEditMeetingSpecification.getLocation());
-			preparedStatement.setDate(2, new java.sql.Date(DialogEditMeetingSpecification.getCal().getTimeInMillis()));
+			preparedStatement.setDate(3, new java.sql.Date(DialogEditMeetingSpecification.getCal().getTimeInMillis()));
 			preparedStatement.setString(4, DialogEditMeetingSpecification.getTime());
 			preparedStatement.executeUpdate();
 			
