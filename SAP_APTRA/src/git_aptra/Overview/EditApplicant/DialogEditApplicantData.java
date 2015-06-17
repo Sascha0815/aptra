@@ -10,8 +10,7 @@ public class DialogEditApplicantData {
 	public static JDialog dialogSelectEditApplicant = new JDialog(Oberflaeche.frame, true);
 
 	public static void editApplicantData() {		
-		dialogSelectEditApplicant.setSize(425, 440);
-		dialogSelectEditApplicant.setLocationRelativeTo(null);
+		dialogSelectEditApplicant.setSize(425, 130);
 		dialogSelectEditApplicant.setResizable(false);
 		dialogSelectEditApplicant.setTitle("Neuer Termin");
 		dialogSelectEditApplicant.add(tabAdd);

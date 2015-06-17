@@ -1,11 +1,19 @@
 package git_aptra.Overview.EditApplicant;
 
 import git_aptra.Oberflaeche;
+import git_aptra.EditApplicant.DialogEditApplicant;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
+import git_aptra.EditApplicant.EditApplicant;
+import git_aptra.Login.Login;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -137,7 +145,49 @@ public class DialogLoadApplicantEditSelection {
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
-				
+				String[]vacancyID;
+				String[] divisionData;
+				if (DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRowCount() == 0 ) {
+					DialogEditWarningApplicant.nothingSelected();
+				}	
+				if (DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRowCount() > 1 ){
+					DialogEditWarningApplicant.tooManySelected();
+				} else {
+					ArrayList<String> id= new ArrayList<String>();
+					try {
+						Connection con = Login.getConnection();
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+						while (rs.next()) {
+							 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					vacancyID = new String[id.size()];
+					vacancyID = id.toArray(vacancyID);
+					
+					ArrayList<String> division= new ArrayList<String>();
+					try {
+						Connection con = Login.getConnection();
+						Statement stmt = con.createStatement();
+						ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+						while (rs.next()) {
+							division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					divisionData = new String[division.size()];
+					divisionData = division.toArray(divisionData);
+					EditApplicant.getSelectedRow(true);
+					DialogEditApplicant.editApplicant();
+				}
+			
 				
 				
 				/*

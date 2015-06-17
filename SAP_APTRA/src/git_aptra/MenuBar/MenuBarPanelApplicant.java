@@ -174,7 +174,7 @@ public class MenuBarPanelApplicant {
 					}
 					divisionData = new String[division.size()];
 					divisionData = division.toArray(divisionData);
-					EditApplicant.getSelectedRow();
+					EditApplicant.getSelectedRow(false);
 					DialogEditApplicant.editApplicant();
 				}
 			}

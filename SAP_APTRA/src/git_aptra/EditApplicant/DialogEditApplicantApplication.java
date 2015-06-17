@@ -41,10 +41,10 @@ public class DialogEditApplicantApplication {
 	private static JLabel labelDivision = new JLabel("Abteilung");
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDivision = new JComboBox(MenuBarPanelApplicant.getDivision());
+	private static JComboBox boxDivision = new JComboBox();
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxID = new JComboBox(MenuBarPanelApplicant.getVacancyID());
+	private static JComboBox boxID = new JComboBox();
 	
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
@@ -63,8 +63,8 @@ public class DialogEditApplicantApplication {
 	private static int vacancyID;
 
 	public static void editApplicantApplication() {
-		boxID.setSelectedIndex(0);
-		boxEducationalAchievement.setSelectedIndex(0);
+		//boxID.setSelectedIndex(0);
+		//boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
