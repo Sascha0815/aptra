@@ -75,13 +75,13 @@ public class DialogEditApplicantGeneral {
 		fieldCity.setFont(fontText);
 		radioButtonGroup.add(radioButtonFemale);
 		radioButtonGroup.add(radioButtonMale);
-		fieldName.setText(EditApplicant.getDataSetName());
-		fieldFirstName.setText(EditApplicant.getDataSetFirstName());
-		fieldStreet.setText(EditApplicant.getDataSetStreet());
-		fieldHouseNr.setText(EditApplicant.getDataSetHouseNr());
-		fieldPostalCode.setText(EditApplicant.getDataSetPostalCode());
-		fieldCity.setText(EditApplicant.getDataSetCity());
-		if(EditApplicant.getDataSetSex().equals("weiblich")){
+		fieldName.setText(EditApplicant.getDataName());
+		fieldFirstName.setText(EditApplicant.getDataFirstName());
+		fieldStreet.setText(EditApplicant.getDataStreet());
+		fieldHouseNr.setText(EditApplicant.getDataHouseNr());
+		fieldPostalCode.setText(EditApplicant.getDataPostalCode());
+		fieldCity.setText(EditApplicant.getDataCity());
+		if(EditApplicant.getDataSex().equals("weiblich")){
 			radioButtonFemale.setSelected(true);
 		} else {
 			radioButtonMale.setSelected(true);

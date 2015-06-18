@@ -6,17 +6,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
-import git_aptra.EditSelection.DialogNewSelection;
-import git_aptra.Login.Login;
-import git_aptra.Overview.EditApplicant.DialogEditApplicantData;
+import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchMeeting.DialogSearchMeeting;
@@ -116,7 +109,7 @@ public class MenuBarPanelOverview {
 		
 		buttonEditApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogEditApplicantData.editApplicantData();
+				DialogLoadApplicantEditSelection.loadApplicantData();
 			}
 		});
 		panelApplicant.add(buttonSearchApplicant, "cell 0 3, alignx center, w 95%!, h 5%!");

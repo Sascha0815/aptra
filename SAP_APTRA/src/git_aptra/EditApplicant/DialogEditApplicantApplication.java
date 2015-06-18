@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -39,9 +40,6 @@ public class DialogEditApplicantApplication {
 	private static JLabel labelInstruction = new JLabel("Änderung der Stammdaten");
 	@SuppressWarnings("unused")
 	private static JLabel labelDivision = new JLabel("Abteilung");
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static JComboBox boxDivision = new JComboBox();
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxID = new JComboBox();
@@ -61,10 +59,28 @@ public class DialogEditApplicantApplication {
 	private static String division;
 	private static String vacancy;
 	private static int vacancyID;
+	private static String[]VID;
+	private static String[] divisionData;
 
 	public static void editApplicantApplication() {
-		//boxID.setSelectedIndex(0);
-		//boxEducationalAchievement.setSelectedIndex(0);
+		ArrayList<String> id= new ArrayList<String>();
+		try {
+			Connection con = Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+			while (rs.next()) {
+				 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		VID = new String[id.size()];
+		VID = id.toArray(VID);	
+		
+		boxID = new JComboBox(VID);
+		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
@@ -72,9 +88,9 @@ public class DialogEditApplicantApplication {
 		boxID.setFont(fontSubHeadline);
 		buttonContinue.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);
-		dateChooserApplyDate.setDate(EditApplicant.getDataSetApplyDate());
-		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataSetEducationalAchievement());
-		boxDivision.setSelectedItem(EditApplicant.getDataSetDivision());
+		dateChooserApplyDate.setDate(EditApplicant.getDataApplyDate());
+		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataEducationalAchievement());
+		boxID.setSelectedItem(EditApplicant.getDataVacancy());
 		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogEditApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogEditApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");

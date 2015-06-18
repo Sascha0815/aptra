@@ -3,6 +3,7 @@ package git_aptra.EditApplicant;
 import git_aptra.AddApplicant.DialogAddApplicantContact;
 import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
+import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,13 @@ import java.sql.SQLException;
 public class EditApplicationData {
 	public static void editApplicantData() throws SQLException {
 		Connection dbConnection = null;
-		int id = Integer.parseInt((String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0)) ;
+		int id;
+		try {
+			id = Integer.parseInt((String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0)) ;
+		} catch (Exception e) {
+			id = Integer.parseInt((String) DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getValueAt(DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRow(), 0));
+		}
+		
 		dbConnection = Login.getConnection();
 
 		try {
@@ -19,7 +26,7 @@ public class EditApplicationData {
 					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, "
 							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
 							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
-							+ "vacancy = ?, date = ?, educationalAchievement = ?,"
+							+ "vacancy = ?, date = ?, educationalAchievement = ?"
 							+ "WHERE applicantID = ?");
 
 			preparedStatement.setString(1, DialogEditApplicantGeneral.getName());

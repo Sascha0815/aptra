@@ -59,10 +59,10 @@ public class DialogEditApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
-		fieldTelefonHome.setText(EditApplicant.getDataSetTelefonHome());
-		fieldTelefonMobil.setText(EditApplicant.getDataSetTelefonMobil());
-		fieldEmail.setText(EditApplicant.getDataSetEmail());
-		dateChooserBirthday.setDate(EditApplicant.getDataSetDate());
+		fieldTelefonHome.setText(EditApplicant.getDataTelefonHome());
+		fieldTelefonMobil.setText(EditApplicant.getDataTelefonMobil());
+		fieldEmail.setText(EditApplicant.getDataEmail());
+		dateChooserBirthday.setDate(EditApplicant.getDataDate());
 		panelDialogEditApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogEditApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogEditApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");

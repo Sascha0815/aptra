@@ -144,59 +144,19 @@ public class DialogLoadApplicantEditSelection {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				dialogLoadApplicantData.dispose();
 				
-				String[]vacancyID;
-				String[] divisionData;
 				if (DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRowCount() == 0 ) {
 					DialogEditWarningApplicant.nothingSelected();
 				}	
 				if (DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRowCount() > 1 ){
 					DialogEditWarningApplicant.tooManySelected();
 				} else {
-					ArrayList<String> id= new ArrayList<String>();
-					try {
-						Connection con = Login.getConnection();
-						Statement stmt = con.createStatement();
-						ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
-
-						while (rs.next()) {
-							 id.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-						}
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-					vacancyID = new String[id.size()];
-					vacancyID = id.toArray(vacancyID);
 					
-					ArrayList<String> division= new ArrayList<String>();
-					try {
-						Connection con = Login.getConnection();
-						Statement stmt = con.createStatement();
-						ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
-
-						while (rs.next()) {
-							division.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-						}
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-					divisionData = new String[division.size()];
-					divisionData = division.toArray(divisionData);
+					
 					EditApplicant.getSelectedRow(true);
 					DialogEditApplicant.editApplicant();
-				}
-			
-				
-				
-				/*
-				DialogShowApplicantInfoGeneral.labelApplicantIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0));
-				DialogShowApplicantInfoGeneral.labelNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 1));
-				DialogShowApplicantInfoGeneral.labelFirstNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 2));
-				DialogShowApplicantInfoGeneral.labelVacancyIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 3));
-				DialogShowApplicantInfoGeneral.labelPositionContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 4));
-				*/
+				}				
 				dialogLoadApplicantData.dispose();
 			}
 		});
