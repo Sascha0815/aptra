@@ -11,12 +11,13 @@ public class DialogInstruction {
 	public static JDialog dialogNewInstrcution = new JDialog(Oberflaeche.frame, true);
 	
 	public static void newInstruction(){
-		dialogNewInstrcution.setSize(600, 900);
+		dialogNewInstrcution.setSize(400, 620);
 		dialogNewInstrcution.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewInstrcution.setResizable(false);
 		dialogNewInstrcution.setTitle("Hilfe");
 		dialogNewInstrcution.add(tabInstruction);
 		DialogInstructionApplicant.addInstructionApplicant();
+		DialogInstructionVacancy.addInstructionVacancy();
 		SwingUtilities.updateComponentTreeUI(dialogNewInstrcution);
 		dialogNewInstrcution.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewInstrcution.setVisible(true);
