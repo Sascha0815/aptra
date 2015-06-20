@@ -5,7 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import git_aptra.Oberflaeche;
@@ -36,13 +38,37 @@ public class DialogOpenVacancy {
 	private static JButton buttonAbort = new JButton("Abbrechen");
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static JComboBox boxID = new JComboBox(MenuBarPanelVacancyManagement.getResult());
+	private static JComboBox boxID;
 	
 	private static int id;
 	private static boolean first = true;
 	private static int amount;
-	
+	private static String[] result;
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addVacancyManagement() {
+		String query;
+		if (Login.getEntitlement()==3) {
+			query = "Select vacancyID,position from vacancy where divisionID = " + Login.getDivisionID();
+		}
+		else {
+			query = "Select vacancyID,position from vacancy";
+		}
+		ArrayList<String> aid= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+
+			while (rs.next()) {
+				 aid.add(rs.getString(1)+" - "+rs.getString(2));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		result = new String[aid.size()];
+		result = aid.toArray(result);
+		boxID = new JComboBox(result);
 		dialogAddVacancyManagement.setSize(420, 130);
 		dialogAddVacancyManagement.setResizable(false);	
 		dialogAddVacancyManagement.setTitle("Ausschreibung verwalten");
@@ -56,7 +82,8 @@ public class DialogOpenVacancy {
 		panelAddVacancyManagement.add(boxID, "cell 0 1 2,growx");
 		panelAddVacancyManagement.add(buttonSearch, "cell 0 2,alignx left");
 		panelAddVacancyManagement.add(buttonAbort, "cell 1 2,alignx right");
-		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);		
+		SwingUtilities.updateComponentTreeUI(dialogAddVacancyManagement);	
+		
 		if (first==true) {
 			first = false;
 			buttonSearch.addActionListener(new ActionListener() {

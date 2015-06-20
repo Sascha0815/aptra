@@ -14,6 +14,7 @@ import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchMeeting.DialogSearchMeeting;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
+import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -43,8 +44,8 @@ public class MenuBarPanelOverview {
 	private static JButton buttonSearchVacancy = new JButton("Arbeitsstelle suchen");
 	private static JButton buttonInfoVacancy = new JButton("Arbeitsstelle anzeigen");
 	
-	private static JButton buttonSearchManagement = new JButton("Stellenmanagement wählen");
-	private static JButton buttonEditManagement = new JButton("Stellenmanagement bearbeiten");
+	private static JButton buttonSearchManagement = new JButton("Stelle öffnen");
+	private static JButton buttonEditManagement = new JButton("Bewerber bearbeiten");
 	
 	private static JButton buttonAddMeeting = new JButton("Termin hinzufügen");
 	private static JButton buttonEditMeeting = new JButton("Termin bearbeiten");
@@ -192,8 +193,20 @@ public class MenuBarPanelOverview {
 				Oberflaeche.tabBar.setSelectedIndex(3);
 			}
 		});
-		panelManagement.add(buttonEditManagement, "cell 0 1, alignx center, w 95%!, h 5%!");
-		panelManagement.add(buttonSearchManagement, "cell 0 2, alignx center, w 95%!, h 5%!");
+		panelManagement.add(buttonEditManagement, "cell 0 2, alignx center, w 95%!, h 5%!");
+		panelManagement.add(buttonSearchManagement, "cell 0 1, alignx center, w 95%!, h 5%!");
+		buttonSearchManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(3);
+				DialogOpenVacancy.addVacancyManagement();
+			}
+		});
+		buttonEditManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(3);
+			}
+		});
+		
 		
 		buttonEditManagement.setBorder(border);
 		buttonEditManagement.setFont(fontButton);

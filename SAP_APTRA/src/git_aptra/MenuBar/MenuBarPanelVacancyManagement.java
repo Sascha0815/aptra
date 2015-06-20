@@ -96,7 +96,7 @@ public class MenuBarPanelVacancyManagement {
 		}
 	};
 	
-	private static String[] result;
+	
 	private static int idApplicant;
 	private static JScrollPane scrollPaneButton = new JScrollPane(panelManagementButton);
 	
@@ -151,30 +151,7 @@ public class MenuBarPanelVacancyManagement {
 		butttonAddVacancyManagement.setOpaque(false);
 		butttonAddVacancyManagement.setContentAreaFilled(false);
 		butttonAddVacancyManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				String query;
-				if (Login.getEntitlement()==3) {
-					query = "Select vacancyID,position from vacancy where divisionID = " + Login.getDivisionID();
-				}
-				else {
-					query = "Select vacancyID,position from vacancy";
-				}
-				ArrayList<String> id= new ArrayList<String>();
-				try {
-					Connection con =  Login.getConnection();
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery(query);
-
-					while (rs.next()) {
-						 id.add(rs.getString(1)+" - "+rs.getString(2));
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				result = new String[id.size()];
-				result = id.toArray(result);
-				
+			public void actionPerformed(ActionEvent evt) {				
 				DialogOpenVacancy.addVacancyManagement();
 			}
 		});
@@ -250,10 +227,6 @@ public class MenuBarPanelVacancyManagement {
 		Oberflaeche.tabBar.addTab("Stellenmanagement", panelVacancyManagement);
 		tableVacancyManagement.setAutoCreateRowSorter(true);
 
-	}
-
-	public static String[] getResult() {
-		return result;
 	}
 	
 	public static int getIDApplicant(){
