@@ -1,10 +1,16 @@
 package git_aptra.AddVacancy;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -34,14 +40,33 @@ public class DialogAddVacancySpecification {
 	
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(MenuBarPanelVacancy.getDivision());
+	@SuppressWarnings("rawtypes")
+	static JComboBox boxDivision;
 
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
 	private static int divisionID;
+	private static String[] divisionData;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void addVacancySpecification() {
+		ArrayList<String> division= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+			while (rs.next()) {
+				division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		divisionData = new String[division.size()];
+		divisionData = division.toArray(divisionData);
+		
+		boxDivision = new JComboBox(divisionData);
 		fieldLevel.setText("");
 		labelInstruction.setFont(fontHeadline);
 		labelLevel.setFont(fontSubHeadline);

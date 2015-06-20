@@ -117,37 +117,6 @@ public class MenuBarPanelVacancy {
 		butttonAddJob.setContentAreaFilled(false);
 		butttonAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				ArrayList<String> id= new ArrayList<String>();
-				try {
-					Connection con =  Login.getConnection();
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
-
-					while (rs.next()) {
-						 id.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				vacancyID = new String[id.size()];
-				vacancyID = id.toArray(vacancyID);
-				
-				ArrayList<String> division= new ArrayList<String>();
-				try {
-					Connection con =  Login.getConnection();
-					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
-
-					while (rs.next()) {
-						division.add(rs.getString(1) + " - " + rs.getString(2) );	
-
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				divisionData = new String[division.size()];
-				divisionData = division.toArray(divisionData);
 				DialogAddVacancy.newVacancy();
 			}
 		});

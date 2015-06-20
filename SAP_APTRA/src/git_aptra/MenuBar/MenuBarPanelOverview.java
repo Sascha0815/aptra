@@ -9,6 +9,9 @@ import java.io.IOException;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddMeeting.DialogAddMeeting;
+import git_aptra.AddVacancy.DialogAddVacancy;
+import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
@@ -160,6 +163,17 @@ public class MenuBarPanelOverview {
 		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
 		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");
 		
+		buttonAddVacancy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogAddVacancy.newVacancy();
+			}
+		});
+		
+		buttonEditVacancy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
 		buttonSearchVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Oberflaeche.tabBar.setSelectedIndex(2);
@@ -232,6 +246,12 @@ public class MenuBarPanelOverview {
 		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center, w 95%!, h 5%!");
 		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");
 		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");
+		
+		buttonAddMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogAddMeeting.newMeeting();
+			}
+		});
 		
 		buttonSearchMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
