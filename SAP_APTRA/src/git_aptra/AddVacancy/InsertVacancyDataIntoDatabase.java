@@ -14,7 +14,7 @@ public class InsertVacancyDataIntoDatabase {
 		PreparedStatement preparedStatement = null;
 
 		String insertTableSQL = "INSERT INTO vacancy"
-				+ "(position, area, requirementLevel, termsOfEmployment, educationalAchievement, level, date, divisionID) VALUES"
+				+ "(position, area, requirementLevel, termsOfEmployment, educationalAchievement, note, date, divisionID) VALUES"
 				+ "(?,?,?,?,?,?,?,?)";
 		try {
 			dbConnection = Login.getConnection();

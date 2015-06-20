@@ -17,7 +17,7 @@ public class InsertVacancyDataIntoTable {
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select v.vacancyID, v.position, v.area, v.requirementLevel, v.termsOfEmployment, v.vacancyStatus, v.educationalAchievement, v.level, v.date, d.notation from vacancy v inner join division d on v.divisionID = d.divisionID");
+			ResultSet rs = stmt.executeQuery("Select v.vacancyID, v.position, v.area, v.requirementLevel, v.termsOfEmployment, v.vacancyStatus, v.educationalAchievement, v.note, v.date, d.notation from vacancy v inner join division d on v.divisionID = d.divisionID");
 
 			while (rs.next()) {
 				Vector vacancy = new Vector();

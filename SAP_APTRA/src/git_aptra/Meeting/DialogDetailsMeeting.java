@@ -32,13 +32,11 @@ public class DialogDetailsMeeting {
 	
 	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein");
 	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
-	private static JLabel labelDateCreation = new JLabel("Datum Termineintrag:");
 	private static JLabel labelLocation = new JLabel("Ort:");
 	private static JLabel labelDate = new JLabel("Datum Termin:");
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
 	private static JLabel labelEmployee = new JLabel("Zuständiger Mitarbeiter:");
 	
-	private static JDateChooser dateChooserDateCreation = new JDateChooser();
 	private static JDateChooser dateChooserDate = new JDateChooser();
 	
 	private static JTextField fieldLocation = new JTextField();
@@ -91,7 +89,6 @@ public class DialogDetailsMeeting {
 		panelMeeting.removeAll();
 		labelInstruction.setFont(fontHeadline);
 		labelSortOfMeeting.setFont(fontSubHeadline);
-		labelDateCreation.setFont(fontSubHeadline);
 		labelLocation.setFont(fontSubHeadline);
 		labelDate.setFont(fontSubHeadline);
 		labelTime.setFont(fontSubHeadline);
@@ -116,8 +113,6 @@ public class DialogDetailsMeeting {
 		panelMeeting.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelMeeting.add(labelSortOfMeeting, "cell 0 1,alignx left");
 		panelMeeting.add(fieldType, "cell 0 2 2 1,growx");
-		panelMeeting.add(labelDateCreation, "cell 0 3,alignx left");
-		panelMeeting.add(dateChooserDateCreation, "cell 0 4 2, growx");
 		panelMeeting.add(labelLocation, "cell 0 5,alignx left");
 		panelMeeting.add(fieldLocation, "cell 0 6 2 1,growx");
 		panelMeeting.add(labelDate, "cell 0 7,alignx left");
@@ -137,17 +132,7 @@ public class DialogDetailsMeeting {
 					typeMeeting = fieldType.getText();
 				} catch (Exception e) {
 				}
-				try {
-					String date = ((JTextField)dateChooserDateCreation.getDateEditor().getUiComponent()).getText(); 
-					String[] parts = date.split("\\.");
-					dayCreation = Integer.parseInt(parts[0]);
-					monthCreation = Integer.parseInt(parts[1]);
-					yearCreation = Integer.parseInt(parts[2]);
-					calCreation.set(Calendar.YEAR, yearCreation);
-					calCreation.set(Calendar.MONTH, (monthCreation - 1));
-					calCreation.set(Calendar.DAY_OF_MONTH, dayCreation);	
-				} catch (Exception e) {
-				}	
+				
 				try {
 					locationMeeting = fieldLocation.getText();
 				} catch (Exception e) {
@@ -160,7 +145,7 @@ public class DialogDetailsMeeting {
 				} catch (Exception e) {
 				}
 				try {
-					String date = ((JTextField)dateChooserDateCreation.getDateEditor().getUiComponent()).getText(); 
+					String date = ((JTextField)dateChooserDate.getDateEditor().getUiComponent()).getText(); 
 					String[] parts = date.split("\\.");
 					day = Integer.parseInt(parts[0]);
 					month = Integer.parseInt(parts[1]);
@@ -172,9 +157,10 @@ public class DialogDetailsMeeting {
 				}		
 			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
 			InsertMeetingIntoDatabase.insertParticipation();
-			//InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
-			//MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(InsertMeetingDataIntoTable.resultsMeeting,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-			//MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
+			@SuppressWarnings("rawtypes")
+			Vector results = InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+			MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+			MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 			dialogMeeting.dispose();
 			}
 		});

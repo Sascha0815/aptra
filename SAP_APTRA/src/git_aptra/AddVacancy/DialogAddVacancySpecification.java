@@ -125,12 +125,9 @@ public class DialogAddVacancySpecification {
 			divisionID = Integer.parseInt(part[0]);
 		} catch (Exception e) {
 		}
-		if (level.equals("")) {
-			return false;
-		} else {
-			return true;
+		return true;
 		}
-	}
+
 	
 	public static String getLevel() {
 		return level;
