@@ -44,6 +44,7 @@ public class MenuBar {
 	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
 	private static JMenuItem itemExit = new JMenuItem();
+	private static JMenuItem itemHelp = new JMenuItem();
 	
 	private static JButton buttonInstruction = new JButton();
 	
@@ -164,6 +165,14 @@ public class MenuBar {
 		itemAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAbout.about();
+			}
+		});
+		
+		menuHelp.add(itemHelp);
+		itemHelp.setText("Hilfe");
+		itemHelp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogInstruction.newInstruction();
 			}
 		});
 		
