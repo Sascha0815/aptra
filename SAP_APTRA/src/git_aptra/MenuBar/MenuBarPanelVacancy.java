@@ -83,7 +83,7 @@ public class MenuBarPanelVacancy {
 	public static void addPanelWorkplace() {		
 		panelWorkplace.setLayout(new MigLayout("", "[]5[]"));	
 		panelButtonWorkplace.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]20[]"));
-		buttonRefreshJob.setToolTipText("Tabelle aktualisieren");
+		buttonRefreshJob.setToolTipText("Arbeitsstellentabelle aktualisieren");
 		panelButtonWorkplace.add(buttonRefreshJob, "cell 0 0");
 		buttonRefreshJob.setBorder(null);
 		buttonRefreshJob.setOpaque(false);
@@ -110,7 +110,7 @@ public class MenuBarPanelVacancy {
 			}
 		});
 		
-		butttonAddJob.setToolTipText("Neue Arbeitstelle hinzufügen");
+		butttonAddJob.setToolTipText("Arbeitstelle hinzufügen");
 		panelButtonWorkplace.add(butttonAddJob, "cell 0 1");
 		butttonAddJob.setBorder(null);
 		butttonAddJob.setOpaque(false);
@@ -224,7 +224,7 @@ public class MenuBarPanelVacancy {
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
-		buttonDetailsJob.setToolTipText("Ausschreibung anzeigen");
+		buttonDetailsJob.setToolTipText("Arbeitsstelleninformationen");
 		panelButtonWorkplace.add(buttonDetailsJob, "cell 0 5");
 		buttonDetailsJob.setBorder(null);
 		buttonDetailsJob.setOpaque(false);

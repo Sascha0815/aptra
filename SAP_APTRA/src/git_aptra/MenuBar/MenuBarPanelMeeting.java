@@ -119,7 +119,7 @@ public class MenuBarPanelMeeting {
 		panelMeetingSummary.add(labelMeetingLocation, "cell 0 7,alignx left");
 		panelMeetingSummary.add(labelMeetingLocationContent, "cell 0 8,alignx left");
 		
-		buttonRefreshMeeting.setToolTipText("Termine aktualisieren");
+		buttonRefreshMeeting.setToolTipText("Meetingtabelle aktualisieren");
 		panelMeetingButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]"));
 		panelMeetingButton.add(buttonRefreshMeeting, "cell 0 0");
 		buttonRefreshMeeting.setBorder(null);
@@ -139,7 +139,7 @@ public class MenuBarPanelMeeting {
 		} catch (IOException ex) {
 		}
 		
-		buttonAddMeeting.setToolTipText("Neuen Termin hinzufügen");
+		buttonAddMeeting.setToolTipText("Meeting hinzufügen");
 		panelMeetingButton.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]"));
 		panelMeetingButton.add(buttonAddMeeting, "cell 0 1");
 		buttonAddMeeting.setBorder(null);
@@ -157,7 +157,7 @@ public class MenuBarPanelMeeting {
 		} catch (IOException ex) {
 		}
 	
-		buttonEditMeeting.setToolTipText("Bewerber bearbeiten");
+		buttonEditMeeting.setToolTipText("Meeting bearbeiten");
 		panelMeetingButton.add(buttonEditMeeting, "cell 0 2");
 		buttonEditMeeting.setBorder(null);
 		buttonEditMeeting.setOpaque(false);
@@ -182,7 +182,7 @@ public class MenuBarPanelMeeting {
 		} catch (IOException ex) {
 		}
 
-		buttonDeleteMeeting.setToolTipText("Bewerber löschen");
+		buttonDeleteMeeting.setToolTipText("Meeting löschen");
 		panelMeetingButton.add(buttonDeleteMeeting, "cell 0 3");
 		buttonDeleteMeeting.setBorder(null);
 		buttonDeleteMeeting.setOpaque(false);
@@ -203,7 +203,7 @@ public class MenuBarPanelMeeting {
 				}
 			}
 		});
-		buttonSearchMeeting.setToolTipText("Einstellungen");
+		buttonSearchMeeting.setToolTipText("Meeting suchen");
 		panelMeetingButton.add(buttonSearchMeeting, "cell 0 4");
 		buttonSearchMeeting.setBorder(null);
 		buttonSearchMeeting.setOpaque(false);
@@ -219,7 +219,7 @@ public class MenuBarPanelMeeting {
 				DialogSearchMeeting.searchMeeting();
 			}
 		});
-		buttonSettingsMeeting.setToolTipText("Info zum Termin");
+		buttonSettingsMeeting.setToolTipText("Meetinginformationen");
 		panelMeetingButton.add(buttonSettingsMeeting, "cell 0 5");
 		buttonSettingsMeeting.setBorder(null);
 		buttonSettingsMeeting.setOpaque(false);

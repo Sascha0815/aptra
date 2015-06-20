@@ -85,7 +85,7 @@ public class MenuBarPanelApplicant {
 	public static void addPanelApplicant() {
 		panelApplicant.setLayout(new MigLayout("", "[]5[]"));
 		panelButtonApplicant.setLayout(new MigLayout("", "6.5%![]0%!", "20[]20[]20[]20[]20[]20[]"));
-		buttonRefreshApplicant.setToolTipText("Tabelle aktualisieren");
+		buttonRefreshApplicant.setToolTipText("Bewerbertabelle aktualisieren");
 		panelButtonApplicant.add(buttonRefreshApplicant, "cell 0 0");
 		buttonRefreshApplicant.setOpaque(false);
 		buttonRefreshApplicant.setContentAreaFilled(false);
@@ -107,7 +107,7 @@ public class MenuBarPanelApplicant {
 			}
 		});
 		
-		buttonAddApplicant.setToolTipText("Neuer Bewerber hinzufügen");
+		buttonAddApplicant.setToolTipText("Bewerber hinzufügen");
 		panelButtonApplicant.add(buttonAddApplicant, "cell 0 1");
 		buttonAddApplicant.setOpaque(false);
 		buttonAddApplicant.setContentAreaFilled(false);
@@ -207,7 +207,7 @@ public class MenuBarPanelApplicant {
 				modelPool.fireTableDataChanged();
 			}
 		});
-		buttonSearchApplicant.setToolTipText("Suchen");
+		buttonSearchApplicant.setToolTipText("Bewerber suchen");
 		panelButtonApplicant.add(buttonSearchApplicant, "cell 0 4");
 		buttonSearchApplicant.setBorder(null);
 		buttonSearchApplicant.setOpaque(false);

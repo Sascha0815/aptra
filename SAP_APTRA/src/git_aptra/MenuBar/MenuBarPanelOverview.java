@@ -73,6 +73,11 @@ public class MenuBarPanelOverview {
 		Border panelBorder = new LineBorder(Color.LIGHT_GRAY,2);
 		Border line =  new MatteBorder(0,0,2,0, Color.gray);
 		
+		buttonNullApplicant.setToolTipText("Bewerber");
+		buttonNullVacancy.setToolTipText("Arbeitsstellen");
+		buttonNullManagement.setToolTipText("Bewerbermanagement");
+		buttonNullMeeting.setToolTipText("Meeting");
+		
 		panelApplicant.setLayout(new MigLayout("", "[90%!]","15px![]5%![]5%![]5%![]"));
 		panelVacancy.setLayout(new MigLayout("", "[90%!]","15px![]5%![]5%![]5%![]"));
 		panelManagement.setLayout(new MigLayout("", "[90%!]","15px![]5%![]5%![]5%![]"));
@@ -269,7 +274,6 @@ public class MenuBarPanelOverview {
 		buttonSearchMeeting.setFont(fontButton);
 		buttonInfoMeeting.setBorder(border);
 		buttonInfoMeeting.setFont(fontButton);
-		
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
 
 	}
