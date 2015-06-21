@@ -13,7 +13,11 @@ import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
+import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
+import git_aptra.Overview.EditVacancy.DialogOverviewEditVacancyData;
 import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
+import git_aptra.Overview.ShowMeetingInfo.DialogLoadMeetingData;
+import git_aptra.Overview.ShowVacancyInfo.DialogLoadVacancyData;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
 import git_aptra.SearchMeeting.DialogSearchMeeting;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
@@ -165,27 +169,33 @@ public class MenuBarPanelOverview {
 		});
 		
 		panelVacancy.add(buttonAddVacancy, "cell 0 1, alignx center, w 95%!, h 5%!");
-		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
-		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");
-		
 		buttonAddVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddVacancy.newVacancy();
 			}
 		});
 		
+		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
 		buttonEditVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				DialogOverviewEditVacancyData.loadVacancyData();
 			}
 		});
 		
+		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");
 		buttonSearchVacancy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Oberflaeche.tabBar.setSelectedIndex(2);
 				DialogSearchVacancy.searchVacancy();
 			}
 		});
+		
 		panelVacancy.add(buttonInfoVacancy, "cell 0 4, alignx center, w 95%!, h 5%!");	
+		buttonInfoVacancy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogLoadVacancyData.loadVacancyData();
+			}
+		});
 		
 		buttonAddVacancy.setBorder(border);
 		buttonAddVacancy.setFont(fontButton);
@@ -213,6 +223,12 @@ public class MenuBarPanelOverview {
 			}
 		});
 		panelManagement.add(buttonEditManagement, "cell 0 2, alignx center, w 95%!, h 5%!");
+		buttonEditManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Oberflaeche.tabBar.setSelectedIndex(3);
+			}
+		});
+		
 		panelManagement.add(buttonSearchManagement, "cell 0 1, alignx center, w 95%!, h 5%!");
 		buttonSearchManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -220,11 +236,7 @@ public class MenuBarPanelOverview {
 				DialogOpenVacancy.addVacancyManagement();
 			}
 		});
-		buttonEditManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(3);
-			}
-		});
+		
 		
 		
 		buttonEditManagement.setBorder(border);
@@ -249,22 +261,34 @@ public class MenuBarPanelOverview {
 			}
 		});
 		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center, w 95%!, h 5%!");
-		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");
-		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");
-		
 		buttonAddMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddMeeting.newMeeting();
 			}
 		});
 		
+		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");
+		buttonEditMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogOverviewEditMeetingData.loadMeetingData();
+
+			}
+		});
+		
+		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");
 		buttonSearchMeeting.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Oberflaeche.tabBar.setSelectedIndex(4);
 				DialogSearchMeeting.searchMeeting();
 			}
 		});
+		
 		panelMeeting.add(buttonInfoMeeting, "cell 0 4 ,alignx center, w 95%!, h 5%!");
+		buttonInfoMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogLoadMeetingData.loadMeetingData();
+			}
+		});
 		
 		buttonAddMeeting.setBorder(border);
 		buttonAddMeeting.setFont(fontButton);
