@@ -260,7 +260,7 @@ public class MenuBarPanelMeeting {
 		panelMeeting.add(panelMeetingSummary, "cell 0 0, w 200:200:200 , h :1000:");
 		panelMeeting.add(scrollPaneEmployeeMeeting, "cell 1 0, w :1800: , h :1000:");
 		panelMeeting.add(paneButton, "cell 2 0, w 170:170:170, h :1000:" );
-		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
+		Oberflaeche.tabBar.addTab("Meeting", panelMeeting);
 		tableEmployeeMeeting.setAutoCreateRowSorter(true);
 
 	}

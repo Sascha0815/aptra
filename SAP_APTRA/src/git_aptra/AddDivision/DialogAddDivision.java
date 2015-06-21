@@ -36,6 +36,7 @@ public class DialogAddDivision {
 	private static String notation;
 	
 	public static void addDivision() {
+		panelDialogAddDivision.removeAll();
 		fieldNotation.setText("");
 		dialogAddDivision.setLocationRelativeTo(null);
 		dialogAddDivision.setSize(350, 150);

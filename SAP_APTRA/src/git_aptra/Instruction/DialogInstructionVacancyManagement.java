@@ -36,6 +36,6 @@ public class DialogInstructionVacancyManagement {
 		panelInstructionVacancyManagement.add(labelSelectVacancyManagementContent, "cell 0 1,alignx left");
 		panelInstructionVacancyManagement.add(labelEditVacancyManagementHeadline, "cell 0 2 2 1,alignx left");
 		panelInstructionVacancyManagement.add(labelEditVacancyManagementContent, "cell 0 3,alignx left");
-		DialogInstruction.tabInstruction.addTab("Bewerbermanagement",panelInstructionVacancyManagement);
+		DialogInstruction.tabInstruction.addTab("Stellenmanagement",panelInstructionVacancyManagement);
 	}
 }

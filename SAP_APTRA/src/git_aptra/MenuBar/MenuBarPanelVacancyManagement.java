@@ -124,6 +124,7 @@ public class MenuBarPanelVacancyManagement {
 		labelManagementRequirementLevelContent.setFont(fontContent);
 		labelManagementTermsOfEmploymentContent.setFont(fontContent);
 		labelManagementVacancyStatusContent.setFont(fontContent);
+		labelManagementVacancyDivisionContent.setFont(fontContent);
 		labelManagementEducationalAchievementContent.setFont(fontContent);
 		panelManagementSummary.add(labelManagementInfo,"cell 0 0,alignx left");
 		panelManagementSummary.add(labelManagementCount, "cell 0 1,alignx left");

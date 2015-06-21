@@ -32,6 +32,7 @@ public class DialogAddMeetingGeneral {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 		
 	public static void addMeetingGeneral(){
+		panelDialogMeetingMain.removeAll();
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
 		labelName.setFont(fontSubHeadline);

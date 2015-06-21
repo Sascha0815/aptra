@@ -1,7 +1,6 @@
 package git_aptra.EditApplicant;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -41,7 +40,7 @@ public class DialogEditApplicantApplication {
 	@SuppressWarnings("unused")
 	private static JLabel labelDivision = new JLabel("Abteilung");
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes",  })
 	private static JComboBox boxID = new JComboBox();
 	
 	private static JButton buttonContinue = new JButton("Weiter");
@@ -60,8 +59,10 @@ public class DialogEditApplicantApplication {
 	private static String vacancy;
 	private static int vacancyID;
 	private static String[]VID;
+	@SuppressWarnings("unused")
 	private static String[] divisionData;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void editApplicantApplication() {
 		ArrayList<String> id= new ArrayList<String>();
 		try {
@@ -78,7 +79,7 @@ public class DialogEditApplicantApplication {
 		}
 		VID = new String[id.size()];
 		VID = id.toArray(VID);	
-		
+		panelDialogEditApplicantApplication.removeAll();
 		boxID = new JComboBox(VID);
 		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);

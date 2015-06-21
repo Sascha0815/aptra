@@ -53,6 +53,7 @@ public class DialogAddApplicantGeneral {
 	private static String sex;
 
 	public static void addApplicantGeneral() {
+		panelDialogApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");

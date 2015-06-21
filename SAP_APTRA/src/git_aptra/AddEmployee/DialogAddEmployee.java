@@ -64,6 +64,7 @@ public class DialogAddEmployee {
 	private static int divisionID;
 
 	public static void addEmployee() {
+		panelDialogEmployeeMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldLoginName.setText("");

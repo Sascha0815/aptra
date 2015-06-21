@@ -1,7 +1,7 @@
 package git_aptra.AddVacancy;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelVacancy;
+
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -65,7 +65,7 @@ public class DialogAddVacancySpecification {
 		}
 		divisionData = new String[division.size()];
 		divisionData = division.toArray(divisionData);
-		
+		panelDialogVacancySpecification.removeAll();
 		boxDivision = new JComboBox(divisionData);
 		fieldLevel.setText("");
 		labelInstruction.setFont(fontHeadline);

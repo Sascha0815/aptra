@@ -1,7 +1,6 @@
 package git_aptra.AddApplicant;
 
 
-import git_aptra.Oberflaeche;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -48,6 +47,7 @@ public class DialogAddApplicantContact {
 	private static Calendar cal = Calendar.getInstance();
 
 	public static void addApplicantContact() {
+		panelDialogApplicantContact.removeAll();
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");

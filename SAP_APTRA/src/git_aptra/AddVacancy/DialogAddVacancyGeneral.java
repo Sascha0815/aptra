@@ -47,6 +47,7 @@ public class DialogAddVacancyGeneral {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	public static void addVacancyGeneral() {
+		panelDialogVacancyMain.removeAll();
 		fieldArea.setText("");
 		fieldPosition.setText("");
 		boxRequirementLevel.setSelectedIndex(0);

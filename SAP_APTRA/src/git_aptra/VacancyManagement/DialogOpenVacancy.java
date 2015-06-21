@@ -37,7 +37,7 @@ public class DialogOpenVacancy {
 	private static JButton buttonSearch = new JButton("Suchen");
 	private static JButton buttonAbort = new JButton("Abbrechen");
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({"rawtypes" })
 	private static JComboBox boxID;
 	
 	private static int id;
@@ -46,6 +46,7 @@ public class DialogOpenVacancy {
 	private static String[] result;
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addVacancyManagement() {
+		panelAddVacancyManagement.removeAll();
 		String query;
 		if (Login.getEntitlement()==3) {
 			query = "Select vacancyID,position from vacancy where divisionID = " + Login.getDivisionID();
@@ -101,7 +102,6 @@ public class DialogOpenVacancy {
 					} catch (Exception e) {
 						System.out.println("Fehler auslesen der Anzahl Kriterien" +e.getMessage());
 					}
-					@SuppressWarnings("rawtypes")
 					Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
 					MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 					boxID.setSelectedIndex(0); 					

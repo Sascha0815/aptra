@@ -21,6 +21,7 @@ public class DialogEditWarningApplicant {
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	
 	public static void nothingSelected() {
+		panelEditWarning.removeAll();
 		dialogEditWarning.setVisible(true);
 		dialogEditWarning.setSize(325, 100);
 		dialogEditWarning.setLocationRelativeTo(null);
@@ -41,6 +42,7 @@ public class DialogEditWarningApplicant {
 	}
 	
 	public static void tooManySelected(){
+		panelEditWarning.removeAll();
 		dialogEditWarning.setVisible(true);
 		dialogEditWarning.setSize(325, 100);
 		dialogEditWarning.setLocationRelativeTo(null);

@@ -54,6 +54,7 @@ public class DialogEditApplicantGeneral {
 	private static String sex;
 
 	public static void editApplicantGeneral() {
+		panelDialogEditApplicantMain.removeAll();
 		fieldName.setText("");
 		fieldFirstName.setText("");
 		fieldStreet.setText("");

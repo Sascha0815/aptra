@@ -46,6 +46,7 @@ public class DialogEditApplicantContact {
 	private static Calendar cal = Calendar.getInstance();
 
 	public static void editApplicantContact() {
+		panelDialogEditApplicantContact.removeAll();
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");

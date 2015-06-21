@@ -1,8 +1,6 @@
 package git_aptra.AddApplicant;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelApplicant;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,10 +30,10 @@ public class DialogAddApplicantApplication {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes",})
 	private static JComboBox boxDivision;
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes",})
 	private static JComboBox boxID;
 
 	private static JDateChooser dateChooserApplyDate = new JDateChooser();
@@ -100,7 +98,7 @@ public class DialogAddApplicantApplication {
 		}
 		divisionData = new String[division.size()];
 		divisionData = division.toArray(divisionData);
-		
+		panelDialogApplicantApplication.removeAll();
 		boxDivision = new JComboBox(divisionData);
 		boxID = new JComboBox(VID);
 		boxEducationalAchievement.setSelectedIndex(0);
