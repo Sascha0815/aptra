@@ -84,6 +84,8 @@ public class DialogDetailsMeeting {
 
 	public static void detailsMeeting() {
 		panelMeeting.removeAll();
+		fieldLocation.setText("");
+		fieldType.setText("");
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.HOUR_OF_DAY,0);
 		cal.set(Calendar.MINUTE,0);
