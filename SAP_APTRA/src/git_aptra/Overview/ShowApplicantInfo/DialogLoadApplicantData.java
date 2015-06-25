@@ -1,6 +1,9 @@
 package git_aptra.Overview.ShowApplicantInfo;
 
 import git_aptra.Oberflaeche;
+import git_aptra.EditApplicant.DialogEditWarningApplicant;
+import git_aptra.InfoApplicant.DialogInfoApplicant;
+import git_aptra.InfoApplicant.InfoApplicant;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -119,7 +122,7 @@ public class DialogLoadApplicantData {
 		panelDialogLoadApplicantData.add(scrollPaneLoadApplicantData, "cell 0 15 2 1,growx");
 		panelDialogLoadApplicantData.add(buttonAbort,"cell 0 16,alignx left");
 		panelDialogLoadApplicantData.add(buttonSave,"cell 1 16,alignx right");
-	
+		tableDialogLoadApplicantData.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				getApplicantData();
@@ -135,13 +138,10 @@ public class DialogLoadApplicantData {
 		});
 		
 		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogShowApplicantInfoGeneral.labelApplicantIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0));
-				DialogShowApplicantInfoGeneral.labelNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 1));
-				DialogShowApplicantInfoGeneral.labelFirstNameContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 2));
-				DialogShowApplicantInfoGeneral.labelVacancyIDContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 3));
-				DialogShowApplicantInfoGeneral.labelPositionContent.setText((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 4));
-				dialogLoadApplicantData.dispose();
+			public void actionPerformed(ActionEvent evt) {		
+					dialogLoadApplicantData.dispose();
+					InfoApplicant.getApplicantInfo(Integer.parseInt((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0)));
+					DialogInfoApplicant.infoApplicant();				
 			}
 		});
 		

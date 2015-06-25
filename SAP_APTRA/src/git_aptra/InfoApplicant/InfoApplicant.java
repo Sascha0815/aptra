@@ -9,113 +9,114 @@ import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 public class InfoApplicant {
-	private static String dataSetApplicantID;
-	private static String dataSetName;
-	private static String dataSetFirstName;
-	private static String dataSetStreet;
-	private static String dataSetHouseNr;
-	private static String dataSetPostalCode;
-	private static String dataSetCity;
-	private static String dataSetSex;
-	private static String dataSetTelefonHome;
-	private static String dataSetTelefonMobil;
-	private static String dataSetEmail;
-	private static String dataSetVacancy;
-	private static String dataSetDate;
-	private static String dataSetEducationalAchievement;
-	private static String dataSetDateApplication;
-	private static String dataSetVacancyID;
+	private static String dataApplicantID;
+	private static String dataName;
+	private static String dataFirstName;
+	private static String dataStreet;
+	private static String dataHouseNr;
+	private static String dataPostalCode;
+	private static String dataCity;
+	private static String dataSex;
+	private static String dataTelefonHome;
+	private static String dataTelefonMobil;
+	private static String dataEmail;
+	private static String dataVacancy;
+	private static String dataDate;
+	private static String dataEducationalAchievement;
+	private static String dataDateApplication;
+	private static String dataVacancyID;
 
-	public static void getApplicantInfo() {
-		dataSetApplicantID = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0);
-		dataSetName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 1);
-		dataSetFirstName = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),2);
-		dataSetStreet = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),3);
-		dataSetHouseNr = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),4);
-		dataSetPostalCode = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),5);
-		dataSetCity = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 6);
-		dataSetTelefonHome = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),7);
-		dataSetTelefonMobil = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),8);
-		dataSetEmail = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),9);
-		dataSetVacancy = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),10);
-		dataSetDate = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 11);
-		dataSetEducationalAchievement = (String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(),12);
+	public static void getApplicantInfo(int id) {	
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT sex, applyDate, vacancyID FROM applicant WHERE applicantID =" + dataSetApplicantID);
+			ResultSet rs = stmt.executeQuery("SELECT applicantID, name, firstName, street, houseNR, postalCode, city, telefonHome, telefonMobil, email, vacancy, date, applyDate, sex, vacancyID, educationalAchievement FROM applicant WHERE applicantID = " + id);
 
 			while (rs.next()) {
-				dataSetDateApplication = rs.getString(1);
-				dataSetDateApplication = rs.getString(2);
-				dataSetVacancyID = rs.getString(3);
+				dataApplicantID = rs.getString(1);
+				dataName = rs.getString(2);
+				dataFirstName = rs.getString(3);
+				dataStreet = rs.getString(4);
+				dataHouseNr = rs.getString(5);
+				dataPostalCode = rs.getString(6);
+				dataCity = rs.getString(7);
+				dataTelefonHome = rs.getString(8);
+				dataTelefonMobil = rs.getString(9);
+				dataEmail = rs.getString(10);
+				dataVacancy = rs.getString(11);
+				dataDate = rs.getString(12);
+				dataDateApplication = rs.getString(13);
+				dataSex = rs.getString(14);
+				dataVacancyID = rs.getString(15);
+				dataEducationalAchievement = rs.getString(16);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+	
 
-	public static String getDataSetApplicantID() {
-		return dataSetApplicantID;
+	public static String getDataApplicantID() {
+		return dataApplicantID;
 	}
 	
-	public static String getDataSetName() {
-		return dataSetName;
+	public static String getDataName() {
+		return dataName;
 	}
 
-	public static String getDataSetFirstName() {
-		return dataSetFirstName;
+	public static String getDataFirstName() {
+		return dataFirstName;
 	}
 
-	public static String getDataSetStreet() {
-		return dataSetStreet;
+	public static String getDataStreet() {
+		return dataStreet;
 	}
 
-	public static String getDataSetHouseNr() {
-		return dataSetHouseNr;
+	public static String getDataHouseNr() {
+		return dataHouseNr;
 	}
 
-	public static String getDataSetPostalCode() {
-		return dataSetPostalCode;
+	public static String getDataPostalCode() {
+		return dataPostalCode;
 	}
 
-	public static String getDataSetCity() {
-		return dataSetCity;
+	public static String getDataCity() {
+		return dataCity;
 	}
 
-	public static String getDataSetTelefonHome() {
-		return dataSetTelefonHome;
+	public static String getDataTelefonHome() {
+		return dataTelefonHome;
 	}
 
-	public static String getDataSetTelefonMobil() {
-		return dataSetTelefonMobil;
+	public static String getDataTelefonMobil() {
+		return dataTelefonMobil;
 	}
 
-	public static String getDataSetEmail() {
-		return dataSetEmail;
+	public static String getDataEmail() {
+		return dataEmail;
 	}
 
-	public static String getDataSetVacancy() {
-		return dataSetVacancy;
+	public static String getDataVacancy() {
+		return dataVacancy;
 	}
 
-	public static String getDataSetEducationalAchievement() {
-		return dataSetEducationalAchievement;
+	public static String getDataEducationalAchievement() {
+		return dataEducationalAchievement;
 	}
 
-	public static String getDataSetDate() {
-		return dataSetDate;
+	public static String getDataDate() {
+		return dataDate;
 	}
 	
-	public static String getDataSetSex() {
-		return dataSetSex;
+	public static String getDataSex() {
+		return dataSex;
 	}	
 
-	public static String getDataSetDateApplication() {
-		return dataSetDateApplication;
+	public static String getDataDateApplication() {
+		return dataDateApplication;
 	}
 
-	public static String getDataSetVacancyID() {
-		return dataSetVacancyID;
+	public static String getDataVacancyID() {
+		return dataVacancyID;
 	}	
 }

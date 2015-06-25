@@ -15,7 +15,7 @@ import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
 import git_aptra.Overview.EditVacancy.DialogOverviewEditVacancyData;
-import git_aptra.Overview.ShowApplicantInfo.DialogShowApplicantInfo;
+import git_aptra.Overview.ShowApplicantInfo.DialogLoadApplicantData;
 import git_aptra.Overview.ShowMeetingInfo.DialogLoadMeetingData;
 import git_aptra.Overview.ShowVacancyInfo.DialogLoadVacancyData;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
@@ -138,7 +138,7 @@ public class MenuBarPanelOverview {
 		
 		buttonInfoApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogShowApplicantInfo.newShowApplicantInfo();
+				DialogLoadApplicantData.loadApplicantData();
 			}
 		});
 		

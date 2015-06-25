@@ -246,7 +246,7 @@ public class MenuBarPanelApplicant {
 				if (tableApplicant.getSelectedRowCount() > 1 ){
 						DialogEditWarningApplicant.tooManySelected();
 				} else {
-					InfoApplicant.getApplicantInfo();
+					InfoApplicant.getApplicantInfo(Integer.parseInt((String) tableApplicant.getValueAt(tableApplicant.getSelectedRow(), 0)));
 					DialogInfoApplicant.infoApplicant();
 				}
 			}
