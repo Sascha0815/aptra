@@ -1,6 +1,8 @@
 package git_aptra.Overview.EditVacancy;
 
 import git_aptra.Oberflaeche;
+import git_aptra.EditVacancy.DialogEditVacancy;
+import git_aptra.EditVacancy.EditVacancy;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -96,7 +98,7 @@ public class DialogOverviewEditVacancyData {
 		fieldRequirementLevel.setText("");
 		fieldTermsOfEmployment.setText("");
 		labelInstruction.setFont(fontHeadline);
-		dialogLoadVacancyData.setSize(425, 500);
+		dialogLoadVacancyData.setSize(425, 550);
 		dialogLoadVacancyData.setLocationRelativeTo(Oberflaeche.frame);
 		modelDialogLoadVacancyData.setColumnIdentifiers(COLUMN_IDENTIFIERS_OVERWIEV_VACANCY_INFO);
 		tableDialogLoadVacancyData.getTableHeader().setReorderingAllowed(false);
@@ -130,7 +132,7 @@ public class DialogOverviewEditVacancyData {
 		paneldialogLoadVacancyData.add(scrollPaneLoadVacancyData, "cell 0 17 2 1,growx");
 		paneldialogLoadVacancyData.add(buttonAbort,"cell 0 18,alignx left");
 		paneldialogLoadVacancyData.add(buttonSave,"cell 1 18,alignx right");
-	
+		tableDialogLoadVacancyData.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				getVacancyData();
@@ -148,7 +150,9 @@ public class DialogOverviewEditVacancyData {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-			
+			EditVacancy.getSelectedRow(Integer.parseInt((String) tableDialogLoadVacancyData.getValueAt(tableDialogLoadVacancyData.getSelectedRow(), 0)));
+			DialogEditVacancy.editVacancy();
+			dialogLoadVacancyData.dispose();
 			}
 		});
 		

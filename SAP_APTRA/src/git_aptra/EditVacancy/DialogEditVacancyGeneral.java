@@ -18,7 +18,7 @@ public class DialogEditVacancyGeneral {
 	private static JLabel labelArea = new JLabel("Arbeitsbereich");
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung");
-	private static JLabel labelRequirementLevel = new JLabel("Anfoderung");
+	private static JLabel labelRequirementLevel = new JLabel("Anforderung");
 	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis");
 	private static JLabel labelVacancyStatus = new JLabel("Status");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
@@ -50,12 +50,9 @@ public class DialogEditVacancyGeneral {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	
 	public static void editVacancyGeneral() {
+		panelDialogVacancyMain.removeAll();
 		fieldArea.setText("");
 		fieldPosition.setText("");
-		boxRequirementLevel.setSelectedIndex(0);
-		boxTermsOfEmployment.setSelectedIndex(0);
-		boxVacancyStatus.setSelectedIndex(0);
-		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelArea.setFont(fontSubHeadline);
 		labelPosition.setFont(fontSubHeadline);
@@ -65,12 +62,12 @@ public class DialogEditVacancyGeneral {
 		labelEducationalAchievement.setFont(fontSubHeadline);
 		fieldArea.setFont(fontText);
 		fieldPosition.setFont(fontText);
-		fieldArea.setText(EditVacancy.getDataSetArea());
-		fieldPosition.setText(EditVacancy.getDataSetPosition());
-		boxRequirementLevel.setSelectedItem(EditVacancy.getDataSetRequirementLevel());
-		boxTermsOfEmployment.setSelectedItem(EditVacancy.getDataSetTermsOfEmployment());
-		boxVacancyStatus.setSelectedItem(EditVacancy.getDataSetVacancyStatus());
-		boxEducationalAchievement.setSelectedItem(EditVacancy.getDataSetEducationalAchievement());
+		fieldArea.setText(EditVacancy.getDataArea());
+		fieldPosition.setText(EditVacancy.getDataPosition());
+		boxRequirementLevel.setSelectedItem(EditVacancy.getDataRequirementLevel());
+		boxTermsOfEmployment.setSelectedItem(EditVacancy.getDataTermsOfEmployment());
+		boxVacancyStatus.setSelectedItem(EditVacancy.getDataVacancyStatus());
+		boxEducationalAchievement.setSelectedItem(EditVacancy.getDataEducationalAchievement());
 		panelDialogVacancyMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]push[]"));
 		panelDialogVacancyMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogVacancyMain.add(labelPosition, "cell 0 1,alignx left");

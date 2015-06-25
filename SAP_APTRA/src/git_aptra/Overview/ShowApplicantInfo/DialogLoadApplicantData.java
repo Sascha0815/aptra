@@ -79,7 +79,7 @@ public class DialogLoadApplicantData {
 	private static Vector resultsLoadApplicantData = new Vector();
 	@SuppressWarnings("rawtypes")
 	private static Vector resultsLoadApplicantDataAll = new Vector();
-	
+	private static boolean first = true;
 	public static void loadApplicantData(){
 		panelDialogLoadApplicantData.removeAll();
 		for(int i = 0; i<modelDialogLoadApplicantData.getRowCount();i++){
@@ -123,34 +123,37 @@ public class DialogLoadApplicantData {
 		panelDialogLoadApplicantData.add(buttonAbort,"cell 0 16,alignx left");
 		panelDialogLoadApplicantData.add(buttonSave,"cell 1 16,alignx right");
 		tableDialogLoadApplicantData.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		buttonSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				getApplicantData();
-				try {
-					resultsLoadApplicantData = LoadApplicantData.loadApplicanData();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+		if (first==true) {
+			first = false;
+			buttonSearch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					getApplicantData();
+					try {
+						resultsLoadApplicantData = LoadApplicantData.loadApplicanData();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					modelDialogLoadApplicantData.setDataVector(resultsLoadApplicantData,COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+					modelDialogLoadApplicantData.fireTableDataChanged();
 				}
-				modelDialogLoadApplicantData.setDataVector(resultsLoadApplicantData,COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
-				modelDialogLoadApplicantData.fireTableDataChanged();
-			}
-		});
-		
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {		
+			});
+			
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {		
+						dialogLoadApplicantData.dispose();
+						InfoApplicant.getApplicantInfo(Integer.parseInt((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0)));
+						DialogInfoApplicant.infoApplicant();				
+				}
+			});
+			
+			buttonAbort.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
 					dialogLoadApplicantData.dispose();
-					InfoApplicant.getApplicantInfo(Integer.parseInt((String) tableDialogLoadApplicantData.getValueAt(tableDialogLoadApplicantData.getSelectedRow(), 0)));
-					DialogInfoApplicant.infoApplicant();				
-			}
-		});
-		
-		buttonAbort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				dialogLoadApplicantData.dispose();
-			}
-		});
-		
+				}
+			});
+			
+			
+		}
 		
 		dialogLoadApplicantData.setVisible(true);
 	}

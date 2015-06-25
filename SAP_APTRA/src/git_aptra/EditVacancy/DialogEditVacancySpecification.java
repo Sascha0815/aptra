@@ -1,10 +1,16 @@
 package git_aptra.EditVacancy;
 
+import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -26,7 +32,7 @@ public class DialogEditVacancySpecification {
 	private static JPanel panelDialogVacancySpecification = new JPanel();
 	
 	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erfoderlichen Daten ein!");
-	private static JLabel labelLevel = new JLabel("Zusatz/Vermerk:");
+	private static JLabel labelNote = new JLabel("Zusatz/Vermerk:");
 	private static JLabel labelDeadline = new JLabel("Bewerbungsschluss:");
 	private static JLabel labelDivision = new JLabel("Abteilung:");
 
@@ -35,25 +41,61 @@ public class DialogEditVacancySpecification {
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	static JComboBox boxDivision = new JComboBox(MenuBarPanelVacancy.getDivision());
-
+	private static JComboBox boxDivision;
+	private static int divisionID;
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonBack = new JButton("Zurück");
-
+	private static String[] vacancyID;
+	private static String[] divisionData;
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void editVacancySpecification() {
+		panelDialogVacancySpecification.removeAll();
+		ArrayList<String> id= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+
+			while (rs.next()) {
+				 id.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		vacancyID = new String[id.size()];
+		vacancyID = id.toArray(vacancyID);
+		
+		ArrayList<String> division= new ArrayList<String>();
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("Select divisionID, notation from division");
+
+			while (rs.next()) {
+				division.add(rs.getString(1) + " - " + rs.getString(2) );	
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		divisionData = new String[division.size()];
+		divisionData = division.toArray(divisionData);
+		boxDivision = new JComboBox(divisionData);
 		fieldLevel.setText("");
 		labelInstruction.setFont(fontHeadline);
-		labelLevel.setFont(fontSubHeadline);
+		labelNote.setFont(fontSubHeadline);
 		labelDeadline.setFont(fontSubHeadline);
 		labelDivision.setFont(fontSubHeadline);
 		boxDivision.setFont(fontText);
 		dateChooserDeadline.setFont(fontText);
 		fieldLevel.setFont(fontText);
-		fieldLevel.setText(EditVacancy.getDataSetLevel());
-		dateChooserDeadline.setDate(EditVacancy.getDataSetDate());
+		fieldLevel.setText(EditVacancy.getDataNote());
+		dateChooserDeadline.setDate(EditVacancy.getDataDate());
+		boxDivision.setSelectedItem(EditVacancy.getVacancy());
 		panelDialogVacancySpecification.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]push[]"));
 		panelDialogVacancySpecification.add(labelInstruction, "cell 0 0 2,alignx center");
-		panelDialogVacancySpecification.add(labelLevel, "cell 0 1,alignx left");
+		panelDialogVacancySpecification.add(labelNote, "cell 0 1,alignx left");
 		panelDialogVacancySpecification.add(fieldLevel, "cell 0 2 2 1,growx");
 		panelDialogVacancySpecification.add(labelDeadline, "cell 0 3,alignx left");
 		panelDialogVacancySpecification.add(dateChooserDeadline, "cell 0 4 2, growx");
@@ -83,6 +125,9 @@ public class DialogEditVacancySpecification {
 	private static Calendar calVacancy = Calendar.getInstance();
 
 	public static boolean getSpecification() {
+		String division = (String) boxDivision.getSelectedItem();
+		String[] partsDivision = division.split(" - ");
+		divisionID = Integer.parseInt(partsDivision[0]);
 		try {
 			level = fieldLevel.getText();
 		} catch (Exception e) {
@@ -112,5 +157,9 @@ public class DialogEditVacancySpecification {
 
 	public static Calendar getCalVacancy() {
 		return calVacancy;
+	}
+	
+	public static int getDivisionID() {
+		return divisionID;
 	}
 }
