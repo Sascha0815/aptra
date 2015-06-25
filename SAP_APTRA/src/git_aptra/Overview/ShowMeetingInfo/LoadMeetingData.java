@@ -1,7 +1,6 @@
 package git_aptra.Overview.ShowMeetingInfo;
 
 import git_aptra.Login.Login;
-import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

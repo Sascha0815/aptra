@@ -1,24 +1,20 @@
 package git_aptra.EditMeeting;
 
 import git_aptra.Oberflaeche;
-import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
+
 
 import lu.tudor.santec.jtimechooser.JTimeChooser;
 

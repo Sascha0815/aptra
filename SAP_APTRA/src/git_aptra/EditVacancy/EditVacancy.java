@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 public class EditVacancy {
 	private static String dataVacancyID;

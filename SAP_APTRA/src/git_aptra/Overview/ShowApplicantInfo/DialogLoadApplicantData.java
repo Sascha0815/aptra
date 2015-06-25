@@ -1,7 +1,6 @@
 package git_aptra.Overview.ShowApplicantInfo;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.InfoApplicant.DialogInfoApplicant;
 import git_aptra.InfoApplicant.InfoApplicant;
 

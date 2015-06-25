@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.sql.Time;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 public class EditMeeting {
 	private static String DataSetTypeMeeting;

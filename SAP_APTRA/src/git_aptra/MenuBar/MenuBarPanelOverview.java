@@ -11,7 +11,6 @@ import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
 import git_aptra.AddMeeting.DialogAddMeeting;
 import git_aptra.AddVacancy.DialogAddVacancy;
-import git_aptra.EditVacancy.DialogEditVacancy;
 import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
 import git_aptra.Overview.EditVacancy.DialogOverviewEditVacancyData;

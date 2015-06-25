@@ -1,7 +1,6 @@
 package git_aptra.Overview.ShowMeetingInfo;
 
 import git_aptra.Oberflaeche;
-import git_aptra.InfoApplicant.InfoApplicant;
 import git_aptra.InfoMeeting.DialogInfoMeeting;
 import git_aptra.InfoMeeting.InfoMeeting;
 

@@ -30,7 +30,6 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.TabExpander;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -127,6 +126,7 @@ public class MenuBarPanelMeeting {
 		buttonRefreshMeeting.setOpaque(false);
 		buttonRefreshMeeting.setContentAreaFilled(false);
 		buttonRefreshMeeting.addActionListener(new ActionListener() {
+			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent evt) {
 				Vector results =InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
 				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);

@@ -1,7 +1,7 @@
 package git_aptra.EditVacancy;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelVacancy;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

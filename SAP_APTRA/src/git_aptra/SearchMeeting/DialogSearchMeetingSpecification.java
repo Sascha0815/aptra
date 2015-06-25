@@ -1,7 +1,6 @@
 package git_aptra.SearchMeeting;
 
 import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
-import git_aptra.Meeting.InsertMeetingDataIntoTable;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 import java.awt.Font;

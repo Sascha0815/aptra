@@ -11,6 +11,7 @@ import git_aptra.EditSelection.InsertEditSelectionDataIntoTable;
 import git_aptra.Instruction.DialogInstruction;
 import git_aptra.Login.Login;
 import git_aptra.SearchApplicant.DialogSearchApplicant;
+import git_aptra.SearchMeeting.DialogSearchMeeting;
 import git_aptra.SearchVacancy.DialogSearchVacancy;
 
 import java.awt.Font;
@@ -31,6 +32,7 @@ import javax.swing.*;
 public class MenuBar {
 	private static JMenuBar menuBar = new JMenuBar();
 	private static JMenu menuNew = new JMenu();
+	private static JMenu menuSearch = new JMenu();
 	private static JMenu menuHelp = new JMenu();
 	
 	private static JLabel labelEmployee = new JLabel("Sie sind eingeloggt als:  " + Login.getFirstName() + " " + Login.getName() + " (Mitarbeiter-ID: " + Login.getID() + ")");
@@ -40,6 +42,7 @@ public class MenuBar {
 	private static JMenuItem itemEmployee = new JMenuItem();
 	private static JMenuItem itemSearchApplicant = new JMenuItem();
 	private static JMenuItem itemSearchJob = new JMenuItem();
+	private static JMenuItem itemSearchMeeting = new JMenuItem();
 	private static JMenuItem itemEditSelection = new JMenuItem();
 	private static JMenuItem itemDivision = new JMenuItem();
 	private static JMenuItem itemAbout = new JMenuItem();
@@ -65,6 +68,10 @@ public class MenuBar {
 		menuBar.add(menuNew);
 		menuNew.setText("Neu");
 		
+		// Menu Search
+		menuBar.add(menuSearch);
+		menuSearch.setText("Suchen");
+		
 		// MenuItem Neuer Bewerber
 		menuNew.add(itemApplicant);
 		itemApplicant.setText("Neuer Bewerber");
@@ -76,7 +83,7 @@ public class MenuBar {
 		
 		// MenuItem Neue Arbeitsstelle
 		menuNew.add(itemJob);
-		itemJob.setText("Neues Arbeitsstelle");
+		itemJob.setText("Neue Arbeitsstelle");
 		itemJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddVacancy.newVacancy();
@@ -109,7 +116,7 @@ public class MenuBar {
 			});
 				
 		// MenuItem Bewerber suchen
-		menuNew.add(itemSearchApplicant);
+		menuSearch.add(itemSearchApplicant);
 		itemSearchApplicant.setText("Bewerber suchen");
 		itemSearchApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -118,7 +125,7 @@ public class MenuBar {
 		});
 		
 		// MenuItem Arbeitsstelle suchen
-		menuNew.add(itemSearchJob);
+		menuSearch.add(itemSearchJob);
 		itemSearchJob.setText("Arbeitsstelle suchen");
 		itemSearchJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -126,9 +133,18 @@ public class MenuBar {
 			}
 		});
 		
-		// MenuItem Bewerberkriterien bearbeiten
+		// MenuItem Meeting suchen
+		menuSearch.add(itemSearchMeeting);
+		itemSearchMeeting.setText("Meeting suchen");
+		itemSearchMeeting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogSearchMeeting.searchMeeting();
+			}
+		});
+		
+		// MenuItem Neues Bewerberkriterium
 		menuNew.add(itemEditSelection);
-		itemEditSelection.setText("Bewertungskriterien bearbeiten");
+		itemEditSelection.setText("Neues Bewerberkriterium");
 		itemEditSelection.addActionListener(new ActionListener() {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent e) {
@@ -139,9 +155,9 @@ public class MenuBar {
 			}
 		});
 		
-		// MenuItem Bewerberkriterien bearbeiten
+		// MenuItem Neue Abteilung
 		menuNew.add(itemDivision);
-		itemDivision.setText("Abteilung hinzufügen");
+		itemDivision.setText("Neue Abteilung");
 		itemDivision.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogAddDivision.addDivision();

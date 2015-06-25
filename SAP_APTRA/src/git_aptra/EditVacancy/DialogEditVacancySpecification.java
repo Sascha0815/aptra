@@ -1,7 +1,6 @@
 package git_aptra.EditVacancy;
 
 import git_aptra.Login.Login;
-import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -41,7 +40,7 @@ public class DialogEditVacancySpecification {
 	
 	private static JDateChooser dateChooserDeadline = new JDateChooser();
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes" })
 	private static JComboBox boxDivision;
 	private static int divisionID;
 	private static JButton buttonSave = new JButton("Speichern");

@@ -1,10 +1,6 @@
 package git_aptra.Overview.ShowVacancyInfo;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditVacancy.DialogEditVacancy;
-import git_aptra.EditVacancy.EditVacancy;
-import git_aptra.InfoMeeting.DialogInfoMeeting;
-import git_aptra.InfoMeeting.InfoMeeting;
 import git_aptra.InfoVacancy.DialogInfoVacancy;
 import git_aptra.InfoVacancy.InfoVacancy;
 import git_aptra.Overview.EditVacancy.LoadVacancyData;

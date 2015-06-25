@@ -1,7 +1,6 @@
 package git_aptra.SearchMeeting;
 
 import git_aptra.Login.Login;
-import git_aptra.SearchApplicant.DialogSearchApplicantGeneral;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
