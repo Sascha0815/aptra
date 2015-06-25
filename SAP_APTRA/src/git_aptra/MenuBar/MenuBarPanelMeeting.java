@@ -238,8 +238,8 @@ public class MenuBarPanelMeeting {
 				}	
 				if (tableEmployeeMeeting.getSelectedRowCount() > 1 ){
 						DialogEditWarningApplicant.tooManySelected();
-				} else {				
-				InfoMeeting.getMeetingInfo();
+				} else {	
+				InfoMeeting.getMeetingInfo(Integer.parseInt((String) tableEmployeeMeeting.getValueAt(tableEmployeeMeeting.getSelectedRow(), 2)));
 				DialogInfoMeeting.infoMeeting();
 				}
 			}	

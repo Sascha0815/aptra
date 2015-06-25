@@ -1,7 +1,10 @@
 package git_aptra.InfoMeeting;
 
-import git_aptra.MenuBar.MenuBarPanelMeeting;
-
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import git_aptra.Login.Login;
 
 public class InfoMeeting {
 	private static String dataSetPosition;
@@ -15,18 +18,30 @@ public class InfoMeeting {
 	private static String dataSetDate;
 	private static String dataSetTime;
 	
-	public static void getMeetingInfo(){
-		dataSetPosition = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 0);
-		dataSetArea = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 1);
-		dataSetMeetingID = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),2);
-		dataSetApplicantID = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),3);
-		dataSetName = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),4);
-		dataSetFirstName = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),5);
-		dataSetTypeMeeting = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 6);
-		dataSetLocation = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),7);
-		dataSetDate = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),8);
-		dataSetTime = (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(),9);
+	public static void getMeetingInfo(int id){
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT position, area, meetingID, applicantID, name, firstName, typeMeeting, location, date, time FROM meeting WHERE meetingID = " + id);
+
+			while (rs.next()) {
+				dataSetPosition = rs.getString(1);
+				dataSetArea = rs.getString(2);
+				dataSetMeetingID = rs.getString(3);
+				dataSetApplicantID = rs.getString(4);
+				dataSetName = rs.getString(5);
+				dataSetFirstName = rs.getString(6);
+				dataSetTypeMeeting = rs.getString(7);
+				dataSetLocation = rs.getString(8);
+				dataSetDate = rs.getString(9);
+				dataSetTime = rs.getString(10);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
+
 	
 	public static String getDataSetApplicantID() {
 		return dataSetApplicantID;

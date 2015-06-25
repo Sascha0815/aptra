@@ -3,6 +3,7 @@ package git_aptra.Overview.EditMeeting;
 import git_aptra.Oberflaeche;
 import git_aptra.EditMeeting.DialogEditMeeting;
 import git_aptra.EditMeeting.EditMeeting;
+import git_aptra.Overview.ShowMeetingInfo.LoadMeetingData;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

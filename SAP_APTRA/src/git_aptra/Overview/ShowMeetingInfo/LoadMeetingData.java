@@ -1,4 +1,4 @@
-package git_aptra.Overview.EditMeeting;
+package git_aptra.Overview.ShowMeetingInfo;
 
 import git_aptra.Login.Login;
 import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
@@ -16,74 +16,115 @@ public class LoadMeetingData {
 	private static String location;
 	private static String time;
 	private static String date;
+	private static String firstName;
+	private static String name;
+	private static String vacancyID;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadMeetingData() throws SQLException {
 		Connection dbConnection = null;
 		boolean first = true;
 		Vector resultsLoadMeetingData = new Vector();
-		if (!(DialogOverviewEditMeetingData.getMeetingID().equals(""))) {
+		if (!(DialogLoadMeetingData.getMeetingID().equals(""))) {
 			if (first == true) {
 				meetingID = "where meetingID = '"
-						+ DialogOverviewEditMeetingData.getMeetingID() + "'";
+						+ DialogLoadMeetingData.getMeetingID() + "'";
 				first = false;
 			} else {
 				meetingID = " AND meetingID = '"
-						+ DialogOverviewEditMeetingData.getMeetingID() + "'";
+						+ DialogLoadMeetingData.getMeetingID() + "'";
 			}
 		} else {
 			meetingID = "";
 		}
 		
-		if (!DialogOverviewEditMeetingData.getTypeMeeting().equals("")) {
+		if (!DialogLoadMeetingData.getTypeMeeting().equals("")) {
 			if (first == true) {
 				typeMeeting = "where typeMeeting = '"
-						+ DialogOverviewEditMeetingData.getTypeMeeting() + "'";
+						+ DialogLoadMeetingData.getTypeMeeting() + "'";
 				first = false;
 			} else {
 				typeMeeting = " AND typeMeeting = '"
-						+ DialogOverviewEditMeetingData.getTypeMeeting() + "'";
+						+ DialogLoadMeetingData.getTypeMeeting() + "'";
 			}
 		} else {
 			typeMeeting = "";
 		}
 
-		if (!DialogOverviewEditMeetingData.getLocation().equals("")) {
+		if (!DialogLoadMeetingData.getLocation().equals("")) {
 			if (first == true) {
 				location = "where location = '"
-						+ DialogOverviewEditMeetingData.getLocation() + "'";
+						+ DialogLoadMeetingData.getLocation() + "'";
 				first = false;
 			} else {
 				location = " AND location = '"
-						+ DialogOverviewEditMeetingData.getLocation() + "'";
+						+ DialogLoadMeetingData.getLocation() + "'";
 			}
 		} else {
 			location = "";
 		}
 	
-		if (!DialogOverviewEditMeetingData.getTime().equals("")) {
+		if (!DialogLoadMeetingData.getTime().equals("")) {
 			if (first == true) {
 				time = "where time = '"
-						+ DialogOverviewEditMeetingData.getTime() + "'";
+						+ DialogLoadMeetingData.getTime() + "'";
 				first = false;
 			} else {
 				time = " AND time = '"
-						+ DialogOverviewEditMeetingData.getTime() + "'";
+						+ DialogLoadMeetingData.getTime() + "'";
 			}
 		} else {
 			time = "";
 		}
-		if (!DialogOverviewEditMeetingData.getDate().equals("")) {
+		if (!DialogLoadMeetingData.getDate().equals("")) {
 			if (first == true) {
 				date = "where date = '"
-						+ DialogOverviewEditMeetingData.getDate() + "'";
+						+ DialogLoadMeetingData.getDate() + "'";
 				first = false;
 			} else {
 				date = " AND date = '"
-						+ DialogOverviewEditMeetingData.getDate() + "'";
+						+ DialogLoadMeetingData.getDate() + "'";
 			}
 		} else {
 			date = "";
+		}
+		
+		if (!DialogLoadMeetingData.getFirstName().equals("")) {
+			if (first == true) {
+				firstName = "where firstName = '"
+						+ DialogLoadMeetingData.getFirstName() + "'";
+				first = false;
+			} else {
+				firstName = " AND firstName = '"
+						+ DialogLoadMeetingData.getFirstName() + "'";
+			}
+		} else {
+			firstName = "";
+		}
+	
+		if (!DialogLoadMeetingData.getName().equals("")) {
+			if (first == true) {
+				name = "where name = '"
+						+ DialogLoadMeetingData.getName() + "'";
+				first = false;
+			} else {
+				name = " AND name = '"
+						+ DialogLoadMeetingData.getName() + "'";
+			}
+		} else {
+			name = "";
+		}
+		if (!DialogLoadMeetingData.getVacancyID().equals("")) {
+			if (first == true) {
+				vacancyID = "where vacancyID = '"
+						+ DialogLoadMeetingData.getVacancyID() + "'";
+				first = false;
+			} else {
+				vacancyID = " AND vacancyID = '"
+						+ DialogLoadMeetingData.getVacancyID() + "'";
+			}
+		} else {
+			vacancyID = "";
 		}
 		
 		try {
@@ -91,7 +132,7 @@ public class LoadMeetingData {
 
 			Statement stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from meeting " + meetingID + typeMeeting
-					+ location + time + date);
+					+ location + time + date + firstName + name + vacancyID);
 		
 			while (rs.next()) {
 				Vector meeting = new Vector();
@@ -100,6 +141,9 @@ public class LoadMeetingData {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(10));
 				meeting.add(rs.getString(9));
+				meeting.add(rs.getString(6));
+				meeting.add(rs.getString(5));
+				meeting.add(rs.getString(11));
 				resultsLoadMeetingData.add(meeting);
 			}
 
@@ -126,6 +170,9 @@ public class LoadMeetingData {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(10));
 				meeting.add(rs.getString(9));
+				meeting.add(rs.getString(6));
+				meeting.add(rs.getString(5));
+				meeting.add(rs.getString(11));
 				resultsLoadMeetingDataAll.add(meeting);
 			}
 
