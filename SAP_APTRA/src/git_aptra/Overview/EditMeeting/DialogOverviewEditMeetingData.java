@@ -2,6 +2,8 @@ package git_aptra.Overview.EditMeeting;
 
 import git_aptra.Oberflaeche;
 import git_aptra.EditMeeting.DialogEditMeeting;
+import git_aptra.EditMeeting.EditMeeting;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -77,13 +79,12 @@ public class DialogOverviewEditMeetingData {
 	@SuppressWarnings({ "rawtypes",})
 	private static Vector resultsLoadMeetingDataAll = new Vector();
 	
-	public static void loadMeetingData(){
-		
+	public static void loadMeetingData(){		
 		paneldialogLoadMeetingData.removeAll();
 		for(int i = 0; i<modeldialogLoadMeetingData.getRowCount();i++){
 			modeldialogLoadMeetingData.removeRow(i);
 		}
-				
+		tabledialogLoadMeetingData.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);	
 		fieldMeetingID.setText("");
 		fieldTypMeeting.setText("");
 		fieldDate.setText("");
@@ -137,6 +138,8 @@ public class DialogOverviewEditMeetingData {
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				dialogLoadMeetingData.dispose();
+				EditMeeting.getSelectedRow(Integer.parseInt((String)tabledialogLoadMeetingData.getValueAt(tabledialogLoadMeetingData.getSelectedRow(), 0)));	
 				DialogEditMeeting.editMeeting();
 			}
 		});

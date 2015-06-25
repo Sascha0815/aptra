@@ -11,60 +11,47 @@ import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 
 public class EditMeeting {
-	private static String DataSetVacancyID;
-	private static String DataSetPosition;
-	private static String DataSetArea;
 	private static String DataSetTypeMeeting;
 	private static String DataSetLocation;
 	private static Date DataSetDate;
 	private static Time DataSetTime;
+	private static int meetingID;
 	
-	public static void getSelectedRow(){
-
+	public static void getSelectedRow(int id){
+		meetingID = id;
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT a.vacancyID, m.position, m.area, m.typeMeeting, m.location, m.date, m.time FROM meeting m INNER JOIN applicant a ON a.applicantID = m.applicantID  WHERE m.applicantID =" + (String) MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 3));
+			ResultSet rs = stmt.executeQuery("SELECT typeMeeting, location, date, time FROM meeting WHERE meetingID = " +id);
 
 			while (rs.next()) {
-				DataSetVacancyID = rs.getString(1);
-				DataSetPosition = rs.getString(2);
-				DataSetArea = rs.getString(3);
-				DataSetTypeMeeting = rs.getString(4);
-				DataSetLocation = rs.getString(5);
-				DataSetDate = rs.getDate(6);
-				DataSetTime = rs.getTime(7);
+				DataSetTypeMeeting = rs.getString(1);
+				DataSetLocation = rs.getString(2);
+				DataSetDate = rs.getDate(3);
+				DataSetTime = rs.getTime(4);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static String getDataSetVacancyID() {
-		return DataSetVacancyID;
-	}
-	
-	public static String getDataSetPosition() {
-		return DataSetPosition;
-	}
-	
-	public static String getDataSetArea() {
-		return DataSetArea;
-	}
-	
-	public static String getDataSetTypeMeeting() {
+	public static String getDataTypeMeeting() {
 		return DataSetTypeMeeting;
 	}
 	
-	public static String getDataSetLocation() {
+	public static String getDataLocation() {
 		return DataSetLocation;
 	}
 	
-	public static Date getDataSetDate() {
+	public static Date getDataDate() {
 		return DataSetDate;
 	}
 	
-	public static Time getDataSetTime() {
+	public static Time getDataTime() {
 		return DataSetTime;
 	}
+	public static int getMeetingID() {
+		return meetingID;
+	}
+	
 }

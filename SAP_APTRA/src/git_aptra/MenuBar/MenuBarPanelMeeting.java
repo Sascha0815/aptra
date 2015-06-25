@@ -30,6 +30,7 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.TabExpander;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -170,7 +171,7 @@ public class MenuBarPanelMeeting {
 				if (tableEmployeeMeeting.getSelectedRowCount() > 1 ){
 						DialogEditWarningApplicant.tooManySelected();
 				} else {
-				EditMeeting.getSelectedRow();	
+				EditMeeting.getSelectedRow(Integer.parseInt((String)tableEmployeeMeeting.getValueAt(tableEmployeeMeeting.getSelectedRow(), 2)));	
 				DialogEditMeeting.editMeeting();		
 				}
 			}

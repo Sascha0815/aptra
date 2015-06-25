@@ -15,17 +15,18 @@ public class SaveDataEditMeeting {
 	static int meetingID;
 	
 	public static void save(){
+		DialogEditMeeting.getData();
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
-		String query = "UPDATE meeting SET typeMeeting = ?, location = ?, date = ?, time = ? WHERE applicantID = " + MenuBarPanelMeeting.tableEmployeeMeeting.getValueAt(MenuBarPanelMeeting.tableEmployeeMeeting.getSelectedRow(), 2);
+		String query = "UPDATE meeting SET typeMeeting = ?, location = ?, date = ?, time = ? WHERE meetingID = " + EditMeeting.getMeetingID();
 		
 		try {
 			dbConnection = Login.getConnection();
 			preparedStatement = dbConnection.prepareStatement(query);
-			preparedStatement.setString(1, DialogEditMeetingSpecification.getType());
-			preparedStatement.setString(2, DialogEditMeetingSpecification.getLocation());
-			preparedStatement.setDate(3, new java.sql.Date(DialogEditMeetingSpecification.getCal().getTimeInMillis()));
-			preparedStatement.setString(4, DialogEditMeetingSpecification.getTime());
+			preparedStatement.setString(1, DialogEditMeeting.getType());
+			preparedStatement.setString(2, DialogEditMeeting.getLocation());
+			preparedStatement.setDate(3, new java.sql.Date(DialogEditMeeting.getCal().getTimeInMillis()));
+			preparedStatement.setString(4, DialogEditMeeting.getTime());
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) {
