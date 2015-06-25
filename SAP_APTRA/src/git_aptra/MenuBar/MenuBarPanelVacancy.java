@@ -206,7 +206,7 @@ public class MenuBarPanelVacancy {
 				if (tableJob.getSelectedRowCount() > 1){
 					DialogEditVacancyWarning.tooManySelected();
 				} else {
-					InfoVacancy.getVacancyInfo();
+					InfoVacancy.getVacancyInfo(Integer.parseInt((String) tableJob.getValueAt(tableJob.getSelectedRow(), 0)));
 					DialogInfoVacancy.infoVacancy();
 				}
 			}

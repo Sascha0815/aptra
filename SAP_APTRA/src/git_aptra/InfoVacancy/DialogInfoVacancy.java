@@ -72,7 +72,7 @@ public class DialogInfoVacancy {
 		labelTermsOfEmploymentContent.setText(InfoVacancy.getDataSetTermsOfEmployment());
 		labelVacancyStatusContent.setText(InfoVacancy.getDataSetVacancyStatus());
 		labelEducationalAchievementContent.setText(InfoVacancy.getDataSetEducationalAchievement());
-		labelLevelContent.setText(InfoVacancy.getDataSetLevel());
+		labelLevelContent.setText(InfoVacancy.getDataSetNote());
 		labelDeadlineContent.setText(InfoVacancy.getDataSetDate());
 		panelDialogInfoVacancy.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][]"));
 		panelDialogInfoVacancy.add(labelInstruction,"cell 0 0 2 1,alignx center");

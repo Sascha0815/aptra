@@ -1,6 +1,12 @@
 package git_aptra.InfoVacancy;
 
-import git_aptra.MenuBar.MenuBarPanelVacancy;
+import git_aptra.Login.Login;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 
 public class InfoVacancy {
 	private static String dataSetVacancyID;
@@ -10,19 +16,30 @@ public class InfoVacancy {
 	private static String dataSetTermsOfEmployment;
 	private static String dataSetVacancyStatus;
 	private static String dataSetEducationalAchievement;
-	private static String dataSetLevel;
+	private static String dataSetNote;
 	private static String dataSetDate;
 
-	public static void getVacancyInfo(){
-		dataSetVacancyID = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 0);
-		dataSetPosition = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 1);
-		dataSetArea = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 2);
-		dataSetRequirementLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 3);
-		dataSetTermsOfEmployment = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 4);
-		dataSetVacancyStatus = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 5);
-		dataSetEducationalAchievement = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 6);
-		dataSetLevel = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 7);
-		dataSetDate = (String) MenuBarPanelVacancy.tableJob.getValueAt(MenuBarPanelVacancy.tableJob.getSelectedRow(), 8);
+	public static void getVacancyInfo(int id){
+		try {
+			Connection con =  Login.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT vacancyID, position, area, requirementLevel, termsOfEmployment, vacancyStatus, educationalAchievement, note, date, divisionID FROM vacancy WHERE vacancyID = " + id);
+
+			while (rs.next()) {
+				dataSetVacancyID = rs.getString(1);
+				dataSetPosition = rs.getString(2);
+				dataSetArea = rs.getString(3);
+				dataSetRequirementLevel = rs.getString(4);
+				dataSetTermsOfEmployment = rs.getString(5);
+				dataSetVacancyStatus = rs.getString(6);
+				dataSetEducationalAchievement = rs.getString(7);
+				dataSetNote = rs.getString(8);
+				dataSetDate = rs.getString(9);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static String getDataSetVacancyID() {
@@ -53,8 +70,8 @@ public class InfoVacancy {
 		return dataSetEducationalAchievement;
 	}
 
-	public static String getDataSetLevel() {
-		return dataSetLevel;
+	public static String getDataSetNote() {
+		return dataSetNote;
 	}
 
 	public static String getDataSetDate() {
