@@ -4,10 +4,13 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 
 import com.toedter.calendar.JDateChooser;
@@ -47,6 +50,13 @@ public class DialogEditApplicantContact {
 
 	public static void editApplicantContact() {
 		panelDialogEditApplicantContact.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserBirthday.setDate(date);
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");

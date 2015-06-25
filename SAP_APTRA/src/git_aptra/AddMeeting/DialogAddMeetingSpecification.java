@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -15,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import org.bouncycastle.asn1.cms.Time;
 
 import lu.tudor.santec.jtimechooser.JTimeChooser;
 
@@ -32,7 +35,7 @@ public class DialogAddMeetingSpecification {
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
 	private static JLabel labelEmployee = new JLabel("Zuständiger Mitarbeiter:");
 	
-	private static JDateChooser dateChooserDate = new JDateChooser();
+	private static JDateChooser dateChooser = new JDateChooser();
 	
 	private static JTextField fieldLocation = new JTextField();
 	private static JTextField fieldType = new JTextField();
@@ -82,6 +85,14 @@ public class DialogAddMeetingSpecification {
 	
 	public static void addDetailsMeeting() {
 		panelDialogMeetingSpecification.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();		
+		timeChooser.setTime(date);
+		dateChooser.setDate(date);
 		labelInstruction.setFont(fontHeadline);
 		labelSortOfMeeting.setFont(fontSubHeadline);
 		labelLocation.setFont(fontSubHeadline);
@@ -111,7 +122,7 @@ public class DialogAddMeetingSpecification {
 		panelDialogMeetingSpecification.add(labelLocation, "cell 0 5,alignx left");
 		panelDialogMeetingSpecification.add(fieldLocation, "cell 0 6 2 1,growx");
 		panelDialogMeetingSpecification.add(labelDate, "cell 0 7,alignx left");
-		panelDialogMeetingSpecification.add(dateChooserDate, "cell 0 8 2, growx");
+		panelDialogMeetingSpecification.add(dateChooser, "cell 0 8 2, growx");
 		panelDialogMeetingSpecification.add(labelTime, "cell 0 9,alignx left");
 		panelDialogMeetingSpecification.add(timeChooser, "cell 0 10 2 1,growx");
 		panelDialogMeetingSpecification.add(labelEmployee, "cell 0 11,alignx left");
@@ -153,7 +164,7 @@ public class DialogAddMeetingSpecification {
 		} catch (Exception e) {
 		}
 		try {
-			String date = ((JTextField)dateChooserDate.getDateEditor().getUiComponent()).getText(); 
+			String date = ((JTextField)dateChooser.getDateEditor().getUiComponent()).getText(); 
 			String[] parts = date.split("\\.");
 			day = Integer.parseInt(parts[0]);
 			month = Integer.parseInt(parts[1]);

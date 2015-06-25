@@ -5,12 +5,15 @@ import git_aptra.Meeting.DialogDetailsMeeting;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -61,6 +64,14 @@ public class DialogEditVacancyManagementGeneral {
 	private static int amount;
 	
 	public static void editVacancyManagementGeneral() {
+		panelDialogEditVacancyManagementMain.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooser.setDate(date);
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
 		labelName.setFont(fontSubHeadline);

@@ -17,7 +17,7 @@ public class DialogEditWarningApplicant {
 	private static JPanel panelEditWarning = new JPanel();
 	private static JLabel labelEditWarningNothingSelected = new JLabel("Sie haben keinen Bewerber ausgew‰hlt");
 	private static JLabel labelEditWarningTooManySelected = new JLabel("Sie haben mehr als einen Bewerber ausgew‰hlt");
-	private static JButton buttonEditWarning = new JButton("Schlieﬂen");
+	private static JButton buttonCloseWarning = new JButton("Schlieﬂen");
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	
 	public static void nothingSelected() {
@@ -29,12 +29,12 @@ public class DialogEditWarningApplicant {
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
 		labelEditWarningNothingSelected.setFont(fontSubHeadline);
-		buttonEditWarning.setFont(fontSubHeadline);
+		buttonCloseWarning.setFont(fontSubHeadline);
 		panelEditWarning.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
 		panelEditWarning.add(labelEditWarningNothingSelected, "cell 0 0 2 1,alignx center");
-		panelEditWarning.add(buttonEditWarning, "cell 0 1 2 1, alignx center");
+		panelEditWarning.add(buttonCloseWarning, "cell 0 1 2 1, alignx center");
 		
-		buttonEditWarning.addActionListener(new ActionListener() {
+		buttonCloseWarning.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dialogEditWarning.dispose();
 			}
@@ -50,12 +50,12 @@ public class DialogEditWarningApplicant {
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);
 		labelEditWarningTooManySelected.setFont(fontSubHeadline);
-		buttonEditWarning.setFont(fontSubHeadline);
+		buttonCloseWarning.setFont(fontSubHeadline);
 		panelEditWarning.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][]push[]"));
 		panelEditWarning.add(labelEditWarningTooManySelected, "cell 0 0 2 1,alignx center");
-		panelEditWarning.add(buttonEditWarning, "cell 0 1 2 1, alignx center");
+		panelEditWarning.add(buttonCloseWarning, "cell 0 1 2 1, alignx center");
 		
-		buttonEditWarning.addActionListener(new ActionListener() {
+		buttonCloseWarning.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dialogEditWarning.dispose();
 			}

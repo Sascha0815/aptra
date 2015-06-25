@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -50,6 +51,13 @@ public class DialogEditVacancySpecification {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void editVacancySpecification() {
 		panelDialogVacancySpecification.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();
+		dateChooserDeadline.setDate(date);
 		ArrayList<String> id= new ArrayList<String>();
 		try {
 			Connection con =  Login.getConnection();

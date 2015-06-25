@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -70,10 +71,6 @@ public class DialogDetailsMeeting {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	private static String typeMeeting;
-	private static int dayCreation;
-	private static int monthCreation;
-	private static int yearCreation;
-	private static Calendar calCreation = Calendar.getInstance();
 	private static String locationMeeting;
 	private static int day;
 	private static int month;
@@ -87,6 +84,14 @@ public class DialogDetailsMeeting {
 
 	public static void detailsMeeting() {
 		panelMeeting.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserDate.setDate(date);	
+		timeChooser.setTime(date);
 		labelInstruction.setFont(fontHeadline);
 		labelSortOfMeeting.setFont(fontSubHeadline);
 		labelLocation.setFont(fontSubHeadline);

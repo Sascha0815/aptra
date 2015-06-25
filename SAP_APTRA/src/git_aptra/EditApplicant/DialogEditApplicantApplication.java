@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -64,6 +65,14 @@ public class DialogEditApplicantApplication {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void editApplicantApplication() {
+		panelDialogEditApplicantApplication.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserApplyDate.setDate(date);
 		ArrayList<String> id= new ArrayList<String>();
 		try {
 			Connection con = Login.getConnection();
@@ -79,7 +88,6 @@ public class DialogEditApplicantApplication {
 		}
 		VID = new String[id.size()];
 		VID = id.toArray(VID);	
-		panelDialogEditApplicantApplication.removeAll();
 		boxID = new JComboBox(VID);
 		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);

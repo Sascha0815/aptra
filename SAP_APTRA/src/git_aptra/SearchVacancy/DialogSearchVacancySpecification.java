@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -37,6 +38,14 @@ public class DialogSearchVacancySpecification {
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 
 	public static void searchVacancySpecification() {
+		panelSearchVacancySpecification.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserDeadline.setDate(date);
 		labelInstruction.setFont(fontHeadline);
 		buttonSearch.setFont(fontSubHeadline);
 		buttonBack.setFont(fontSubHeadline);

@@ -2,6 +2,7 @@ package git_aptra.MenuBar;
 
 import git_aptra.Oberflaeche;
 import git_aptra.AddApplicant.DialogAddApplicant;
+import git_aptra.AddApplicant.DialogWarningNoVacancy;
 import git_aptra.AddApplicant.InsertApplicantDataIntoTable;
 import git_aptra.Delete.DeleteApplicant;
 import git_aptra.EditApplicant.DialogEditApplicant;
@@ -120,7 +121,20 @@ public class MenuBarPanelApplicant {
 		}
 		buttonAddApplicant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddApplicant.newApplicant();
+				try {
+					Connection con =  Login.getConnection();
+					Statement stmt = con.createStatement();
+					ResultSet rs = stmt.executeQuery("Select * from vacancy where vacancyStatus NOT like 'Abgeschlossen'");
+					if (!rs.next()) {
+						DialogWarningNoVacancy.show();
+					}
+					else {
+						DialogAddApplicant.newApplicant();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}			
+				
 			}
 		});
 		buttonEditApplicant.setToolTipText("Bewerber bearbeiten");

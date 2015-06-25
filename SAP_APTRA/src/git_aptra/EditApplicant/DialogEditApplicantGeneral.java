@@ -120,26 +120,32 @@ public class DialogEditApplicantGeneral {
 		try {
 			name = fieldName.getText();
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			firstName = fieldFirstName.getText();
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			street = fieldStreet.getText();
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			houseNr = Integer.parseInt(fieldHouseNr.getText());
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			postalCode = Integer.parseInt(fieldPostalCode.getText());
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			city = fieldCity.getText();
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		try {
 			if(radioButtonFemale.isSelected()){
@@ -149,6 +155,7 @@ public class DialogEditApplicantGeneral {
 				sex = "männlich";
 			}		
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		
 	}

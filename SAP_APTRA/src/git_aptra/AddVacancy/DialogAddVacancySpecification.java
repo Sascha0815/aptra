@@ -3,6 +3,7 @@ package git_aptra.AddVacancy;
 import git_aptra.Login.Login;
 
 
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -50,6 +52,14 @@ public class DialogAddVacancySpecification {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void addVacancySpecification() {
+		panelDialogVacancySpecification.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserDeadline.setDate(date);
 		ArrayList<String> division= new ArrayList<String>();
 		try {
 			Connection con =  Login.getConnection();
@@ -65,7 +75,6 @@ public class DialogAddVacancySpecification {
 		}
 		divisionData = new String[division.size()];
 		divisionData = division.toArray(divisionData);
-		panelDialogVacancySpecification.removeAll();
 		boxDivision = new JComboBox(divisionData);
 		fieldLevel.setText("");
 		labelInstruction.setFont(fontHeadline);

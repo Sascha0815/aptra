@@ -16,7 +16,12 @@ public class EditApplicationData {
 		try {
 			id = Integer.parseInt((String) MenuBarPanelApplicant.tableApplicant.getValueAt(MenuBarPanelApplicant.tableApplicant.getSelectedRow(), 0)) ;
 		} catch (Exception e) {
-			id = Integer.parseInt((String) DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getValueAt(DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRow(), 0));
+			try {
+				id = Integer.parseInt((String) DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getValueAt(DialogLoadApplicantEditSelection.tableDialogLoadApplicantData.getSelectedRow(), 0));
+			} catch (Exception e2) {
+				id = 0;
+			}
+			
 		}
 		
 		dbConnection = Login.getConnection();
@@ -26,7 +31,7 @@ public class EditApplicationData {
 					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, "
 							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
 							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
-							+ "vacancy = ?, date = ?, educationalAchievement = ?"
+							+ "vacancy = ?, date = ?, educationalAchievement = ?, sex = ?"
 							+ "WHERE applicantID = ?");
 
 			preparedStatement.setString(1, DialogEditApplicantGeneral.getName());
@@ -41,11 +46,13 @@ public class EditApplicationData {
 			preparedStatement.setString(10,DialogEditApplicantApplication.getVacancy());
 			preparedStatement.setDate(11, new java.sql.Date(DialogAddApplicantContact.getCal().getTimeInMillis()));
 			preparedStatement.setString(12,DialogEditApplicantApplication.getEducationalAchievement());
-			preparedStatement.setInt(13, id);
+			preparedStatement.setString(13, DialogEditApplicantGeneral.getSex());
+			preparedStatement.setInt(14, id);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		
 		}catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }

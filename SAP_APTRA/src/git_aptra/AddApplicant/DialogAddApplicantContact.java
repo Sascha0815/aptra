@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -48,6 +49,12 @@ public class DialogAddApplicantContact {
 
 	public static void addApplicantContact() {
 		panelDialogApplicantContact.removeAll();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserBirthday.setDate(date);
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");

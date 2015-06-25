@@ -1,6 +1,7 @@
 package git_aptra.AddApplicant;
 
 import git_aptra.Login.Login;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -67,11 +69,19 @@ public class DialogAddApplicantApplication {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addApplicantApplication() {
+		panelDialogApplicantApplication.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserApplyDate.setDate(date);
 		ArrayList<String> id= new ArrayList<String>();
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy");
+			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy where vacancyStatus NOT like 'Abgeschlossen'");
 
 			while (rs.next()) {
 				 id.add(rs.getString(1) + " - " + rs.getString(2) );	

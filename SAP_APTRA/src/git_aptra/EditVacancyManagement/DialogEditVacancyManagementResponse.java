@@ -5,6 +5,7 @@ import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.ResponsePDF.ResponseControl;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 import git_aptra.VacancyManagement.OpenVacancy;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -13,6 +14,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -57,6 +61,15 @@ public class DialogEditVacancyManagementResponse {
 	private static String time;
 	
 	public static void editVacancyManagementResponse(){
+		panelDialogEditVacancyManagementResponse.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();		
+		timeChooser.setTime(date);
+		dateChooserDate.setDate(date);
 		boxResponse.setSelectedIndex(0);
 		labelLocation.setVisible(false);
 		labelDate.setVisible(false);

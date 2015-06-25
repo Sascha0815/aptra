@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -84,9 +85,17 @@ public class DialogSearchMeetingSpecification {
 
 	
 	public static void searchDetailsMeeting() {
+		panelDialogMeetingSpecification.removeAll();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserDate.setDate(date);	
+		timeChooser.setTime(date);
 		fieldLocation.setText("");
 		fieldType.setText("");
-		panelDialogMeetingSpecification.removeAll();
 		labelInstruction.setFont(fontHeadline);
 		labelSortOfMeeting.setFont(fontSubHeadline);
 		labelLocation.setFont(fontSubHeadline);
