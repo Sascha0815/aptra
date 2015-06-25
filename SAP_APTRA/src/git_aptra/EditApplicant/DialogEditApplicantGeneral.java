@@ -24,7 +24,7 @@ public class DialogEditApplicantGeneral {
 	private static JLabel labelStreet = new JLabel("Straße:");
 	private static JLabel labelHouseNr = new JLabel("Hausnummer:");
 	private static JLabel labelPostalCode = new JLabel("PLZ:");
-	private static JLabel labelInstruction = new JLabel("Änderungen der Stammdaten!");
+	private static JLabel labelInstruction = new JLabel("Ändern Sie Daten des Bewerbers");
 	private static JLabel labelCity = new JLabel("Wohnort:");
 	
 	private static JRadioButton radioButtonFemale = new JRadioButton();

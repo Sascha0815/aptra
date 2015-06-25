@@ -147,7 +147,6 @@ public class DialogAddApplicantGeneral {
 		} catch (Exception e) {
 		}
 		
-
 	}
 
 	public static String getName() {

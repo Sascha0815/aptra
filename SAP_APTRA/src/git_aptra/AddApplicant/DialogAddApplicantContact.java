@@ -49,12 +49,6 @@ public class DialogAddApplicantContact {
 
 	public static void addApplicantContact() {
 		panelDialogApplicantContact.removeAll();
-		cal.set(Calendar.HOUR_OF_DAY,0);
-		cal.set(Calendar.MINUTE,0);
-		cal.set(Calendar.SECOND,0);
-		cal.set(Calendar.MILLISECOND,0);
-		Date date = cal.getTime();	
-		dateChooserBirthday.setDate(date);
 		fieldTelefonHome.setText("");
 		fieldTelefonMobil.setText("");
 		fieldEmail.setText("");
@@ -69,6 +63,12 @@ public class DialogAddApplicantContact {
 		fieldTelefonHome.setFont(fontText);
 		fieldTelefonMobil.setFont(fontText);
 		fieldEmail.setFont(fontText);
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();
+		dateChooserBirthday.setDate(date);
 		panelDialogApplicantContact.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
 		panelDialogApplicantContact.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogApplicantContact.add(labelTelefonHome, "cell 0 1,alignx left");

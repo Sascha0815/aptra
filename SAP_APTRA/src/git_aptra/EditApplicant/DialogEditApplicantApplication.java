@@ -37,7 +37,7 @@ public class DialogEditApplicantApplication {
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
 	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
-	private static JLabel labelInstruction = new JLabel("Änderung der Stammdaten");
+	private static JLabel labelInstruction = new JLabel("Ändern Sie Daten des Bewerbers");
 	@SuppressWarnings("unused")
 	private static JLabel labelDivision = new JLabel("Abteilung");
 
@@ -94,9 +94,6 @@ public class DialogEditApplicantApplication {
 		labelApplyDate.setFont(fontSubHeadline);
 		labelVacancyID.setFont(fontSubHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
-		boxID.setFont(fontSubHeadline);
-		buttonContinue.setFont(fontSubHeadline);
-		buttonBack.setFont(fontSubHeadline);
 		dateChooserApplyDate.setDate(EditApplicant.getDataApplyDate());
 		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataEducationalAchievement());
 		boxID.setSelectedItem(EditApplicant.getDataVacancy());

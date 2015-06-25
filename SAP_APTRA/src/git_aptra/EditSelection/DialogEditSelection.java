@@ -48,7 +48,6 @@ public class DialogEditSelection {
 	};
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAdd = new JButton("Hinzufügen");
-	private static JButton buttonEdit = new JButton("Bearbeiten");
 	private static JButton buttonDelete = new JButton("Löschen");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
@@ -73,13 +72,11 @@ public class DialogEditSelection {
 		scrollPaneSelection.setFont(fontSubHeadline);
 		buttonSave.setFont(fontSubHeadline);
 		buttonAdd.setFont(fontSubHeadline);
-		buttonEdit.setFont(fontSubHeadline);
 		buttonDelete.setFont(fontSubHeadline);
 		panelDialogEditSelectionGeneral.setLayout(new MigLayout("", "[grow,left][grow,right]","[][][][]"));
 		panelDialogEditSelectionGeneral.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		panelDialogEditSelectionGeneral.add(buttonSave, "cell 0 1 2,growx");
 		panelDialogEditSelectionGeneral.add(buttonAdd, "cell 0 1 2 1,growx");
-		panelDialogEditSelectionGeneral.add(buttonEdit, "cell 0 1 2 2,growx");
 		panelDialogEditSelectionGeneral.add(buttonDelete, "cell 0 1 2 3,growx");
 		panelDialogEditSelectionGeneral.add(labelSelection,"cell 0 2,alignx left");
 		panelDialogEditSelectionGeneral.add(scrollPaneSelection,"cell 0 3 2 10,growx");
@@ -94,12 +91,6 @@ public class DialogEditSelection {
 			public void actionPerformed(ActionEvent evt) {
 				dialogEditSelection.dispose();
 				DialogNewSelection.newSelection();
-			}
-		});
-		
-		buttonEdit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				
 			}
 		});
 		

@@ -21,7 +21,7 @@ public class DialogEditApplicantContact {
 	
 	private static JPanel panelDialogEditApplicantContact = new JPanel();
 	
-	private static JLabel labelInstruction = new JLabel("Änderungen der Stammdaten!");
+	private static JLabel labelInstruction = new JLabel("Ändern Sie Daten des Bewerbers");
 	private static JLabel labelTelefonHome = new JLabel("Telefon privat:");
 	private static JLabel labelTelefonMobil = new JLabel("Telefon mobil");
 	private static JLabel labelEmail = new JLabel("E-Mail:");
