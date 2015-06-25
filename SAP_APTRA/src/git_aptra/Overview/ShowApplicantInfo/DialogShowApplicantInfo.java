@@ -13,7 +13,7 @@ public class DialogShowApplicantInfo {
 		dialogNewApplicantInfo.setSize(425, 440);
 		dialogNewApplicantInfo.setLocationRelativeTo(null);
 		dialogNewApplicantInfo.setResizable(false);
-		dialogNewApplicantInfo.setTitle("Neuer Termin");
+		dialogNewApplicantInfo.setTitle("Bewerberinformationen");
 		dialogNewApplicantInfo.add(tabAdd);
 		DialogShowApplicantInfoGeneral.showApplicantInfoGeneral();
 		SwingUtilities.updateComponentTreeUI(dialogNewApplicantInfo);
