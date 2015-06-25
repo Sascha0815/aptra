@@ -1,8 +1,6 @@
 package git_aptra.Overview.EditVacancy;
 
 import git_aptra.Oberflaeche;
-import git_aptra.EditVacancy.DialogEditVacancy;
-import git_aptra.InfoVacancy.DialogInfoVacancy;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -32,16 +30,15 @@ public class DialogOverviewEditVacancyData {
 	private static JLabel labelPosition = new JLabel("Stellenbezeichnung:");
 	private static JLabel labelArea = new JLabel("Arbeitsbereich:");
 	private static JLabel labelDivisionID = new JLabel("Abteilungs-ID:");
-	private static JLabel labelDivisionName = new JLabel("Abteilungsbezeichnung:");
+	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelRequirementLevel = new JLabel("Anforderung:");
 	private static JLabel labelTermsOfEmployment = new JLabel("Anstellungsverhältnis:");
 	
-
 	private static JTextField fieldVacancyID = new JTextField();
 	private static JTextField fieldPosition = new JTextField();
 	private static JTextField fieldArea = new JTextField();
 	private static JTextField fieldDivisionID = new JTextField();
-	private static JTextField fieldDivisionName = new JTextField();
+	private static JTextField fieldEducationalAchievement = new JTextField();
 	private static JTextField fieldRequirementLevel = new JTextField();
 	private static JTextField fieldTermsOfEmployment = new JTextField();
 	
@@ -57,13 +54,12 @@ public class DialogOverviewEditVacancyData {
 			add("ID");
 			add("Bezeichnung");
 			add("Arbeitsbereich");
-			add("Abteilung");
 			add("Anforderung");
 			add("Anstellungsverhältnis");
 		}
 	};
 	
-	public static DefaultTableModel modeldialogLoadVacancyData = new DefaultTableModel() {
+	public static DefaultTableModel modelDialogLoadVacancyData = new DefaultTableModel() {
 		private static final long serialVersionUID = 1L;
 
 		public boolean isCellEditable(int row, int column) {
@@ -71,38 +67,49 @@ public class DialogOverviewEditVacancyData {
 		}
 	};
 	
-	public static JTable tabledialogLoadVacancyData = new JTable(modeldialogLoadVacancyData);
+	public static JTable tableDialogLoadVacancyData = new JTable(modelDialogLoadVacancyData);
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
-
+	
+	private static String vacancyID;
+	private static String position;
+	private static String area;
+	private static String divisionID;
+	private static String educationalAchievement;
+	private static String requirementLevel;
+	private static String termsOfEmployment;
+	@SuppressWarnings("rawtypes")
+	private static Vector resultsLoadVacancyData = new Vector();
+	@SuppressWarnings({ "rawtypes",})
+	private static Vector resultsLoadVacancyDataAll = new Vector();
 	
 	public static void loadVacancyData(){
-		
 		paneldialogLoadVacancyData.removeAll();
-		for(int i = 0; i<modeldialogLoadVacancyData.getRowCount();i++){
-			modeldialogLoadVacancyData.removeRow(i);
+		for(int i = 0; i<modelDialogLoadVacancyData.getRowCount();i++){
+			modelDialogLoadVacancyData.removeRow(i);
 		}
-		
 		fieldVacancyID.setText("");
 		fieldPosition.setText("");
 		fieldArea.setText("");
 		fieldDivisionID.setText("");
-		fieldDivisionName.setText("");
+		fieldEducationalAchievement.setText("");
 		fieldRequirementLevel.setText("");
 		fieldTermsOfEmployment.setText("");
 		labelInstruction.setFont(fontHeadline);
 		dialogLoadVacancyData.setSize(425, 500);
 		dialogLoadVacancyData.setLocationRelativeTo(Oberflaeche.frame);
-		modeldialogLoadVacancyData.setColumnIdentifiers(COLUMN_IDENTIFIERS_OVERWIEV_VACANCY_INFO);
-		tabledialogLoadVacancyData.getTableHeader().setReorderingAllowed(false);
-		tabledialogLoadVacancyData.setAutoCreateRowSorter(true);
-		tabledialogLoadVacancyData = new JTable(modeldialogLoadVacancyData);
-		JScrollPane scrollPaneLoadVacancyData = new JScrollPane(tabledialogLoadVacancyData);
+		modelDialogLoadVacancyData.setColumnIdentifiers(COLUMN_IDENTIFIERS_OVERWIEV_VACANCY_INFO);
+		tableDialogLoadVacancyData.getTableHeader().setReorderingAllowed(false);
+		tableDialogLoadVacancyData.setAutoCreateRowSorter(true);
+		tableDialogLoadVacancyData = new JTable(modelDialogLoadVacancyData);
+		JScrollPane scrollPaneLoadVacancyData = new JScrollPane(tableDialogLoadVacancyData);
 		scrollPaneLoadVacancyData.setBounds(0, 400, 400, 100);
 		scrollPaneLoadVacancyData.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		tabledialogLoadVacancyData.setRowHeight(20);
-		tabledialogLoadVacancyData.setAutoCreateRowSorter(true);
-		
+		tableDialogLoadVacancyData.setRowHeight(20);
+		tableDialogLoadVacancyData.setAutoCreateRowSorter(true);
+		resultsLoadVacancyDataAll = LoadVacancyData.insertLoadVacancyDataIntoTable();
+		modelDialogLoadVacancyData.setDataVector(resultsLoadVacancyDataAll,COLUMN_IDENTIFIERS_OVERWIEV_VACANCY_INFO);
+		modelDialogLoadVacancyData.fireTableDataChanged();
 		paneldialogLoadVacancyData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][][][][]push[]"));
 		paneldialogLoadVacancyData.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		paneldialogLoadVacancyData.add(labelVacancyID,"cell 0 2,alignx left");
@@ -113,14 +120,12 @@ public class DialogOverviewEditVacancyData {
 		paneldialogLoadVacancyData.add(fieldArea,"cell 0 7 2 1,growx");
 		paneldialogLoadVacancyData.add(labelDivisionID,"cell 0 8,alignx left");
 		paneldialogLoadVacancyData.add(fieldDivisionID,"cell 0 9 2 1,growx");
-		paneldialogLoadVacancyData.add(labelDivisionName,"cell 0 10,alignx left");
-		paneldialogLoadVacancyData.add(fieldDivisionName,"cell 0 11 2 1,growx");
-		
+		paneldialogLoadVacancyData.add(labelEducationalAchievement,"cell 0 10,alignx left");
+		paneldialogLoadVacancyData.add(fieldEducationalAchievement,"cell 0 11 2 1,growx");
 		paneldialogLoadVacancyData.add(labelRequirementLevel,"cell 0 12 2 1,growx");
 		paneldialogLoadVacancyData.add(fieldRequirementLevel,"cell 0 13 2 1,growx");
 		paneldialogLoadVacancyData.add(labelTermsOfEmployment,"cell 0 14 2 1,growx");
 		paneldialogLoadVacancyData.add(fieldTermsOfEmployment,"cell 0 15 2 1,growx");
-		
 		paneldialogLoadVacancyData.add(buttonSearch, "cell 1 16, alignx right");
 		paneldialogLoadVacancyData.add(scrollPaneLoadVacancyData, "cell 0 17 2 1,growx");
 		paneldialogLoadVacancyData.add(buttonAbort,"cell 0 18,alignx left");
@@ -128,14 +133,22 @@ public class DialogOverviewEditVacancyData {
 	
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-			
+				getVacancyData();
+				try {
+					resultsLoadVacancyData = LoadVacancyData.loadVacancyData();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				modelDialogLoadVacancyData.setDataVector(resultsLoadVacancyData,COLUMN_IDENTIFIERS_OVERWIEV_VACANCY_INFO);
+				modelDialogLoadVacancyData.fireTableDataChanged();
 			
 			}
 		});
 		
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogEditVacancy.editVacancy();
+			
 			}
 		});
 		
@@ -149,7 +162,64 @@ public class DialogOverviewEditVacancyData {
 		dialogLoadVacancyData.setVisible(true);
 	}
 	
-
+	public static void getVacancyData(){
+		try {
+			vacancyID = fieldVacancyID.getText();
+		} catch (Exception e) {
+		}
+		try {
+			position = fieldPosition.getText();
+		} catch (Exception e) {
+		}
+		try {
+			area = fieldArea.getText();
+		} catch (Exception e) {
+		}
+		try {
+			divisionID = fieldDivisionID.getText();
+		} catch (Exception e) {
+		}
+		try {
+			educationalAchievement = fieldEducationalAchievement.getText();
+		} catch (Exception e) {
+		}
+		try {
+			requirementLevel = fieldRequirementLevel.getText();
+		} catch (Exception e) {
+		}
+		try {
+			termsOfEmployment = fieldTermsOfEmployment.getText();
+		} catch (Exception e) {
+		}
+	}
 	
+	public static String getVacancyID() {
+		return vacancyID;
+	}
+	
+	public static String getPosition() {
+		return position;
+	}
+
+	public static String getArea() {
+		return area;
+	}
+	
+	public static String getDivisonID() {
+		return divisionID;
+	}
+
+	public static String getEducationAchievement() {
+		return educationalAchievement;
+	}
+	
+	public static String getRequirementLevel() {
+		return requirementLevel;
+	}
+
+	public static String getTermsOfEmployment() {
+		return termsOfEmployment;
+	}
+		
 }
 
