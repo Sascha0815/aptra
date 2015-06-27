@@ -32,7 +32,7 @@ public class DialogAddDivision {
 	
 	private static JButton buttonSave = new JButton("Speichern");
 	private static JButton buttonAbort = new JButton("Abbrechen");
-	
+	private static boolean first = true;
 	private static String notation;
 	
 	public static void addDivision() {
@@ -55,24 +55,28 @@ public class DialogAddDivision {
 		panelDialogAddDivision.add(fieldNotation, "cell 0 2 2 1,growx");
 		panelDialogAddDivision.add(buttonSave, "cell 0 3,alignx left");
 		panelDialogAddDivision.add(buttonAbort, "cell 1 3,alignx right");
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				notation = fieldNotation.getText();
-				dialogAddDivision.dispose();
-				try {
-					InsertDivisionDataIntoDatabase.insertDivisionData(notation);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		if (first==true) {
+			first=false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					notation = fieldNotation.getText();
+					dialogAddDivision.dispose();
+					try {
+						InsertDivisionDataIntoDatabase.insertDivisionData(notation);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 
-			}
-		});
-		buttonAbort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				dialogAddDivision.dispose();
-			}
-		});
+				}
+			});
+			buttonAbort.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					dialogAddDivision.dispose();
+				}
+			});
+		}
+		
 		dialogAddDivision.setVisible(true);
 		
 	}

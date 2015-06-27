@@ -68,6 +68,7 @@ public class MenuBarPanelOverview {
 	@SuppressWarnings("unused")
 	private static String[] division;
 	private static String[] divisionData;
+	private static boolean first = true;
 	
 	// SWING: Übersicht-Panel
 	public static void addPanelOverview() {
@@ -106,40 +107,12 @@ public class MenuBarPanelOverview {
 			buttonNullApplicant.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
-		buttonNullApplicant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.tabBar.setSelectedIndex(1);
-			}
-		});
-		panelApplicant.add(buttonAddApplicant, "cell 0 1, alignx center, w 95%!, h 5%!");
-		buttonAddApplicant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogAddApplicant.newApplicant();
-			}
-		});
-		panelApplicant.add(buttonEditApplicant, "cell 0 2, alignx center, w 95%!, h 5%!");
-		
-		buttonEditApplicant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogLoadApplicantEditSelection.loadApplicantData();
-			}
-		});
-		panelApplicant.add(buttonSearchApplicant, "cell 0 3, alignx center, w 95%!, h 5%!");
-		
-		buttonSearchApplicant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(1);
-				DialogSearchApplicant.searchApplicant();
-			}
-		});
-		
+	
+		panelApplicant.add(buttonAddApplicant, "cell 0 1, alignx center, w 95%!, h 5%!");	
+		panelApplicant.add(buttonEditApplicant, "cell 0 2, alignx center, w 95%!, h 5%!");	
+		panelApplicant.add(buttonSearchApplicant, "cell 0 3, alignx center, w 95%!, h 5%!");		
 		panelApplicant.add(buttonInfoApplicant, "cell 0 4, alignx center, w 95%!, h 5%!");
 		
-		buttonInfoApplicant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogLoadApplicantData.loadApplicantData();
-			}
-		});
 		
 		buttonAddApplicant.setBorder(border);
 		buttonAddApplicant.setFont(fontButton);
@@ -161,40 +134,10 @@ public class MenuBarPanelOverview {
 			buttonNullVacancy.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
-		buttonNullVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.tabBar.setSelectedIndex(2);
-			}
-		});
 		
-		panelVacancy.add(buttonAddVacancy, "cell 0 1, alignx center, w 95%!, h 5%!");
-		buttonAddVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogAddVacancy.newVacancy();
-			}
-		});
-		
-		panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
-		buttonEditVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogOverviewEditVacancyData.loadVacancyData();
-			}
-		});
-		
-		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");
-		buttonSearchVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(2);
-				DialogSearchVacancy.searchVacancy();
-			}
-		});
-		
+		panelVacancy.add(buttonAddVacancy, "cell 0 1, alignx center, w 95%!, h 5%!");		
+		panelVacancy.add(buttonSearchVacancy, "cell 0 3, alignx center, w 95%!, h 5%!");		
 		panelVacancy.add(buttonInfoVacancy, "cell 0 4, alignx center, w 95%!, h 5%!");	
-		buttonInfoVacancy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogLoadVacancyData.loadVacancyData();
-			}
-		});
 		
 		buttonAddVacancy.setBorder(border);
 		buttonAddVacancy.setFont(fontButton);
@@ -216,27 +159,8 @@ public class MenuBarPanelOverview {
 			buttonNullManagement.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
-		buttonNullManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.tabBar.setSelectedIndex(3);
-			}
-		});
-		panelManagement.add(buttonEditManagement, "cell 0 2, alignx center, w 95%!, h 5%!");
-		buttonEditManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(3);
-			}
-		});
-		
-		panelManagement.add(buttonSearchManagement, "cell 0 1, alignx center, w 95%!, h 5%!");
-		buttonSearchManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(3);
-				DialogOpenVacancy.addVacancyManagement();
-			}
-		});
-		
-		
+		panelManagement.add(buttonEditManagement, "cell 0 2, alignx center, w 95%!, h 5%!");		
+		panelManagement.add(buttonSearchManagement, "cell 0 1, alignx center, w 95%!, h 5%!");	
 		
 		buttonEditManagement.setBorder(border);
 		buttonEditManagement.setFont(fontButton);
@@ -254,40 +178,11 @@ public class MenuBarPanelOverview {
 			buttonNullMeeting.setIcon(new ImageIcon(add));
 		} catch (IOException ex) {
 		}
-		buttonNullMeeting.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				Oberflaeche.tabBar.setSelectedIndex(4);
-			}
-		});
-		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center, w 95%!, h 5%!");
-		buttonAddMeeting.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogAddMeeting.newMeeting();
-			}
-		});
-		
-		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");
-		buttonEditMeeting.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogOverviewEditMeetingData.loadMeetingData();
-
-			}
-		});
-		
-		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");
-		buttonSearchMeeting.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Oberflaeche.tabBar.setSelectedIndex(4);
-				DialogSearchMeeting.searchMeeting();
-			}
-		});
-		
+		panelMeeting.add(buttonAddMeeting, "cell 0 1 ,alignx center, w 95%!, h 5%!");		
+		panelMeeting.add(buttonEditMeeting, "cell 0 2 ,alignx center, w 95%!, h 5%!");		
+		panelMeeting.add(buttonSearchMeeting, "cell 0 3 ,alignx center, w 95%!, h 5%!");		
 		panelMeeting.add(buttonInfoMeeting, "cell 0 4 ,alignx center, w 95%!, h 5%!");
-		buttonInfoMeeting.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DialogLoadMeetingData.loadMeetingData();
-			}
-		});
+		
 		
 		buttonAddMeeting.setBorder(border);
 		buttonAddMeeting.setFont(fontButton);
@@ -297,6 +192,107 @@ public class MenuBarPanelOverview {
 		buttonSearchMeeting.setFont(fontButton);
 		buttonInfoMeeting.setBorder(border);
 		buttonInfoMeeting.setFont(fontButton);
+		
+		if (first==true) {
+			first = false;
+			buttonInfoMeeting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogLoadMeetingData.loadMeetingData();
+				}
+			});
+			buttonSearchMeeting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Oberflaeche.tabBar.setSelectedIndex(4);
+					DialogSearchMeeting.searchMeeting();
+				}
+			});
+			buttonEditMeeting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogOverviewEditMeetingData.loadMeetingData();
+
+				}
+			});
+			buttonAddMeeting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogAddMeeting.newMeeting();
+				}
+			});
+			buttonNullMeeting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					Oberflaeche.tabBar.setSelectedIndex(4);
+				}
+			});
+			buttonSearchManagement.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Oberflaeche.tabBar.setSelectedIndex(3);
+					DialogOpenVacancy.addVacancyManagement();
+				}
+			});
+			buttonAddVacancy.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogAddVacancy.newVacancy();
+				}
+			});
+			
+			panelVacancy.add(buttonEditVacancy, "cell 0 2, alignx center, w 95%!, h 5%!");
+			buttonEditVacancy.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogOverviewEditVacancyData.loadVacancyData();
+				}
+			});
+			buttonSearchVacancy.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Oberflaeche.tabBar.setSelectedIndex(2);
+					DialogSearchVacancy.searchVacancy();
+				}
+			});
+			buttonInfoVacancy.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogLoadVacancyData.loadVacancyData();
+				}
+			});
+			buttonNullManagement.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					Oberflaeche.tabBar.setSelectedIndex(3);
+				}
+			});
+			buttonEditManagement.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Oberflaeche.tabBar.setSelectedIndex(3);
+				}
+			});	buttonNullApplicant.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					Oberflaeche.tabBar.setSelectedIndex(1);
+				}
+			});	
+			buttonAddApplicant.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					DialogAddApplicant.newApplicant();
+				}
+			});	
+			buttonEditApplicant.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogLoadApplicantEditSelection.loadApplicantData();
+				}
+			});
+			buttonSearchApplicant.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Oberflaeche.tabBar.setSelectedIndex(1);
+					DialogSearchApplicant.searchApplicant();
+				}
+			});
+			buttonInfoApplicant.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DialogLoadApplicantData.loadApplicantData();
+				}
+			});
+			buttonNullVacancy.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					Oberflaeche.tabBar.setSelectedIndex(2);
+				}
+			});
+		}
+		
 		Oberflaeche.tabBar.addTab("Übersicht", panelOverview);
 
 	}

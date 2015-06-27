@@ -69,28 +69,6 @@ public class DialogAddApplicantApplication {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addApplicantApplication() {
-		panelDialogApplicantApplication.removeAll();
-		boxEducationalAchievement.setSelectedIndex(0);
-		boxDivision.setSelectedIndex(0);
-		dateChooserApplyDate.setDate(null);
-		labelInstruction.setFont(fontHeadline);
-		labelApplyDate.setFont(fontSubHeadline);
-		labelVacancyID.setFont(fontSubHeadline);
-		labelEducationalAchievement.setFont(fontSubHeadline);
-		labelDivision.setFont(fontSubHeadline);
-		buttonContinue.setFont(fontSubHeadline);
-		buttonBack.setFont(fontSubHeadline);
-		boxID.setFont(fontText);
-		boxEducationalAchievement.setFont(fontText);
-		boxDivision.setFont(fontText);
-		dateChooserApplyDate.setFont(fontText);
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.HOUR_OF_DAY,0);
-		cal.set(Calendar.MINUTE,0);
-		cal.set(Calendar.SECOND,0);
-		cal.set(Calendar.MILLISECOND,0);
-		Date date = cal.getTime();	
-		dateChooserApplyDate.setDate(date);
 		ArrayList<String> id= new ArrayList<String>();
 		try {
 			Connection con =  Login.getConnection();
@@ -125,6 +103,28 @@ public class DialogAddApplicantApplication {
 		panelDialogApplicantApplication.removeAll();
 		boxDivision = new JComboBox(divisionData);
 		boxID = new JComboBox(VID);
+		panelDialogApplicantApplication.removeAll();
+		boxEducationalAchievement.setSelectedIndex(0);
+		boxDivision.setSelectedIndex(0);
+		dateChooserApplyDate.setDate(null);
+		labelInstruction.setFont(fontHeadline);
+		labelApplyDate.setFont(fontSubHeadline);
+		labelVacancyID.setFont(fontSubHeadline);
+		labelEducationalAchievement.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
+		buttonContinue.setFont(fontSubHeadline);
+		buttonBack.setFont(fontSubHeadline);
+		boxID.setFont(fontText);
+		boxEducationalAchievement.setFont(fontText);
+		boxDivision.setFont(fontText);
+		dateChooserApplyDate.setFont(fontText);
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY,0);
+		cal.set(Calendar.MINUTE,0);
+		cal.set(Calendar.SECOND,0);
+		cal.set(Calendar.MILLISECOND,0);
+		Date date = cal.getTime();	
+		dateChooserApplyDate.setDate(date);
 		panelDialogApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][]push[]"));
 		panelDialogApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");

@@ -61,11 +61,9 @@ public class DialogAddApplicantGeneral {
 		fieldPostalCode.setText("");
 		fieldCity.setText("");
 		buttonContinue.setFont(fontSubHeadline);
-		radioButtonFemale.setSelected(false);
-		radioButtonMale.setSelected(false);
 		radioButtonGroup.add(radioButtonFemale);
 		radioButtonGroup.add(radioButtonMale);
-		radioButtonGroup.clearSelection();
+		radioButtonGroup.setSelected(radioButtonFemale.getModel(), true);
 		labelInstruction.setFont(fontHeadline);
 		labelName.setFont(fontSubHeadline);
 		labelFirstName.setFont(fontSubHeadline);

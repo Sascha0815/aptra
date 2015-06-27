@@ -62,7 +62,7 @@ public class DialogAddEmployee {
 	private static int entitlement;
 	private static String password;
 	private static int divisionID;
-
+	private static boolean first = true;
 	public static void addEmployee() {
 		panelDialogEmployeeMain.removeAll();
 		fieldName.setText("");
@@ -111,56 +111,60 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 14 2 1,growx");
 		panelDialogEmployeeMain.add(buttonSave, "cell 0 15,alignx left");
 		panelDialogEmployeeMain.add(buttonAbort, "cell 1 15,alignx right");
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				try {
-					name = fieldName.getText();
-				} catch (Exception e) {
-				}
-				try {
-					firstName = fieldFirstName.getText();
-				} catch (Exception e) {
-				}
-				try {
-					loginName = fieldLoginName.getText();
-				} catch (Exception e) {
-				}
-				try {
-					char[] passwordChar = fieldPassword.getPassword();
-					password = String.valueOf(passwordChar);
-				} catch (Exception e) {
-				}
-				try {
-					entitlement = (int) boxEntitlement.getSelectedItem();
-				} catch (Exception e) {
-				}
-				char[] passwordChar1 = fieldPassword.getPassword();
-				String passwordString1 = String.valueOf(passwordChar1);
-				char[] passwordChar2 = fieldPasswordRepeat.getPassword();
-				String passwordString2 = String.valueOf(passwordChar2);
-				if (passwordString1.equals(passwordString2)){
+		if (first==true) {
+			first = false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					try {
+						name = fieldName.getText();
+					} catch (Exception e) {
+					}
+					try {
+						firstName = fieldFirstName.getText();
+					} catch (Exception e) {
+					}
+					try {
+						loginName = fieldLoginName.getText();
+					} catch (Exception e) {
+					}
+					try {
+						char[] passwordChar = fieldPassword.getPassword();
+						password = String.valueOf(passwordChar);
+					} catch (Exception e) {
+					}
+					try {
+						entitlement = (int) boxEntitlement.getSelectedItem();
+					} catch (Exception e) {
+					}
+					char[] passwordChar1 = fieldPassword.getPassword();
+					String passwordString1 = String.valueOf(passwordChar1);
+					char[] passwordChar2 = fieldPasswordRepeat.getPassword();
+					String passwordString2 = String.valueOf(passwordChar2);
+					if (passwordString1.equals(passwordString2)){
+						
+					String division = (String) boxDivision.getSelectedItem();
+					String[] part = division.split(" - ");
+					divisionID = Integer.parseInt(part[0]);	
 					
-				String division = (String) boxDivision.getSelectedItem();
-				String[] part = division.split(" - ");
-				divisionID = Integer.parseInt(part[0]);	
-				
-				try {
+					try {
+						dialogNewEmployee.dispose();
+						InsertEmployeeDataIntoDatabase.insertEmployeeData(name,firstName,loginName,password,entitlement, divisionID);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					} else {
+						labelWarning.setVisible(true);
+					}
+				}
+			});
+			buttonAbort.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
 					dialogNewEmployee.dispose();
-					InsertEmployeeDataIntoDatabase.insertEmployeeData(name,firstName,loginName,password,entitlement, divisionID);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
-				} else {
-					labelWarning.setVisible(true);
-				}
-			}
-		});
-		buttonAbort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				dialogNewEmployee.dispose();
-			}
-		});
+			});
+		}
+		
 		dialogNewEmployee.setVisible(true);
 		
 	}

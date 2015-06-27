@@ -12,7 +12,6 @@ public class DialogAddApplicant {
 
 	public static void newApplicant() {
 		dialogNewApplicant.setSize(425, 450);
-		dialogNewApplicant.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewApplicant.setResizable(false);
 		dialogNewApplicant.setTitle("Neuer Bewerber");
 		dialogNewApplicant.add(tabAdd);

@@ -46,7 +46,7 @@ public class DialogAddApplicantContact {
 	private static int month;
 	private static int year;
 	private static Calendar cal = Calendar.getInstance();
-
+	private static boolean first = true;
 	public static void addApplicantContact() {
 		panelDialogApplicantContact.removeAll();
 		fieldTelefonHome.setText("");
@@ -82,16 +82,20 @@ public class DialogAddApplicantContact {
 		panelDialogApplicantContact.add(buttonSave, "cell 1 9,alignx right");
 		panelDialogApplicantContact.add(buttonBack, "cell 0 9,alignx left ");
 		DialogAddApplicant.tabAdd.addTab("Kontaktdaten",panelDialogApplicantContact);
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				SaveDataAddApplicant.save();
-			}
-		});
-		buttonBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogAddApplicant.tabAdd.setSelectedIndex(1);
-			}
-		});
+		if (first==true) {
+			first = false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					SaveDataAddApplicant.save();
+				}
+			});
+			buttonBack.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					DialogAddApplicant.tabAdd.setSelectedIndex(1);
+				}
+			});
+		}
+		
 		
 		
 	}

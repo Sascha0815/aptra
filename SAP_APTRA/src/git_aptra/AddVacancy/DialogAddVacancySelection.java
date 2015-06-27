@@ -48,7 +48,7 @@ public class DialogAddVacancySelection {
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
-		
+	private static boolean first = true;
 	public static void addVacancyHistory(){
 		panelDialogVacancySelection.removeAll();
 		labelInstruction.setFont(fontHeadline);
@@ -68,17 +68,20 @@ public class DialogAddVacancySelection {
 		panelDialogVacancySelection.add(buttonBack, "cell 0 5 2 1, alignx left");
 		panelDialogVacancySelection.add(buttonSave, "cell 1 5 2 1, alignx right");
 		DialogAddVacancy.tabVacancy.addTab("Bewertungsauswahl",panelDialogVacancySelection);
+		if (first==true) {
+			first=false;
+			buttonBack.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					DialogAddVacancy.tabVacancy.setSelectedIndex(1);
+				}
+			});
 		
-		buttonBack.addActionListener(new ActionListener() {
+			buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				DialogAddVacancy.tabVacancy.setSelectedIndex(1);
+				SaveDataAddVacancy.save();
 			}
-		});
-	
-		buttonSave.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent evt) {
-			SaveDataAddVacancy.save();
+			});	
 		}
-		});	
+		
 	}
 }
