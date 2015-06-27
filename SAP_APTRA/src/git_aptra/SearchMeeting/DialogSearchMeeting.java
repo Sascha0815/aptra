@@ -13,7 +13,7 @@ public class DialogSearchMeeting {
 		dialogSearchMeeting.setSize(425, 500);
 		dialogSearchMeeting.setLocationRelativeTo(null);
 		dialogSearchMeeting.setResizable(false);
-		dialogSearchMeeting.setTitle("Neuer Termin");
+		dialogSearchMeeting.setTitle("Meeting suchen");
 		dialogSearchMeeting.add(tabSearch);
 		DialogSearchMeetingGeneral.searchMeetingGeneral();
 		DialogSearchMeetingSpecification.searchDetailsMeeting();

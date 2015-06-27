@@ -27,7 +27,7 @@ import net.miginfocom.swing.MigLayout;
 public class DialogSearchMeetingSpecification {
 	private static JPanel panelDialogMeetingSpecification = new JPanel();
 	
-	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
 	private static JLabel labelLocation = new JLabel("Ort:");
 	private static JLabel labelDate = new JLabel("Datum Termin:");

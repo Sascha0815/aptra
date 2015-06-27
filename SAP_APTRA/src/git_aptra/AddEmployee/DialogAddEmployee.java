@@ -93,7 +93,8 @@ public class DialogAddEmployee {
 		fieldLoginName.setFont(fontText);
 		fieldPassword.setFont(fontText);
 		fieldPasswordRepeat.setFont(fontText);
-		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][]15[]"));
+		labelWarning.setVisible(false);
+		panelDialogEmployeeMain.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][][]push[]"));
 		panelDialogEmployeeMain.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogEmployeeMain.add(labelName, "cell 0 1,alignx left");
 		panelDialogEmployeeMain.add(fieldName, "cell 0 2 2 1,growx");
@@ -109,8 +110,9 @@ public class DialogAddEmployee {
 		panelDialogEmployeeMain.add(boxDivision, "cell 0 12 2 1, growx");
 		panelDialogEmployeeMain.add(labelEntitlement, "cell 0 13,alignx left");
 		panelDialogEmployeeMain.add(boxEntitlement, "cell 0 14 2 1,growx");
-		panelDialogEmployeeMain.add(buttonSave, "cell 0 15,alignx left");
-		panelDialogEmployeeMain.add(buttonAbort, "cell 1 15,alignx right");
+		panelDialogEmployeeMain.add(labelWarning, "cell 0 15 2 1,growx");
+		panelDialogEmployeeMain.add(buttonSave, "cell 1 16,alignx right");
+		panelDialogEmployeeMain.add(buttonAbort, "cell 0 16,alignx left");
 		if (first==true) {
 			first = false;
 			buttonSave.addActionListener(new ActionListener() {

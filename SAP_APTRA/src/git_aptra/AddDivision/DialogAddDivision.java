@@ -39,7 +39,7 @@ public class DialogAddDivision {
 		panelDialogAddDivision.removeAll();
 		fieldNotation.setText("");
 		dialogAddDivision.setLocationRelativeTo(null);
-		dialogAddDivision.setSize(350, 150);
+		dialogAddDivision.setSize(350, 140);
 		dialogAddDivision.setResizable(false);
 		dialogAddDivision.setTitle("Neue Abteilung");
 		SwingUtilities.updateComponentTreeUI(dialogAddDivision);
@@ -49,7 +49,7 @@ public class DialogAddDivision {
 		labelNotation.setFont(fontSubHeadline);
 		fieldNotation.setFont(fontText);
 		dialogAddDivision.add(panelDialogAddDivision);
-		panelDialogAddDivision.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][]"));
+		panelDialogAddDivision.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][]push[]"));
 		panelDialogAddDivision.add(labelInstruction, "cell 0 0 2 1,alignx center");
 		panelDialogAddDivision.add(labelNotation, "cell 0 1,alignx left");
 		panelDialogAddDivision.add(fieldNotation, "cell 0 2 2 1,growx");

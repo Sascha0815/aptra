@@ -22,7 +22,7 @@ public class DialogSearchVacancySpecification {
 
 	private static JPanel panelSearchVacancySpecification = new JPanel();
 
-	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie alle erforderlichen Daten ein!");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelLevel = new JLabel("Zusatz/Vermerk:");
 	private static JLabel labelDeadline = new JLabel("Bewerbungsschluss:");
 

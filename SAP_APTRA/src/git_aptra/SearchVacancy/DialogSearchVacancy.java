@@ -15,7 +15,7 @@ public class DialogSearchVacancy {
 		dialogSearchVacancy.setSize(425, 450);
 		dialogSearchVacancy.setLocationRelativeTo(null);
 		dialogSearchVacancy.setResizable(false);
-		dialogSearchVacancy.setTitle("Stellenausschreibung suchen");
+		dialogSearchVacancy.setTitle("Arbeitsstelle suchen");
 		dialogSearchVacancy.add(tabSearchVacancy);
 		DialogSearchVacancyGeneral.searchVacancyGeneral();
 		DialogSearchVacancySpecification.searchVacancySpecification();	

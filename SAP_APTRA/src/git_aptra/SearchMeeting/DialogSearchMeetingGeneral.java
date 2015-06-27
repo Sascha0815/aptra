@@ -14,7 +14,7 @@ import net.miginfocom.swing.MigLayout;
 public class DialogSearchMeetingGeneral {
 	private static JPanel panelDialogMeetingMain = new JPanel();
 	
-	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die zu suchenden Daten ein!");
+	private static JLabel labelInstruction = new JLabel("Bitte tragen Sie die gesuchten Daten ein!");
 	private static JLabel labelApplicantID = new JLabel("Bewerber-ID:");
 	private static JLabel labelName = new JLabel("Bewerber-Name:");
 	private static JLabel labelFirstName = new JLabel("Bewerber-Vorname:");
