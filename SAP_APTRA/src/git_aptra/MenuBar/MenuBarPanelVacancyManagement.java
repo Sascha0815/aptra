@@ -50,7 +50,6 @@ public class MenuBarPanelVacancyManagement {
 	
 	private static JButton butttonAddVacancyManagement = new JButton();
 	private static JButton buttonEditVacancyManagement = new JButton();
-	private static JButton buttonSearchVacancyManagement = new JButton();
 			
 	public static JTable tableVacancyManagement = new JTable(modelVacancyManagement);
 
@@ -185,24 +184,7 @@ public class MenuBarPanelVacancyManagement {
 			buttonEditVacancyManagement.setIcon(new ImageIcon(pencil));
 		} catch (IOException ex) {
 		}
-		
-		buttonSearchVacancyManagement.setToolTipText("Management suchen");
-		panelManagementButton.add(buttonSearchVacancyManagement, "cell 0 2");
-		buttonSearchVacancyManagement.setBorder(null);
-		buttonSearchVacancyManagement.setOpaque(false);
-		buttonSearchVacancyManagement.setContentAreaFilled(false);
-		try {
-			Image settings = ImageIO.read(MenuBarPanelApplicant.class
-					.getResource("resources/management_info.png"));
-			buttonSearchVacancyManagement.setIcon(new ImageIcon(settings));
-		} catch (IOException ex) {
-		}
-		buttonSearchVacancyManagement.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogSearchVacancy.searchVacancy();
-			}
-		});
-	
+
 		// SWING:Table Arbeitsstellen
 		modelVacancyManagement.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 		tableVacancyManagement.getTableHeader().setReorderingAllowed(false);
