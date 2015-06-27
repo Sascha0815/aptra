@@ -144,7 +144,7 @@ public class MenuBar {
 		
 		// MenuItem Neues Bewerberkriterium
 		menuNew.add(itemEditSelection);
-		itemEditSelection.setText("Neues Bewerberkriterium");
+		itemEditSelection.setText("Bewertungskriterien bearbeiten");
 		itemEditSelection.addActionListener(new ActionListener() {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent e) {

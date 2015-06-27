@@ -29,7 +29,7 @@ public class DialogAddMeetingSpecification {
 	
 	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein");
 	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
-	private static JLabel labelLocation = new JLabel("Ort:");
+	private static JLabel labelLocation = new JLabel("Raum:");
 	private static JLabel labelDate = new JLabel("Datum Termin:");
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
 	private static JLabel labelEmployee = new JLabel("Zuständiger Mitarbeiter:");

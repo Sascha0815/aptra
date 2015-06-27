@@ -87,6 +87,7 @@ public class DialogAddEmployee {
 		labelPasswordRepeat.setFont(fontSubHeadline);
 		labelEntitlement.setFont(fontSubHeadline);
 		labelWarning.setFont(fontSubHeadline);
+		labelDivision.setFont(fontSubHeadline);
 		labelWarning.setForeground(Color.RED);
 		fieldName.setFont(fontText);
 		fieldFirstName.setFont(fontText);

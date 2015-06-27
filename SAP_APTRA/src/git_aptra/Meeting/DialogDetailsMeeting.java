@@ -33,10 +33,10 @@ public class DialogDetailsMeeting {
 	
 	private static JLabel labelInstruction = new JLabel("Bitte geben Sie die benötigten Daten ein");
 	private static JLabel labelSortOfMeeting = new JLabel("Art des Termins:");
-	private static JLabel labelLocation = new JLabel("Ort:");
+	private static JLabel labelLocation = new JLabel("Raum:");
 	private static JLabel labelDate = new JLabel("Datum Termin:");
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
-	private static JLabel labelEmployee = new JLabel("Zuständiger Mitarbeiter:");
+	private static JLabel labelEmployee = new JLabel("Zuständige Mitarbeiter:");
 	
 	private static JDateChooser dateChooserDate = new JDateChooser();
 	
@@ -103,7 +103,7 @@ public class DialogDetailsMeeting {
 		fieldLocation.setFont(fontText);
 		fieldType.setFont(fontText);
 		timeChooser.setFont(fontText);
-		dialogMeeting.setSize(400, 500);
+		dialogMeeting.setSize(430, 500);
 		dialogMeeting.setLocationRelativeTo(null);
 		dialogMeeting.setResizable(false);
 		dialogMeeting.setTitle("Meeting Details");
