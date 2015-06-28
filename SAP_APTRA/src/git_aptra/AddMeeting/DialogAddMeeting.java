@@ -10,7 +10,7 @@ public class DialogAddMeeting {
 	public static JDialog dialogNewMeeting = new JDialog(Oberflaeche.frame, true);
 
 	public static void newMeeting() {		
-		dialogNewMeeting.setSize(425, 440);
+		dialogNewMeeting.setSize(425, 460);
 		dialogNewMeeting.setLocationRelativeTo(null);
 		dialogNewMeeting.setResizable(false);
 		dialogNewMeeting.setTitle("Neuer Termin");

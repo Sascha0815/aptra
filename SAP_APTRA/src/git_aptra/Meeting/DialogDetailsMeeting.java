@@ -4,6 +4,7 @@ import git_aptra.Oberflaeche;
 import git_aptra.Meeting.InsertMeetingIntoDatabase;
 import git_aptra.MenuBar.MenuBarPanelMeeting;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +38,7 @@ public class DialogDetailsMeeting {
 	private static JLabel labelDate = new JLabel("Datum Termin:");
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
 	private static JLabel labelEmployee = new JLabel("Zuständige Mitarbeiter:");
+	private static JLabel labelWarning = new JLabel("Kein Mitarbeiter ausgewählt");
 	
 	private static JDateChooser dateChooserDate = new JDateChooser();
 	
@@ -86,6 +88,8 @@ public class DialogDetailsMeeting {
 		panelMeeting.removeAll();
 		fieldLocation.setText("");
 		fieldType.setText("");
+		labelWarning.setForeground(Color.RED);
+		labelWarning.setVisible(false);
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.HOUR_OF_DAY,0);
 		cal.set(Calendar.MINUTE,0);
@@ -100,10 +104,11 @@ public class DialogDetailsMeeting {
 		labelDate.setFont(fontSubHeadline);
 		labelTime.setFont(fontSubHeadline);
 		labelEmployee.setFont(fontSubHeadline);
+		labelWarning.setFont(fontSubHeadline);
 		fieldLocation.setFont(fontText);
 		fieldType.setFont(fontText);
 		timeChooser.setFont(fontText);
-		dialogMeeting.setSize(430, 500);
+		dialogMeeting.setSize(430, 520);
 		dialogMeeting.setLocationRelativeTo(null);
 		dialogMeeting.setResizable(false);
 		dialogMeeting.setTitle("Meeting Details");
@@ -135,6 +140,9 @@ public class DialogDetailsMeeting {
 
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				if(tableDialogEmployeeMeeting.getSelectedRowCount()==0){
+					labelWarning.setVisible(true);
+				}else{
 				try {
 					typeMeeting = fieldType.getText();
 				} catch (Exception e) {
@@ -169,6 +177,7 @@ public class DialogDetailsMeeting {
 			MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 			MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 			dialogMeeting.dispose();
+			}
 			}
 		});
 		
