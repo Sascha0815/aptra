@@ -14,14 +14,13 @@ public class DialogInstructionVacancyManagement {
 	private static JLabel labelSelectVacancyManagementHeadline = new JLabel("Arbeitstelle auswählen");
 	private static JLabel labelEditVacancyManagementHeadline = new JLabel("Bewerber bewerten/rückmelden");
 	
-	private static JLabel labelSelectVacancyManagementContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle auswählen werden alle   <p/> "+                  
-																	"vorhanden Arbeistellen angezeigt. Nach dem Auswählen werden  <p/> "+  
-																	"alle Bewerber, die sich für diese Arbeitsstelle beworben haben.</html>");
-	private static JLabel labelEditVacancyManagementContent = new JLabel("<html>Mit einem Klick auf Bewerber bewerten/rückmelden können Sie <p/> "+                  
-																"einen Bewerber bewerten. Außerdem können Sie mittels einer   <p/> "+
-																"PDF eine Rückmeldung erstellen. Des Weiteren ist es möglich    <p/> "+
-																"ein Termin zu Erstellen. Dieser wird sofort in die Meetingtabelle  <p/> "+
-																" übernommen</html>");
+	private static JLabel labelSelectVacancyManagementContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle auswählen werden allevorhanden Arbeistellen   <p/> "+                  
+																	"angezeigt. Nach dem Auswählen werden alle Bewerber, die sich für diese    <p/> "+  
+																	"Arbeitsstelle beworben haben.</html>");
+	private static JLabel labelEditVacancyManagementContent = new JLabel("<html>Mit einem Klick auf Bewerber bewerten/rückmelden können Sie einen Bewerber<p/> "+                  
+																"bewerten.Außerdem können Sie mittels einer PDF eine Rückmeldung erstellen. Des    <p/> "+
+																"Weiterenist es möglich ein Termin zu Erstellen. Dieser wird sofort in die <p/> "+
+																"Meetingtabelle  übernommen. </p> </html>");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);

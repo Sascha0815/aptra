@@ -18,26 +18,23 @@ public class DialogInstructionVacancy {
 	private static JLabel labelSearchVacancyHeadline = new JLabel("Arbeitsstellen suchen");
 	private static JLabel labelInfoVacancyHeadline = new JLabel("Arbeitsstelleninformationen");
 	
-	private static JLabel labelRefreshVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle aktualisieren wird die   <p/> "+                  
-																	"Arbeitstellentabelle aktualisiert und es werden die neusten Arbeitstellen angezeigt.</html>");
-	private static JLabel labelAddVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle hinzufügen können Sie einen <p/> "+                  
-																"neue Arbeitstelle hinzufügen. Nach dem Speichern wird diese   <p/> "+
-																"sofort in die Datenbank übernommen und in der Arbeitstellentabelle angezeigt.</html>");
-	private static JLabel labelEditVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle bearbeiten können Sie die Daten <p/> "+                  
-																"einer bestehenden Arbeitstelle bearbeiten. Um eine Arbeitstelle  <p/> "+
-																"bearbeiten zu können müssen Sie erst eine Arbeitstelle in der <p/> "+
-																"Arbeitstellentabelle auswählen.</html>");
-	private static JLabel labelDeleteVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle löschen können Sie eine <p/> "+                  
-																"bestehenden Arbeitstelle löschen. Um einen Arbeitstelle löschen  <p/> "+
-																"zu können müssen Sie erst eine Arbeitstelle in der Arbeitstellentabelle <p/> "+
-																" auswählen.</html>");
-	private static JLabel labelSearchVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle suchen können Sie einen <p/> "+                  
-																	"bestehende Arbeitstelle suchen. Um einen Arbeitstelle zu suchen  <p/> "+
-																	"geben Sie einfach die zu suchenden Daten in den Suchdialog ein.</html>");
-	private static JLabel labelInfoVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitsstelleninformationen können Sie alle  <p/> "+                  
-																"Daten von einer bestehenden Arbeitstelle einsehen. Um die   <p/> "+
-																"Arbeitsstelleninformationen einzusehen müssen Sie erst eine   <p/> "+
-																"Arbeitstelle in der Arbeitstellentabelle auswählen.</html>");
+	private static JLabel labelRefreshVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle aktualisieren wird die Arbeitstellentabelle  <p/> "+                  
+																"aktualisiert und es werden die neusten Arbeitstellen angezeigt.</html>");
+	private static JLabel labelAddVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle hinzufügen können Sie einen neue Arbeitstelle <p/> "+                  
+																"hinzufügen. Nach dem Speichern wird diese sofort in die Datenbank  übernommen    <p/> "+
+																"und in der Arbeitstellentabelle angezeigt.</html>");
+	private static JLabel labelEditVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle bearbeiten können Sie die Daten einer bestehenden<p/> "+                  
+																"Arbeitstelle bearbeiten. Um eine Arbeitstelle bearbeiten zu können müssen Sie  erst <p/> "+
+																"eine Arbeitstelle in der Arbeitstellentabelle auswählen. </p></html>");
+	private static JLabel labelDeleteVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle löschen können Sie eine bestehenden Arbeitstelle <p/> "+                  
+																"löschen. Um einen Arbeitstelle löschen zu können müssen Sie erst eine Arbeitstelle  <p/> "+
+																"in der Arbeitstellentabelle auswählen. </p></html>");
+	private static JLabel labelSearchVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitstelle suchen können Sie einen bestehende Arbeitstelle <p/> "+                  
+																	"suchen. Um einen Arbeitstelle zu suchen geben Sie einfach die zu suchenden Daten  <p/> "+
+																	"in den Suchdialog ein.</html>");
+	private static JLabel labelInfoVacancyContent = new JLabel("<html>Mit einem Klick auf Arbeitsstelleninformationen können Sie alle Daten von einer   <p/> "+                  
+																"bestehenden Arbeitstelle einsehen. Um die Arbeitsstelleninformationen einzusehen <p/> "+
+																"müssen Sie erst eine Arbeitstelle in der Arbeitstellentabelle auswählen.<p/> </html>");
 	
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);

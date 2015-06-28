@@ -10,10 +10,10 @@ import net.miginfocom.swing.MigLayout;
 public class DialogInstructionOverview {
 	private static JPanel panelInstructionOverview = new JPanel();
 	
-	private static JLabel labelOverviewContent = new JLabel("<html>Die Übersicht bietet einen strukturierten Einblick in die Funktionen des  <p/> "+                  
-																	"Programms. Mit einem Klick auf die verschiedenen Buttons gelangt man auf <p/> "+  
-																	"die passende Seite des Programms. Außerdem bietet die Übersicht die  <p/> "+
-																	"Möglichkeit von Schnellzugriffen auf die meisten Funktionen</html>");
+	private static JLabel labelOverviewContent = new JLabel("<html>Die Übersicht bietet einen strukturierten Einblick in die Funktionen des Programms.  <p/> "+                  
+																	"Mit einem Klick auf die verschiedenen Buttons gelangt man auf die passende Seite <p/> "+  
+																	"des Programms. Außerdem bietet die Übersicht die Möglichkeit von Schnellzugriffen <p/> "+
+																	"auf die meisten Funktionen</html>");
 	
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	

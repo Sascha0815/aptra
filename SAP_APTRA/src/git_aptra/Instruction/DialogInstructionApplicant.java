@@ -18,26 +18,23 @@ public class DialogInstructionApplicant {
 	private static JLabel labelSearchApplicantHeadline = new JLabel("Bewerber suchen");
 	private static JLabel labelInfoApplicantHeadline = new JLabel("Bewerberinformationen");
 	
-	private static JLabel labelRefreshApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber aktualisieren wird die   <p/> "+                  
-																	"Bewerbertabelle aktualisiert und es werden die neusten Bewerber angezeigt.</html>");
-	private static JLabel labelAddApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber hinzufügen können Sie einen neuen<p/> "+                  
-																"Bewerber hinzufügen. Nach dem Speichern wird dieser sofort in <p/> "+
-																"die Datenbank übernommen und in der Bewerbertabelle angezeigt.</html>");
-	private static JLabel labelEditApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber bearbeiten können Sie die Daten <p/> "+                  
-																"eines bestehenden Bewerbers bearbeiten. Um einen Bewerber  <p/> "+
-																"bearbeiten zu können müssen Sie erst einen Bewerber in der <p/> "+
-																"Bewerbertabelle auswählen.</html>");
-	private static JLabel labelDeleteApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber löschen können Sie einen <p/> "+                  
-																"bestehenden Bewerber löschen. Um einen Bewerber löschen  <p/> "+
-																"zu können müssen Sie erst einen Bewerber in der Bewerbertabelle <p/> "+
-																" auswählen.</html>");
-	private static JLabel labelSearchApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber suchen können Sie einen <p/> "+                  
-																	"bestehenden Bewerber suchen. Um einen Bewerber zu suchen  <p/> "+
-																	"geben Sie einfach die zu suchenden Daten in den Suchdialog ein.</html>");
-	private static JLabel labelInfoApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerberinformation können Sie alle Daten <p/> "+                  
-																"von einem bestehenden Bewerber einsehen. Um die   <p/> "+
-																"Bewerberinformationen einzusehen müssen Sie erst einen   <p/> "+
-																"Bewerber in der Bewerbertabelle auswählen.</html>");
+	private static JLabel labelRefreshApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber aktualisieren wird die Bewerbertabelle aktualisiert   <p/> "+                  
+																	"und es werden die neusten Bewerber angezeigt.</html>");
+	private static JLabel labelAddApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber hinzufügen können Sie einen neuen Bewerber<p/> "+                  
+																"hinzufügen. Nach dem Speichern wird dieser sofort in die Datenbank übernommen<p/> "+
+																"und in der Bewerbertabelle angezeigt.</html>");
+	private static JLabel labelEditApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber bearbeiten können Sie die Daten eines bestehenden <p/> "+                  
+																"Bewerbers bearbeiten. Um einen Bewerber bearbeiten zu können müssen Sie erst   <p/> "+
+																"einen Bewerber in der Bewerbertabelle auswählen. <p/> </html>");
+	private static JLabel labelDeleteApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber löschen können Sie einen bestehenden Bewerber <p/> "+                  
+																"löschen. Um einen Bewerber löschen zu können müssen Sie erst einen Bewerber in  <p/> "+
+																"der Bewerbertabelle auswählen. </p> </html>");
+	private static JLabel labelSearchApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerber suchen können Sie einen bestehenden Bewerber <p/> "+                  
+																	"suchen. Um einen Bewerber zu suchen geben Sie einfach die  zu suchenden Daten in  <p/> "+
+																	"den Suchdialog ein.</html>");
+	private static JLabel labelInfoApplicantContent = new JLabel("<html>Mit einem Klick auf Bewerberinformation können Sie alle Daten von einem  <p/> "+                  
+																"bestehenden Bewerber einsehen. Um die Bewerberinformationen einzusehen    <p/> "+
+																"müssen Sie erst einen Bewerber in der Bewerbertabelle auswählen.</html>");
 	
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);

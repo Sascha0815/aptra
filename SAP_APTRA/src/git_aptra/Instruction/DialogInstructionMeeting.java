@@ -18,26 +18,23 @@ public class DialogInstructionMeeting {
 	private static JLabel labelSearchMeetingHeadline = new JLabel("Meeting suchen");
 	private static JLabel labelInfoMeetingHeadline = new JLabel("Meetinginformationen");
 	
-	private static JLabel labelRefreshMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting aktualisieren wird die   <p/> "+                  
-																	"Meetingtabelle aktualisiert und es werden die neusten Meetings angezeigt.</html>");
-	private static JLabel labelAddMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting hinzufügen können Sie ein neues<p/> "+                  
-																"Meeting hinzufügen. Nach dem Speichern wird dieses sofort in <p/> "+
-																"die Datenbank übernommen und in der Meetingtabelle angezeigt.</html>");
-	private static JLabel labelEditMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting bearbeiten können Sie die Daten <p/> "+                  
-																"eines bestehenden Meetings bearbeiten. Um einen Meeting  <p/> "+
-																"bearbeiten zu können müssen Sie erst einen Meeting in der <p/> "+
-																"Meetingtabelle auswählen.</html>");
-	private static JLabel labelDeleteMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting löschen können Sie ein <p/> "+                  
-																"bestehendes Meeting löschen. Um einen Meeting löschen  <p/> "+
-																"zu können müssen Sie erst ein Meeting in der Meetingtabelle <p/> "+
-																" auswählen.</html>");
-	private static JLabel labelSearchMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting suchen können Sie ein <p/> "+                  
-																	"bestehendes Meeting suchen. Um ein Meeting zu suchen  <p/> "+
-																	"geben Sie einfach die zu suchenden Daten in den Suchdialog ein.</html>");
-	private static JLabel labelInfoMeetingContent = new JLabel("<html>Mit einem Klick auf Meetinginformationen können Sie alle Daten <p/> "+                  
-																"von einem bestehenden Meeting einsehen. Um die   <p/> "+
-																"Meetinginformationen einzusehen müssen Sie erst ein  <p/> "+
-																"Meeting in der Meetingtabelle auswählen.</html>");
+	private static JLabel labelRefreshMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting aktualisieren wird die Meetingtabelle   <p/> "+                  
+																	"aktualisiert und es werden die neusten Meetings angezeigt.</html>");
+	private static JLabel labelAddMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting hinzufügen können Sie ein neues Meeting hinzufügen.<p/> "+                  
+																"Nach dem Speichern wird dieses sofort in die Datenbank übernommen und in der <p/> "+
+																"Meetingtabelle angezeigt.</html>");
+	private static JLabel labelEditMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting bearbeiten können Sie die Daten eines bestehenden <p/> "+                  
+																"Meetings bearbeiten. Um einen Meeting bearbeiten zu können müssen  Sie erst ein <p/> "+
+																"Meeting in der Meetingtabelle auswählen. <p/> </html>");
+	private static JLabel labelDeleteMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting löschen können Sie ein bestehendes Meeting <p/> "+                  
+																"löschen. Um einen Meeting löschen zu können müssen Sie erst ein Meeting  in<p/> "+
+																"der Meetingtabelle auswählen. </p></html>");
+	private static JLabel labelSearchMeetingContent = new JLabel("<html>Mit einem Klick auf Meeting suchen können Sie ein bestehendes Meeting  <p/> "+                  
+																	"suchen. Um ein Meeting zu suchen geben Sie einfach die zu suchenden  <p/> "+
+																	"Daten in den Suchdialog ein.</html>");
+	private static JLabel labelInfoMeetingContent = new JLabel("<html>Mit einem Klick auf Meetinginformationen können Sie alle Daten von einem <p/> "+                  
+																" bestehenden Meeting einsehen. Um die Meetinginformationen   <p/> "+
+																"einzusehen müssen Sie erst ein Meeting in der Meetingtabelle auswählen.  <p/></html>");
 	
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);

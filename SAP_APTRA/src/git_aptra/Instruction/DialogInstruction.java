@@ -11,7 +11,7 @@ public class DialogInstruction {
 	public static JDialog dialogNewInstrcution = new JDialog(Oberflaeche.frame, true);
 	
 	public static void newInstruction(){
-		dialogNewInstrcution.setSize(460, 620);
+		dialogNewInstrcution.setSize(500, 520);
 		dialogNewInstrcution.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewInstrcution.setResizable(false);
 		dialogNewInstrcution.setTitle("Hilfe");
@@ -21,6 +21,7 @@ public class DialogInstruction {
 		DialogInstructionVacancy.addInstructionVacancy();
 		DialogInstructionVacancyManagement.addInstructionVacancyManagement();
 		DialogInstructionMeeting.addInstructionMeeting();
+		DialogInstructionTab.addInstructionTab();
 		SwingUtilities.updateComponentTreeUI(dialogNewInstrcution);
 		dialogNewInstrcution.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewInstrcution.setVisible(true);
