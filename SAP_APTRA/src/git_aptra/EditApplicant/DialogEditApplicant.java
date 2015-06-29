@@ -13,7 +13,7 @@ public class DialogEditApplicant {
 
 	public static void editApplicant() {
 		dialogEditApplicant.setSize(425,450);
-		dialogEditApplicant.setLocationRelativeTo(null);
+		dialogEditApplicant.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditApplicant.setResizable(false);
 		dialogEditApplicant.setTitle("Bewerber bearbeiten");
 		dialogEditApplicant.add(tabEdit);

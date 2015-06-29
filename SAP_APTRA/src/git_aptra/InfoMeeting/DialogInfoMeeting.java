@@ -45,7 +45,7 @@ public class DialogInfoMeeting {
 	
 	public static void infoMeeting(){
 		dialogInfoMeeting.setSize(425, 250);
-		dialogInfoMeeting.setLocationRelativeTo(null);
+		dialogInfoMeeting.setLocationRelativeTo(Oberflaeche.frame);
 		dialogInfoMeeting.setResizable(false);
 		dialogInfoMeeting.setTitle("Meetinginformationen");
 		SwingUtilities.updateComponentTreeUI(dialogInfoMeeting);

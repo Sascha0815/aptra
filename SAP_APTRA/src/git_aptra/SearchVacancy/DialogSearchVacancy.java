@@ -13,7 +13,7 @@ public class DialogSearchVacancy {
 	
 	public static void searchVacancy(){	
 		dialogSearchVacancy.setSize(425, 450);
-		dialogSearchVacancy.setLocationRelativeTo(null);
+		dialogSearchVacancy.setLocationRelativeTo(Oberflaeche.frame);
 		dialogSearchVacancy.setResizable(false);
 		dialogSearchVacancy.setTitle("Arbeitsstelle suchen");
 		dialogSearchVacancy.add(tabSearchVacancy);

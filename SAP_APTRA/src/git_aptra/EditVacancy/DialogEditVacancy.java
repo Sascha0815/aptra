@@ -13,7 +13,7 @@ public class DialogEditVacancy {
 
 	public static void editVacancy() {
 		dialogEditVacancy.setSize(450, 425);
-		dialogEditVacancy.setLocationRelativeTo(null);
+		dialogEditVacancy.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditVacancy.setResizable(false);
 		dialogEditVacancy.setTitle("Stelle bearbeiten");
 		dialogEditVacancy.add(tabVacancy);

@@ -11,7 +11,7 @@ public class DialogSearchMeeting {
 
 	public static void searchMeeting() {		
 		dialogSearchMeeting.setSize(425, 500);
-		dialogSearchMeeting.setLocationRelativeTo(null);
+		dialogSearchMeeting.setLocationRelativeTo(Oberflaeche.frame);
 		dialogSearchMeeting.setResizable(false);
 		dialogSearchMeeting.setTitle("Meeting suchen");
 		dialogSearchMeeting.add(tabSearch);

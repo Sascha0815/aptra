@@ -72,7 +72,7 @@ public class DialogAddEmployee {
 		fieldPasswordRepeat.setText("");
 		boxEntitlement.setSelectedIndex(0);
 		boxDivision.setSelectedIndex(0);
-		dialogNewEmployee.setLocationRelativeTo(null);
+		dialogNewEmployee.setLocationRelativeTo(Oberflaeche.frame);
 		dialogNewEmployee.setSize(435, 450);
 		dialogNewEmployee.setResizable(false);
 		dialogNewEmployee.setTitle("Neuer Mitarbeiter");

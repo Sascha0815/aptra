@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,7 +37,6 @@ public class DialogLogin extends JFrame {
 	private JButton buttonLogin = new JButton("Einloggen");
 	private JButton buttonAbort = new JButton("Abbrechen");
 	
-	private JCheckBox checkRemember = new JCheckBox("Login-Daten merken?");
 	
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
@@ -58,7 +56,7 @@ public class DialogLogin extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		frameLogin.setSize(285, 230);
+		frameLogin.setSize(285, 200);
 		frameLogin.setTitle("Login");
 		frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameLogin.setResizable(false);
@@ -73,16 +71,15 @@ public class DialogLogin extends JFrame {
 		labelWarning.setForeground(Color.red);
 		fieldUsername.setFont(fontText);
 		fieldPassword.setFont(fontText);
-		panelLogin.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][]"));
+		panelLogin.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][]"));
 		panelLogin.add(labelInstruction, "cell 0 0 2 1,alignx left");
 		panelLogin.add(labelUsername, "cell 0 1,alignx left");
 	    panelLogin.add(fieldUsername, "cell 0 2 2 1,growx");
 	    panelLogin.add(labelPassword, "cell 0 3,alignx left");
 	    panelLogin.add(fieldPassword, "cell 0 4 2 1,growx");
-	    panelLogin.add(checkRemember,"cell 0 5 2 1,alignx left");
-	    panelLogin.add(labelWarning, "cell 0 6 2 1,growx");
-	    panelLogin.add(buttonLogin, "cell 0 7 ,alignx left");
-	    panelLogin.add(buttonAbort, "cell 1 7,alignx right");
+	    panelLogin.add(labelWarning, "cell 0 5 2 1,growx");
+	    panelLogin.add(buttonLogin, "cell 0 6 ,alignx left");
+	    panelLogin.add(buttonAbort, "cell 1 6,alignx right");
 	    
 		buttonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

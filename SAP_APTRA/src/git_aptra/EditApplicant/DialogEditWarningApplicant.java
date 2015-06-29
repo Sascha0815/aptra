@@ -24,7 +24,7 @@ public class DialogEditWarningApplicant {
 		panelEditWarning.removeAll();
 		dialogEditWarning.setVisible(true);
 		dialogEditWarning.setSize(325, 100);
-		dialogEditWarning.setLocationRelativeTo(null);
+		dialogEditWarning.setLocationRelativeTo(Oberflaeche.frame);
 		dialogEditWarning.setResizable(false);
 		dialogEditWarning.setTitle("Fehler");
 		dialogEditWarning.add(panelEditWarning);

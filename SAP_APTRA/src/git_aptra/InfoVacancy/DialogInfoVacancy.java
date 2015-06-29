@@ -40,7 +40,7 @@ public class DialogInfoVacancy {
 	
 	public static void infoVacancy(){
 		dialogInfoVacancy.setSize(425, 250);
-		dialogInfoVacancy.setLocationRelativeTo(null);
+		dialogInfoVacancy.setLocationRelativeTo(Oberflaeche.frame);
 		dialogInfoVacancy.setResizable(false);
 		dialogInfoVacancy.setTitle("Stelleninformationen");
 		SwingUtilities.updateComponentTreeUI(dialogInfoVacancy);

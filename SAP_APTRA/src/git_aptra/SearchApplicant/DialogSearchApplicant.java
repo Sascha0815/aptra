@@ -13,7 +13,7 @@ public class DialogSearchApplicant {
 
 	public static void searchApplicant() {
 		dialogSearchApplicant.setSize(425, 450);
-		dialogSearchApplicant.setLocationRelativeTo(null);
+		dialogSearchApplicant.setLocationRelativeTo(Oberflaeche.frame);
 		dialogSearchApplicant.setResizable(false);
 		dialogSearchApplicant.setTitle("Bewerber suchen");
 		dialogSearchApplicant.add(tabSearch);

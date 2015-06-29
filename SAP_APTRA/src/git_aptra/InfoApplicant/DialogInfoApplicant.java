@@ -53,7 +53,7 @@ public class DialogInfoApplicant {
 
 	public static void infoApplicant() {
 		dialogInfoApplicant.setSize(425, 400);
-		dialogInfoApplicant.setLocationRelativeTo(null);
+		dialogInfoApplicant.setLocationRelativeTo(Oberflaeche.frame);
 		dialogInfoApplicant.setResizable(false);
 		dialogInfoApplicant.setTitle("Bewerberinformationen");
 		SwingUtilities.updateComponentTreeUI(dialogInfoApplicant);

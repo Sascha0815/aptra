@@ -89,6 +89,8 @@ public class DialogAddMeetingSpecification {
 	
 	public static void addDetailsMeeting() {
 		panelDialogMeetingSpecification.removeAll();
+		fieldLocation.setText("");
+		fieldType.setText("");
 		labelWarning.setForeground(Color.RED);
 		labelWarning.setVisible(false);
 		Calendar cal = Calendar.getInstance();

@@ -38,7 +38,7 @@ public class DialogAddDivision {
 	public static void addDivision() {
 		panelDialogAddDivision.removeAll();
 		fieldNotation.setText("");
-		dialogAddDivision.setLocationRelativeTo(null);
+		dialogAddDivision.setLocationRelativeTo(Oberflaeche.frame);
 		dialogAddDivision.setSize(350, 140);
 		dialogAddDivision.setResizable(false);
 		dialogAddDivision.setTitle("Neue Abteilung");

@@ -25,7 +25,7 @@ public class DialogWarningNoVacancy {
 		panelWarning.removeAll();
 		dialogWarning.setVisible(true);
 		dialogWarning.setSize(415, 120);
-		dialogWarning.setLocationRelativeTo(null);
+		dialogWarning.setLocationRelativeTo(Oberflaeche.frame);
 		dialogWarning.setResizable(false);
 		dialogWarning.setTitle("Fehler");
 		dialogWarning.add(panelWarning);
