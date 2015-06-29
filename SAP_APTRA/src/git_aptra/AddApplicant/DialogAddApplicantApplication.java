@@ -27,7 +27,7 @@ public class DialogAddApplicantApplication {
 	
 	private static JPanel panelDialogApplicantApplication = new JPanel();
 
-	private static String[] boxListEducationalAchievement = {"Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
+	private static String[] boxListEducationalAchievement = {"Bitte wählen", "Hauptschulabschluss", "Mittlere Reife", "Abitur", "Studium" };
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JComboBox boxEducationalAchievement = new JComboBox(boxListEducationalAchievement);
