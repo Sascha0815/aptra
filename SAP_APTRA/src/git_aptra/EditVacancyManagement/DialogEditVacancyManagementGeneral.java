@@ -62,6 +62,7 @@ public class DialogEditVacancyManagementGeneral {
 	private static String employee;
 	private static Calendar calNote = Calendar.getInstance();
 	private static int amount;
+	private static boolean first = true;
 	
 	public static void editVacancyManagementGeneral() {
 		panelDialogEditVacancyManagementMain.removeAll();
@@ -108,34 +109,38 @@ public class DialogEditVacancyManagementGeneral {
 		panelDialogEditVacancyManagementMain.add(buttonSave, "cell 1 13,alignx right");
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Übersicht",panelDialogEditVacancyManagementMain);
 		
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				String meeting = "Termin";
-				if (meeting.equals((String) boxStatus.getSelectedItem())) {
+		if (first==true) {
+			first=false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					String meeting = "Termin";
+					if (meeting.equals((String) boxStatus.getSelectedItem())) {
+						@SuppressWarnings("rawtypes")
+						Vector resultEmployee = InsertEmployeeDataIntoTable.insertEmployeeDataIntoTable();
+						DialogDetailsMeeting.modelDialogEmployeeMeeting.setDataVector(resultEmployee, DialogDetailsMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
+						DialogDetailsMeeting.modelDialogEmployeeMeeting.fireTableDataChanged();
+						DialogDetailsMeeting.detailsMeeting();
+					}
+					SaveDataEditVacancyManagement.save();
+					try {
+						InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}				
+					int id = DialogOpenVacancy.getID();				
 					@SuppressWarnings("rawtypes")
-					Vector resultEmployee = InsertEmployeeDataIntoTable.insertEmployeeDataIntoTable();
-					DialogDetailsMeeting.modelDialogEmployeeMeeting.setDataVector(resultEmployee, DialogDetailsMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
-					DialogDetailsMeeting.modelDialogEmployeeMeeting.fireTableDataChanged();
-					DialogDetailsMeeting.detailsMeeting();
+					java.util.Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
+					MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				}
-				SaveDataEditVacancyManagement.save();
-				try {
-					InsertEditVacancyManagementDataIntoDatabase.insertEditVacancyManagementData();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
-				int id = DialogOpenVacancy.getID();				
-				@SuppressWarnings("rawtypes")
-				java.util.Vector resultsVacancy = OpenVacancy.openVacancy(id, amount);						
-				MenuBarPanelVacancyManagement.modelVacancyManagement.setDataVector(resultsVacancy, MenuBarPanelVacancyManagement.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-			}
-		});
+			});
+			
+			buttonAbort.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					DialogEditVacancyManagement.dialogEditVacancyManagement.dispose();
+				}
+			});
+		}
 		
-		buttonAbort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				DialogEditVacancyManagement.dialogEditVacancyManagement.dispose();
-			}
-		});
 	}
 
 	public static void reset() {

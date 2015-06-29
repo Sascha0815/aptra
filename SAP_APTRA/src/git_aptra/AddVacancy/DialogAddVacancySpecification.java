@@ -61,6 +61,7 @@ public class DialogAddVacancySpecification {
 		Date date = cal.getTime();	
 		dateChooserDeadline.setDate(date);
 		ArrayList<String> division= new ArrayList<String>();
+		division.add("Bitte wählen");
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();

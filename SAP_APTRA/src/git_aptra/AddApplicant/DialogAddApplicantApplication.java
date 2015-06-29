@@ -74,7 +74,7 @@ public class DialogAddApplicantApplication {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("Select vacancyID, position from vacancy where vacancyStatus NOT like 'Abgeschlossen'");
-
+			id.add("Bitte wählen");
 			while (rs.next()) {
 				 id.add(rs.getString(1) + " - " + rs.getString(2) );	
 
