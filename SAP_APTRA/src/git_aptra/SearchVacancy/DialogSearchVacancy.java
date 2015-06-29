@@ -4,7 +4,7 @@ import git_aptra.Oberflaeche;
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
-
+//Dialog Suchfunktion Arbeitsstelle
 public class DialogSearchVacancy {
 	
 	public static JDialog dialogSearchVacancy = new JDialog(Oberflaeche.frame, true);

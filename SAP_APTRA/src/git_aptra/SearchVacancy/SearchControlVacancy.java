@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import git_aptra.MenuBar.MenuBarPanelVacancy;
-
+//Kontrolle der eingebeben Suchdaten
 public class SearchControlVacancy {
 	public static void searchVacancy() throws SQLException{
 		DialogSearchVacancyGeneral.getGeneral();

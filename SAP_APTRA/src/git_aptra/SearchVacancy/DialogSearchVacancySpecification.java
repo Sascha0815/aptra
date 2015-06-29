@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
-
+//Dialog Suchfunktion Arbeitsstelle 2.Seite
 public class DialogSearchVacancySpecification {
 
 	private static JPanel panelSearchVacancySpecification = new JPanel();

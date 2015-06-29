@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-
+//Suchfunktion Arbeitstellen
 public class SearchVacancy {
 
 	private static String vacancyID;

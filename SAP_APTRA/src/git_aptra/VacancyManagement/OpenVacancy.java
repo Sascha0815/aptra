@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Laden der vorhanden Stellen in den Management Suchdialog
 public class OpenVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector openVacancy(int id, int amount) {
