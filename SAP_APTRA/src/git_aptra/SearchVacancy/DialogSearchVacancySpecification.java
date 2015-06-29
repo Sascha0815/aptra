@@ -1,7 +1,5 @@
 package git_aptra.SearchVacancy;
 
-
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +15,8 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
-//Dialog Suchfunktion Arbeitsstelle 2.Seite
+
+//Reiter des Dialogs Suchfunktion Arbeitsstellen
 public class DialogSearchVacancySpecification {
 
 	private static JPanel panelSearchVacancySpecification = new JPanel();

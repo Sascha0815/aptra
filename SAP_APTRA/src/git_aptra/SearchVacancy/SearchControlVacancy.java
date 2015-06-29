@@ -4,7 +4,8 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import git_aptra.MenuBar.MenuBarPanelVacancy;
-//Steuerung der Suchabläufe
+
+//Steuerung Suchfunktion Arbeitsstellen
 public class SearchControlVacancy {
 	public static void searchVacancy() throws SQLException{
 		DialogSearchVacancyGeneral.getGeneral();

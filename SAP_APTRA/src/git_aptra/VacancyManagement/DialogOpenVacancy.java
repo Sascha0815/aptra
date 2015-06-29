@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
+
 //Dialog zum Öffnen einer Stelle im Management
 public class DialogOpenVacancy {
 	

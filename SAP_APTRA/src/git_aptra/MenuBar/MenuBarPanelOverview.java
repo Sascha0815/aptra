@@ -32,6 +32,7 @@ import javax.swing.border.MatteBorder;
 
 import net.miginfocom.swing.MigLayout;
 
+//Hauptpanel Übersicht
 public class MenuBarPanelOverview {
 	private static JPanel panelOverview = new JPanel();
 	

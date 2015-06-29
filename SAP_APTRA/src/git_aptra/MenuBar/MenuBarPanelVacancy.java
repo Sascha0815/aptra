@@ -1,6 +1,5 @@
 package git_aptra.MenuBar;
 
-
 import git_aptra.Oberflaeche;
 import git_aptra.AddVacancy.DialogAddVacancy;
 import git_aptra.AddVacancy.InsertVacancyDataIntoTable;
@@ -33,6 +32,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Hauptpanel Arbeitsstellen
 public class MenuBarPanelVacancy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final static Vector COLUMN_IDENTIFIERS_JOB = new Vector() {

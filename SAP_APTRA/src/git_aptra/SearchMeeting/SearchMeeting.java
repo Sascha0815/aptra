@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Suchfunktion Termine
 public class SearchMeeting {
 	private static String applicantID;
 	private static String firstName;

@@ -5,6 +5,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
+//Basis des Dialogs Suchfunktion Termine
 public class DialogSearchMeeting {
 	public static JTabbedPane tabSearch = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogSearchMeeting = new JDialog(Oberflaeche.frame, true);

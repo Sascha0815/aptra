@@ -24,6 +24,7 @@ import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs Suchfunktion Termine
 public class DialogSearchMeetingSpecification {
 	private static JPanel panelDialogMeetingSpecification = new JPanel();
 	

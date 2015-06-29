@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs Suchfunktion Bewerber
 public class DialogSearchApplicantApplication {
 	public static JPanel panelDialogSearchApplicantApplication = new JPanel();
 	

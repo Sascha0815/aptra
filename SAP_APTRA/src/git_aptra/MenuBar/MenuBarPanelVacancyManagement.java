@@ -1,6 +1,5 @@
 package git_aptra.MenuBar;
 
-
 import git_aptra.Oberflaeche;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
@@ -29,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Hauptpanel Stellenmanagement
 public class MenuBarPanelVacancyManagement {
 	
 	private static JScrollPane scrollPaneVacancyManagement = new JScrollPane();

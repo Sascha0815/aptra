@@ -29,6 +29,7 @@ import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+//Menü Leiste Schnellzugriff
 public class MenuBar {
 	private static JMenuBar menuBar = new JMenuBar();
 	private static JMenu menuNew = new JMenu();

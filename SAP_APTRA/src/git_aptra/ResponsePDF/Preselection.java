@@ -12,8 +12,7 @@ import java.util.GregorianCalendar;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 
-
-
+//Vorlage für PDF-Rückmeldung
 public class Preselection {
 	
 	static GregorianCalendar now = new GregorianCalendar(); 

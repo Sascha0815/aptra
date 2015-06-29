@@ -5,6 +5,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
+//Basis des Dialogs Suchfunktion Bewerber
 public class DialogSearchApplicant {
 
 	public static JTabbedPane tabSearch = new JTabbedPane(JTabbedPane.TOP,

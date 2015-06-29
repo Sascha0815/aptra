@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
+//Steuerung Suchfunktion Bewerber
 public class SearchControlApplicant {
 	public static void search() throws SQLException {
 		DialogSearchApplicantGeneral.getGeneral();

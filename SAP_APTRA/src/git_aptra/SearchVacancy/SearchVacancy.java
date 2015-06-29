@@ -1,7 +1,5 @@
 package git_aptra.SearchVacancy;
 
-
-
 import git_aptra.Login.Login;
 
 import java.sql.Connection;
@@ -9,7 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-//Suchfunktion Arbeitstellen
+
+//Suchfunktion Arbeitsstellen
 public class SearchVacancy {
 
 	private static String vacancyID;

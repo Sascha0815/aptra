@@ -12,7 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
-//Dialog Suchfunktion Arbeitsstelle 1.Tab
+
+//Reiter des Dialogs Suchfunktion Arbeitsstellen
 public class DialogSearchVacancyGeneral {
 
 	private static JPanel panelSearchDialogVacancyMain = new JPanel();
