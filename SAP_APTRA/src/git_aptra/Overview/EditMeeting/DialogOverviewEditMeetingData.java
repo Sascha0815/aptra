@@ -28,15 +28,23 @@ public class DialogOverviewEditMeetingData {
 	
 	private static JPanel paneldialogLoadMeetingData = new JPanel();
 	
-	private static JLabel labelInstruction = new JLabel("Meeting auswählen");
+	private static JLabel labelInstruction = new JLabel("Termin auswählen");
 	private static JLabel labelMeetingID = new JLabel("Termin-ID:");
 	private static JLabel labelTypMeeting = new JLabel("Art des Termins:");
+	private static JLabel labelApplicantName = new JLabel("Name des Bewerbers:");
+	private static JLabel labelApplicantFirstName = new JLabel("Vorname des Bewerbers:");
+	private static JLabel labelVacancyID = new JLabel("Arbeitsstellen-ID:");
+	private static JLabel labelDivisionID = new JLabel("Abteilung-ID:");
 	private static JLabel labelLocation = new JLabel("Ort:");
 	private static JLabel labelDate = new JLabel("Datum:");
 	private static JLabel labelTime = new JLabel("Uhrzeit:");
 	
 	private static JTextField fieldMeetingID = new JTextField();
 	private static JTextField fieldTypMeeting = new JTextField();
+	private static JTextField fieldApplicantName = new JTextField();
+	private static JTextField fieldApplicantFirstName = new JTextField();
+	private static JTextField fieldVacancyID = new JTextField();
+	private static JTextField fieldDivisionID = new JTextField();
 	private static JTextField fieldLocation = new JTextField();
 	private static JTextField fieldDate = new JTextField();
 	private static JTextField fieldTime = new JTextField();
@@ -75,6 +83,9 @@ public class DialogOverviewEditMeetingData {
 	private static String location;
 	private static String time;
 	private static String date;
+	private static String firstName;
+	private static String name;
+	private static String vacancyID;
 	@SuppressWarnings("rawtypes")
 	private static Vector resultsLoadMeetingData = new Vector();
 	@SuppressWarnings({ "rawtypes",})
@@ -91,7 +102,7 @@ public class DialogOverviewEditMeetingData {
 		fieldDate.setText("");
 		fieldTime.setText("");
 		labelInstruction.setFont(fontHeadline);
-		dialogLoadMeetingData.setSize(425, 450);
+		dialogLoadMeetingData.setSize(425, 600);
 		dialogLoadMeetingData.setLocationRelativeTo(Oberflaeche.frame);
 		modeldialogLoadMeetingData.setColumnIdentifiers(COLUMN_IDENTIFIERS_OVERWIEV_MEETING_INFO);
 		tabledialogLoadMeetingData.getTableHeader().setReorderingAllowed(false);
@@ -105,22 +116,30 @@ public class DialogOverviewEditMeetingData {
 		resultsLoadMeetingDataAll = LoadMeetingData.insertLoadMeetingDataIntoTable();
 		modeldialogLoadMeetingData.setDataVector(resultsLoadMeetingDataAll,COLUMN_IDENTIFIERS_OVERWIEV_MEETING_INFO);
 		modeldialogLoadMeetingData.fireTableDataChanged();
-		paneldialogLoadMeetingData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][]5[]5[]5[]"));
+		paneldialogLoadMeetingData.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][][][][][][][][][][][][][]push[]"));
 		paneldialogLoadMeetingData.add(labelInstruction,"cell 0 0 2 1,alignx center");
 		paneldialogLoadMeetingData.add(labelMeetingID,"cell 0 2,alignx left");
 		paneldialogLoadMeetingData.add(fieldMeetingID,"cell 0 3 2 1,growx");
 		paneldialogLoadMeetingData.add(labelTypMeeting,"cell 0 4,alignx left");
 		paneldialogLoadMeetingData.add(fieldTypMeeting,"cell 0 5 2 1,growx");
-		paneldialogLoadMeetingData.add(labelLocation,"cell 0 6,alignx left");
-		paneldialogLoadMeetingData.add(fieldLocation,"cell 0 7 2 1,growx");
-		paneldialogLoadMeetingData.add(labelDate,"cell 0 8 2 1,growx");
-		paneldialogLoadMeetingData.add(fieldDate,"cell 0 9 2 1,growx");
-		paneldialogLoadMeetingData.add(labelTime,"cell 0 10 2 1,growx");
-		paneldialogLoadMeetingData.add(fieldTime,"cell 0 11 2 1,growx");	
-		paneldialogLoadMeetingData.add(buttonSearch, "cell 1 12, alignx right");
-		paneldialogLoadMeetingData.add(scrollPaneLoadMeetingData, "cell 0 13 2 1,growx");
-		paneldialogLoadMeetingData.add(buttonAbort,"cell 0 14,alignx left");
-		paneldialogLoadMeetingData.add(buttonSave,"cell 1 14,alignx right");
+		paneldialogLoadMeetingData.add(labelApplicantName,"cell 0 6,alignx left");
+		paneldialogLoadMeetingData.add(fieldApplicantName,"cell 0 7 2 1,growx");
+		paneldialogLoadMeetingData.add(labelApplicantFirstName,"cell 0 8,alignx left");
+		paneldialogLoadMeetingData.add(fieldApplicantFirstName,"cell 0 9 2 1,growx");
+		paneldialogLoadMeetingData.add(labelVacancyID,"cell 0 10,alignx left");
+		paneldialogLoadMeetingData.add(fieldVacancyID,"cell 0 11 2 1,growx");
+		paneldialogLoadMeetingData.add(labelDivisionID,"cell 0 12 2 1,growx");
+		paneldialogLoadMeetingData.add(fieldDivisionID,"cell 0 13 2 1,growx");
+		paneldialogLoadMeetingData.add(labelLocation,"cell 0 14 2 1,growx");
+		paneldialogLoadMeetingData.add(fieldLocation,"cell 0 15 2 1,growx");
+		paneldialogLoadMeetingData.add(labelDate,"cell 0 16 2 1,growx");
+		paneldialogLoadMeetingData.add(fieldDate,"cell 0 17 2 1,growx");
+		paneldialogLoadMeetingData.add(labelTime,"cell 0 18 2 1,growx");
+		paneldialogLoadMeetingData.add(fieldTime,"cell 0 19 2 1,growx");
+		paneldialogLoadMeetingData.add(buttonSearch, "cell 1 20, alignx right");
+		paneldialogLoadMeetingData.add(scrollPaneLoadMeetingData, "cell 0 21 2 1,growx");
+		paneldialogLoadMeetingData.add(buttonAbort,"cell 0 22,alignx left");
+		paneldialogLoadMeetingData.add(buttonSave,"cell 1 22,alignx right");
 
 		
 		buttonSearch.addActionListener(new ActionListener() {
@@ -176,6 +195,18 @@ public class DialogOverviewEditMeetingData {
 			date = fieldDate.getText();
 		} catch (Exception e) {
 		}
+		try {
+			firstName = fieldApplicantFirstName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			name = fieldApplicantName.getText();
+		} catch (Exception e) {
+		}
+		try {
+			vacancyID = fieldVacancyID.getText();
+		} catch (Exception e) {
+		}
 	}
 	
 	public static String getMeetingID() {
@@ -197,6 +228,17 @@ public class DialogOverviewEditMeetingData {
 	public static String getDate() {
 		return date;
 	}
+	
+	public static String getFirstName() {
+		return firstName;
+	}
+	
+	public static String getName() {
+		return name;
+	}
 
+	public static String getVacancyID() {
+		return vacancyID;
+	}
 }
 

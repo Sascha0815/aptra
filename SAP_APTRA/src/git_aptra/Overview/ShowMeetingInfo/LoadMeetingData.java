@@ -1,6 +1,7 @@
 package git_aptra.Overview.ShowMeetingInfo;
 
 import git_aptra.Login.Login;
+import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,103 +25,103 @@ public class LoadMeetingData {
 		Connection dbConnection = null;
 		boolean first = true;
 		Vector resultsLoadMeetingData = new Vector();
-		if (!(DialogLoadMeetingData.getMeetingID().equals(""))) {
+		if (!(DialogOverviewEditMeetingData.getMeetingID().equals(""))) {
 			if (first == true) {
 				meetingID = "where meetingID = '"
-						+ DialogLoadMeetingData.getMeetingID() + "'";
+						+ DialogOverviewEditMeetingData.getMeetingID() + "'";
 				first = false;
 			} else {
 				meetingID = " AND meetingID = '"
-						+ DialogLoadMeetingData.getMeetingID() + "'";
+						+ DialogOverviewEditMeetingData.getMeetingID() + "'";
 			}
 		} else {
 			meetingID = "";
 		}
 		
-		if (!DialogLoadMeetingData.getTypeMeeting().equals("")) {
+		if (!DialogOverviewEditMeetingData.getTypeMeeting().equals("")) {
 			if (first == true) {
 				typeMeeting = "where typeMeeting = '"
-						+ DialogLoadMeetingData.getTypeMeeting() + "'";
+						+ DialogOverviewEditMeetingData.getTypeMeeting() + "'";
 				first = false;
 			} else {
 				typeMeeting = " AND typeMeeting = '"
-						+ DialogLoadMeetingData.getTypeMeeting() + "'";
+						+ DialogOverviewEditMeetingData.getTypeMeeting() + "'";
 			}
 		} else {
 			typeMeeting = "";
 		}
 
-		if (!DialogLoadMeetingData.getLocation().equals("")) {
+		if (!DialogOverviewEditMeetingData.getLocation().equals("")) {
 			if (first == true) {
 				location = "where location = '"
-						+ DialogLoadMeetingData.getLocation() + "'";
+						+ DialogOverviewEditMeetingData.getLocation() + "'";
 				first = false;
 			} else {
 				location = " AND location = '"
-						+ DialogLoadMeetingData.getLocation() + "'";
+						+ DialogOverviewEditMeetingData.getLocation() + "'";
 			}
 		} else {
 			location = "";
 		}
 	
-		if (!DialogLoadMeetingData.getTime().equals("")) {
+		if (!DialogOverviewEditMeetingData.getTime().equals("")) {
 			if (first == true) {
 				time = "where time = '"
-						+ DialogLoadMeetingData.getTime() + "'";
+						+ DialogOverviewEditMeetingData.getTime() + "'";
 				first = false;
 			} else {
 				time = " AND time = '"
-						+ DialogLoadMeetingData.getTime() + "'";
+						+ DialogOverviewEditMeetingData.getTime() + "'";
 			}
 		} else {
 			time = "";
 		}
-		if (!DialogLoadMeetingData.getDate().equals("")) {
+		if (!DialogOverviewEditMeetingData.getDate().equals("")) {
 			if (first == true) {
 				date = "where date = '"
-						+ DialogLoadMeetingData.getDate() + "'";
+						+ DialogOverviewEditMeetingData.getDate() + "'";
 				first = false;
 			} else {
 				date = " AND date = '"
-						+ DialogLoadMeetingData.getDate() + "'";
+						+ DialogOverviewEditMeetingData.getDate() + "'";
 			}
 		} else {
 			date = "";
 		}
 		
-		if (!DialogLoadMeetingData.getFirstName().equals("")) {
+		if (!DialogOverviewEditMeetingData.getFirstName().equals("")) {
 			if (first == true) {
 				firstName = "where firstName = '"
-						+ DialogLoadMeetingData.getFirstName() + "'";
+						+ DialogOverviewEditMeetingData.getFirstName() + "'";
 				first = false;
 			} else {
 				firstName = " AND firstName = '"
-						+ DialogLoadMeetingData.getFirstName() + "'";
+						+ DialogOverviewEditMeetingData.getFirstName() + "'";
 			}
 		} else {
 			firstName = "";
 		}
 	
-		if (!DialogLoadMeetingData.getName().equals("")) {
+		if (!DialogOverviewEditMeetingData.getName().equals("")) {
 			if (first == true) {
 				name = "where name = '"
-						+ DialogLoadMeetingData.getName() + "'";
+						+ DialogOverviewEditMeetingData.getName() + "'";
 				first = false;
 			} else {
 				name = " AND name = '"
-						+ DialogLoadMeetingData.getName() + "'";
+						+ DialogOverviewEditMeetingData.getName() + "'";
 			}
 		} else {
 			name = "";
 		}
-		if (!DialogLoadMeetingData.getVacancyID().equals("")) {
+		if (!DialogOverviewEditMeetingData.getVacancyID().equals("")) {
 			if (first == true) {
 				vacancyID = "where vacancyID = '"
-						+ DialogLoadMeetingData.getVacancyID() + "'";
+						+ DialogOverviewEditMeetingData.getVacancyID() + "'";
 				first = false;
 			} else {
 				vacancyID = " AND vacancyID = '"
-						+ DialogLoadMeetingData.getVacancyID() + "'";
+						+ DialogOverviewEditMeetingData.getVacancyID() + "'";
 			}
 		} else {
 			vacancyID = "";

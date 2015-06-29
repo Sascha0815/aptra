@@ -1,7 +1,7 @@
 package git_aptra.Overview.EditMeeting;
 
 import git_aptra.Login.Login;
-import git_aptra.Overview.EditMeeting.DialogOverviewEditMeetingData;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,6 +16,9 @@ public class LoadMeetingData {
 	private static String location;
 	private static String time;
 	private static String date;
+	private static String firstName;
+	private static String name;
+	private static String vacancyID;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector loadMeetingData() throws SQLException {
@@ -86,12 +89,50 @@ public class LoadMeetingData {
 			date = "";
 		}
 		
+		if (!DialogOverviewEditMeetingData.getFirstName().equals("")) {
+			if (first == true) {
+				firstName = "where firstName = '"
+						+ DialogOverviewEditMeetingData.getFirstName() + "'";
+				first = false;
+			} else {
+				firstName = " AND firstName = '"
+						+ DialogOverviewEditMeetingData.getFirstName() + "'";
+			}
+		} else {
+			firstName = "";
+		}
+	
+		if (!DialogOverviewEditMeetingData.getName().equals("")) {
+			if (first == true) {
+				name = "where name = '"
+						+ DialogOverviewEditMeetingData.getName() + "'";
+				first = false;
+			} else {
+				name = " AND name = '"
+						+ DialogOverviewEditMeetingData.getName() + "'";
+			}
+		} else {
+			name = "";
+		}
+		if (!DialogOverviewEditMeetingData.getVacancyID().equals("")) {
+			if (first == true) {
+				vacancyID = "where vacancyID = '"
+						+ DialogOverviewEditMeetingData.getVacancyID() + "'";
+				first = false;
+			} else {
+				vacancyID = " AND vacancyID = '"
+						+ DialogOverviewEditMeetingData.getVacancyID() + "'";
+			}
+		} else {
+			vacancyID = "";
+		}
+		
 		try {
 			dbConnection = Login.getConnection();
 
 			Statement stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from meeting " + meetingID + typeMeeting
-					+ location + time + date);
+					+ location + time + date + firstName + name + vacancyID);
 		
 			while (rs.next()) {
 				Vector meeting = new Vector();
@@ -100,6 +141,9 @@ public class LoadMeetingData {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(10));
 				meeting.add(rs.getString(9));
+				meeting.add(rs.getString(6));
+				meeting.add(rs.getString(5));
+				meeting.add(rs.getString(11));
 				resultsLoadMeetingData.add(meeting);
 			}
 
@@ -126,6 +170,9 @@ public class LoadMeetingData {
 				meeting.add(rs.getString(8));
 				meeting.add(rs.getString(10));
 				meeting.add(rs.getString(9));
+				meeting.add(rs.getString(6));
+				meeting.add(rs.getString(5));
+				meeting.add(rs.getString(11));
 				resultsLoadMeetingDataAll.add(meeting);
 			}
 
