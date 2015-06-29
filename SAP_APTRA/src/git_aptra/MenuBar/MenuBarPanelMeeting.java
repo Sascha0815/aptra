@@ -174,7 +174,8 @@ public class MenuBarPanelMeeting {
 						DialogEditWarningApplicant.tooManySelected();
 				} else {
 				EditMeeting.getSelectedRow(Integer.parseInt((String)tableEmployeeMeeting.getValueAt(tableEmployeeMeeting.getSelectedRow(), 2)));	
-				DialogEditMeeting.editMeeting();		
+				DialogEditMeeting.editMeeting();	
+				OpenMeeting.insertInfo();	
 				}
 			}
 		});
@@ -200,6 +201,7 @@ public class MenuBarPanelMeeting {
 			public void actionPerformed(ActionEvent evt) {
 				try {
 					DeleteMeeting.deleteMeeting();
+					OpenMeeting.insertInfo();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
