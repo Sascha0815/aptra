@@ -9,6 +9,7 @@ import git_aptra.EditMeeting.EditMeeting;
 import git_aptra.InfoMeeting.DialogInfoMeeting;
 import git_aptra.InfoMeeting.InfoMeeting;
 import git_aptra.Meeting.InsertMeetingDataIntoTable;
+import git_aptra.Meeting.OpenMeeting;
 import git_aptra.SearchMeeting.DialogSearchMeeting;
 
 import java.awt.Color;
@@ -128,6 +129,7 @@ public class MenuBarPanelMeeting {
 		buttonRefreshMeeting.addActionListener(new ActionListener() {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent evt) {
+				OpenMeeting.insertInfo();
 				Vector results =InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
 				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();

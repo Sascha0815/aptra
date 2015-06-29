@@ -108,8 +108,7 @@ public class DialogDetailsMeeting {
 		fieldLocation.setFont(fontText);
 		fieldType.setFont(fontText);
 		timeChooser.setFont(fontText);
-		dialogMeeting.setSize(430, 520);
-		dialogMeeting.setLocationRelativeTo(null);
+		dialogMeeting.setSize(450, 520);
 		dialogMeeting.setResizable(false);
 		dialogMeeting.setTitle("Meeting Details");
 		modelDialogEmployeeMeeting.setColumnIdentifiers(COLUMN_IDENTIFIERS_VACANCYMANAGEMENT_MEETING);
@@ -178,6 +177,7 @@ public class DialogDetailsMeeting {
 				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
 				MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 				dialogMeeting.dispose();
+				OpenMeeting.insertInfo();
 				}
 				}
 			});
@@ -188,7 +188,8 @@ public class DialogDetailsMeeting {
 				}
 			});
 		}
-	
+
+		dialogMeeting.setLocationRelativeTo(Oberflaeche.frame);
 		dialogMeeting.add(panelMeeting);
 		dialogMeeting.setVisible(true);
 

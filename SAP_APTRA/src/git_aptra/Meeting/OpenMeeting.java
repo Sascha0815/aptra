@@ -25,7 +25,7 @@ public class OpenMeeting {
 				time = rs.getString(3);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		String count = Integer.toString(MenuBarPanelMeeting.tableEmployeeMeeting.getRowCount());
 		MenuBarPanelMeeting.labelMeetingCountContent.setText(count);

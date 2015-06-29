@@ -37,7 +37,7 @@ public class DialogEditVacancyManagementMatrix {
 		DialogEditVacancyManagement.tabEditVacancyManagment.addTab("Bewertung",
 				panelMatrix);
 		panelMatrix.setLayout(new MigLayout("", "[]","[]5%[]"));
-		panelMatrix.add(scrollpaneMatrix, "cell 0 0, w 95%!, h 85%!");
+		panelMatrix.add(scrollpaneMatrix, "cell 0 0, w 90%!, h 85%!");
 		scrollpaneMatrix.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollpaneMatrix.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		try {

@@ -1,6 +1,7 @@
 package git_aptra.AddMeeting;
 
 import git_aptra.AddEmployee.InsertEmployeeDataIntoTable;
+import git_aptra.Meeting.OpenMeeting;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -17,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 
 
 
@@ -150,6 +152,7 @@ public class DialogAddMeetingSpecification {
 						labelWarning.setVisible(true);
 					} else{
 						SaveDataAddMeeting.save();
+						OpenMeeting.insertInfo();
 					}
 				}
 			});
