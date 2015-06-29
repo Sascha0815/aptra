@@ -31,7 +31,7 @@ public class EditApplicationData {
 					.prepareStatement("UPDATE applicant SET name = ?, firstName = ?, "
 							+ "street = ?, houseNr = ?,  postalCode= ?, city = ?, "
 							+ "telefonHome = ?, telefonMobil = ?, email = ?, "
-							+ "vacancy = ?, date = ?, educationalAchievement = ?, sex = ?"
+							+ "date = ?, educationalAchievement = ?, sex = ?"
 							+ "WHERE applicantID = ?");
 
 			preparedStatement.setString(1, DialogEditApplicantGeneral.getName());
@@ -43,11 +43,10 @@ public class EditApplicationData {
 			preparedStatement.setString(7,DialogEditApplicantContact.getTelefonHome());
 			preparedStatement.setString(8,DialogEditApplicantContact.getTelefonMobil());
 			preparedStatement.setString(9,DialogEditApplicantContact.getEmail());
-			preparedStatement.setString(10,DialogEditApplicantApplication.getVacancy());
-			preparedStatement.setDate(11, new java.sql.Date(DialogAddApplicantContact.getCal().getTimeInMillis()));
-			preparedStatement.setString(12,DialogEditApplicantApplication.getEducationalAchievement());
-			preparedStatement.setString(13, DialogEditApplicantGeneral.getSex());
-			preparedStatement.setInt(14, id);
+			preparedStatement.setDate(10, new java.sql.Date(DialogAddApplicantContact.getCal().getTimeInMillis()));
+			preparedStatement.setString(11,DialogEditApplicantApplication.getEducationalAchievement());
+			preparedStatement.setString(12, DialogEditApplicantGeneral.getSex());
+			preparedStatement.setInt(13, id);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		

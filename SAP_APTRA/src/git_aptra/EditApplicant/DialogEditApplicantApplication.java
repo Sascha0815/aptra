@@ -35,14 +35,11 @@ public class DialogEditApplicantApplication {
 	private static JDateChooser dateChooserApplyDate = new JDateChooser();
 	
 	private static JLabel labelApplyDate = new JLabel("Bewerbungseingang:");
-	private static JLabel labelVacancyID = new JLabel("Stellenidentifikationsnummer:");
 	private static JLabel labelEducationalAchievement = new JLabel("Höchster Bildungsabschluss:");
 	private static JLabel labelInstruction = new JLabel("Ändern Sie Daten des Bewerbers");
 	@SuppressWarnings("unused")
 	private static JLabel labelDivision = new JLabel("Abteilung");
 
-	@SuppressWarnings({ "rawtypes",  })
-	private static JComboBox boxID = new JComboBox();
 	
 	private static JButton buttonContinue = new JButton("Weiter");
 	private static JButton buttonBack = new JButton("Zurück");
@@ -63,7 +60,6 @@ public class DialogEditApplicantApplication {
 	@SuppressWarnings("unused")
 	private static String[] divisionData;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void editApplicantApplication() {
 		panelDialogEditApplicantApplication.removeAll();
 		Calendar cal = Calendar.getInstance();
@@ -88,25 +84,20 @@ public class DialogEditApplicantApplication {
 		}
 		VID = new String[id.size()];
 		VID = id.toArray(VID);	
-		boxID = new JComboBox(VID);
 		boxEducationalAchievement.setSelectedIndex(0);
 		labelInstruction.setFont(fontHeadline);
 		labelApplyDate.setFont(fontSubHeadline);
-		labelVacancyID.setFont(fontSubHeadline);
 		labelEducationalAchievement.setFont(fontSubHeadline);
 		dateChooserApplyDate.setDate(EditApplicant.getDataApplyDate());
 		boxEducationalAchievement.setSelectedItem(EditApplicant.getDataEducationalAchievement());
-		boxID.setSelectedItem(EditApplicant.getDataVacancy());
-		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][][]push[]"));
+		panelDialogEditApplicantApplication.setLayout(new MigLayout("", "[grow,left][grow,right]", "[][][][][][][][]push[]"));
 		panelDialogEditApplicantApplication.add(labelInstruction, "cell 0 0 2 1,alignx center");
 	    panelDialogEditApplicantApplication.add(labelApplyDate, "cell 0 1,alignx left");
 	    panelDialogEditApplicantApplication.add(dateChooserApplyDate, "cell 0 2 2, growx");
-	    panelDialogEditApplicantApplication.add(labelVacancyID, "cell 0 3,alignx left");
-	    panelDialogEditApplicantApplication.add(boxID, "cell 0 4 2, growx");
-	    panelDialogEditApplicantApplication.add(labelEducationalAchievement, "cell 0 7,alignx left");
-	    panelDialogEditApplicantApplication.add(boxEducationalAchievement, "cell 0 8 2, growx");
-	    panelDialogEditApplicantApplication.add(buttonBack,"cell 0 9,alignx left");
-	    panelDialogEditApplicantApplication.add(buttonContinue,"cell 1 9,alignx right");
+	    panelDialogEditApplicantApplication.add(labelEducationalAchievement, "cell 0 3,alignx left");
+	    panelDialogEditApplicantApplication.add(boxEducationalAchievement, "cell 0 4 2, growx");
+	    panelDialogEditApplicantApplication.add(buttonBack,"cell 0 8,alignx left");
+	    panelDialogEditApplicantApplication.add(buttonContinue,"cell 1 8,alignx right");
 		DialogEditApplicant.tabEdit.addTab("Bewerbung", panelDialogEditApplicantApplication);
 		
 		buttonContinue.addActionListener(new ActionListener() {
@@ -123,13 +114,6 @@ public class DialogEditApplicantApplication {
 	}
 
 	public static void getApplication() {
-		try {
-			String IDSplit = ((String) boxID.getSelectedItem());
-			String[] IDParts = IDSplit.split(" - ");
-			vacancyID = Integer.parseInt(IDParts[0]);
-		} catch (Exception e) {
-			vacancyID = 0;
-		}
 		try {
 			Connection con =  Login.getConnection();
 			Statement stmt = con.createStatement();
@@ -156,12 +140,6 @@ public class DialogEditApplicantApplication {
 			educationalAchievement = String.valueOf(boxEducationalAchievement.getSelectedItem());
 		} catch (Exception e) {
 		}
-		try {
-			String divisionSplit = ((String) boxID.getSelectedItem());
-			String[] divisionParts = divisionSplit.split(" - ");
-			division = divisionParts[1];
-		} catch (Exception e) {
-		}
 	}
 	
 	public static Calendar getCalApply() {
@@ -176,7 +154,5 @@ public class DialogEditApplicantApplication {
 		return vacancy;
 	}
 
-	public static int getVacancyID() {
-		return vacancyID;
-	}
+	
 }
