@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//Speichert die Daten der neuen Mitarbieter
 public class InsertEmployeeDataIntoDatabase {
 	public static void insertEmployeeData(String name, String firstName, String loginName, String password, int entitlement, int divisionID) throws SQLException {
 		Connection dbConnection = null;

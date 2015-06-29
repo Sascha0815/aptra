@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Warnungsdialog
 public class DialogWarningNoVacancy {
 	private static JDialog dialogWarning = new JDialog(Oberflaeche.frame);
 	private static JPanel panelWarning = new JPanel();

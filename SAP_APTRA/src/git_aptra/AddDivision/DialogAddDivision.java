@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog zum erstellen neuer Abteilungen
 public class DialogAddDivision {
 	public static JDialog dialogAddDivision = new JDialog(Oberflaeche.frame, true);
 	

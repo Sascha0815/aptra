@@ -16,10 +16,8 @@ import git_aptra.MenuBar.MenuBarPanelOverview;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
 import git_aptra.MenuBar.MenuBarPanelVacancy;
 
+//Erstellt den Hauptframe
 public class Oberflaeche extends JFrame {
-
-	//SWING-ELEMENTE:
-
 	private static final long serialVersionUID = 1L;
 
 	public static JFrame frame = new JFrame();
@@ -27,7 +25,6 @@ public class Oberflaeche extends JFrame {
 	public static JTabbedPane tabBar = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
 
 	public Oberflaeche() {
-		// Frame anlegen
 		frame.setSize(1200, 600);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
@@ -44,8 +41,6 @@ public class Oberflaeche extends JFrame {
 			e.printStackTrace();
 		}
 		
-		
-
 		//Panels der MenuBar hinzufügen
 		MenuBar.addMenuBar();
 		MenuBarPanelOverview.addPanelOverview();

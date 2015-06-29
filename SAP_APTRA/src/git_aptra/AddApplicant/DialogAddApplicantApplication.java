@@ -23,6 +23,7 @@ import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Bewerber
 public class DialogAddApplicantApplication {
 	
 	private static JPanel panelDialogApplicantApplication = new JPanel();

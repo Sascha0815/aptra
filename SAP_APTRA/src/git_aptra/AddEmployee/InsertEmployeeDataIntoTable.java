@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Vorbereitung für geplante Funktionen
 public class InsertEmployeeDataIntoTable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertEmployeeDataIntoTable() {

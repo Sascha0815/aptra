@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Lädt Daten für den Bewerberpool
 public class InsertApplicantDataIntoTable {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Vector insertApplicantDataIntoTable() {

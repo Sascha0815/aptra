@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Meetings
 public class DialogAddMeetingGeneral {
 	private static JPanel panelDialogMeetingMain = new JPanel();
 	

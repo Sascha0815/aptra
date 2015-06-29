@@ -1,11 +1,11 @@
 package git_aptra.AddApplicant;
 
-
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 
 import java.sql.SQLException;
 import java.util.Vector;
 
+//Steuerung für den Ablauf des Speicherns
 public class SaveDataAddApplicant {
 	public static void save() {
 			DialogAddApplicantGeneral.getGeneral();

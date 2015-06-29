@@ -6,6 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
+//Basis des Dialogs für neue Bewerber
 public class DialogAddApplicant {
 	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewApplicant = new JDialog(Oberflaeche.frame, true);

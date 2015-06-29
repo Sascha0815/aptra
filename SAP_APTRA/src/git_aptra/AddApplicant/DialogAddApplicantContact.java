@@ -1,8 +1,7 @@
 package git_aptra.AddApplicant;
 
-
-
 import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -16,6 +15,8 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
+
+//Reiter des Dialogs für neue Bewerber
 public class DialogAddApplicantContact {
 	
 	private static JPanel panelDialogApplicantContact = new JPanel();

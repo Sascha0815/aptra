@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog "Über"
 public class DialogAbout {
-
 	private static JDialog dialogAbout = new JDialog(Oberflaeche.frame, true);
 	
 	private static JPanel panelAbout = new JPanel();

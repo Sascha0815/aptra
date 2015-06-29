@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//Speichert neue Abteilungen
 public class InsertDivisionDataIntoDatabase {
 	public static void insertDivisionData(String notation) throws SQLException {
 		Connection dbConnection = null;

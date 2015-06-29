@@ -20,6 +20,7 @@ import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog zum Anlegen neuer Mitarbeiter
 public class DialogAddEmployee {
 	public static JDialog dialogNewEmployee = new JDialog(Oberflaeche.frame, true);
 	

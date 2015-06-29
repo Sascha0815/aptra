@@ -5,6 +5,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import git_aptra.Login.DialogLogin;
 
+//Startklasse
 public class Steuerung {
 	//METHODE: main
 	public static void main(String[] args) {	

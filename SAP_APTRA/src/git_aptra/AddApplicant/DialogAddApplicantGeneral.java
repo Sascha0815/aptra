@@ -11,6 +11,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Bewerber
 public class DialogAddApplicantGeneral {
 	
 	private static JPanel panelDialogApplicantMain = new JPanel();

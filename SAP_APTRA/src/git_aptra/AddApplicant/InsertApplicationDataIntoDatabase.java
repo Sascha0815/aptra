@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Speichert den neuen Bewerber in der Datenbank
 public class InsertApplicationDataIntoDatabase {
 	private static int id = 0;
 	public static void insertApplicantData() throws SQLException {
