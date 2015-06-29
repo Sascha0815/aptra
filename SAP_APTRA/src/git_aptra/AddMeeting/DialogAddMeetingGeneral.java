@@ -3,6 +3,7 @@ package git_aptra.AddMeeting;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,8 +32,17 @@ public class DialogAddMeetingGeneral {
 	private static Font fontSubHeadline = new Font("Calibri", Font.BOLD, 14);
 	private static Font fontText = new Font("Calibri", Font.PLAIN, 14);
 	private static boolean first = true;
+	
+	
+	
 	public static void addMeetingGeneral(){
-		panelDialogMeetingMain.removeAll();
+		panelDialogMeetingMain.removeAll();	
+		labelApplicantIDContent.setText("");
+		labelNameContent.setText("");
+		labelFirstNameContent.setText("");
+		labelVacancyIDContent.setText("");
+		labelPositionContent.setText("");
+		
 		labelInstruction.setFont(fontHeadline);
 		labelApplicantID.setFont(fontSubHeadline);
 		labelName.setFont(fontSubHeadline);
