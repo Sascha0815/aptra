@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//Löscht Stellen
 public class DeleteVacancy {
 	public static void deleteVacancy() throws SQLException {
 		Connection dbConnection = null;

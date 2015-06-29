@@ -17,6 +17,7 @@ import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs zum Bearbeiten von Bewerbern
 public class DialogEditApplicantContact {
 	
 	private static JPanel panelDialogEditApplicantContact = new JPanel();

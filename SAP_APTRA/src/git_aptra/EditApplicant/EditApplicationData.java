@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//Speichert die Änderungen
 public class EditApplicationData {
 	public static void editApplicantData() throws SQLException {
 		Connection dbConnection = null;

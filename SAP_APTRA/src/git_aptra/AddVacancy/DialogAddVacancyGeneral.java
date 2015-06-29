@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Stellen
 public class DialogAddVacancyGeneral {
 	
 	private static JPanel panelDialogVacancyMain = new JPanel();

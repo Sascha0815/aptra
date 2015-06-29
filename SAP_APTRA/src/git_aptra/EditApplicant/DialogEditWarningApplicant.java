@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Warnungs-Dialog
 public class DialogEditWarningApplicant {
 
 	private static JDialog dialogEditWarning = new JDialog(Oberflaeche.frame);

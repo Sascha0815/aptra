@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//Löscht Bewerber
 public class DeleteApplicant {
 	public static void deleteApplicant() throws SQLException {
 		Connection dbConnection = null;

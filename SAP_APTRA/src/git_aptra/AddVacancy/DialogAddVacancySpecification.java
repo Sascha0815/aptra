@@ -25,6 +25,7 @@ import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Stellen
 public class DialogAddVacancySpecification {
 
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);

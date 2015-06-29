@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
+//Basis des Dialogs für neue Stellen
 public class DialogAddVacancy {
 	public static JDialog dialogNewVacancy = new JDialog(Oberflaeche.frame, true);
 	public static JTabbedPane tabVacancy = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);

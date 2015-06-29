@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Vector;
 
+//Löscht Kriterien
 public class DeleteSelection {
 	@SuppressWarnings("rawtypes")
 	public static void deleteSelection() {

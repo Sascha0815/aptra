@@ -5,7 +5,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
-//Basis des Dialogs für neue Meetings
+//Basis des Dialogs für neue Termine
 public class DialogAddMeeting {
 	public static JTabbedPane tabAdd = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewMeeting = new JDialog(Oberflaeche.frame, true);

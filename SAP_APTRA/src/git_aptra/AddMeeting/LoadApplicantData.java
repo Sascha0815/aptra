@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class LoadApplicantData {
-	
+//Suchfunktion des Dialogs zur Auswahl des Bewerbers
+public class LoadApplicantData {	
 	private static String applicantID;
 	private static String name;
 	private static String firstName;

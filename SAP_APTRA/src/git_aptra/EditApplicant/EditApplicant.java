@@ -10,6 +10,7 @@ import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelApplicant;
 import git_aptra.Overview.EditApplicant.DialogLoadApplicantEditSelection;
 
+//Ließt die benötigten Daten aus
 public class EditApplicant {
 	private static String dataApplicantID;
 	private static String dataName;

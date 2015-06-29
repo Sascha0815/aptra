@@ -6,6 +6,7 @@ import git_aptra.MenuBar.MenuBarPanelApplicant;
 import java.sql.SQLException;
 import java.util.Vector;
 
+//Steuerung des Speichervorgangs
 public class SaveDataEditApplicant {
 	
 	public static void save() {

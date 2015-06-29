@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Löscht Termine
 public class DeleteMeeting {
 	public static void deleteMeeting() throws SQLException {
 		Connection dbConnection = null;

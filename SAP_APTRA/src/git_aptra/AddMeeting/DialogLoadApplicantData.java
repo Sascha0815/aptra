@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog zur Auswahl des Bewerbers
 public class DialogLoadApplicantData {
 		
 	private static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);

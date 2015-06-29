@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-
+//Speichert neue Termine
 public class SaveDataAddMeeting {
 	static String area;
 	static String vacancyID;

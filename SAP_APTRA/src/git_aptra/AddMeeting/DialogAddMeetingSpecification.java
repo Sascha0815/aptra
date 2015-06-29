@@ -28,6 +28,7 @@ import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Termine
 public class DialogAddMeetingSpecification {
 	private static JPanel panelDialogMeetingSpecification = new JPanel();
 	

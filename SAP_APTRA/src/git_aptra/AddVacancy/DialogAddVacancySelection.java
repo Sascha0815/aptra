@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs für neue Stellen
 public class DialogAddVacancySelection {
 	
 	private static JPanel panelDialogVacancySelection = new JPanel();

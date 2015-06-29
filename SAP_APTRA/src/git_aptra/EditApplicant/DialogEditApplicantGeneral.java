@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 
+//Reiter des Dialogs zum Bearbeiten von Bewerbern
 public class DialogEditApplicantGeneral {
 	
 	private static JPanel panelDialogEditApplicantMain = new JPanel();
