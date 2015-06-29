@@ -5,7 +5,6 @@ import git_aptra.Oberflaeche;
 import git_aptra.EditApplicant.DialogEditWarningApplicant;
 import git_aptra.EditVacancyManagement.DialogEditVacancyManagement;
 import git_aptra.EditVacancyManagement.EditVacancyManagement;
-import git_aptra.SearchVacancy.DialogSearchVacancy;
 import git_aptra.VacancyManagement.DialogOpenVacancy;
 
 import java.awt.Color;
