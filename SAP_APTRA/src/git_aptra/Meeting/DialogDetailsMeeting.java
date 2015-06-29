@@ -25,7 +25,7 @@ import net.miginfocom.swing.MigLayout;
 import lu.tudor.santec.jtimechooser.JTimeChooser;
 
 import com.toedter.calendar.JDateChooser;
-
+//Dialog zum Erstellen eines Meetings
 public class DialogDetailsMeeting {
 
 	private static JDialog dialogMeeting = new JDialog(Oberflaeche.frame, true);

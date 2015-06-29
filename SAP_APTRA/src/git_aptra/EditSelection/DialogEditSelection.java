@@ -18,7 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
-
+//Basis des Dialogs zum Bearbeiten der Bewertungskriterien
 public class DialogEditSelection {
 	public static JTabbedPane tabEdit = new JTabbedPane(JTabbedPane.TOP,
 			JTabbedPane.SCROLL_TAB_LAYOUT);

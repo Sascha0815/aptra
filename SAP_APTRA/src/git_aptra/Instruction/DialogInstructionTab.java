@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs für Reiterhilfe
 public class DialogInstructionTab {
 	
 	private static JPanel panelInstructionTab = new JPanel();

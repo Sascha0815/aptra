@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+//Aktualisiert Infos beim Öffnen der Meetings
 public class OpenMeeting {
 	private static String date;
 	private static String location;

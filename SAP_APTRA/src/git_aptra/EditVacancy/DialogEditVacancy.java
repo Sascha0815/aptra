@@ -5,7 +5,7 @@ import git_aptra.Oberflaeche;
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
-
+////Basis des Dialogs zum Bearbeiten von Stellen
 public class DialogEditVacancy {
 	public static JDialog dialogEditVacancy = new JDialog(Oberflaeche.frame, true);
 	public static JTabbedPane tabVacancy = new JTabbedPane(JTabbedPane.TOP,

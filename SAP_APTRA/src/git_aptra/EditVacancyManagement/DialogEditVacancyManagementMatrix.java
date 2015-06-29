@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs zum Bearbeiten von Bewerbern im Management (Bewertung)
 public class DialogEditVacancyManagementMatrix {
 	
 	

@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
-
+//Dialog mit Infos zu der Stelle
 public class DialogInfoVacancy {
 	private static JDialog dialogInfoVacancy = new JDialog(Oberflaeche.frame, true);
 	 

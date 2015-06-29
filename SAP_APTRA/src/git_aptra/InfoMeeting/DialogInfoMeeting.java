@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
-
+//Dialog mit Infos zu dem Meeting
 public class DialogInfoMeeting {
 	private static JDialog dialogInfoMeeting = new JDialog(Oberflaeche.frame, true);
 	 

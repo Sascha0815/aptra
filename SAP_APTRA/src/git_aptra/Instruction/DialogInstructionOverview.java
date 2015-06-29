@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs für Übersichthilfe
 public class DialogInstructionOverview {
 	private static JPanel panelInstructionOverview = new JPanel();
 	

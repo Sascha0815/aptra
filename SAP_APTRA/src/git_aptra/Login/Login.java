@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-
+//Steuerung des Login Systems
 
 public class Login {
 	private static int entitlement;

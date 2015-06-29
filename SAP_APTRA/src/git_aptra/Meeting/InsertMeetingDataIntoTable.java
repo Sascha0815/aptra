@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-
+//Schreibt Daten in die Tabelle
 public class InsertMeetingDataIntoTable {		
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Vector insertMeetingDataIntoTable() {		

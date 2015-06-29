@@ -5,7 +5,7 @@ import git_aptra.MenuBar.MenuBarPanelVacancy;
 
 import java.sql.SQLException;
 import java.util.Vector;
-
+//Steuerung des Speichervorgangs
 public class SaveDataEditVacancy {
 	public static void save() {
 			DialogEditVacancyGeneral.getGeneral();

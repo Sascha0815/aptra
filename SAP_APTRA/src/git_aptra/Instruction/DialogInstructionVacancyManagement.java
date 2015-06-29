@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs für Managementhilfe
 public class DialogInstructionVacancyManagement {
 	
 	private static JPanel panelInstructionVacancyManagement = new JPanel();

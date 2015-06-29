@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
-
+//Speichert Daten in die Datenbank
 public class InsertMeetingIntoDatabase {
 	static String position;
 	static int idVacancy = DialogOpenVacancy.getID();

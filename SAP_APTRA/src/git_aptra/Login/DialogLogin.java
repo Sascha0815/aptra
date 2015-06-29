@@ -18,7 +18,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
-
+//Login Dialog
 public class DialogLogin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	

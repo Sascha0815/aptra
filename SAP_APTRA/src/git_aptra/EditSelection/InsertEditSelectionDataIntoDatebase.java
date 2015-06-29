@@ -5,7 +5,7 @@ import git_aptra.Login.Login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+//Speichert die neuen Daten in die Datenbank
 public class InsertEditSelectionDataIntoDatebase {
 	public static void insertSelectionData(String notation, String weighting) throws SQLException {
 		Connection dbConnection = null;

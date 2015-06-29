@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import git_aptra.Login.Login;
 import git_aptra.MenuBar.MenuBarPanelVacancyManagement;
-
+//Liest die benötigten Daten aus
 public class EditVacancyManagement {
 
 	private static String DataSetApplicantID;

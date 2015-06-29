@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 import com.toedter.calendar.JDateChooser;
-
+//Reiter des Dialogs zum Bearbeiten von Stellen
 public class DialogEditVacancySpecification {
 
 	private static Font fontHeadline = new Font("Calibri", Font.BOLD, 16);

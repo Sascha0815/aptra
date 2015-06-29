@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import git_aptra.Login.Login;
-
+//Liest die benötigten Daten aus
 public class InfoMeeting {
 	private static String dataSetPosition;
 	private static String dataSetArea;

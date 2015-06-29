@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs zum Bearbeiten von Bewerbern im Management
 public class DialogEditVacancyManagementGeneral {
 	
 	private static JPanel panelDialogEditVacancyManagementMain = new JPanel();

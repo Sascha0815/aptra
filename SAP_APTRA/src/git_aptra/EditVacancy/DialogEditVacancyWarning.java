@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-
+//Warnung wenn keine Stelle vorhanden
 public class DialogEditVacancyWarning {
 	
 	private static JDialog dialogEditWarning = new JDialog(Oberflaeche.frame);

@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+//Reiter des Dialogs zum Bearbeiten von Bewerbern im Management (Dokumentation)
 public class DialogEditVacancyManagementHistory {
 
 	private static JPanel panelDialogVacancyManagementHistory = new JPanel();

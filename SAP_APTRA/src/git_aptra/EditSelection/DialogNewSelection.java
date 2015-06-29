@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import net.miginfocom.swing.MigLayout;
-
+//Dialog für eine neues Bewertungskriterium
 public class DialogNewSelection {
 	
 	public static JDialog dialogNewSelection = new JDialog(Oberflaeche.frame, true);

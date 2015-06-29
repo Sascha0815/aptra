@@ -21,7 +21,7 @@ import lu.tudor.santec.jtimechooser.JTimeChooser;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
-
+//Basis des Dialogs zum Bearbeiten von Meetings
 public class DialogEditMeeting {
 	public static JDialog dialogEditMeeting = new JDialog(Oberflaeche.frame, true);
 	private static JPanel panelDialogMeeting = new JPanel();

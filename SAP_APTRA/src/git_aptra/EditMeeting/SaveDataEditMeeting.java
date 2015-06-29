@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Vector;
 
-
+//Steuerung des Speichervorgangs
 public class SaveDataEditMeeting {
 	static String area;
 	static String vacancyID;

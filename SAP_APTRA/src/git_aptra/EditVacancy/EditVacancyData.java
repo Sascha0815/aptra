@@ -6,7 +6,7 @@ import git_aptra.Login.Login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+//Speichert die Änderungen
 public class EditVacancyData {
 
 	public static void editVacancyData() throws SQLException {

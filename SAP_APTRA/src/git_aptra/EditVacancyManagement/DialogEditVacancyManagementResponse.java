@@ -28,7 +28,7 @@ import lu.tudor.santec.jtimechooser.JTimeChooser;
 import com.toedter.calendar.JDateChooser;
 
 import net.miginfocom.swing.MigLayout;
-
+//Reiter des Dialogs zum Bearbeiten von Bewerbern im Management (Rückmeldung)
 public class DialogEditVacancyManagementResponse {
 	
 	private static JPanel panelDialogEditVacancyManagementResponse = new JPanel();

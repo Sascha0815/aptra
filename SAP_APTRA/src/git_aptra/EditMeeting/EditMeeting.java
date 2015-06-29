@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.sql.Time;
 
 import git_aptra.Login.Login;
-
+//Liest die benötigten Daten aus
 public class EditMeeting {
 	private static String DataSetTypeMeeting;
 	private static String DataSetLocation;

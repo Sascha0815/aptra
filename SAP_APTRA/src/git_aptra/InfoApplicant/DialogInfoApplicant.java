@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
-
+//Dialog mit Infos zu dem Bewerber
 public class DialogInfoApplicant {
 	private static JDialog dialogInfoApplicant = new JDialog(Oberflaeche.frame, true);
 	 

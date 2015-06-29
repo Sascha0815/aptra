@@ -5,7 +5,7 @@ import git_aptra.Oberflaeche;
 import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
-
+//Basis des Dialogs mit Hilfetexten
 public class DialogInstruction {
 	public static JTabbedPane tabInstruction = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
 	public static JDialog dialogNewInstrcution = new JDialog(Oberflaeche.frame, true);

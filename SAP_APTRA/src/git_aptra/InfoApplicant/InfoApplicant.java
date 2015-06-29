@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import git_aptra.Login.Login;
-
+//Liest die benötigten Daten aus
 
 public class InfoApplicant {
 	private static String dataApplicantID;

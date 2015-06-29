@@ -10,7 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-
+//Basis des Dialogs zum Bearbeiten von Bewerbern im Management
 public class DialogEditVacancyManagement {
 	public static JDialog dialogEditVacancyManagement = new JDialog(
 			Oberflaeche.frame, true);

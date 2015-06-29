@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import git_aptra.Login.Login;
-
+//Ließt die benötigten Daten aus
 public class EditVacancy {
 	private static String dataVacancyID;
 	private static String dataPosition;
