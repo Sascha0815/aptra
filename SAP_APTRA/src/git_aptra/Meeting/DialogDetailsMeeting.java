@@ -82,7 +82,7 @@ public class DialogDetailsMeeting {
 	private static int minute;
 	private static int second;
 	private static String time;
-
+	private static boolean first= true;
 
 	public static void detailsMeeting() {
 		panelMeeting.removeAll();
@@ -137,55 +137,58 @@ public class DialogDetailsMeeting {
 		panelMeeting.add(buttonSave, "cell 1 13,alignx right");
 		Oberflaeche.tabBar.addTab("Terminübersicht", panelMeeting);
 		tableDialogEmployeeMeeting.setAutoCreateRowSorter(true);
-
-		buttonSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				if(tableDialogEmployeeMeeting.getSelectedRowCount()==0){
-					labelWarning.setVisible(true);
-				}else{
-				try {
-					typeMeeting = fieldType.getText();
-				} catch (Exception e) {
-				}
-				
-				try {
-					locationMeeting = fieldLocation.getText();
-				} catch (Exception e) {
-				}
-				try {
-					hour = timeChooser.getHours();
-					minute = timeChooser.getMinutes();
-					second = timeChooser.getSeconds();
-					time = hour + ":" + minute + ":" + second;
-				} catch (Exception e) {
-				}
-				try {
-					String date = ((JTextField)dateChooserDate.getDateEditor().getUiComponent()).getText(); 
-					String[] parts = date.split("\\.");
-					day = Integer.parseInt(parts[0]);
-					month = Integer.parseInt(parts[1]);
-					year = Integer.parseInt(parts[2]);
-					calNote.set(Calendar.YEAR, year);
-					calNote.set(Calendar.MONTH, (month - 1));
-					calNote.set(Calendar.DAY_OF_MONTH, day);	
-				} catch (Exception e) {
-				}		
-			InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
-			InsertMeetingIntoDatabase.insertParticipation();
-			@SuppressWarnings("rawtypes")
-			Vector results = InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
-			MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
-			MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
-			dialogMeeting.dispose();
-			}
-			}
-		});
-		
-		buttonBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
+		if (first==true) {
+			first= false;
+			buttonSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					if(tableDialogEmployeeMeeting.getSelectedRowCount()==0){
+						labelWarning.setVisible(true);
+					}else{
+					try {
+						typeMeeting = fieldType.getText();
+					} catch (Exception e) {
+					}
+					
+					try {
+						locationMeeting = fieldLocation.getText();
+					} catch (Exception e) {
+					}
+					try {
+						hour = timeChooser.getHours();
+						minute = timeChooser.getMinutes();
+						second = timeChooser.getSeconds();
+						time = hour + ":" + minute + ":" + second;
+					} catch (Exception e) {
+					}
+					try {
+						String date = ((JTextField)dateChooserDate.getDateEditor().getUiComponent()).getText(); 
+						String[] parts = date.split("\\.");
+						day = Integer.parseInt(parts[0]);
+						month = Integer.parseInt(parts[1]);
+						year = Integer.parseInt(parts[2]);
+						calNote.set(Calendar.YEAR, year);
+						calNote.set(Calendar.MONTH, (month - 1));
+						calNote.set(Calendar.DAY_OF_MONTH, day);	
+					} catch (Exception e) {
+					}		
+				InsertMeetingIntoDatabase.insertMeeting(typeMeeting, locationMeeting, calNote, time);
+				InsertMeetingIntoDatabase.insertParticipation();
+				@SuppressWarnings("rawtypes")
+				Vector results = InsertMeetingDataIntoTable.insertMeetingDataIntoTable();
+				MenuBarPanelMeeting.modelEmployeeMeeting.setDataVector(results ,MenuBarPanelMeeting.COLUMN_IDENTIFIERS_VACANCYMANAGEMENT);
+				MenuBarPanelMeeting.modelEmployeeMeeting.fireTableDataChanged();
 				dialogMeeting.dispose();
-			}
-		});
+				}
+				}
+			});
+			
+			buttonBack.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					dialogMeeting.dispose();
+				}
+			});
+		}
+	
 		dialogMeeting.add(panelMeeting);
 		dialogMeeting.setVisible(true);
 
