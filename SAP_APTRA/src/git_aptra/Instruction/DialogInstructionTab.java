@@ -12,7 +12,7 @@ public class DialogInstructionTab {
 	private static JPanel panelInstructionTab = new JPanel();
 	
 	
-	private static JLabel labelSelectionHeadline = new JLabel("Bewertungskritereien anlegen und löschen");
+	private static JLabel labelSelectionHeadline = new JLabel("Bewertungskriterien anlegen und löschen");
 	private static JLabel labelEmployeeHeadline = new JLabel("Neuer Mitarbeiter");
 	private static JLabel labelDivisionHeadline = new JLabel("Neue Abteilung");
 	
