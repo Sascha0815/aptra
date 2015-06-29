@@ -26,7 +26,7 @@ public class Login {
 	@SuppressWarnings("rawtypes")
 	public static int login(String username, String password) {
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/aptra", "aptra", "bermudadreieck");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/aptra", "aptra", "aptra");
 			Statement stmt =  con.createStatement();
 		    ResultSet rs = stmt.executeQuery("SELECT entitlement, employeeID, divisionID from employee where BINARY loginName = '" +  username + "' AND BINARY password = '" +  password +"'" );
 		    while (rs.next()) {
