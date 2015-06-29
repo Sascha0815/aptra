@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog Übersicht Arbeitsstelle anzeigen
 public class DialogLoadVacancyData {
 		
 	private static JDialog dialogLoadVacancyData = new JDialog(Oberflaeche.frame, true);

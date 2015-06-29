@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Suchfunktion Übersicht Bewerber bearbeiten
 public class LoadApplicantData {
 	
 	private static String applicantID;

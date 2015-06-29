@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog Übersicht Termin anzeigen
 public class DialogLoadMeetingData {
 		
 	private static JDialog dialogLoadMeetingData = new JDialog(Oberflaeche.frame, true);

@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog Übersicht Termin bearbeiten
 public class DialogOverviewEditMeetingData {
 		
 	private static JDialog dialogLoadMeetingData = new JDialog(Oberflaeche.frame, true);

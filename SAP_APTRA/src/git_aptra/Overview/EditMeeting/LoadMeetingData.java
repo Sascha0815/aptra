@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Suchfunktion Übersicht Termin bearbeiten
 public class LoadMeetingData {
 	
 	private static String meetingID;

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+//Suchfunktion Übersicht Arbeitsstelle anzeigen
 public class LoadVacancyData {
 
 	private static String vacancyID;

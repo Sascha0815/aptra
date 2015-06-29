@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog Übersicht Bewerber bearbeiten
 public class DialogLoadApplicantEditSelection {
 		
 	private static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);

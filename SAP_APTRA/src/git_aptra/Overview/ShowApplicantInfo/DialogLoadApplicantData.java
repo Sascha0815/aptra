@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
+//Dialog Übersicht Bewerber anzeigen
 public class DialogLoadApplicantData {
 		
 	private static JDialog dialogLoadApplicantData = new JDialog(Oberflaeche.frame, true);
